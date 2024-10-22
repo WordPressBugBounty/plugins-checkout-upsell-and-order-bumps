@@ -2,15 +2,15 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP Lite - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.3\n"
+"Project-Id-Version: UpsellWP Lite - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: Flycart <support@flycart.org>\n"
 "Language-Team: Flycart <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-12T06:44:28+00:00\n"
-"PO-Revision-Date:  \n"
+"POT-Creation-Date: 2024-10-22T05:00:20+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-woocommerce\n"
 
@@ -491,11 +491,11 @@ msgstr ""
 #: app/Views/Admin/Campaign/Components/Offers.php:50
 #: app/Views/Admin/Campaign/Conditions/List.php:23
 #: app/Views/Admin/Campaign/Filters/List.php:25
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:762
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:766
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:787
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:791
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:795
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:764
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:768
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:789
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:793
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:797
 #: app/Views/Admin/Page.php:56
 #: app/Views/Admin/Page.php:80
 msgid "PRO"
@@ -1021,7 +1021,7 @@ msgstr ""
 #: app/Modules/Campaigns/NOC.php:593
 #: app/Modules/Campaigns/NOC.php:607
 #: app/Views/Admin/Campaign/Components/Offers.php:86
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:784
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:786
 msgid "Do not display"
 msgstr ""
 
@@ -1124,35 +1124,35 @@ msgid "CTA redirect URL"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:19
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:132
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:150
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:210
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:244
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:266
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:282
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:302
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:324
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:340
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:360
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:383
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:399
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:434
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:472
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:492
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:506
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:545
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:561
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:569
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:589
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:606
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:625
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:639
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:656
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:676
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:689
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:705
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:725
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:738
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:134
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:152
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:212
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:246
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:268
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:284
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:304
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:326
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:342
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:362
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:385
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:401
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:436
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:474
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:494
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:508
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:547
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:563
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:571
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:591
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:608
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:627
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:641
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:658
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:678
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:691
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:707
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:727
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:740
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:250
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:265
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:282
@@ -1859,12 +1859,12 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/FBT.php:285
 #: app/Views/Admin/Campaign/FBT.php:287
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:828
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:830
 msgid "Show"
 msgstr ""
 
 #: app/Views/Admin/Campaign/FBT.php:286
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:827
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:829
 msgid "Hide"
 msgstr ""
 
@@ -2064,93 +2064,93 @@ msgid "CTA text"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:88
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:814
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:816
 msgid "Available placeholders"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:98
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:100
 msgid "Template styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:103
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:181
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:105
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:183
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:217
 msgid "Reset"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:107
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:185
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:519
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:109
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:187
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:521
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:228
 msgid "Border"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:112
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:190
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:524
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:232
-msgid "None"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:113
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:191
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:525
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:233
-msgid "Thin"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:114
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:192
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:526
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:234
-msgid "Medium"
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:232
+msgid "None"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:115
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:193
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:527
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:233
+msgid "Thin"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:116
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:194
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:528
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:234
+msgid "Medium"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:117
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:195
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:529
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:235
 msgid "Thick"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:120
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:198
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:532
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:239
-msgid "Solid"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:121
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:199
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:533
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:240
-msgid "Double"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:122
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:200
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:534
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:241
-msgid "Dotted"
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:239
+msgid "Solid"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:123
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:201
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:535
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:240
+msgid "Double"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:124
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:202
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:536
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:241
+msgid "Dotted"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:125
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:203
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:537
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:242
 msgid "Dashed"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:141
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:275
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:333
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:391
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:427
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:497
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:553
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:631
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:681
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:730
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:143
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:277
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:335
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:393
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:429
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:499
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:555
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:633
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:683
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:732
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:259
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:309
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:357
@@ -2158,146 +2158,132 @@ msgstr ""
 msgid "Background color"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:156
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:413
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:158
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:415
 msgid "Padding size"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:159
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:416
-msgid "0"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:160
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:417
-msgid "2px"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:161
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:418
-msgid "4px"
+msgid "0"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:162
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:419
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:473
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:570
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:607
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:657
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:706
+msgid "2px"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:163
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:420
+msgid "4px"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:164
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:421
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:475
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:572
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:609
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:659
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:708
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:283
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:333
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:380
 msgid "8px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:163
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:245
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:303
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:361
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:420
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:474
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:571
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:608
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:658
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:707
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:165
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:247
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:305
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:363
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:422
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:476
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:573
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:610
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:660
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:709
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:284
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:334
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:381
 msgid "12px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:164
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:247
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:305
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:363
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:421
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:476
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:573
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:610
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:660
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:709
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:166
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:249
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:307
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:365
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:423
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:478
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:575
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:612
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:662
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:711
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:286
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:336
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:383
 msgid "16px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:165
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:250
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:308
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:366
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:422
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:479
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:576
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:613
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:663
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:712
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:167
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:252
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:310
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:368
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:424
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:481
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:578
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:615
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:665
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:714
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:289
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:339
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:386
 msgid "24px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:166
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:252
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:310
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:368
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:423
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:480
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:577
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:614
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:664
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:713
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:168
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:254
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:312
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:370
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:425
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:482
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:579
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:616
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:666
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:715
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:290
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:340
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:387
 msgid "32px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:176
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:178
 msgid "Modal styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:219
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:221
 msgid "Width"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:227
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:456
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:229
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:458
 msgid "px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:236
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:238
 msgid "Title styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:241
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:299
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:357
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:468
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:566
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:602
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:653
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:702
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:243
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:301
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:359
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:470
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:568
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:604
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:655
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:704
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:279
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:329
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:376
 msgid "Font size"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:246
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:304
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:362
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:475
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:572
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:609
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:659
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:708
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:285
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:335
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:382
-msgid "14px"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:248
@@ -2308,143 +2294,157 @@ msgstr ""
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:611
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:661
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:710
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:285
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:335
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:382
+msgid "14px"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:250
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:308
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:366
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:479
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:576
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:613
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:663
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:712
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:287
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:337
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:384
 msgid "18px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:249
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:307
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:365
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:478
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:575
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:612
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:662
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:711
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:251
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:309
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:367
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:480
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:577
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:614
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:664
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:713
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:288
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:338
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:385
 msgid "20px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:251
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:309
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:367
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:253
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:311
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:369
 msgid "28px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:259
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:317
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:375
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:484
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:581
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:618
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:668
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:717
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:261
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:319
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:377
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:486
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:583
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:620
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:670
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:719
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:295
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:345
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:392
 msgid "Font color"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:294
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:296
 msgid "Header styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:352
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:354
 msgid "Subheader styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:410
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:412
 msgid "Body styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:444
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:446
 msgid "Product styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:447
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:449
 msgid "Image size"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:465
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:467
 msgid "Description styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:516
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:518
 msgid "Coupon styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:599
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:601
 msgid "CTA styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:650
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:652
 msgid "Action styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:699
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:701
 msgid "Footer styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:753
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:755
 msgid "Checkboxes"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:757
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:759
 msgid "Checked by default"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:758
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:760
 msgid "Unchecked by default"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:761
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:763
 msgid "Uncheckable"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:765
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:767
 msgid "Hidden"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:778
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:780
 msgid "Show save badge"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:786
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:788
 msgid "Only on products"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:790
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:792
 msgid "Only on total section"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:794
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:796
 msgid "On both products and total section"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:804
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:806
 msgid "Product badge text"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:823
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:825
 msgid "Coupon message"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:841
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:845
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:430
 msgid "PREVIEW"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:846
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:850
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:435
 #: app/Views/Admin/Campaign/Sliders/ViewOffer.php:14
 #: app/Views/Admin/Campaign/Sliders/ViewTemplate.php:17
 msgid "Desktop"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:851
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:855
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:440
 #: app/Views/Admin/Campaign/Sliders/ViewOffer.php:18
 #: app/Views/Admin/Campaign/Sliders/ViewTemplate.php:21

@@ -3,7 +3,7 @@
         'name' => 'flycartinc/checkout-upsell-woocommerce',
         'pretty_version' => '1.0.0',
         'version' => '1.0.0.0',
-        'reference' => null,
+        'reference' => NULL,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'flycartinc/checkout-upsell-woocommerce' => array(
             'pretty_version' => '1.0.0',
             'version' => '1.0.0.0',
-            'reference' => null,
+            'reference' => NULL,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

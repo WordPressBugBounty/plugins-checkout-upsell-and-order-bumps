@@ -25,7 +25,7 @@ $product_ids = array_column($products, 'id');
     <?php if (!empty($heading)) { ?>
         <h2 class="cuw-heading cuw-template-title"
             style="margin-bottom: 20px;<?php echo esc_attr($data['styles']['title']); ?>">
-            <?php echo esc_html($heading); ?>
+            <?php echo wp_kses_post($heading); ?>
         </h2>
     <?php } ?>
 

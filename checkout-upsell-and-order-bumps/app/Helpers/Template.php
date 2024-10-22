@@ -659,7 +659,7 @@ class Template
                 ]
             ];
         }
-        return str_replace(['<form', '</form>'], ['<div', '</div>'], self::getHtml($campaign, $extra_data));
+        return apply_filters('cuw_template_preview_html', str_replace(['<form', '</form>'], ['<div', '</div>'], self::getHtml($campaign, $extra_data)), $campaign);
     }
 
     /**

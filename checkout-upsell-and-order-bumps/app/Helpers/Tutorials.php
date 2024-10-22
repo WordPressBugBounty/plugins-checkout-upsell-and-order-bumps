@@ -198,6 +198,20 @@ class Tutorials
                     'url' => 'https://youtu.be/9BfvIytvuqk',
                 ],
             ],
+
+            'product_recommendations' => [
+                  [
+                      'title' => 'Product Recommendations configuration',
+                      'url' => 'https://youtu.be/MEZe-7pMAtQ',
+                  ],
+            ],
+
+            'post_purchase_upsells' => [
+                  [
+                      'title' => 'Post-purchase upsells configuration',
+                      'url' => 'https://youtu.be/VsKCkDHvj5Y',
+                  ],
+            ],
         ];
 
         return $links[$campaign_type] ?? [];

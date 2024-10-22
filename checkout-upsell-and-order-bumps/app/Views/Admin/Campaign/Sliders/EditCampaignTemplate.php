@@ -18,7 +18,7 @@ $template = array_merge($default_template, $template);
 $template['name'] = $template_name;
 $styles = $template['styles'] ?? [];
 
-$advanced_section = in_array($campaign_type, ['fbt', 'thankyou_upsells', 'noc']);
+$advanced_section = in_array($campaign_type, apply_filters('cuw_edit_campaign_advanced_section', ['fbt', 'thankyou_upsells', 'noc']));
 ?>
 <div id="cuw-template">
     <div class="cuw-slider-header d-flex justify-content-between align-items-center mt-2" style="gap:8px;">
@@ -87,7 +87,9 @@ $advanced_section = in_array($campaign_type, ['fbt', 'thankyou_upsells', 'noc'])
                             <span class="d-block small mb-3" style="opacity: 0.8; font-size: 12px;">
                                 <?php esc_html_e('Available placeholders', 'checkout-upsell-woocommerce'); ?>: {items_text}, {items_count}
                             </span>
-                        <?php } ?>
+                        <?php }
+                        do_action('cuw_after_template_cta_input', $campaign);
+                        ?>
                     <?php } ?>
                 </div>
                 <div class="tab-pane fade mt-3" id="template-design">
@@ -829,7 +831,9 @@ $advanced_section = in_array($campaign_type, ['fbt', 'thankyou_upsells', 'noc'])
                                         </select>
                                     </div>
                                 </div>
-                            <?php } ?>
+                            <?php }
+                                do_action('cuw_campaign_template_edit_advanced_fields', $campaign);
+                            ?>
                         </div>
                     </div>
                 <?php } ?>

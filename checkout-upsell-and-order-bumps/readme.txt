@@ -5,7 +5,7 @@ Tags: woocommerce, upsell, woocommerce upsell, order bump, boost sales
 Requires at least: 5.3
 Requires PHP: 7.0
 Tested up to: 6.6
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -209,7 +209,7 @@ We have created step-by-step guides to create order bumps in WooCommerce. [Check
 
 = Support =
 
-Experiencing any issues or have any questions? Our dedicated support team is here to help! Please reach out to us through our [support request form](https://upsellwp.com//support). We are happy to help you and guide you with the setup.
+Experiencing any issues or have any questions? Our dedicated support team is here to help! Please reach out to us through our [support request form](https://upsellwp.com/support/?utm_source=upsell-wp-repo-website&utm_medium=wprepo&utm_campaign=upsell-pro). We are happy to help you and guide you with the setup.
 
 = Website =
 
@@ -284,6 +284,10 @@ The plugin currently supports displaying the offers in 4 different places in the
 8. Campaign offer edit page
 
 == Changelog ==
+
+= 2.1.4 - 22/10/2024 =
+* Improve - PUC Updated to v5.4
+* Fix - Bugs
 
 = 2.1.3 - 12/09/2024 =
 * Improve - Checkout Upsells template 4 (offer/template-4) image display
