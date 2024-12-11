@@ -286,7 +286,7 @@ class NOC extends Base
             $wc_coupon->set_maximum_amount($coupon['maximum_amount']);
         }
 
-        $wc_coupon = apply_filters('cuw_noc_generated_coupon_object', $wc_coupon, $campaign);
+        $wc_coupon = apply_filters('cuw_noc_generated_coupon_object', $wc_coupon, $campaign, $order);
         if ($wc_coupon->save()) {
             if ($coupon_id = $wc_coupon->get_id()) {
                 update_post_meta($coupon_id, 'is_cuw_noc', true);
@@ -532,13 +532,17 @@ class NOC extends Base
                         $display_location = Campaign::getDisplayLocation($campaign);
                         $display_location_on_email = Campaign::getDisplayLocation($campaign, 'display_location_on_email');
                         $display_location_on_myaccount_page = Campaign::getDisplayLocation($campaign, 'display_location_on_myaccount_page');
-                        if ($display_location != 'do_not_display' && $endpoint == 'order-received') {
+                        if ($display_location != 'do_not_display' &&
+                            $endpoint == get_option('woocommerce_checkout_order_received_endpoint', ''))
+                        {
                             self::$actions[$display_location][$campaign['id']] = $campaign;
                         }
                         if ($display_location_on_email != 'do_not_display') {
                             self::$actions[$display_location_on_email][$campaign['id']] = $campaign;
                         }
-                        if ($display_location_on_myaccount_page != 'do_not_display' && $endpoint == 'view-order') {
+                        if ($display_location_on_myaccount_page != 'do_not_display' &&
+                            $endpoint == get_option('woocommerce_myaccount_view_order_endpoint', ''))
+                        {
                             self::$actions[$display_location_on_myaccount_page][$campaign['id']] = $campaign;
                         }
                         break;

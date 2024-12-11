@@ -484,9 +484,28 @@ class Template
                 'campaigns' => ['cart_addons'],
             ],
 
-            // product recommendations campaign template
+            // product recommendations campaign templates
             'products/default' => [
                 'title' => 'Recommended products',
+                'cta_text' => 'Add to cart',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '12px'],
+                    'image' => ['size' => '180'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['product_recommendations'],
+            ],
+
+            'product-recommendations/template-1' => [
+                'title' => 'Recommended products',
+                'cta_text' => 'Add to cart',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '12px'],
+                    'image' => ['size' => '180'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
                 'campaigns' => ['product_recommendations'],
             ],
         ]);
@@ -597,7 +616,7 @@ class Template
     {
         $extra_data = [];
         $campaign_type = isset($campaign['type']) ? $campaign['type'] : [];
-        if (in_array($campaign_type, ['fbt', 'thankyou_upsells', 'upsell_popups', 'product_addons', 'cart_addons'])) {
+        if (in_array($campaign_type, ['fbt', 'thankyou_upsells', 'upsell_popups', 'product_addons', 'cart_addons', 'product_recommendations'])) {
             $products = [];
             $dummy_data = [
                 1 => [
@@ -783,5 +802,17 @@ class Template
             __('Add-Ons:', 'checkout-upsell-woocommerce'),
             __('Recommended products', 'checkout-upsell-woocommerce'),
         ];
+    }
+
+    /**
+     * Checks Whether it is default template.
+     *
+     * @return boolean
+     */
+    public static function isDefaultTemplate($template_name) {
+      if (strpos($template_name, 'default') !== false) {
+          return true;
+      }
+      return false;
     }
 }

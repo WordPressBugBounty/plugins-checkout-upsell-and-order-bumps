@@ -14,26 +14,12 @@ $default_template = \CUW\App\Helpers\Template::getDefaultData($template_name, $c
 $template = array_merge($default_template, $template);
 $template['name'] = $template_name;
 
+$is_default_template = \CUW\App\Helpers\Template::isDefaultTemplate($template['name']);
 $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
 ?>
 
 <div class="row p-3">
     <div class="col-md-12">
-        <?php if ($campaign['type'] == 'product_recommendations') { ?>
-            <div class="row">
-                <div class="col-md-6 d-flex flex-column">
-                    <label for="template-name" class="form-label"><?php esc_html_e("Template name", 'checkout-upsell-woocommerce'); ?></label>
-                    <input type="text" class="form-control" id="template-name" name="data[template][name]"
-                           value="<?php echo (isset($template['name'])) ? esc_attr($template['name']) : esc_attr($template['template']); ?>"
-                           readonly>
-                </div>
-                <div class="col-md-6 d-flex flex-column">
-                    <label for="template-title" class="form-label"><?php esc_html_e("Template title", 'checkout-upsell-woocommerce'); ?></label>
-                    <input type="text" class="form-control" id="template-title" name="data[template][title]"
-                           value="<?php echo (isset($template['title'])) ? esc_attr($template['title']) : ''; ?>">
-                </div>
-            </div>
-        <?php } else { ?>
             <label for="template-name"
                    class="form-label"><?php esc_html_e("Template", 'checkout-upsell-woocommerce'); ?></label>
             <div class="input-group d-flex align-items-center justify-content-between">
@@ -43,7 +29,7 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
                        value="<?php echo (isset($template['name'])) ? esc_attr($template['name']) : esc_attr($template['template']); ?>"
                        readonly>
                 <div class="input-group-append d-flex flex-wrap align-items-center" style="gap:8px;">
-                    <div class="d-flex-center border rounded-lg view-template" id="view-template" style="padding: 6px;"
+                    <div class="d-flex-center border rounded-lg view-template" id="view-template" style="display:<?php echo $is_default_template ? 'none' : '' ?>; padding: 6px;"
                          title="<?php echo esc_attr__('Preview', 'checkout-upsell-woocommerce'); ?>">
                         <i class="cuw-icon-eye"></i>
                     </div>
@@ -51,13 +37,18 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
                             id="choose-template">
                         <i class="cuw-icon-campaigns text-primary mx-1"></i><?php esc_html_e("Change template", 'checkout-upsell-woocommerce'); ?>
                     </button>
-                    <button type="button" class="btn btn-primary rounded edit-template" id="edit-template">
+                    <button type="button" class="btn btn-primary rounded edit-template" id="edit-template"
+                            style="display:<?php echo $is_default_template ? 'none' : '' ?>">
                         <i class="cuw-icon-edit-simple text-white  mx-1"></i>
                         <?php esc_html_e("Edit Content/Style", 'checkout-upsell-woocommerce'); ?>
                     </button>
                 </div>
             </div>
-        <?php } ?>
+    </div>
+    <div class="col-md-6 mt-2" id="template-title-wrapper" style="display:<?php echo !$is_default_template ? 'none' : 'flex' ;?>; flex-direction: column;">
+        <label for="template-title" class="form-label"><?php esc_html_e("Template title", 'checkout-upsell-woocommerce'); ?></label>
+        <input type="text" class="form-control" id="template-title" name="data[template][title]"
+               value="<?php echo (isset($template['title'])) ? esc_attr($template['title']) : ''; ?>">
     </div>
 </div>
 

@@ -393,8 +393,9 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
             }
 
             if (!empty($results) && function_exists('wc_add_to_cart_message')) {
-                wc_add_to_cart_message($results);
-
+                if (apply_filters('cuw_fbt_show_added_to_cart_message', true)) {
+                    wc_add_to_cart_message($results);
+                }
                 do_action('cuw_fbt_products_added_to_cart', $results);
 
                 $url = Campaign::getRedirectURL($campaign);

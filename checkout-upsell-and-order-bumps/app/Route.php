@@ -123,6 +123,7 @@ class Route
         add_action('woocommerce_remove_cart_item', [Cart::class, 'maybeRemoveOtherItems'], 1, 2);
         add_action('woocommerce_cart_item_restored', [Cart::class, 'maybeRestoreOtherItems'], 1, 2);
         add_action('woocommerce_after_cart_item_name', [Cart::class, 'changeCartItemVariant'], 1);
+        add_action('woocommerce_cart_updated', [Cart::class, 'updateRegularPrice'], 10000);
 
         // to save stats and add order meta
         add_action('woocommerce_checkout_create_order_line_item', [Checkout::class, 'addOrderItemMeta'], 100, 3);

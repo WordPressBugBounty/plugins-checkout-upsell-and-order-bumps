@@ -143,6 +143,8 @@ if (!CUW()->plugin->has_pro) {
                 CUW()->view('Admin/Settings');
             } elseif ($current_tab == 'addons') {
                 CUW()->view('Admin/AddOns');
+            } elseif ($current_tab == 'recommendations') {
+                CUW()->view('Admin/Recommendations');
             }
 
             if ($current_tab == 'engines' && !CUW()->plugin->has_pro) {

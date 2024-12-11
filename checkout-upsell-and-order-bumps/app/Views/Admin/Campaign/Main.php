@@ -239,6 +239,7 @@ if (!empty($campaign['offers'])) {
                     'view' => 'Admin/Campaign/Components/OptionalSettings',
                     'data' => ['campaign' => $campaign, 'is_single' => $is_single],
                 ]);
+                do_action('cuw_additional_contents', $campaign_type, $campaign);
                 ?>
                 <?php if ($campaign_type == 'noc') { ?>
                     <?php
@@ -287,7 +288,7 @@ if (!empty($campaign['offers'])) {
             </div>
         </div>
         <?php
-        if (in_array($campaign_type, ['fbt', 'noc', 'upsell_popups', 'double_order', 'thankyou_upsells', 'product_addons', 'cart_addons'])) {
+        if (in_array($campaign_type, ['fbt', 'noc', 'upsell_popups', 'double_order', 'thankyou_upsells', 'product_addons', 'cart_addons', 'product_recommendations'])) {
             CUW()->view('Admin/Components/Slider', [
                 'id' => 'edit-template',
                 'width' => '80%',

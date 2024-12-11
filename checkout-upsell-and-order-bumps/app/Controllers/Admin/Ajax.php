@@ -150,10 +150,16 @@ class Ajax extends Controller
         $params = self::app()->input->get('params', [], 'post');
 
         $search_limit = self::getSearchLimit();
+        $exclude_product_types = apply_filters('cuw_exclude_product_types', ['bundlewp_fixed_bundle', 'bundlewp_mix_and_match_bundle']);
         $include_variations = !(isset($params['include_variations']) && empty($params['include_variations']));
         if (class_exists('WC_Data_Store') && method_exists('WC_Data_Store', 'load')) {
             remove_all_filters('woocommerce_data_stores');
             $ids = \WC_Data_Store::load('product')->search_products($query, '', $include_variations, false, $search_limit);
+            $ids = array_filter($ids, function ($id) use ($exclude_product_types) {
+                $terms = get_the_terms($id, 'product_type');
+                $product_type = (!empty($terms)) ? current($terms)->name : '';
+                return !in_array($product_type, $exclude_product_types);
+            });
         } else {
             $ids = get_posts([
                 'post_type' => $include_variations ? ['product', 'product_variation'] : ['product'],
@@ -163,6 +169,14 @@ class Ajax extends Controller
                 'numberposts' => $search_limit,
                 'orderby' => 'name',
                 'order' => 'ASC',
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'product_type',
+                        'field' => 'slug',
+                        'terms' => $exclude_product_types,
+                        'operator' => 'NOT IN',
+                    ],
+                ],
             ]);
         }
 

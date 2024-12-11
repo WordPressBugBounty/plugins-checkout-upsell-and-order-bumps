@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'cuw-icons';
-  src:  url('fonts/cuw-icons.eot?47zy2o');
-  src:  url('fonts/cuw-icons.eot?47zy2o#iefix') format('embedded-opentype'),
-    url('fonts/cuw-icons.ttf?47zy2o') format('truetype'),
-    url('fonts/cuw-icons.woff?47zy2o') format('woff'),
-    url('fonts/cuw-icons.svg?47zy2o#cuw-icons') format('svg');
+  src:  url('fonts/cuw-icons.eot?r3t6gb');
+  src:  url('fonts/cuw-icons.eot?r3t6gb#iefix') format('embedded-opentype'),
+    url('fonts/cuw-icons.ttf?r3t6gb') format('truetype'),
+    url('fonts/cuw-icons.woff?r3t6gb') format('woff'),
+    url('fonts/cuw-icons.svg?r3t6gb#cuw-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.cuw-icon-recommendations:before {
+  content: "\e97d";
+}
 .cuw-icon-beta:before {
   content: "\e979";
 }

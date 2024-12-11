@@ -139,6 +139,11 @@ jQuery(function ($) {
             $("#cuw-page").on("click", ".cuw-copy", function () {
                 cuw_page.copy($(this).html());
             });
+
+            $("#cuw-campaign").on("click", ".cuw-copy-text", function () {
+                cuw_page.copy($(this).closest('.cuw-campaign-copy').find('.cuw-copy-text-content').html());
+            });
+
             $("#help-panel-toggle, #help-panel-close").click(function () {
                 $("#cuw-page #help-panel").toggleClass("panel-open");
             });
@@ -1433,6 +1438,19 @@ jQuery(function ($) {
             });
 
             $("#cuw-campaign #template-slider").on("click", ".template-preview", function () {
+                let template_name = $(this).data("template");
+                if (template_name.indexOf('default') === -1) {
+                    $("#cuw-campaign #edit-template, #cuw-campaign #view-template").show();
+                    $("#cuw-campaign #template-title-wrapper").hide();
+                    $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").show();
+                    $("#cuw-campaign #cuw-shortcode-wrapper").show();
+                } else {
+                    $("#cuw-campaign #edit-template, #cuw-campaign #view-template").hide();
+                    $("#cuw-campaign #template-title-wrapper").show();
+                    $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").hide();
+                    $("#cuw-campaign #cuw-shortcode-wrapper").hide();
+                }
+
                 $("#cuw-campaign #template-name").val($(this).data("template")).trigger('change');
                 $("#cuw-campaign #cuw-template .cuw-template-preview ,#cuw-campaign #cuw-view-template .cuw-template-preview").html($(this).html());
                 $("#cuw-campaign #cuw-template .cuw-reset-styles").trigger('click');
@@ -1716,7 +1734,7 @@ jQuery(function ($) {
                     let operators = section.find(".condition-operator select").find("option:selected");
                     let operator_names = '';
                     operators.each(function (key, value) {
-                        operator_names += $(value).text() + ($(operators).last().text() === $(value).text() ? '' : ' > ');
+                        operator_names += $(value).text() + ($(operators).last().text() === $(value).text() ? '' : '<i class="cuw-icon-chevron-' + (cuw_is_rtl ? 'left' : 'right') + ' text-dark"></i>');
                     });
                     texts.push(operator_names);
                 }
@@ -1739,12 +1757,14 @@ jQuery(function ($) {
                     texts.push(condition_value.join(' - '));
                 }
                 if (section.find(".condition-values select").length) {
-                    let values = section.find(".condition-values .select2-container .select2-selection__rendered .select2-selection__choice");
-                    let option_names = [];
-                    values.each(function (key, value) {
-                        option_names.push($(value).attr("title"));
+                    section.find(".condition-values").each(function (value_index, condition_value) {
+                        let values = $(condition_value).find(".select2-container .select2-selection__rendered .select2-selection__choice");
+                        let option_names = [];
+                        values.each(function (key, value) {
+                            option_names.push($(value).attr("title"));
+                        });
+                        texts.push(option_names.join(', '));
                     });
-                    texts.push(option_names.join(', '));
                 }
             }
             text = '<span class="d-flex align-items-center">' +
@@ -1839,6 +1859,13 @@ jQuery(function ($) {
                         $('#no-engine-filters').removeClass('d-none');
                         $("#cuw-engine-filter-container .selected-filters-label").addClass('d-none');
                     }
+                }
+            }
+
+            if ($('#cuw-campaign #cuw-discounts').length > 0) {
+                if ($("#cuw-campaign #cuw-discounts .cuw-discount").length === 0) {
+                    passed = false;
+                    $('#cuw-no-discounts-added').removeClass('d-none');
                 }
             }
 
@@ -2299,6 +2326,14 @@ jQuery(function ($) {
             //to toggle end date in optional settings
             $("#cuw-campaign #cuw-schedule #toggle-end-date").change(function () {
                 $(this).closest('#cuw-schedule').find('#end-date').toggle();
+            });
+
+            $("#cuw-campaign #cuw_product_recommendations_page #display-location").change(function () {
+                if ($(this).val() == 'shortcode') {
+                    $("#cuw-campaign #cuw-shortcode-wrapper").show();
+                } else {
+                    $("#cuw-campaign #cuw-shortcode-wrapper").hide();
+                }
             });
         }
     }

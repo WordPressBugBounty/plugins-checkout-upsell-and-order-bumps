@@ -69,6 +69,9 @@ class Product
             $data['price'] = $product->get_price();
         }
 
+        $data['regular_price'] = apply_filters('cuw_product_regular_price', $data['regular_price'], $product, $args);
+        $data['price'] = apply_filters('cuw_product_sale_price', $data['price'], $product, $args);
+
         if (!empty($args['discount']) && isset($args['discount']['type']) && $args['discount']['type'] != 'no_discount') {
             $data['regular_price'] = Discount::getProductPrice($product, $args['discount']);
             $data['price'] = Discount::getPrice($product, $args['discount'], $data['regular_price']);
@@ -87,6 +90,10 @@ class Product
             if ($args['to_display']) {
                 $data['price_html'] = self::getPriceHtml($product, $args['display_in'], $data['regular_price'], $data['price']);
             }
+        }
+        if (in_array($product->get_type(), ['subscription', 'variable-subscription', 'subscription_variation'])) {
+            $data['regular_price'] = (float)$data['regular_price'] + Product::getPrice($product, 'sign_up_fee');
+            $data['price'] = (float)$data['price'] + Product::getPrice($product, 'sign_up_fee');
         }
 
         $data['is_sale'] = ($data['regular_price'] > $data['price']);
@@ -220,16 +227,25 @@ class Product
     public static function getPrice($product, $from = null)
     {
         $price = null;
-        if ($from == 'regular_price') {
-            $regular_price = $product->get_regular_price();
-            if ($regular_price !== '' && $regular_price > 0) {
-                $price = $regular_price;
-            }
-        } elseif ($from == 'sale_price') {
-            $sale_price = $product->get_sale_price();
-            if ($sale_price !== '' && $sale_price > 0) {
-                $price = $sale_price;
-            }
+        switch ($from) {
+            case 'regular_price':
+                $regular_price = $product->get_regular_price();
+                if ($regular_price !== '' && $regular_price > 0) {
+                    $price = $regular_price;
+                }
+                break;
+            case 'sale_price':
+                $sale_price = $product->get_sale_price();
+                if ($sale_price !== '' && $sale_price > 0) {
+                    $price = $sale_price;
+                }
+                break;
+            case 'sign_up_fee':
+                $sign_up_fee = $product->get_sign_up_fee();
+                if ($sign_up_fee !== ''&& $sign_up_fee > 0) {
+                    $price = $sign_up_fee;
+                }
+                break;
         }
 
         if ($price === null) {

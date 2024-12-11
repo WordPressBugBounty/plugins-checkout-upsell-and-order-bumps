@@ -14,6 +14,7 @@ namespace CUW\App\Controllers\Admin;
 defined('ABSPATH') || exit;
 
 use CUW\App\Controllers\Controller;
+use CUW\App\Helpers\Assets;
 use CUW\App\Helpers\Condition;
 use CUW\App\Helpers\Filter;
 use CUW\App\Helpers\Offer;
@@ -299,6 +300,7 @@ class Page extends Controller
             'reports' => __("Reports", 'checkout-upsell-woocommerce'),
             'settings' => __("Settings", 'checkout-upsell-woocommerce'),
             'addons' => __("Add-ons", 'checkout-upsell-woocommerce'),
+            'recommendations' => __("Recommendations", 'checkout-upsell-woocommerce'),
         ]);
     }
 
@@ -327,6 +329,31 @@ class Page extends Controller
     public static function getDefaultTab()
     {
         return apply_filters('cuw_page_default_tab', 'dashboard');
+    }
+
+    /**
+     * Get Recommendations list
+     *
+     * @return array
+     *
+     */
+    public static function getRecommendations()
+    {
+        $recommendation_list_url = 'https://static.flycart.net/recommendation/product/upsellwp.json';
+
+        $recommendations_list = get_transient('cuw_recommendations_list');
+        if (empty($recommendations_list)) {
+            $response = wp_remote_get($recommendation_list_url);
+            if (!is_wp_error($response)) {
+                $recommendations_list = (array)json_decode(wp_remote_retrieve_body($response), true);
+                $site_name = $_SERVER['HTTP_HOST'];
+                foreach ($recommendations_list as &$recommendation) {
+                    $recommendation['plugin_url'] = str_replace('{site-name}', $site_name, $recommendation['plugin_url']);
+                }
+                set_transient('cuw_recommendations_list', $recommendations_list, 24 * 60 * 60);
+            }
+        }
+        return $recommendations_list;
     }
 
     /**

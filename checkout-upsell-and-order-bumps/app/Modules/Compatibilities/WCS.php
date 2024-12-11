@@ -11,6 +11,8 @@
 
 namespace CUW\App\Modules\Compatibilities;
 
+use CUW\App\Helpers\Discount;
+use CUW\App\Helpers\Offer;
 use CUW\App\Helpers\WC;
 
 defined('ABSPATH') || exit;
@@ -24,7 +26,8 @@ class WCS extends Base
     {
         add_filter('cuw_product_price_html', [__CLASS__, 'getProductPriceHtml'], 100, 5);
         add_filter('cuw_discount_price_html', [__CLASS__, 'getDiscountPriceHtml'], 100, 6);
-        add_action('cuw_post_purchase_offer_added_to_order', [__CLASS__, 'createOfferSubscription'], 100);
+        add_action('cuw_post_purchase_offer_added_to_order', [__CLASS__, 'createOfferSubscription'], 100, 3);
+        add_action('cuw_ppu_offer_added_to_order', [__CLASS__, 'createOfferSubscription'], 100, 3);
     }
 
     /**
@@ -88,7 +91,7 @@ class WCS extends Base
     /**
      * Add subscription for post-purchase offer item.
      */
-    public static function createOfferSubscription($order)
+    public static function createOfferSubscription($order, $product_data, $offer_data)
     {
         $order_items = $order->get_items();
         $offer_item = end($order_items);
@@ -101,10 +104,11 @@ class WCS extends Base
                     'billing_interval' => \WC_Subscriptions_Product::get_interval($product),
                     'order_id' => $order->get_id(),
                 ]);
+                $product_price = Offer::getProductPrice($product, $offer_data['discount']);
                 if (!is_wp_error($subscription)) {
                     $item_id = $subscription->add_product($product, $offer_item->get_quantity(), [
-                        'subtotal' => $offer_item->get_subtotal(),
-                        'total' => $offer_item->get_total(),
+                        'subtotal' => Discount::getPrice($product, $offer_data['discount'], $product_price),
+                        'total' => Discount::getPrice($product, $offer_data['discount'], $product_price),
                     ]);
                     if (!empty($item_id)) {
                         $subscription->set_payment_method($order->get_payment_method());
@@ -112,8 +116,10 @@ class WCS extends Base
                         $subscription->set_transaction_id($order->get_transaction_id());
                         $subscription->set_address($order->get_address());
                         $subscription->set_address($order->get_address('shipping'), 'shipping');
-                        $subscription->set_end_date(\WC_Subscriptions_Product::get_expiration_date($product));
-                        $subscription->set_trial_end_date(\WC_Subscriptions_Product::get_trial_expiration_date($product));
+                        $subscription->update_dates([
+                            'end' => \WC_Subscriptions_Product::get_expiration_date($product),
+                            'trial_end' => \WC_Subscriptions_Product::get_trial_expiration_date($product)
+                        ]);
                         $subscription->calculate_totals();
                         $subscription->save();
                     }

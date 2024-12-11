@@ -4,8 +4,8 @@ Donate link: https://upsellwp.com
 Tags: woocommerce, upsell, woocommerce upsell, order bump, boost sales
 Requires at least: 5.3
 Requires PHP: 7.0
-Tested up to: 6.6
-Stable tag: 2.1.4
+Tested up to: 6.7
+Stable tag: 2.1.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -284,6 +284,15 @@ The plugin currently supports displaying the offers in 4 different places in the
 8. Campaign offer edit page
 
 == Changelog ==
+
+= 2.1.5 - 11/12/2024 =
+* Add - Shortcode for Smart Product Recommendations Campaign [PRO]
+* Add - Custom Template for Smart Product Recommendations Campaign [PRO]
+* Add - Recommendations Tab [FREE]
+* Improve - Woocommerce Subscriptions Compatability [PRO]
+* Improve - License Updater [PRO]
+* Compatability - Buy more Save more Addon [PRO]
+* Fix - Bugs
 
 = 2.1.4 - 22/10/2024 =
 * Improve - PUC Updated to v5.4

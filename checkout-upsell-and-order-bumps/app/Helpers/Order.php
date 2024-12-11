@@ -79,10 +79,15 @@ class Order
      */
     public static function addOffer($order, $product, $offer_data)
     {
+        $sign_up_fee = in_array($product->get_type(), ['subscription', 'variable-subscription', 'subscription_variation'])
+            ? Product::getPrice($product, 'sign_up_fee') : 0;
         $item_id = WC::addToOrder($order, $product, [
             'price' => $offer_data['price'],
             'quantity' => $offer_data['product']['qty'],
             'variation' => $offer_data['product']['variation'],
+            'extra_price' => [
+                'sign_up_fee' => $sign_up_fee,
+            ],
         ]);
         if ($item_id && $order_items = WC::getOrderItems($order)) {
             if (isset($order_items[$item_id]) && $item = $order_items[$item_id]) {

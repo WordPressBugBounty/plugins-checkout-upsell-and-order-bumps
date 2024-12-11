@@ -423,6 +423,24 @@ class WC
     }
 
     /**
+     * Set regular price.
+     *
+     * @param array $cart_item
+     * @param int|float $price
+     * @return bool
+     */
+    public static function setCartItemRegularPrice($cart_item, $price)
+    {
+        if (!empty($cart_item) && is_object($cart_item['data']) && is_numeric($price)) {
+            if (method_exists($cart_item['data'], 'set_regular_price')) {
+                $cart_item['data']->set_regular_price($price);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Set cart item quantity
      *
      * @param string $key
@@ -539,6 +557,20 @@ class WC
     }
 
     /**
+     * Get order id by key
+     *
+     * @return int|string
+     */
+    public static function getOrderIdByKey($order_key)
+    {
+        $order_id = '';
+        if (function_exists('wc_get_order_id_by_order_key') && !empty($order_key)) {
+            $order_id = wc_get_order_id_by_order_key($order_key);
+        }
+        return $order_id;
+    }
+
+    /**
      * Get parent order
      *
      * @param int|\WC_Order $object_or_id
@@ -568,6 +600,13 @@ class WC
         if (is_object($order) && is_object($product) && method_exists($order, 'add_product')) {
             $price = $args['price'] ?? null;
             $quantity = $args['quantity'] ?? 1;
+            if (!empty($args['extra_price'])) {
+                foreach ($args['extra_price'] as $extra_price) {
+                    if (!empty($extra_price) && is_numeric($extra_price)) {
+                        $price += $extra_price;
+                    }
+                }
+            }
             if (function_exists('wc_prices_include_tax') && wc_prices_include_tax() && function_exists('wc_get_price_excluding_tax')) {
                 $price = wc_get_price_excluding_tax($product, ['price' => $price]);
             }

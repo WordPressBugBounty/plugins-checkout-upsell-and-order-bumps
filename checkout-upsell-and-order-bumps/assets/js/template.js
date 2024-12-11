@@ -308,6 +308,9 @@ jQuery(function ($) {
             } else {
                 inputs.prop("disabled", true);
                 product.css('opacity', '0.8');
+                if (product.hasClass('cuw-recommendation-product')) {
+                    product.find('.cuw-redirect-to-cart').show();
+                }
                 if (product_id) {
                     product.closest('.cuw-products').find('.cuw-product[data-id="' + product_id + '"]').css('opacity', '0.8');
                 }

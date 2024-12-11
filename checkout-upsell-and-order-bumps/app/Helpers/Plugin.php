@@ -142,7 +142,7 @@ class Plugin
     {
         $plugin_file = ABSPATH . 'wp-content/plugins/' . $file;
         if (file_exists($plugin_file) && function_exists('get_plugin_data')) {
-            return get_plugin_data($plugin_file);
+            return get_plugin_data($plugin_file, true, false);
         }
         return [];
     }
