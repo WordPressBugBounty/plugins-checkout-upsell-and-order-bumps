@@ -301,6 +301,7 @@ class Page extends Controller
             'settings' => __("Settings", 'checkout-upsell-woocommerce'),
             'addons' => __("Add-ons", 'checkout-upsell-woocommerce'),
             'recommendations' => __("Recommendations", 'checkout-upsell-woocommerce'),
+            'buy-pro' => __("Buy PRO", 'checkout-upsell-woocommerce'),
         ]);
     }
 

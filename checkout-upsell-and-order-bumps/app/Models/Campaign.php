@@ -60,6 +60,7 @@ class Campaign extends Model
                  `usage_limit` int(11) DEFAULT 0,
                  `usage_limit_per_user` int(11) DEFAULT 0,
                  `usage_count` int(11) DEFAULT 0,
+                 `display_count` bigint(20) DEFAULT 0,
                  `created_at` bigint(20) unsigned DEFAULT NULL,
                  `created_by` bigint(20) unsigned DEFAULT NULL,
                  `updated_at` bigint(20) unsigned DEFAULT NULL,

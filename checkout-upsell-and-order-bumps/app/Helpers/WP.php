@@ -163,6 +163,22 @@ class WP
     }
 
     /**
+     * To get Attachment image url.
+     *
+     * @param $attachment_id
+     * @param $size
+     * @param $icon
+     * @return false|string
+     */
+    public static function getAttachmentImageUrl($attachment_id, $size = 'thumbnail', $icon = false)
+    {
+        if (function_exists('wp_get_attachment_image_url')) {
+            return wp_get_attachment_image_url($attachment_id, $size, $icon);
+        }
+        return false;
+    }
+
+    /**
      * Get user
      *
      * @param int $id

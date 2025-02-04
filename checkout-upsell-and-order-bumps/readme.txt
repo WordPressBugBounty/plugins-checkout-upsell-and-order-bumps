@@ -5,7 +5,7 @@ Tags: woocommerce, upsell, woocommerce upsell, order bump, boost sales
 Requires at least: 5.3
 Requires PHP: 7.0
 Tested up to: 6.7
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -284,6 +284,10 @@ The plugin currently supports displaying the offers in 4 different places in the
 8. Campaign offer edit page
 
 == Changelog ==
+= 2.1.6 - 04/02/2025 =
+* Add - View Count for all product campaigns.
+* Add - New tempates for all campaigns.
+* Add - "Get pro" tab.
 
 = 2.1.5 - 11/12/2024 =
 * Add - Shortcode for Smart Product Recommendations Campaign [PRO]

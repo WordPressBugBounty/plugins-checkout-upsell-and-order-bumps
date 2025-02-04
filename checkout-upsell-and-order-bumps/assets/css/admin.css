@@ -147,7 +147,7 @@
           display: flex;
           align-items: center;
           gap: 8px; }
-  #cuw-page #cuw-campaign .select2-selection--multiple .select2-selection__rendered, #cuw-page #cuw-engine .select2-selection--multiple .select2-selection__rendered {
+  #cuw-page #cuw-campaign .select2-selection__rendered, #cuw-page #cuw-engine .select2-selection__rendered {
     word-wrap: break-word !important;
     white-space: normal !important; }
   #cuw-page #cuw_template #template-name {
@@ -603,6 +603,11 @@
   #cuw-page #cuw-campaign #cuw_template .view-template {
     height: 40px;
     width: 40px; }
+  #cuw-page #cuw-campaign #cuw-products .select2-selection__rendered,
+  #cuw-page #cuw-campaign #cuw-triggers .select2-selection__rendered,
+  #cuw-page #cuw-campaign #cuw-action .select2-selection__rendered {
+    word-wrap: break-word !important;
+    white-space: normal !important; }
   #cuw-page #cuw-campaign #filters-match, #cuw-page #cuw-campaign #conditions-match {
     flex-wrap: wrap;
     gap: 8px; }
@@ -768,6 +773,45 @@ select {
       position: relative;
       top: calc(50% - 14px);
       left: calc(50% - 14px); }
+  #cuw-page .cuw-upgrade-details-box {
+    border: 2px solid #002359;
+    padding: 3rem;
+    box-shadow: 8px 8px 0 0 #002359;
+    border-radius: 8px;
+    text-align: center;
+    margin: auto;
+    height: 100%; }
+  #cuw-page .cuw-buy-pro-box {
+    background-color: #e0e7ff;
+    border: 2px solid #002359;
+    padding: 1rem;
+    box-shadow: 8px 8px 0 0 #002359;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 80%;
+    margin: auto; }
+  #cuw-page .cuw-upgrade-box {
+    border: 2px solid #002359;
+    background-color: #ffffff;
+    padding: 32px;
+    box-shadow: 8px 8px 0 0 #002359;
+    position: relative;
+    border-radius: 8px; }
+  #cuw-page .cuw-upgrade-pro-button {
+    background-color: #4F47EB;
+    border: 2px solid #000000;
+    box-shadow: 6px 6px 0 0 #000000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease-in-out; }
+  #cuw-page .cuw-upgrade-pro-button:hover {
+    background-color: #3d39c7;
+    box-shadow: 4px 4px 0 0 #000000; }
 
 #cuw-campaign ins {
   text-decoration: none; }
@@ -780,6 +824,9 @@ select {
 
 #cuw-campaign .offer-preview .cuw-product-image img {
   height: inherit !important; }
+
+#cuw-campaign .offer-preview .cuw-product-curve-image img {
+  border-radius: inherit; }
 
 #cuw-campaign .offer-item-image {
   height: 48px;
@@ -1147,6 +1194,10 @@ select {
     z-index: 2;
     top: 38%;
     left: 38%; }
+
+#cuw-campaign #condition-slider .select2-selection__rendered, #cuw-campaign #filter-slider .select2-selection__rendered {
+  word-wrap: break-word !important;
+  white-space: normal !important; }
 
 #cuw-campaign .cuw-animate-top {
   animation-name: cuw-animate-top;

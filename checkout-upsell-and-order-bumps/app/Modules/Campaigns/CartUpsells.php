@@ -94,6 +94,9 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
             foreach ($offers as $campaign_id => $offer_ids) {
                 foreach ($offer_ids as $offer_id) {
                     $html .= Offer::getTemplateHtml($offer_id);
+                    if (!apply_filters('cuw_stop_cart_upsells_offer_count_increasing', false, $offer_id)) {
+                        OfferModel::increaseCount($offer_id, 'display_count');
+                    }
                 }
             }
         }
@@ -205,11 +208,6 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
                         // pick valid offers from campaign and increase it is view count
                         $offer_ids = self::pickOffers($campaign);
                         if ($offer_ids) {
-                            foreach ($offer_ids as $offer_id) {
-                                if (!apply_filters('cuw_stop_cart_upsells_offer_count_increasing', false)) {
-                                    OfferModel::increaseCount($offer_id, 'display_count');
-                                }
-                            }
                             self::$offers[$display_location][$campaign['id']] = $offer_ids;
 
                             if ($display_location_on_mini_cart != 'do_not_display') {

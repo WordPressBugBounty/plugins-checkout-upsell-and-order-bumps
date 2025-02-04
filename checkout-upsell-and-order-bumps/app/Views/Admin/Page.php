@@ -65,6 +65,9 @@ if (!CUW()->plugin->has_pro) {
         <div class="collapse cuw-top-navbar-container px-3 navbar-collapse" id="navbarNavDropdown">
             <ul class="nav navbar-nav">
                 <?php foreach ($tabs as $tab => $title) {
+                    if ($tab == 'buy-pro' && CUW()->plugin->has_pro) {
+                        continue;
+                    }
                     $is_active = ($tab == $current_tab);
                     $nav_item_class = "p-4 cuw-nav-item-text text-decoration-none d-flex align-items-center" . ($is_active ? ' active' : '');
                     ?>
@@ -145,6 +148,8 @@ if (!CUW()->plugin->has_pro) {
                 CUW()->view('Admin/AddOns');
             } elseif ($current_tab == 'recommendations') {
                 CUW()->view('Admin/Recommendations');
+            } elseif ($current_tab == 'buy-pro' && !CUW()->plugin->has_pro) {
+                CUW()->view('Admin/BuyPRO');
             }
 
             if ($current_tab == 'engines' && !CUW()->plugin->has_pro) {

@@ -132,6 +132,10 @@ jQuery(function ($) {
                     if (response.success && response.data) {
                         jQuery(document.body).trigger('cuw_action_performed', [response.data, action]);
 
+                        if (response.data.reload_page) {
+                            location.reload(true); // to reload page if requires.
+                        }
+
                         if (response.data.trigger) {
                             jQuery(document.body).trigger(response.data.trigger, {});
                         }

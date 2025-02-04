@@ -7,7 +7,7 @@ if (!isset($campaign)) {
 $campaign_type = !empty($campaign['type']) ? $campaign['type'] : '';
 $discount_type = !empty($campaign['data']['discount']['type']) ? $campaign['data']['discount']['type'] : 'no_discount';
 $discount_value = !empty($campaign['data']['discount']['value']) ? $campaign['data']['discount']['value'] : 0;
-$hide_free_discount = in_array($campaign_type, ['thankyou_upsells', 'upsell_popups']);
+$hide_free_discount = in_array($campaign_type, apply_filters('cuw_hide_free_discount_option_campaign_types', ['thankyou_upsells', 'upsell_popups']));
 ?>
 
 <div id="cuw-discount" class="row">

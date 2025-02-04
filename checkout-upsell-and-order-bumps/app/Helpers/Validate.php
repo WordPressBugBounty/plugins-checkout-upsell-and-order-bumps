@@ -210,7 +210,7 @@ class Validate
         if (!empty($data['data']['products'])) {
             $validator = Input::validator($data['data']['products']);
             if (!empty($data['data']['products']['use'])) {
-                if ($data['data']['products']['use'] == 'specific') {
+                if ($data['data']['products']['use'] == 'specific' || $data['data']['products']['use'] == 'single') {
                     $validator->rule('required', 'ids')->message($messages['required']);
                 } elseif ($data['data']['products']['use'] == 'engine') {
                     $validator->rule('required', 'engine_id')->message($messages['required']);

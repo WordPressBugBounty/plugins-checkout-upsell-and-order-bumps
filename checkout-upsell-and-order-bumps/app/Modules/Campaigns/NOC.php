@@ -187,6 +187,7 @@ class NOC extends Base
                     continue;
                 }
                 $html .= Template::getHtml($campaign);
+                CampaignModel::increaseCount($campaign['id'], 'display_count');
             }
             $html .= '</div>';
         }

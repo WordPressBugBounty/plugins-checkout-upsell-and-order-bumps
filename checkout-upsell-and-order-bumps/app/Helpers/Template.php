@@ -173,6 +173,58 @@ class Template
                 ],
                 'campaigns' => ['checkout_upsells'],
             ],
+            'offer/template-9' => [
+                'title' => '{discount} discount',
+                'description' => 'Hey there, you can get this offer by just clicking the button below to add this offer to your order, you will never get such a discount on any other place on this site.',
+                'cta_text' => 'Add to cart',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#DDE0E4', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '12px', 'color' => '#ffffff', 'background-color' => '#33cd33'],
+                    'description' => ['font-size' => '', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '', 'color' => '#333333', 'background-color' => '#f3e141'],
+                ],
+                'campaigns' => ['checkout_upsells'],
+            ],
+            'offer/template-10' => [
+                'title' => '{discount} discount',
+                'description' => 'Hey there, you can get this offer by just clicking the button below to add this offer to your order, you will never get such a discount on any other place on this site.',
+                'cta_text' => 'Add to cart',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#DDE0E4', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '16px', 'color' => '#ffffff', 'background-color' => '#33cd33'],
+                    'description' => ['font-size' => '', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '', 'color' => '#333333', 'background-color' => '#f3e141'],
+                ],
+                'campaigns' => ['checkout_upsells'],
+            ],
+            'offer/template-11-mini' => [
+                'title' => '{discount} discount',
+                'description' => '',
+                'cta_text' => '+',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#DDE0E4', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '12px', 'color' => '#ffffff', 'background-color' => '#33cd33'],
+                    'description' => ['font-size' => '12px', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '', 'color' => '#333333', 'background-color' => '#f3e141'],
+                ],
+                'campaigns' => ['checkout_upsells'],
+            ],
+            'offer/template-12-mini' => [
+                'title' => '{discount} discount',
+                'description' => '',
+                'cta_text' => '+',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#DDE0E4', 'background-color' => '#ffffff'],
+                    'title' => ['font-size' => '14px', 'color' => '#0AC26C', 'background-color' => '#E6F9F0'],
+                    'description' => ['font-size' => '12px', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '', 'color' => '#ffffff', 'background-color' => '#0A5CFF'],
+                ],
+                'campaigns' => ['checkout_upsells'],
+            ],
 
             // cart upsell templates
             'offer/cart-template-1-wide' => [
@@ -253,6 +305,45 @@ class Template
                 ],
                 'campaigns' => ['cart_upsells'],
             ],
+            'offer/cart-template-7-wide' => [
+                'title' => 'Offer: {discount}',
+                'description' => '',
+                'cta_text' => 'Add to cart',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#EAEAEA', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '12px', 'color' => '#ffffff', 'background-color' => '#0AC26C'],
+                    'description' => ['font-size' => '', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '16px', 'color' => '#ffffff', 'background-color' => '#0A5CFF'],
+                ],
+                'campaigns' => ['cart_upsells'],
+            ],
+            'offer/cart-template-8-wide' => [
+                'title' => 'Offer: {discount}',
+                'description' => '',
+                'cta_text' => 'Add to cart',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#EAEAEA', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '12px', 'color' => '#ffffff', 'background-color' => '#0AC26C'],
+                    'description' => ['font-size' => '', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '16px', 'color' => '#ffffff', 'background-color' => '#0A5CFF'],
+                ],
+                'campaigns' => ['cart_upsells'],
+            ],
+            'offer/cart-template-9-wide' => [
+                'title' => 'Offer: {discount}',
+                'description' => '',
+                'cta_text' => 'Add to cart',
+                'image_id' => 0,
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#EAEAEA', 'background-color' => '#f9f9f9'],
+                    'title' => ['font-size' => '12px', 'color' => '#ffffff', 'background-color' => '#0AC26C'],
+                    'description' => ['font-size' => '', 'color' => '#7b7b7b', 'background-color' => '#ededed'],
+                    'cta' => ['font-size' => '16px', 'color' => '#0A5CFF', 'background-color' => ''],
+                ],
+                'campaigns' => ['cart_upsells'],
+            ],
 
             // simple action templates
             'action/simple-action-1' => [
@@ -268,6 +359,14 @@ class Template
                 'styles' => [
                     'template' => ['border-width' => 'medium', 'border-style' => 'dashed', 'border-color' => '#c3c4c7', 'background-color' => '#fbfbfb', 'padding' => '4px'],
                     'cta' => ['font-size' => '', 'color' => '#333333', 'background-color' => '#e2e6ea'],
+                ],
+                'campaigns' => ['double_order'],
+            ],
+            'action/simple-action-3' => [
+                'cta_text' => 'Click here to double your order and get a {discount} discount!',
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#efefef', 'background-color' => '#0A5CFF', 'padding' => '2px'],
+                    'cta' => ['font-size' => '', 'color' => '#181C25', 'background-color' => '#ffffff'],
                 ],
                 'campaigns' => ['double_order'],
             ],
@@ -362,6 +461,66 @@ class Template
                 ],
                 'campaigns' => ['fbt'],
             ],
+            'fbt/template-4' => [
+                'template' => 'template-1',
+                'title' => 'Frequently bought together',
+                'cta_text' => 'Add {items_text} to cart',
+                'checkbox' => 'checked',
+                'save_badge' => 'do_not_display',
+                'save_badge_text' => '-{price}',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'image' => ['size' => '200'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['fbt'],
+            ],
+            'fbt/template-5' => [
+                'template' => 'template-1',
+                'title' => 'Frequently bought together',
+                'cta_text' => 'Add {items_text} to cart',
+                'checkbox' => 'checked',
+                'save_badge' => 'do_not_display',
+                'save_badge_text' => '-{price}',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'image' => ['size' => '200'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['fbt'],
+            ],
+            'fbt/template-6' => [
+                'template' => 'template-1',
+                'title' => 'Frequently bought together',
+                'cta_text' => 'Add {items_text} to cart',
+                'checkbox' => 'checked',
+                'save_badge' => 'do_not_display',
+                'save_badge_text' => '-{price}',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'image' => ['size' => '88'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['fbt'],
+            ],
+            'fbt/template-7' => [
+                'template' => 'template-1',
+                'title' => 'Frequently bought together',
+                'cta_text' => 'Add {items_text} to cart',
+                'checkbox' => 'checked',
+                'save_badge' => 'do_not_display',
+                'save_badge_text' => '-{price}',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'image' => ['size' => '200'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['fbt'],
+            ],
 
             // thankyou upsells campaign templates
             'products/template-1' => [
@@ -409,6 +568,21 @@ class Template
                 ],
                 'campaigns' => ['thankyou_upsells'],
             ],
+            'products/template-4' => [
+                'template' => 'template-5',
+                'title' => 'You may also like…',
+                'cta_text' => 'Buy now',
+                'checkbox' => 'unchecked',
+                'save_badge' => 'do_not_display',
+                'save_badge_text' => '-{price}',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'image' => ['size' => '180'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'cta' => ['font-size' => '', 'color' => '', 'background-color' => ''],
+                ],
+                'campaigns' => ['thankyou_upsells'],
+            ],
 
             // upsell popups campaign templates
             'popup/template-1' => [
@@ -443,6 +617,38 @@ class Template
                 ],
                 'campaigns' => ['upsell_popups'],
             ],
+            'popup/template-3' => [
+                'template' => 'template-3',
+                'title' => 'Exclusive offer of the day!',
+                'cta_text' => 'Add',
+                'styles' => [
+                    'content' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'max-width' => 800],
+                    'header' => ['font-size' => '28px', 'color' => '#1a202c', 'background-color' => '#f7fafc'],
+                    'subheader' => ['font-size' => '24px', 'color' => '#1a202c', 'background-color' => '#dcf9df'],
+                    'body' => ['padding' => '8px', 'background-color' => '#ffffff'],
+                    'image' => ['size' => '224'],
+                    'cta' => ['font-size' => '18px', 'color' => '#ffffff', 'background-color' => '#178a0c'],
+                    'action' => ['font-size' => '20px', 'color' => '#ffffff', 'background-color' => '#000000'],
+                    'footer' => ['font-size' => '18px', 'color' => '', 'background-color' => '#f7fafc'],
+                ],
+                'campaigns' => ['upsell_popups'],
+            ],
+            'popup/template-4' => [
+                'template' => 'template-4',
+                'title' => 'Exclusive offer of the day!',
+                'cta_text' => 'Add',
+                'styles' => [
+                    'content' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#e2e8f0', 'max-width' => 800],
+                    'header' => ['font-size' => '28px', 'color' => '#1a202c', 'background-color' => '#f7fafc'],
+                    'subheader' => ['font-size' => '24px', 'color' => '#1a202c', 'background-color' => '#e0e7ff'],
+                    'body' => ['padding' => '8px', 'background-color' => '#ffffff'],
+                    'image' => ['size' => '200'],
+                    'cta' => ['font-size' => '18px', 'color' => '#f0cb50', 'background-color' => '#111824'],
+                    'action' => ['font-size' => '16px', 'color' => '#f3f4f6', 'background-color' => '#1f2937'],
+                    'footer' => ['font-size' => '18px', 'color' => '', 'background-color' => '#f7fafc'],
+                ],
+                'campaigns' => ['upsell_popups'],
+            ],
 
             // product addons campaign templates
             'addon/template-1' => [
@@ -465,6 +671,26 @@ class Template
                 ],
                 'campaigns' => ['product_addons'],
             ],
+            'addon/template-3' => [
+                'template' => 'template-3',
+                'title' => '',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'image' => ['size' => '120'],
+                ],
+                'campaigns' => ['product_addons'],
+            ],
+            'addon/template-4' => [
+                'template' => 'template-4',
+                'title' => '',
+                'styles' => [
+                    'template' => ['border-width' => '0', 'border-style' => 'solid', 'border-color' => '#000000', 'background-color' => '', 'padding' => '0'],
+                    'title' => ['font-size' => '', 'color' => ''],
+                    'image' => ['size' => '120'],
+                ],
+                'campaigns' => ['product_addons'],
+            ],
 
             // cart addons campaign templates
             'addon/cart-template-1' => [
@@ -479,6 +705,14 @@ class Template
                 'title' => 'Add-Ons',
                 'styles' => [
                     'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#deddda', 'background-color' => '', 'padding' => '12px'],
+                    'title' => ['font-size' => '', 'color' => '#6d28d9'],
+                ],
+                'campaigns' => ['cart_addons'],
+            ],
+            'addon/cart-template-3' => [
+                'title' => 'Add-Ons',
+                'styles' => [
+                    'template' => ['border-width' => 'thin', 'border-style' => 'solid', 'border-color' => '#deddda', 'background-color' => '', 'padding' => '0'],
                     'title' => ['font-size' => '', 'color' => '#6d28d9'],
                 ],
                 'campaigns' => ['cart_addons'],
@@ -616,7 +850,7 @@ class Template
     {
         $extra_data = [];
         $campaign_type = isset($campaign['type']) ? $campaign['type'] : [];
-        if (in_array($campaign_type, ['fbt', 'thankyou_upsells', 'upsell_popups', 'product_addons', 'cart_addons', 'product_recommendations'])) {
+        if (in_array($campaign_type, apply_filters('cuw_preview_html_campaign_types',['fbt', 'thankyou_upsells', 'upsell_popups', 'product_addons', 'cart_addons', 'product_recommendations']))) {
             $products = [];
             $dummy_data = [
                 1 => [

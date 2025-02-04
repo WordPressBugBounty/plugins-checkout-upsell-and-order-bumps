@@ -1,37 +1,37 @@
-# Copyright (C) 2024 UpsellWP
+# Copyright (C) 2025 UpsellWP
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP Lite - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.5\n"
+"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
-"Last-Translator: Flycart <support@flycart.org>\n"
-"Language-Team: Flycart <support@flycart.org>\n"
+"Last-Translator: UpsellWP <support@flycart.org>\n"
+"Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-11T06:42:57+00:00\n"
+"POT-Creation-Date: 2025-02-04T10:31:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: checkout-upsell-and-order-bumps.php
-msgid "UpsellWP Lite - WooCommerce Upsell, Cross-sell and Order Bumps"
+#: checkout-upsell-woocommerce.php
+msgid "UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps"
 msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
-#: checkout-upsell-and-order-bumps.php
+#: checkout-upsell-woocommerce.php
 msgid "https://upsellwp.com"
 msgstr ""
 
 #. Description of the plugin
-#: checkout-upsell-and-order-bumps.php
-msgid "Boost your store revenue by presenting upsell offers, products and next order coupons to your customers."
+#: checkout-upsell-woocommerce.php
+msgid "Boost your store revenue by presenting upsell offers, products, add-ons, popups, next order coupons and post-purchase offers to your customers."
 msgstr ""
 
 #. Author of the plugin
-#: checkout-upsell-and-order-bumps.php
+#: checkout-upsell-woocommerce.php
 #: app/Controllers/Admin/Page.php:36
 #: app/Controllers/Common/Campaigns.php:84
 #: app/Helpers/Plugin.php:209
@@ -101,6 +101,8 @@ msgstr ""
 #: app/Controllers/Admin/Page.php:204
 #: app/Helpers/Validate.php:27
 #: app/Helpers/Validate.php:36
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:86
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:112
 msgid "This field is required"
 msgstr ""
 
@@ -162,6 +164,7 @@ msgid "Condition"
 msgstr ""
 
 #: app/Controllers/Admin/Page.php:218
+#: app/Pro/Views/Admin/Engines/Main.php:70
 #: app/Views/Admin/Campaign/Filters/Wrapper.php:26
 #: app/Views/Admin/Campaign/Sliders/AddFilter.php:12
 #: app/Views/Admin/Campaigns/Main.php:78
@@ -226,6 +229,10 @@ msgid "Add-on deactivation failed"
 msgstr ""
 
 #: app/Controllers/Admin/Page.php:250
+#: app/Pro/Views/Admin/Engine/Components/Amplifiers.php:40
+#: app/Pro/Views/Admin/Engine/Main.php:50
+#: app/Pro/Views/Admin/Engine/Main.php:107
+#: app/Pro/Views/Admin/Engine/Slider/AddFilter.php:36
 #: app/Views/Admin/Campaign/Components/Template.php:117
 #: app/Views/Admin/Campaign/Main.php:102
 #: app/Views/Admin/Campaign/Main.php:169
@@ -262,7 +269,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: app/Controllers/Admin/Page.php:298
-#: app/Controllers/Admin/Page.php:365
+#: app/Controllers/Admin/Page.php:366
 #: app/Views/Admin/Campaigns/List.php:70
 #: app/Views/Admin/Campaigns/Main.php:35
 #: app/Views/Admin/Settings.php:32
@@ -271,6 +278,8 @@ msgid "Campaigns"
 msgstr ""
 
 #: app/Controllers/Admin/Page.php:299
+#: app/Pro/Views/Admin/Engines/List.php:73
+#: app/Pro/Views/Admin/Tabs/Settings.php:144
 msgid "Engines"
 msgstr ""
 
@@ -281,7 +290,7 @@ msgid "Reports"
 msgstr ""
 
 #: app/Controllers/Admin/Page.php:301
-#: app/Controllers/Admin/Page.php:366
+#: app/Controllers/Admin/Page.php:367
 #: app/Views/Admin/Settings.php:15
 msgid "Settings"
 msgstr ""
@@ -296,13 +305,25 @@ msgstr ""
 msgid "Recommendations"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:369
+#: app/Controllers/Admin/Page.php:304
+msgid "Buy PRO"
+msgstr ""
+
+#: app/Controllers/Admin/Page.php:370
 msgid "Get PRO"
 msgstr ""
 
 #: app/Controllers/Common/Campaigns.php:68
 #: app/Controllers/Store/Cart.php:105
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:68
+#: app/Pro/Views/Admin/Campaign/DoubleOrder.php:16
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:223
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:63
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:69
+#: app/Pro/Views/Admin/Campaign/ThankyouUpsells.php:29
+#: app/Pro/Views/Admin/Campaign/UpsellPopups.php:34
 #: app/Views/Admin/Campaign/Offer/Content.php:45
+#: templates/post-purchase/components/order-totals.php:37
 msgid "Discount"
 msgstr ""
 
@@ -318,7 +339,6 @@ msgid "Upsell Revenue"
 msgstr ""
 
 #: app/Controllers/Common/Campaigns.php:156
-#: app/Views/Admin/Campaigns/List.php:120
 msgid "N/A"
 msgstr ""
 
@@ -336,6 +356,8 @@ msgstr ""
 
 #: app/Controllers/Common/Shortcodes.php:34
 #: app/Helpers/Campaign.php:159
+#: app/Pro/Helpers/Engine.php:112
+#: app/Pro/Helpers/Page.php:44
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:28
 msgid "Cart page"
 msgstr ""
@@ -354,15 +376,21 @@ msgstr ""
 
 #: app/Controllers/Common/Shortcodes.php:41
 #: app/Helpers/Campaign.php:160
+#: app/Pro/Helpers/Engine.php:113
+#: app/Pro/Helpers/Page.php:49
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:31
 msgid "Checkout page"
 msgstr ""
 
 #: app/Controllers/Common/Shortcodes.php:45
-#: app/Helpers/Template.php:795
+#: app/Helpers/Template.php:1029
 #: templates/fbt/template-1.php:16
 #: templates/fbt/template-2.php:16
 #: templates/fbt/template-3.php:16
+#: templates/fbt/template-4.php:16
+#: templates/fbt/template-5.php:16
+#: templates/fbt/template-6.php:16
+#: templates/fbt/template-7.php:16
 msgid "Frequently bought together"
 msgstr ""
 
@@ -372,6 +400,8 @@ msgstr ""
 
 #: app/Controllers/Common/Shortcodes.php:47
 #: app/Helpers/Campaign.php:158
+#: app/Pro/Helpers/Engine.php:111
+#: app/Pro/Helpers/Page.php:39
 msgid "Product page"
 msgstr ""
 
@@ -397,8 +427,8 @@ msgid "Choose this type to show the upsell offers on the cart page"
 msgstr ""
 
 #: app/Helpers/Campaign.php:58
-#: app/Modules/Campaigns/FBT.php:542
-#: app/Modules/Campaigns/FBT.php:655
+#: app/Modules/Campaigns/FBT.php:543
+#: app/Modules/Campaigns/FBT.php:656
 #: app/Views/Admin/Campaign/FBT.php:181
 #: app/Views/Admin/Settings.php:215
 msgid "Frequently Bought Together"
@@ -409,6 +439,8 @@ msgid "Choose this type to display the frequently bought together products on th
 msgstr ""
 
 #: app/Helpers/Campaign.php:67
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:17
+#: app/Pro/Views/Admin/Tabs/Settings.php:87
 msgid "Product Add-Ons"
 msgstr ""
 
@@ -417,6 +449,8 @@ msgid "Choose this type to display the add-on products on the product detail pag
 msgstr ""
 
 #: app/Helpers/Campaign.php:75
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:17
+#: app/Pro/Views/Admin/Tabs/Settings.php:100
 msgid "Cart Add-Ons"
 msgstr ""
 
@@ -425,6 +459,7 @@ msgid "Choose this type to display the add-on products on the cart page"
 msgstr ""
 
 #: app/Helpers/Campaign.php:83
+#: app/Pro/Views/Admin/Tabs/Settings.php:16
 msgid "Post-purchase Upsells"
 msgstr ""
 
@@ -458,6 +493,8 @@ msgid "Displays upsell on the thank you page (after a customer placed an order)"
 msgstr ""
 
 #: app/Helpers/Campaign.php:117
+#: app/Pro/Controllers/Common/Shortcodes.php:120
+#: app/Pro/Controllers/Common/Shortcodes.php:122
 msgid "Smart Product Recommendations"
 msgstr ""
 
@@ -478,6 +515,7 @@ msgid "Post-purchase Upsells (Old)"
 msgstr ""
 
 #: app/Helpers/Campaign.php:157
+#: app/Pro/Helpers/Engine.php:110
 msgid "Shop & category page"
 msgstr ""
 
@@ -486,6 +524,7 @@ msgid "Post-purchase"
 msgstr ""
 
 #: app/Helpers/Campaign.php:162
+#: app/Pro/Helpers/Engine.php:114
 msgid "Thank you page"
 msgstr ""
 
@@ -502,11 +541,13 @@ msgstr ""
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:793
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:797
 #: app/Views/Admin/Page.php:56
-#: app/Views/Admin/Page.php:80
+#: app/Views/Admin/Page.php:83
 msgid "PRO"
 msgstr ""
 
 #: app/Helpers/Campaign.php:319
+#: app/Pro/Helpers/Engine.php:468
+#: app/Pro/Helpers/License.php:168
 #: app/Views/Admin/Components/Compatibility.php:22
 msgid "Active"
 msgstr ""
@@ -516,7 +557,8 @@ msgid "Scheduled"
 msgstr ""
 
 #: app/Helpers/Campaign.php:321
-#: app/Modules/Campaigns/NOC.php:367
+#: app/Modules/Campaigns/NOC.php:368
+#: app/Pro/Helpers/License.php:172
 msgid "Expired"
 msgstr ""
 
@@ -525,6 +567,7 @@ msgid "Publish"
 msgstr ""
 
 #: app/Helpers/Campaign.php:323
+#: app/Pro/Helpers/Engine.php:469
 msgid "Draft"
 msgstr ""
 
@@ -565,6 +608,7 @@ msgstr ""
 #: app/Helpers/Condition.php:69
 #: app/Helpers/Condition.php:75
 #: app/Helpers/Condition.php:81
+#: app/Pro/Helpers/Engine.php:66
 msgid "Cart"
 msgstr ""
 
@@ -593,6 +637,8 @@ msgid "Applied Coupons in the Cart"
 msgstr ""
 
 #: app/Helpers/Condition.php:80
+#: templates/popup/template-2.php:51
+#: templates/popup/template-4.php:51
 msgid "Cart subtotal"
 msgstr ""
 
@@ -608,6 +654,8 @@ msgstr ""
 #: app/Helpers/Condition.php:123
 #: app/Helpers/Condition.php:129
 #: app/Helpers/Condition.php:141
+#: app/Pro/Helpers/Engine.php:74
+#: templates/post-purchase/components/order-details.php:58
 msgid "Order"
 msgstr ""
 
@@ -690,6 +738,9 @@ msgid "Date & Time"
 msgstr ""
 
 #: app/Helpers/Condition.php:192
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:26
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:40
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:26
 msgid "Days"
 msgstr ""
 
@@ -707,7 +758,8 @@ msgstr ""
 
 #: app/Helpers/Discount.php:131
 #: app/Helpers/Template.php:54
-#: app/Helpers/Template.php:774
+#: app/Helpers/Template.php:1008
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:244
 #: app/Views/Admin/Campaign/Components/Discount.php:21
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:88
 msgid "Free"
@@ -719,6 +771,7 @@ msgstr ""
 #: app/Helpers/Filter.php:52
 #: app/Helpers/Filter.php:58
 #: app/Helpers/Filter.php:63
+#: app/Pro/Helpers/Engine.php:58
 #: app/Views/Admin/Campaign/FBT.php:102
 #: app/Views/Admin/Campaign/FBT.php:295
 #: templates/fbt/variant-select-modal.php:26
@@ -730,15 +783,19 @@ msgid "All Products"
 msgstr ""
 
 #: app/Helpers/Filter.php:45
+#: app/Pro/Helpers/Engine.php:181
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:54
 #: app/Views/Admin/Campaign/Components/Products.php:116
 msgid "Specific products"
 msgstr ""
 
 #: app/Helpers/Filter.php:51
+#: app/Pro/Helpers/Engine.php:189
 msgid "Product categories"
 msgstr ""
 
 #: app/Helpers/Filter.php:57
+#: app/Pro/Helpers/Engine.php:197
 msgid "Product tags"
 msgstr ""
 
@@ -763,7 +820,7 @@ msgid "%1$s requires %2$s version %3$s or above."
 msgstr ""
 
 #: app/Helpers/Template.php:42
-#: app/Helpers/Template.php:790
+#: app/Helpers/Template.php:1024
 #: templates/fbt/template-1.php:18
 #: templates/fbt/template-1.php:114
 #: templates/fbt/template-2.php:18
@@ -771,6 +828,14 @@ msgstr ""
 #: templates/fbt/template-3.php:18
 #: templates/fbt/template-3.php:80
 #: templates/fbt/template-3.php:242
+#: templates/fbt/template-4.php:18
+#: templates/fbt/template-4.php:129
+#: templates/fbt/template-5.php:18
+#: templates/fbt/template-5.php:127
+#: templates/fbt/template-6.php:18
+#: templates/fbt/template-6.php:124
+#: templates/fbt/template-7.php:18
+#: templates/fbt/template-7.php:130
 #: templates/fbt/variant-select-modal.php:85
 #: templates/product-recommendations/template-1.php:18
 msgid "Add to cart"
@@ -808,73 +873,91 @@ msgstr ""
 msgid "all five"
 msgstr ""
 
-#: app/Helpers/Template.php:675
+#: app/Helpers/Template.php:909
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:310
 #: templates/product-recommendations/template-1.php:79
 msgid "View cart"
 msgstr ""
 
-#: app/Helpers/Template.php:786
+#: app/Helpers/Template.php:1020
 msgid "{discount} offer"
 msgstr ""
 
-#: app/Helpers/Template.php:787
+#: app/Helpers/Template.php:1021
 msgid "Hey there, you can get this offer by just clicking the checkbox below to add this offer to your order, you will never get such a discount on any other place on this site."
 msgstr ""
 
-#: app/Helpers/Template.php:788
+#: app/Helpers/Template.php:1022
 msgid "Get this exclusive offer now!"
 msgstr ""
 
-#: app/Helpers/Template.php:789
+#: app/Helpers/Template.php:1023
 msgid "Offer: {discount}"
 msgstr ""
 
-#: app/Helpers/Template.php:791
+#: app/Helpers/Template.php:1025
 msgid "Click here to double your order and get a {discount} discount!"
 msgstr ""
 
-#: app/Helpers/Template.php:792
+#: app/Helpers/Template.php:1026
 msgid "{discount} Off Your Next Purchase"
 msgstr ""
 
-#: app/Helpers/Template.php:793
+#: app/Helpers/Template.php:1027
 msgid "To thank you for being a loyal customer we want to offer you an exclusive voucher for your next order!"
 msgstr ""
 
-#: app/Helpers/Template.php:794
+#: app/Helpers/Template.php:1028
 msgid "Go!"
 msgstr ""
 
-#: app/Helpers/Template.php:796
+#: app/Helpers/Template.php:1030
 msgid "Add {items_text} to cart"
 msgstr ""
 
-#: app/Helpers/Template.php:797
+#: app/Helpers/Template.php:1031
 msgid "-{price}"
 msgstr ""
 
-#: app/Helpers/Template.php:798
+#: app/Helpers/Template.php:1032
 #: templates/product-recommendations/template-1.php:16
+#: templates/products/template-1.php:16
+#: templates/products/template-2.php:16
+#: templates/products/template-3.php:16
+#: templates/products/template-4.php:16
 msgid "You may also like…"
 msgstr ""
 
-#: app/Helpers/Template.php:799
+#: app/Helpers/Template.php:1033
+#: templates/products/template-1.php:18
+#: templates/products/template-2.php:18
+#: templates/products/template-3.php:18
+#: templates/products/template-4.php:18
 msgid "Buy now"
 msgstr ""
 
-#: app/Helpers/Template.php:800
+#: app/Helpers/Template.php:1034
+#: templates/popup/template-1.php:16
+#: templates/popup/template-2.php:16
+#: templates/popup/template-3.php:16
+#: templates/popup/template-4.php:16
 msgid "Wait! Don't miss our special deals"
 msgstr ""
 
-#: app/Helpers/Template.php:801
+#: app/Helpers/Template.php:1035
+#: templates/popup/template-1.php:18
+#: templates/popup/template-2.php:18
+#: templates/popup/template-3.php:18
+#: templates/popup/template-4.php:18
 msgid "Add"
 msgstr ""
 
-#: app/Helpers/Template.php:802
+#: app/Helpers/Template.php:1036
+#: templates/addon/cart-template-1.php:16
 msgid "Add-Ons:"
 msgstr ""
 
-#: app/Helpers/Template.php:803
+#: app/Helpers/Template.php:1037
 msgid "Recommended products"
 msgstr ""
 
@@ -918,61 +1001,75 @@ msgstr ""
 msgid "This product is not purchasable or not has enough stock"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:305
+#: app/Modules/Campaigns/CartUpsells.php:303
+#: app/Pro/Helpers/Page.php:100
 msgid "Top of the Cart page"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:306
+#: app/Modules/Campaigns/CartUpsells.php:304
+#: app/Pro/Helpers/Page.php:104
 msgid "Before Cart items table"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:307
+#: app/Modules/Campaigns/CartUpsells.php:305
 msgid "After Cart items table"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:308
+#: app/Modules/Campaigns/CartUpsells.php:306
 msgid "After Cart items (within the table)"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:309
+#: app/Modules/Campaigns/CartUpsells.php:307
 #: app/Modules/Campaigns/CheckoutUpsells.php:287
-#: app/Modules/Campaigns/FBT.php:633
+#: app/Modules/Campaigns/FBT.php:634
+#: app/Pro/Helpers/Page.php:93
+#: app/Pro/Helpers/Page.php:121
+#: app/Pro/Helpers/Page.php:144
+#: app/Pro/Helpers/Page.php:171
+#: app/Pro/Helpers/Page.php:190
 msgid "Use a shortcode"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:314
+#: app/Modules/Campaigns/CartUpsells.php:312
 msgid "Cart Block: After total"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:315
+#: app/Modules/Campaigns/CartUpsells.php:313
 msgid "Cart Block: After subtotal"
 msgstr ""
 
-#: app/Modules/Campaigns/CartUpsells.php:316
+#: app/Modules/Campaigns/CartUpsells.php:314
 msgid "Cart Block: After shipping"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:281
+#: app/Pro/Helpers/Page.php:163
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:360
 msgid "Before Payment Gateways"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:282
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:363
 msgid "Bottom of the Checkout Page"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:283
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:361
 msgid "Before Place Order Button"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:284
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:362
 msgid "After Place Order Button"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:285
+#: app/Pro/Helpers/Page.php:155
 msgid "Before Billing section"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:286
+#: app/Pro/Helpers/Page.php:159
 msgid "After Order notes"
 msgstr ""
 
@@ -988,19 +1085,22 @@ msgstr ""
 msgid "Checkout Block: After shipping"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:629
+#: app/Modules/Campaigns/FBT.php:630
+#: app/Pro/Helpers/Page.php:128
 msgid "Top of the Product page"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:630
+#: app/Modules/Campaigns/FBT.php:631
+#: app/Pro/Helpers/Page.php:132
 msgid "Bottom of the Product Page"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:631
+#: app/Modules/Campaigns/FBT.php:632
+#: app/Pro/Helpers/Page.php:136
 msgid "After Product summary"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:632
+#: app/Modules/Campaigns/FBT.php:633
 msgid "Before Product tabs"
 msgstr ""
 
@@ -1009,47 +1109,49 @@ msgstr ""
 msgid "Next Order Coupon"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:357
+#: app/Modules/Campaigns/NOC.php:358
 msgid "Deleted"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:359
+#: app/Modules/Campaigns/NOC.php:360
 msgid "Already used"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:361
+#: app/Modules/Campaigns/NOC.php:362
 msgid "Invalid"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:365
+#: app/Modules/Campaigns/NOC.php:366
 msgid "Expires on: %s"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:581
-#: app/Modules/Campaigns/NOC.php:597
-#: app/Modules/Campaigns/NOC.php:611
+#: app/Modules/Campaigns/NOC.php:582
+#: app/Modules/Campaigns/NOC.php:598
+#: app/Modules/Campaigns/NOC.php:612
 #: app/Views/Admin/Campaign/Components/Offers.php:86
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:786
 msgid "Do not display"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:582
+#: app/Modules/Campaigns/NOC.php:583
+#: app/Pro/Modules/Campaigns/ThankyouUpsells.php:309
 msgid "Top of the Thankyou page"
 msgstr ""
 
-#: app/Modules/Campaigns/NOC.php:583
-msgid "Bottom of the Thankyou page"
-msgstr ""
-
 #: app/Modules/Campaigns/NOC.php:584
-#: app/Modules/Campaigns/NOC.php:598
-#: app/Modules/Campaigns/NOC.php:612
-msgid "Before the Order details"
+#: app/Pro/Modules/Campaigns/ThankyouUpsells.php:310
+msgid "Bottom of the Thankyou page"
 msgstr ""
 
 #: app/Modules/Campaigns/NOC.php:585
 #: app/Modules/Campaigns/NOC.php:599
 #: app/Modules/Campaigns/NOC.php:613
+msgid "Before the Order details"
+msgstr ""
+
+#: app/Modules/Campaigns/NOC.php:586
+#: app/Modules/Campaigns/NOC.php:600
+#: app/Modules/Campaigns/NOC.php:614
 msgid "After the Order details"
 msgstr ""
 
@@ -1072,67 +1174,383 @@ msgstr ""
 msgid "(Deleted)"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:16
-msgid "Active add-ons"
+#: app/Pro/Controllers/Admin/Ajax.php:159
+msgid "Engine saved"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:37
-#: app/Views/Admin/AddOns.php:110
-#: app/Views/Admin/Campaign/Components/Information.php:16
-#: app/Views/Admin/Campaign/Components/Information.php:29
-#: app/Views/Admin/Recommendations.php:29
-msgid "By"
+#: app/Pro/Controllers/Admin/Ajax.php:181
+msgid "Engine deleted"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:50
-msgid "Open"
+#: app/Pro/Controllers/Admin/Ajax.php:209
+msgid "Engines deleted"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:57
-msgid "Configure"
+#: app/Pro/Controllers/Admin/Ajax.php:234
+msgid "Engine published"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:66
-msgid "Deactivate"
+#: app/Pro/Controllers/Admin/Ajax.php:235
+msgid "Engine drafted"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:75
-msgid "No active add-ons"
+#: app/Pro/Controllers/Admin/Ajax.php:372
+msgid "License key is required."
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:81
-msgid "Available add-ons"
+#: app/Pro/Controllers/Admin/Ajax.php:391
+msgid "Something went wrong. Try again later!"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:91
-msgid "Paid"
+#: app/Pro/Controllers/Admin/Ajax.php:404
+msgid "License activated. Thank you!"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:129
-msgid "Download"
+#: app/Pro/Controllers/Admin/Ajax.php:406
+#: app/Pro/Controllers/Admin/Ajax.php:420
+msgid "License is expired."
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:135
-msgid "Get"
+#: app/Pro/Controllers/Admin/Ajax.php:408
+msgid "Invalid license key."
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:143
-#: app/Views/Admin/Recommendations.php:43
-msgid "Learn more"
+#: app/Pro/Controllers/Admin/Ajax.php:413
+msgid "License deactivated."
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:152
-msgid "Activate"
+#: app/Pro/Controllers/Admin/Ajax.php:418
+msgid "License is active."
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:161
-msgid "No more available add-ons"
+#: app/Pro/Controllers/Admin/Ajax.php:422
+msgid "Inactive license."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/AdvancedOptions.php:15
-msgid "CTA redirect URL"
+#: app/Pro/Controllers/Admin/Ajax.php:424
+msgid "Invalid license."
 msgstr ""
 
+#: app/Pro/Controllers/Common/Campaigns.php:125
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:60
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:61
+msgid "Add-On"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Campaigns.php:126
+msgid "Exclusive offer"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Engines.php:94
+msgid "Engine not saved"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Engines.php:95
+#: app/Pro/Modules/Campaigns/ProductRecommendations.php:442
+msgid "Add any one filter"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Engines.php:96
+msgid "Add any one amplifier"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:35
+msgid "Notices"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:36
+msgid "To show notices (woocommerce)"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:37
+#: app/Pro/Controllers/Common/Shortcodes.php:43
+#: app/Pro/Controllers/Common/Shortcodes.php:49
+#: app/Pro/Controllers/Common/Shortcodes.php:55
+#: app/Pro/Controllers/Common/Shortcodes.php:61
+#: app/Pro/Controllers/Common/Shortcodes.php:67
+#: app/Pro/Controllers/Common/Shortcodes.php:73
+#: app/Pro/Controllers/Common/Shortcodes.php:79
+#: app/Pro/Controllers/Common/Shortcodes.php:85
+#: app/Pro/Controllers/Common/Shortcodes.php:92
+#: app/Pro/Controllers/Common/Shortcodes.php:98
+#: app/Pro/Controllers/Common/Shortcodes.php:104
+#: app/Pro/Controllers/Common/Shortcodes.php:110
+#: app/Pro/Controllers/Common/Shortcodes.php:116
+msgid "Post-purchase offer page"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:41
+msgid "Offer expire notice"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:42
+msgid "To show the offer expiration notice with a countdown timer"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:47
+msgid "Offer expire message"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:48
+msgid "To show the offer expiration message instead of the notice"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:53
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:41
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:161
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:130
+msgid "Offer title"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:54
+msgid "To show offer title"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:59
+msgid "Offer price"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:60
+msgid "To show offer price (product sale price)"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:65
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:47
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:169
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:136
+msgid "Offer description"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:66
+msgid "To show offer description"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:71
+msgid "Offer form"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:72
+msgid "To show offer form that contains inputs like quantity and accept offer button"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:77
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:71
+#: app/Views/Admin/Settings.php:246
+msgid "Product quantity"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:78
+msgid "To show offer product quantity text or input"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:83
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:77
+#: app/Views/Admin/Settings.php:232
+msgid "Product variants"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:84
+msgid "To show offer product variant select"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:89
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:89
+msgid "Offer accept button"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:90
+msgid "To show accept offer CTA button"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:91
+msgid "NOTE: To work properly, you should keep both the [cuw_product_quantity] and [cuw_product_variants] shortcodes in offer page."
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:96
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:101
+msgid "Offer decline link"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:97
+msgid "To show offer decline or skip link"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:102
+msgid "Offer decline URL"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:103
+msgid "To get offer decline or skip URL"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:108
+msgid "Offer product title"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:109
+msgid "To show offer product title"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:114
+msgid "Offer product image"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:115
+msgid "To show offer product image"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:121
+msgid "To show smart product recommendations"
+msgstr ""
+
+#: app/Pro/Controllers/Common/Shortcodes.php:367
+#: app/Pro/Modules/PostPurchase/Templates.php:383
+msgid "Offer expires in: <strong>{minutes}:{seconds}</strong>"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:50
+msgid "Generic"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:52
+msgid "Choose this type to generate a list of products based on categories, tags and more"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:60
+msgid "Choose this type to generate a list of products based on the current product and more"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:68
+msgid "Choose this type to generate a list of products based on the products in the cart and more"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:76
+msgid "Choose this type to generate a list of products based on the products in an order and more"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:184
+msgid "Choose this filter to include or exclude specific products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:192
+msgid "Choose this filter to include or exclude specific category of products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:200
+msgid "Choose this filter to include or exclude products with selected tags."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:205
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:65
+msgid "Product price"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:208
+msgid "Choose this filter to include products by product price."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:213
+msgid "Best selling products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:216
+msgid "Choose this filter to include your all-time best selling products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:221
+msgid "Top rated products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:224
+msgid "Choose this filter to include your top rated products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:229
+msgid "Newest products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:232
+msgid "Choose this filter to include recently created products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:237
+msgid "Featured products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:240
+msgid "Choose this filter to include your featured products."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:245
+msgid "On sale products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:248
+msgid "Choose this filter to include products currently on sale."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:253
+msgid "Recently viewed products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:256
+msgid "Choose this filter to include recently viewed products by the customer."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:261
+msgid "Brought together products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:264
+msgid "Choose this filter to include products that were purchased with the current product."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:269
+msgid "Related products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:272
+msgid "Choose this filter to include related products based on the current product, cart or order items."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:277
+msgid "Cross-sell products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:280
+msgid "Choose this filter to include cross-selling products based on the current product, cart or order items."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:285
+msgid "Upsell products"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:288
+msgid "Choose this filter to include upselling products based on the current product, cart or order items."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:366
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:488
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:501
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:550
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:586
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:616
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:631
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:667
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:697
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:712
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:730
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:760
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:775
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:810
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:840
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:855
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:892
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:922
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:937
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:955
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:985
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:1000
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:19
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:134
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:152
@@ -1177,12 +1595,2299 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/AdvancedOptions.php:22
-msgid "Home page"
+#: app/Pro/Helpers/Engine.php:368
+msgid "Choose this sort to list products as they are generated by the recommendation engine."
 msgstr ""
 
+#: app/Pro/Helpers/Engine.php:372
+msgid "Random"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:374
+msgid "Choose this sort to list the products in random order."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:378
+msgid "Name"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:380
+msgid "Choose this sort to list the products by product name."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:384
+msgid "Top rated"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:386
+msgid "Choose this sort to list the products by product rating."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:390
+msgid "Freshness"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:392
+msgid "Choose this sort to list the products by recently created."
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:396
+#: app/Views/Admin/Campaign/FBT.php:103
+#: app/Views/Admin/Campaign/FBT.php:296
+#: templates/fbt/variant-select-modal.php:28
+msgid "Price"
+msgstr ""
+
+#: app/Pro/Helpers/Engine.php:398
+msgid "Choose this sort to list the products by product price."
+msgstr ""
+
+#: app/Pro/Helpers/License.php:82
+#: app/Pro/Helpers/License.php:109
+#: app/Pro/Helpers/License.php:127
+msgid "Unable to connect server. Try again later!"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:170
+msgid "Inactive"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:271
+#: app/Pro/Helpers/License.php:309
+msgid "enter license key"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:273
+#: app/Pro/Helpers/License.php:311
+msgid "renew your license"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:275
+#: app/Pro/Helpers/License.php:314
+msgid "Please %s to receive automatic updates or you can manually update the plugin by downloading it."
+msgstr ""
+
+#: app/Pro/Helpers/License.php:288
+msgid "Make sure to activate your license to receive updates, support and security fixes!"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:291
+msgid "Enter license key"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:291
+msgid "Activate license"
+msgstr ""
+
+#: app/Pro/Helpers/License.php:293
+msgid "Get License"
+msgstr ""
+
+#: app/Pro/Helpers/OfferPage.php:110
+msgid "Skip offer"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:34
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:25
 msgid "Shop page"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:54
+msgid "Thankyou page"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:79
+msgid "Before products"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:84
+msgid "After products"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:89
+msgid "No products found"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:108
+msgid "Cart Collaterals"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:113
+msgid "Bottom of the cart"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:117
+msgid "Empty cart"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:140
+#: app/Pro/Modules/Campaigns/ProductAddons.php:347
+msgid "After Add to cart Button"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:151
+msgid "Before checkout Form"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:167
+msgid "After Checkout Form"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:178
+#: app/Pro/Modules/Campaigns/ThankyouUpsells.php:311
+msgid "Before the Order items summary"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:182
+#: app/Pro/Modules/Campaigns/ThankyouUpsells.php:312
+msgid "After the Order items summary"
+msgstr ""
+
+#: app/Pro/Helpers/Page.php:186
+msgid "After Customer details"
+msgstr ""
+
+#: app/Pro/Helpers/Payment.php:243
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/CartAddons.php:352
+msgid "Seems your cart page is built by using WooCommerce Cart block and we unable to show addon inside the block."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/CartAddons.php:384
+msgid "After Cart item name"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:99
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:105
+msgid "The following payment gateways do NOT support post-purchase campaigns: %s"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:101
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:107
+msgid "Contact our %s to check possible compatibility with the unsupported payment gateways."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:102
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:108
+msgid "support team"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:445
+#: app/Pro/Modules/Campaigns/PostPurchase.php:453
+#: app/Pro/Modules/Campaigns/PostPurchase.php:461
+#: app/Pro/Modules/Campaigns/PostPurchase.php:466
+#: app/Pro/Modules/Campaigns/PostPurchase.php:492
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:330
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:338
+msgid "Offer expired"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:449
+#: app/Pro/Modules/Campaigns/PostPurchase.php:471
+msgid "Invalid offer"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:484
+#: templates/post-purchase/components/order-details.php:19
+msgid "Your order is not processed yet."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:486
+#: templates/post-purchase/components/order-details.php:18
+msgid "Your order has been received."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:506
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:373
+msgid "Unable to create an offer order"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:563
+msgid "Unable to process payment"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:672
+#: templates/page/order-tabs.php:28
+msgid "Offer order"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:681
+#: templates/page/order-tabs.php:22
+msgid "Main order"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:698
+msgid "Post-purchase Supported"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchase.php:713
+#: app/Pro/Views/Admin/Campaign/Conditions/FirstOrder.php:10
+#: app/Pro/Views/Admin/Engines/Delete.php:27
+#: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:10
+#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:25
+#: app/Views/Admin/Campaigns/Delete.php:18
+msgid "Yes"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:118
+msgid "This campaign offer template is invalid or deleted. %s"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:119
+msgid "Click here to change offer template"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:317
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:323
+#: app/Pro/Modules/Campaigns/PostPurchaseUpsells.php:345
+msgid "Invalid request"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/ProductAddons.php:346
+msgid "Before Add to cart Button"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/ProductRecommendations.php:105
+msgid "The shortcode will not be supported for the default woocommerce loop (products/default) template."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/ProductRecommendations.php:136
+msgid "Shortcode"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:301
+msgid "After product added to cart"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:302
+msgid "Popup shows after a product is added to the cart on shop / category / product pages."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:316
+msgid "Click \"Proceed to checkout\" button"
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:317
+msgid "Shows when the \"Proceed to Checkout\" button is clicked."
+msgstr ""
+
+#: app/Pro/Modules/Campaigns/UpsellPopups.php:325
+msgid "Proceed to checkout"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:29
+msgid "Main order details"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:30
+msgid "Shows the main order current status and details."
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:31
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:37
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:43
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:49
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:55
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:61
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:67
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:73
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:79
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:85
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:91
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:97
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:103
+msgid "Post-purchase template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:35
+msgid "Offer timer"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:36
+msgid "Shows the offer expiration notice with a countdown timer."
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:42
+msgid "Shows offer title"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:48
+msgid "Shows offer description"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:53
+msgid "Product name"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:54
+msgid "Shows offer product name"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:59
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:202
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:156
+msgid "Product image"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:60
+msgid "Shows offer product image"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:66
+msgid "Shows product price (offer price)"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:72
+msgid "shows offer product quantity text or input"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:78
+msgid "Shows offer product variant select"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:83
+msgid "Product totals"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:84
+msgid "Shows product price, discount, tax and total"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:90
+msgid "Shows accept offer CTA button"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:95
+msgid "Offer decline button"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:96
+msgid "Shows offer decline button"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Shortcodes.php:102
+msgid "Shows offer decline link"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:36
+#: app/Pro/Modules/PostPurchase/Templates.php:48
+msgctxt "Template Library"
+msgid "Templates"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:37
+msgctxt "Template Library"
+msgid "Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:38
+#: app/Pro/Modules/PostPurchase/Templates.php:39
+msgid "Add New Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:40
+msgid "Edit Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:41
+msgid "New Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:42
+msgid "All Templates"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:43
+msgid "View Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:44
+msgid "Search Template"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:45
+msgid "No Templates found"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:46
+msgid "No Templates found in Trash"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:47
+msgid "Parent Template:"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:379
+msgid "Add offer to my order"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:380
+msgid "Decline offer"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:381
+msgid "{discount} offer only for you!"
+msgstr ""
+
+#: app/Pro/Modules/PostPurchase/Templates.php:382
+msgid "Claim this offer before its gone. Add to your order with just one-click of the button."
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:34
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:34
+#: app/Views/Admin/Campaign/FBT.php:79
+#: app/Views/Admin/Campaign/FBT.php:342
+msgid "Linked campaign"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:52
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:53
+#: app/Pro/Views/Admin/Campaign/ThankyouUpsells.php:15
+#: app/Pro/Views/Admin/Campaign/UpsellPopups.php:20
+#: app/Views/Admin/Campaign/Components/Coupon.php:129
+msgid "Products"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:76
+#: app/Pro/Views/Admin/Campaign/DoubleOrder.php:23
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:469
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:77
+#: app/Pro/Views/Admin/Campaign/ProductRecommendations.php:79
+#: app/Pro/Views/Admin/Campaign/ThankyouUpsells.php:37
+#: app/Pro/Views/Admin/Campaign/UpsellPopups.php:42
+#: app/Views/Admin/Campaign/Components/Template.php:24
+#: app/Views/Admin/Campaign/NOC.php:23
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:25
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:184
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:225
+msgid "Template"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/CartAddons.php:82
+msgid "Display location on Cart page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:19
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:235
+#: app/Views/Admin/Campaign/Components/Coupon.php:47
+#: app/Views/Admin/Campaign/Components/Discount.php:15
+#: app/Views/Admin/Campaign/Components/DiscountBundle.php:28
+#: app/Views/Admin/Campaign/FBT.php:375
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:83
+msgid "Discount type"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:21
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:240
+#: app/Views/Admin/Campaign/Components/Coupon.php:49
+#: app/Views/Admin/Campaign/Components/Discount.php:18
+#: app/Views/Admin/Campaign/Components/DiscountBundle.php:30
+#: app/Views/Admin/Campaign/FBT.php:378
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:86
+msgid "Percentage discount"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:22
+#: app/Views/Admin/Campaign/Components/Coupon.php:50
+msgid "Fixed cart discount"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:26
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:252
+#: app/Views/Admin/Campaign/Components/Coupon.php:56
+#: app/Views/Admin/Campaign/Components/Discount.php:26
+#: app/Views/Admin/Campaign/Components/DiscountBundle.php:35
+#: app/Views/Admin/Campaign/FBT.php:383
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:94
+msgid "Discount value"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:28
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:113
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:127
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:257
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:23
+#: app/Views/Admin/Campaign/Components/Coupon.php:59
+#: app/Views/Admin/Campaign/Components/Discount.php:28
+#: app/Views/Admin/Campaign/Components/DiscountBundle.php:37
+#: app/Views/Admin/Campaign/Components/Products.php:262
+#: app/Views/Admin/Campaign/Conditions/Count.php:23
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:23
+#: app/Views/Admin/Campaign/Conditions/Total.php:23
+#: app/Views/Admin/Campaign/FBT.php:387
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:97
+msgid "Value"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:33
+msgid "Discount coupon label"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Action.php:35
+msgid "Coupon"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Offers.php:25
+#: app/Views/Admin/Campaign/Components/Offers.php:97
+msgid "Add an offer to start using this campaign"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:23
+msgid "Page to display the recommendations"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:27
+msgid "Choose a page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:41
+msgid "Select the page where you'd like product recommendations to appear and customize the appearance. For example: Cart page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:72
+msgid "Products columns"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:75
+msgid "Automatic"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:87
+msgid "Number of products to show"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:90
+msgid "No limits"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Page.php:105
+#: app/Pro/Views/Admin/Engine/Components/Amplifiers.php:44
+#: app/Pro/Views/Admin/Engine/Components/Filters.php:51
+msgid "Next"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/PostPurchaseOfferPage.php:27
+msgid "Edit content"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/PostPurchaseOfferPage.php:34
+#: app/Views/Admin/Settings.php:18
+msgid "Save Changes"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/PostPurchaseTemplates.php:19
+msgid "Choose templates"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/PostPurchaseTemplates.php:41
+msgid "Live preview"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/PostPurchaseTemplates.php:45
+msgid "Use this template"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:14
+msgid "Choose when to trigger the Upsell Popup"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:16
+msgid "At least one trigger is required"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:39
+msgid "Popup shows to"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:47
+msgid "All products"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:61
+msgid "Specific categories"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:71
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:97
+#: app/Pro/Views/Admin/Campaign/Conditions/SKUs.php:12
+#: app/Pro/Views/Admin/Campaign/Conditions/Tags.php:14
+#: app/Pro/Views/Admin/Campaign/Conditions/Users.php:14
+#: app/Pro/Views/Admin/Campaign/Filters/SKUs.php:11
+#: app/Pro/Views/Admin/Campaign/Filters/Tags.php:14
+#: app/Pro/Views/Admin/Engine/Filters/Categories.php:15
+#: app/Pro/Views/Admin/Engine/Filters/Products.php:15
+#: app/Pro/Views/Admin/Engine/Filters/Tags.php:15
+#: app/Views/Admin/Campaign/Conditions/Categories.php:14
+#: app/Views/Admin/Campaign/Conditions/Coupons.php:12
+#: app/Views/Admin/Campaign/Conditions/Days.php:23
+#: app/Views/Admin/Campaign/Conditions/Products.php:14
+#: app/Views/Admin/Campaign/Conditions/UserRole.php:19
+#: app/Views/Admin/Campaign/Filters/Categories.php:14
+#: app/Views/Admin/Campaign/Filters/Products.php:14
+msgid "In list"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:72
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:98
+#: app/Pro/Views/Admin/Campaign/Conditions/SKUs.php:13
+#: app/Pro/Views/Admin/Campaign/Conditions/Tags.php:15
+#: app/Pro/Views/Admin/Campaign/Conditions/Users.php:15
+#: app/Pro/Views/Admin/Campaign/Filters/SKUs.php:12
+#: app/Pro/Views/Admin/Campaign/Filters/Tags.php:15
+#: app/Pro/Views/Admin/Engine/Filters/Categories.php:16
+#: app/Pro/Views/Admin/Engine/Filters/Products.php:16
+#: app/Pro/Views/Admin/Engine/Filters/Tags.php:16
+#: app/Views/Admin/Campaign/Conditions/Categories.php:15
+#: app/Views/Admin/Campaign/Conditions/Coupons.php:13
+#: app/Views/Admin/Campaign/Conditions/Days.php:24
+#: app/Views/Admin/Campaign/Conditions/Products.php:15
+#: app/Views/Admin/Campaign/Conditions/UserRole.php:20
+#: app/Views/Admin/Campaign/Filters/Categories.php:15
+#: app/Views/Admin/Campaign/Filters/Products.php:15
+msgid "Not in list"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:79
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:24
+#: app/Pro/Views/Admin/Engine/Filters/Products.php:22
+#: app/Views/Admin/Campaign/Components/Coupon.php:131
+#: app/Views/Admin/Campaign/Components/Coupon.php:143
+#: app/Views/Admin/Campaign/Components/Products.php:123
+#: app/Views/Admin/Campaign/Conditions/Products.php:22
+#: app/Views/Admin/Campaign/Filters/Products.php:21
+msgid "Choose products"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:105
+#: app/Pro/Views/Admin/Engine/Filters/Categories.php:22
+#: app/Views/Admin/Campaign/Components/Coupon.php:156
+#: app/Views/Admin/Campaign/Components/Coupon.php:168
+#: app/Views/Admin/Campaign/Conditions/Categories.php:22
+#: app/Views/Admin/Campaign/Filters/Categories.php:22
+msgid "Choose categories"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:119
+msgid "Product suggestion method works based on"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:127
+msgid "Cart products"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:135
+msgid "Added product (recently)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:143
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:148
+msgid "Show advanced configurations"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:144
+#: app/Pro/Views/Admin/Campaign/Components/SelectTriggers.php:151
+msgid "Hide advanced configurations"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:18
+msgid "Enable the offer expiration countdown timer notice?"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:21
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:332
+msgid "If the timer has expired, the offer will be skipped and the order processed further."
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:27
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:350
+msgid "Duration"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:44
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:373
+msgid "Message"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:47
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:380
+msgid "Available shortcodes"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Components/Timer.php:50
+msgid "NOTE: You might need to use the %s shortcode on the offer page to show notice."
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/FirstOrder.php:11
+#: app/Pro/Views/Admin/Engines/Delete.php:30
+#: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:11
+#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:28
+#: app/Views/Admin/Campaigns/Delete.php:21
+msgid "No"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:19
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:33
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:19
+msgid "All time"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:20
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:34
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:20
+msgid "Current"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:21
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:35
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:21
+msgid "Current day"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:22
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:36
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:22
+msgid "Current week"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:23
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:37
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:23
+msgid "Current month"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:24
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:38
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:24
+msgid "Current year"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:28
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:42
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:28
+msgid "day"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:30
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:32
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:34
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:36
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:38
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:44
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:46
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:48
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:50
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:52
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:30
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:32
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:34
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:36
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:38
+msgid "days"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:40
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:54
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:40
+msgid "Weeks"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:42
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:56
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:42
+msgid "week"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:44
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:46
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:48
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:58
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:60
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:62
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:44
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:46
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:48
+msgid "weeks"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:50
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:64
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:50
+msgid "Months"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:52
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:66
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:52
+msgid "month"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:54
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:56
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:58
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:60
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:62
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:64
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:66
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:68
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:70
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:72
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:74
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:68
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:70
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:72
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:74
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:76
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:78
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:80
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:82
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:84
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:86
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:88
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:54
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:56
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:58
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:60
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:62
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:64
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:66
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:68
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:70
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:72
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:74
+msgid "months"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:76
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:90
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:76
+msgid "Years"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:78
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:80
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:82
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:84
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:86
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:88
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:90
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:92
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:94
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:92
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:94
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:96
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:98
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:100
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:102
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:104
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:106
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:108
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:78
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:80
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:82
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:84
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:86
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:88
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:90
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:92
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:94
+msgid "years"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:101
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:115
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:101
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:12
+#: app/Views/Admin/Campaign/Conditions/Count.php:11
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:11
+#: app/Views/Admin/Campaign/Conditions/Total.php:11
+msgid "Greater than or equal to (>=)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:102
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:116
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:102
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:13
+#: app/Views/Admin/Campaign/Conditions/Count.php:12
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:12
+#: app/Views/Admin/Campaign/Conditions/Total.php:12
+msgid "Greater than (>)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:103
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:117
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:103
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:14
+#: app/Views/Admin/Campaign/Conditions/Count.php:13
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:13
+#: app/Views/Admin/Campaign/Conditions/Total.php:13
+msgid "Less than or equal to (<=)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:104
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:118
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:104
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:15
+#: app/Views/Admin/Campaign/Conditions/Count.php:14
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:14
+#: app/Views/Admin/Campaign/Conditions/Total.php:14
+msgid "Less than (<)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:105
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:119
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:105
+#: app/Pro/Views/Admin/Engine/Filters/Price.php:16
+#: app/Views/Admin/Campaign/Conditions/Count.php:15
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:15
+#: app/Views/Admin/Campaign/Conditions/Total.php:15
+msgid "Equal to (=)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:106
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:120
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:106
+#: app/Views/Admin/Campaign/Conditions/Count.php:16
+#: app/Views/Admin/Campaign/Conditions/Subtotal.php:16
+#: app/Views/Admin/Campaign/Conditions/Total.php:16
+msgid "Range (from-to)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMade.php:118
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:118
+#: app/Views/Admin/Campaign/Components/Coupon.php:196
+msgid "Choose order statuses"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/OrdersMadeWithProducts.php:132
+msgid "Choose statuses"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/SKUs.php:18
+msgid "Search SKUs"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Tags.php:22
+#: app/Pro/Views/Admin/Campaign/Filters/Tags.php:22
+#: app/Pro/Views/Admin/Engine/Filters/Tags.php:22
+msgid "Choose tags"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Time.php:11
+msgid "In"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Time.php:12
+msgid "Not In"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Time.php:17
+#: app/Views/Admin/Reports.php:55
+msgid "From"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Time.php:21
+#: app/Views/Admin/Reports.php:58
+msgid "To"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/TotalSpent.php:113
+msgid "Total amount"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Conditions/Users.php:21
+msgid "Choose users"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/DoubleOrder.php:29
+msgid "Display location on Checkout page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Filters/SKUs.php:18
+msgid "Search SKUs "
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:12
+msgid "Choose a page builder"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:19
+msgid "Select your preferred page builder"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:28
+msgid "WordPress (Gutenberg)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:43
+msgid "Elementor"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:57
+msgid "Cancel"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Modals/PageBuilder.php:61
+msgid "Continue"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:58
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:65
+msgid "Choose an Offer Product"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:62
+#: app/Views/Admin/Campaign/Components/Products.php:145
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:69
+msgid "Choose product"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:74
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:74
+#: templates/offer/quantity-input-2.php:15
+#: templates/offer/quantity-input.php:15
+msgid "Quantity"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:75
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:436
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:446
+#: app/Views/Admin/Campaign/Components/Conditions.php:33
+#: app/Views/Admin/Campaign/Components/OptionalSettings.php:13
+#: app/Views/Admin/Campaign/Components/OptionalSettings.php:27
+#: app/Views/Admin/Campaign/Components/OptionalSettings.php:40
+#: app/Views/Admin/Campaign/Components/UsageLimit.php:22
+#: app/Views/Admin/Campaign/Components/UsageLimit.php:45
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:75
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:106
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:115
+msgid "(optional)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:80
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:58
+#: app/Views/Admin/Campaign/Offer/Content.php:41
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:79
+#: app/Views/Admin/Reports.php:48
+msgid "Custom"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:88
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:23
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:39
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:40
+msgid "Content"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:93
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:44
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:45
+msgid "Design"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:105
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:568
+msgid "Order details"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:123
+msgid "Enable order details"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:128
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:338
+msgid "Notice type"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:133
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:343
+msgid "Custom notice"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:135
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:345
+msgid "WooCommerce notice"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:148
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:648
+msgid "Title & Description"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:184
+msgid "Product Image"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:200
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:162
+msgid "Custom image"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:210
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:170
+msgid "Select / Change image"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:242
+#: app/Views/Admin/Campaign/Components/Discount.php:19
+#: app/Views/Admin/Campaign/Components/DiscountBundle.php:31
+#: app/Views/Admin/Campaign/FBT.php:379
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:87
+msgid "Fixed discount"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:246
+#: app/Views/Admin/Campaign/Components/Discount.php:17
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:89
+msgid "No discount"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:269
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:873
+msgid "Buttons"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:281
+msgid "Accept button text"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:289
+msgid "Decline button text"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:305
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:792
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:13
+msgid "Timer"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:329
+msgid "Enable timer notice"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:394
+msgid "Order totals"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:411
+msgid "Enable order totals"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:423
+#: app/Views/Admin/Campaign/Main.php:248
+msgid "Usage Limits"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:435
+#: app/Views/Admin/Campaign/Components/UsageLimit.php:20
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:105
+msgid "Overall usage limit"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:441
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:451
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:110
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:119
+msgid "Unlimited usage"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:445
+#: app/Views/Admin/Campaign/Components/UsageLimit.php:43
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:114
+msgid "Usage limit per customer"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:481
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:624
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:705
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:768
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:848
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:930
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:993
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:143
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:277
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:335
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:393
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:429
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:499
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:555
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:633
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:683
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:732
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:259
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:309
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:357
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:403
+msgid "Background color"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:495
+msgid "Padding"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:503
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:588
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:669
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:732
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:812
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:894
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:957
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:164
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:421
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:475
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:572
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:609
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:659
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:708
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:283
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:333
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:380
+msgid "8px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:505
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:590
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:671
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:734
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:814
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:896
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:959
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:165
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:247
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:305
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:363
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:422
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:476
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:573
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:610
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:660
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:709
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:284
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:334
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:381
+msgid "12px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:507
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:592
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:673
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:736
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:816
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:898
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:961
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:248
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:306
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:364
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:477
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:574
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:611
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:661
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:710
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:285
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:335
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:382
+msgid "14px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:509
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:594
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:675
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:738
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:818
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:900
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:963
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:166
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:249
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:307
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:365
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:423
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:478
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:575
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:612
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:662
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:711
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:286
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:336
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:383
+msgid "16px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:511
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:596
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:677
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:740
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:820
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:902
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:965
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:250
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:308
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:366
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:479
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:576
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:613
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:663
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:712
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:287
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:337
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:384
+msgid "18px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:513
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:598
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:679
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:742
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:822
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:904
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:967
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:251
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:309
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:367
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:480
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:577
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:614
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:664
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:713
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:288
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:338
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:385
+msgid "20px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:515
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:600
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:681
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:744
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:824
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:906
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:969
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:167
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:252
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:310
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:368
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:424
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:481
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:578
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:615
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:665
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:714
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:289
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:339
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:386
+msgid "24px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:517
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:602
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:683
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:746
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:826
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:908
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:971
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:168
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:254
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:312
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:370
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:425
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:482
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:579
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:616
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:666
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:715
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:290
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:340
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:387
+msgid "32px"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:523
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:109
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:187
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:521
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:228
+msgid "Border"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:528
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:114
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:192
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:526
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:232
+msgid "None"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:529
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:115
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:193
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:527
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:233
+msgid "Thin"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:530
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:116
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:194
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:528
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:234
+msgid "Medium"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:531
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:117
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:195
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:529
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:235
+msgid "Thick"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:537
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:122
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:200
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:534
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:239
+msgid "Solid"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:538
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:123
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:201
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:535
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:240
+msgid "Double"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:539
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:124
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:202
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:536
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:241
+msgid "Dotted"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:540
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:125
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:203
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:537
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:242
+msgid "Dashed"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:580
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:661
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:724
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:804
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:886
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:949
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:243
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:301
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:359
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:470
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:568
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:604
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:655
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:704
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:279
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:329
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:376
+msgid "Font size"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:609
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:690
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:753
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:833
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:915
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:978
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:261
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:319
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:377
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:486
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:583
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:620
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:670
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:719
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:295
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:345
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:392
+msgid "Font color"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:658
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:61
+msgid "Title"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:721
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:71
+msgid "Description"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:883
+msgid "Accept button"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:946
+msgid "Decline button"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:1015
+msgid "Edit template layout"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:57
+#: app/Views/Admin/Campaign/Offer/Content.php:40
+msgid "Qty"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:73
+#: app/Views/Admin/Campaign/Offer/Content.php:55
+msgid "Publish campaign to see the stats"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:75
+#: app/Views/Admin/Campaign/Offer/Content.php:58
+msgid "Offer Used"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:79
+#: app/Views/Admin/Campaign/Offer/Content.php:60
+#: app/Views/Admin/Campaigns/List.php:75
+msgid "Views"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:88
+#: app/Pro/Views/Admin/Engines/List.php:149
+#: app/Views/Admin/Campaign/Offer/Content.php:69
+#: app/Views/Admin/Campaigns/List.php:151
+msgid "Edit"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:95
+msgid "View"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:101
+#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:9
+#: app/Views/Admin/Campaign/Offer/Content.php:87
+msgid "Remove"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:118
+msgid "Accept"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:125
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:167
+msgid "What's next"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:132
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:174
+#: app/Views/Admin/Campaign/Components/Offers.php:110
+msgid "Add offer"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:137
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:179
+msgid "Customer will exit if no offer is added"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:159
+msgid "Decline"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/Offer/PostPurchaseOffer.php:202
+msgid "Exit"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:28
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:33
+msgid "Page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:37
+msgid "Offer page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/PostPurchase.php:44
+msgid "(default)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/PostPurchaseUpsells.php:15
+#: app/Views/Admin/Campaign/Main.php:207
+msgid "Offers"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ProductAddons.php:83
+#: app/Views/Admin/Campaign/FBT.php:200
+msgid "Display location on Product page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ProductRecommendations.php:40
+msgid "Display Settings"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ProductRecommendations.php:46
+msgid "Display location"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ProductRecommendations.php:57
+#: app/Pro/Views/Admin/Engine/Main.php:125
+msgid "Filters & Conditions"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ProductRecommendations.php:68
+#: app/Pro/Views/Admin/Engine/Main.php:135
+msgid "Sorting Options"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ThankyouUpsells.php:23
+#: app/Pro/Views/Admin/Campaign/UpsellPopups.php:28
+msgid "Upsell"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/ThankyouUpsells.php:43
+#: app/Views/Admin/Campaign/NOC.php:29
+msgid "Display location on Thank you page"
+msgstr ""
+
+#: app/Pro/Views/Admin/Campaign/UpsellPopups.php:12
+msgid "Triggers"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Freshness.php:10
+msgid "New to Old"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Freshness.php:11
+msgid "Old to New"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Name.php:10
+msgid "Ascending [A-Z]"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Name.php:11
+msgid "Descending [Z-A]"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Price.php:10
+msgid "Low to High"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Amplifiers/Price.php:11
+msgid "High to Low"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Amplifiers.php:13
+msgid "Specify the sorting order for product recommendations"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Amplifiers.php:35
+msgid "Change Sorting Option"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Filters.php:12
+msgid "Define filters and conditions to customize your product recommendations"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Filters.php:16
+msgid "Add any filters to generate a list of products based on the category, tags etc..."
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Filters.php:46
+msgid "Add Filters"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Information.php:14
+#: app/Views/Admin/Campaign/Components/Information.php:14
+#: app/Views/Admin/Campaigns/Create.php:45
+msgid "Created"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Information.php:16
+#: app/Pro/Views/Admin/Engine/Components/Information.php:29
+#: app/Views/Admin/AddOns.php:37
+#: app/Views/Admin/AddOns.php:110
+#: app/Views/Admin/Campaign/Components/Information.php:16
+#: app/Views/Admin/Campaign/Components/Information.php:29
+#: app/Views/Admin/Recommendations.php:29
+msgid "By"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Information.php:20
+#: app/Pro/Views/Admin/Engine/Components/Information.php:33
+#: app/Views/Admin/Campaign/Components/Information.php:20
+#: app/Views/Admin/Campaign/Components/Information.php:33
+msgid "At"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/Information.php:27
+#: app/Views/Admin/Campaign/Components/Information.php:27
+msgid "Updated"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/LinkedCampaigns.php:14
+msgid "No campaigns linked"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Components/LinkedCampaigns.php:17
+msgid "Link campaigns"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Main.php:45
+#: app/Pro/Views/Admin/Engine/Main.php:79
+msgid "Engine name"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Main.php:68
+msgid "New Engine"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Main.php:111
+#: app/Views/Admin/Campaign/Main.php:174
+#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:29
+msgid "Save & Close"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Main.php:148
+#: app/Pro/Views/Admin/Engines/List.php:80
+msgid "Linked Campaigns"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Main.php:157
+#: app/Views/Admin/Campaign/Main.php:280
+msgid "Information"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Slider/AddFilter.php:21
+msgid "Filters"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engine/Slider/AddFilter.php:25
+#: app/Pro/Views/Admin/Engines/Delete.php:34
+#: app/Views/Admin/Campaign/Sliders/AddCondition.php:18
+#: app/Views/Admin/Campaign/Sliders/AddFilter.php:16
+#: app/Views/Admin/Campaign/Sliders/ChangeCampaignTemplate.php:16
+#: app/Views/Admin/Campaign/Sliders/ChangeOfferTemplate.php:13
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:17
+#: app/Views/Admin/Campaign/Sliders/ViewOffer.php:24
+#: app/Views/Admin/Campaign/Sliders/ViewTemplate.php:27
+msgid "Close"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Create.php:17
+msgid "Choose engine type..."
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Create.php:39
+msgid "Create"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Create.php:44
+msgid "Supported campaigns"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Delete.php:10
+#: app/Pro/Views/Admin/Engines/List.php:155
+#: app/Views/Admin/Campaign/Offer/Content.php:90
+#: app/Views/Admin/Campaigns/Delete.php:7
+#: app/Views/Admin/Campaigns/List.php:175
+msgid "Delete"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Delete.php:17
+msgid "Are you sure, you want to delete the following engines?"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Delete.php:20
+msgid "The following engines are linked to %s campaigns. Before proceeding to delete, you should unlink the engines from campaigns."
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:49
+msgid "Start creating Engines!"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:51
+msgid "Create a recommendation engine to generate upsell products. Get started in a few clicks."
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:54
+#: app/Pro/Views/Admin/Engines/Main.php:37
+msgid "Create New Engine"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:78
+#: app/Views/Admin/Campaigns/List.php:79
+msgid "Created on"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:82
+#: app/Pro/Views/Admin/Tabs/License.php:50
+#: app/Views/Admin/Campaigns/List.php:88
+msgid "Status"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:83
+#: app/Views/Admin/Campaigns/List.php:89
+msgid "Actions"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:164
+msgid "No engines found"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:178
+#: app/Views/Admin/Campaigns/List.php:201
+msgid "Showing"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:180
+#: app/Views/Admin/Campaigns/List.php:203
+msgid "to"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/List.php:182
+#: app/Views/Admin/Campaigns/List.php:205
+msgid "of"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:33
+#: app/Views/Admin/Page.php:158
+msgid "Recommendation Engines"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:45
+#: app/Views/Admin/Campaigns/Main.php:49
+msgid "All (%s)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:49
+#: app/Views/Admin/Campaigns/Main.php:53
+msgid "Active (%s)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:53
+#: app/Views/Admin/Campaigns/Main.php:57
+msgid "Draft (%s)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:65
+#: app/Pro/Views/Admin/Engines/Main.php:74
+#: app/Views/Admin/Campaigns/Main.php:73
+#: app/Views/Admin/Campaigns/Main.php:82
+msgid "Type"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:89
+msgid "Search engine"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:95
+#: app/Views/Admin/Campaigns/Main.php:102
+msgid "selected"
+msgstr ""
+
+#: app/Pro/Views/Admin/Engines/Main.php:100
+#: app/Views/Admin/Campaigns/Main.php:107
+msgid "Delete All"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/License.php:16
+#: app/Pro/Views/Admin/Tabs/License.php:23
+msgid "License"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/License.php:26
+msgid "Obtain your license key from your %s account and verify here."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/License.php:40
+#: app/Views/Admin/AddOns.php:152
+msgid "Activate"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/License.php:45
+#: app/Views/Admin/AddOns.php:66
+msgid "Deactivate"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/License.php:63
+msgid "Addons"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:19
+msgid "Choose when the offer will be displayed"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:21
+msgid "Choose the \"Before payment\" option if you would like to display the offer before the order is created. So that when customer accepts the offer, it gets added to the same order. If you choose the \"After payment\", the offer will be created as a separate order."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:26
+msgid "NOTE: Post-purchase offers will NOT display for unsupported gateways."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:32
+msgid "Before payment (Adds offer to the same order)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:36
+msgid "After payment is completed (Creates a new order for the offer)"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:40
+msgid "Supported payment methods"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:52
+msgid "Display order status notice to customers"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:53
+msgid "Useful to inform the customer about the status of the order on the offer page."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:65
+msgid "Offer page title"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:66
+msgid "Useful to change post-purchase upsell offer template title."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:75
+msgid "Product & Cart Add-Ons"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:78
+msgid "Add-on badge text"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:79
+msgid "Useful to change add-on badge text that is displayed after cart item name."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:90
+#: app/Pro/Views/Admin/Tabs/Settings.php:103
+msgid "Maximum number of add-ons to display"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:113
+msgid "Thankyou Upsells"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:116
+#: app/Pro/Views/Admin/Tabs/Settings.php:129
+#: app/Views/Admin/Settings.php:218
+msgid "Maximum number of products to display"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:126
+msgid "Upsell Popups"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:151
+msgid "Listing"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:154
+msgid "Maximum number of products to list"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:155
+msgid "Useful to limit the products that engines will process."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:164
+msgid "Caching"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:167
+msgid "Enable caching"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:168
+msgid "Useful to cache engine data. It will increase site performance while using recommendation engine."
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:181
+msgid "Cache expiration time in hours"
+msgstr ""
+
+#: app/Pro/Views/Admin/Tabs/Settings.php:182
+msgid "Useful to control caching duration."
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:16
+msgid "Active add-ons"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:50
+msgid "Open"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:57
+msgid "Configure"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:75
+msgid "No active add-ons"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:81
+msgid "Available add-ons"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:91
+msgid "Paid"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:129
+msgid "Download"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:135
+msgid "Get"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:143
+#: app/Views/Admin/Recommendations.php:43
+msgid "Learn more"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:161
+msgid "No more available add-ons"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:9
+msgid "Unlock More Revenue with UpsellWP PRO"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:11
+msgid "Your customers are already shopping—why not maximize every sale? With UpsellWP PRO, you can seamlessly add upsells, cross-sells, and smart product recommendations at every step of their journey. More value for them, more revenue for you."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:14
+#: app/Views/Admin/BuyPRO.php:274
+msgid "Buy UpsellWP PRO Now"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:26
+msgid "Why Upgrade to PRO?"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:32
+msgid "Boost Sales with Smart Product Offers"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:34
+msgid "Engage shoppers at the right moment with"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:40
+msgid "Advanced Frequently Bought Together"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:43
+msgid "Suggest complementary products right on the product page."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:46
+msgid "Example: A customer buying a camera? Show them a tripod and memory card as a bundle."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:54
+msgid "Add-to-Cart Popup Upsells & Product Recommendations "
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:57
+msgid "Offer an upsell as soon as an item is added to the cart."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:60
+msgid "Example: A shopper adds a phone? Prompt them to grab a screen protector and case."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:68
+msgid "Product Add-ons & Cart Add-ons "
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:71
+msgid "Let customers enhance their purchase with optional extras."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:74
+msgid "Example: Selling shoes? Offer premium insoles or shoe care kits right before checkout."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:86
+msgid "Maximize Revenue at Every Stage"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:88
+msgid "Don’t leave money on the table. Upsell at key conversion points"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:94
+msgid "Cart Page Upsells"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:97
+msgid "Increase AOV before checkout."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:100
+msgid "Example: A customer in the cart page with a coffee maker? Suggest a pack of premium coffee beans."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:108
+msgid "One-Click Checkout Upsells & Order bump"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:111
+msgid "Make it effortless for customers to say yes.."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:114
+msgid "Example: A shopper buying a subscription box? Offer an exclusive one-time add-on at checkout."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:122
+msgid "Double the Order Option"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:125
+msgid "Encourage customers to buy more with a single click."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:128
+msgid "Example: \"Double the order, Get 20% Off\" – perfect for consumable products like skincare or supplements."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:140
+msgid "Turn Post-Purchase into More Purchases"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:142
+msgid "Keep selling even after checkout"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:148
+msgid "Post-Purchase Upsells & Downsells"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:151
+msgid "Offer exclusive deals after payment."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:154
+msgid "Example: A customer buys a laptop? Show them an extended warranty or premium laptop bag before the order confirmation."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:162
+msgid "Thank You Page Upsells"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:165
+msgid "Keep customers shopping even after they’ve completed their order."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:168
+msgid "Example: Just bought a yoga mat? Offer a limited-time discount on yoga blocks or straps right on the thank you page."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:180
+msgid "Smart Product Recommendation Engine"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:182
+msgid "UpsellWP PRO’s Recommendation Engine makes upselling smarter and more effective by automatically suggesting"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:188
+msgid "Top-Selling Products"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:191
+msgid "Show what’s popular to drive more conversions."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:194
+msgid "Example: Selling clothing? Recommend best-selling jackets or accessories to every shopper."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:202
+msgid "New Arrivals"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:205
+msgid "Promote fresh inventory at key touchpoints."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:208
+msgid "Example: A beauty store can highlight newly launched skincare serums when a customer buys a moisturizer."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:216
+msgid "Frequently Bought Together Items"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:219
+msgid "Help customers discover complementary products."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:222
+msgid "Example: Someone buys a gaming console? Recommend extra controllers and game titles in one click."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:236
+msgid "Why Choose UpsellWP PRO"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:242
+msgid "Drive Higher Average Order Value (AOV)"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:244
+msgid "Increase revenue without acquiring new customers."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:249
+msgid "Seamless Shopping Experience"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:251
+msgid "No friction, just smart offers at the right time."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:256
+msgid "Smart Upsell Strategy"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:258
+msgid "Use data to make better recommendations and maximize sales."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:269
+msgid "Every Order is an Opportunity – Don’t Let It Go to Waste"
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:270
+msgid "With UpsellWP PRO, you’re not just selling—you’re maximizing every sale."
+msgstr ""
+
+#: app/Views/Admin/BuyPRO.php:271
+msgid "Upgrade today and start increasing your store revenue effortlessly."
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/AdvancedOptions.php:15
+msgid "CTA redirect URL"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/AdvancedOptions.php:22
+msgid "Home page"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/AdvancedOptions.php:34
@@ -1211,60 +3916,8 @@ msgstr ""
 msgid "Add conditions if you would like to personalize based on the items in the cart, order total etc."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:33
-#: app/Views/Admin/Campaign/Components/OptionalSettings.php:13
-#: app/Views/Admin/Campaign/Components/OptionalSettings.php:27
-#: app/Views/Admin/Campaign/Components/OptionalSettings.php:40
-#: app/Views/Admin/Campaign/Components/UsageLimit.php:22
-#: app/Views/Admin/Campaign/Components/UsageLimit.php:45
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:75
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:106
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:115
-msgid "(optional)"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Components/Conditions.php:64
 msgid "Add condition"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:47
-#: app/Views/Admin/Campaign/Components/Discount.php:15
-#: app/Views/Admin/Campaign/Components/DiscountBundle.php:28
-#: app/Views/Admin/Campaign/FBT.php:375
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:83
-msgid "Discount type"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:49
-#: app/Views/Admin/Campaign/Components/Discount.php:18
-#: app/Views/Admin/Campaign/Components/DiscountBundle.php:30
-#: app/Views/Admin/Campaign/FBT.php:378
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:86
-msgid "Percentage discount"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:50
-msgid "Fixed cart discount"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:56
-#: app/Views/Admin/Campaign/Components/Discount.php:26
-#: app/Views/Admin/Campaign/Components/DiscountBundle.php:35
-#: app/Views/Admin/Campaign/FBT.php:383
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:94
-msgid "Discount value"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:59
-#: app/Views/Admin/Campaign/Components/Discount.php:28
-#: app/Views/Admin/Campaign/Components/DiscountBundle.php:37
-#: app/Views/Admin/Campaign/Components/Products.php:240
-#: app/Views/Admin/Campaign/Conditions/Count.php:23
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:23
-#: app/Views/Admin/Campaign/Conditions/Total.php:23
-#: app/Views/Admin/Campaign/FBT.php:387
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:97
-msgid "Value"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Coupon.php:65
@@ -1308,31 +3961,12 @@ msgstr ""
 msgid "Allow sharing"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Coupon.php:129
-msgid "Products"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:131
-#: app/Views/Admin/Campaign/Components/Coupon.php:143
-#: app/Views/Admin/Campaign/Components/Products.php:123
-#: app/Views/Admin/Campaign/Conditions/Products.php:22
-#: app/Views/Admin/Campaign/Filters/Products.php:21
-msgid "Choose products"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Components/Coupon.php:140
 msgid "Exclude products"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Coupon.php:153
 msgid "Categories"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Coupon.php:156
-#: app/Views/Admin/Campaign/Components/Coupon.php:168
-#: app/Views/Admin/Campaign/Conditions/Categories.php:22
-#: app/Views/Admin/Campaign/Filters/Categories.php:22
-msgid "Choose categories"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Coupon.php:165
@@ -1352,28 +3986,12 @@ msgstr ""
 msgid "Generate and show coupons for the following order status"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Coupon.php:196
-msgid "Choose order statuses"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Components/Coupon.php:205
 msgid "Generated coupon expires after X days"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Coupon.php:208
 msgid "Never expire"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Discount.php:17
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:89
-msgid "No discount"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Discount.php:19
-#: app/Views/Admin/Campaign/Components/DiscountBundle.php:31
-#: app/Views/Admin/Campaign/FBT.php:379
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:87
-msgid "Fixed discount"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/DiscountBundle.php:17
@@ -1406,20 +4024,6 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Filters.php:65
 msgid "Add filter"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Information.php:14
-#: app/Views/Admin/Campaigns/Create.php:45
-msgid "Created"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Information.php:20
-#: app/Views/Admin/Campaign/Components/Information.php:33
-msgid "At"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Information.php:27
-msgid "Updated"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Offers.php:28
@@ -1456,14 +4060,6 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Offers.php:81
 msgid "Display location on Mini-cart"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Offers.php:97
-msgid "Add an offer to start using this campaign"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Offers.php:110
-msgid "Add offer"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Offers.php:120
@@ -1527,15 +4123,15 @@ msgid "Custom products"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Products.php:95
-#: app/Views/Admin/Campaign/Components/Products.php:142
-#: app/Views/Admin/Campaign/Components/Products.php:179
+#: app/Views/Admin/Campaign/Components/Products.php:164
+#: app/Views/Admin/Campaign/Components/Products.php:201
 #: app/Views/Admin/Campaign/Components/Template.php:86
 msgid "Unlock this feature by"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Products.php:98
-#: app/Views/Admin/Campaign/Components/Products.php:145
-#: app/Views/Admin/Campaign/Components/Products.php:182
+#: app/Views/Admin/Campaign/Components/Products.php:167
+#: app/Views/Admin/Campaign/Components/Products.php:204
 #: app/Views/Admin/Campaign/Components/Template.php:89
 msgid "Upgrading to PRO"
 msgstr ""
@@ -1552,59 +4148,55 @@ msgstr ""
 msgid "This will use the following set of products as %s products."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:139
+#: app/Views/Admin/Campaign/Components/Products.php:138
+msgid "Choose a Product"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/Products.php:161
 msgid "Use Recommendation engine"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:150
+#: app/Views/Admin/Campaign/Components/Products.php:172
 msgid "This will use the following set of products prepared by engine as %s products."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:156
+#: app/Views/Admin/Campaign/Components/Products.php:178
 msgid "Choose engine"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:176
+#: app/Views/Admin/Campaign/Components/Products.php:198
 msgid "Bundle products"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:187
+#: app/Views/Admin/Campaign/Components/Products.php:209
 msgid "This will group the selected products as a bundle in the cart."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:190
+#: app/Views/Admin/Campaign/Components/Products.php:212
 msgid "NOTE: If the customer removes the main product from the cart, upsell products are also removed."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:198
-#: app/Views/Admin/Campaign/Components/Products.php:229
+#: app/Views/Admin/Campaign/Components/Products.php:220
+#: app/Views/Admin/Campaign/Components/Products.php:251
 msgid "Cart item quantity"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:202
-#: app/Views/Admin/Campaign/Components/Products.php:232
+#: app/Views/Admin/Campaign/Components/Products.php:224
+#: app/Views/Admin/Campaign/Components/Products.php:254
 msgid "Sync quantity with main product quantity"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:203
-#: app/Views/Admin/Campaign/Components/Products.php:233
+#: app/Views/Admin/Campaign/Components/Products.php:225
+#: app/Views/Admin/Campaign/Components/Products.php:255
 msgid "Allow customer to change quantity"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:217
+#: app/Views/Admin/Campaign/Components/Products.php:239
 msgid "Allow customers to remove Add-ons from the cart?"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Products.php:234
+#: app/Views/Admin/Campaign/Components/Products.php:256
 msgid "Fixed quantity"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/Template.php:24
-#: app/Views/Admin/Campaign/NOC.php:23
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:25
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:184
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:225
-msgid "Template"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Template.php:33
@@ -1650,11 +4242,6 @@ msgstr ""
 msgid "Overall coupon generation limit"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/UsageLimit.php:20
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:105
-msgid "Overall usage limit"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Components/UsageLimit.php:26
 #: app/Views/Admin/Campaign/Components/UsageLimit.php:49
 #: app/Views/Admin/Settings.php:170
@@ -1671,67 +4258,6 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Components/UsageLimit.php:41
 msgid "Coupon generation limit per customer"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Components/UsageLimit.php:43
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:114
-msgid "Usage limit per customer"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Categories.php:14
-#: app/Views/Admin/Campaign/Conditions/Coupons.php:12
-#: app/Views/Admin/Campaign/Conditions/Days.php:23
-#: app/Views/Admin/Campaign/Conditions/Products.php:14
-#: app/Views/Admin/Campaign/Conditions/UserRole.php:19
-#: app/Views/Admin/Campaign/Filters/Categories.php:14
-#: app/Views/Admin/Campaign/Filters/Products.php:14
-msgid "In list"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Categories.php:15
-#: app/Views/Admin/Campaign/Conditions/Coupons.php:13
-#: app/Views/Admin/Campaign/Conditions/Days.php:24
-#: app/Views/Admin/Campaign/Conditions/Products.php:15
-#: app/Views/Admin/Campaign/Conditions/UserRole.php:20
-#: app/Views/Admin/Campaign/Filters/Categories.php:15
-#: app/Views/Admin/Campaign/Filters/Products.php:15
-msgid "Not in list"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:11
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:11
-#: app/Views/Admin/Campaign/Conditions/Total.php:11
-msgid "Greater than or equal to (>=)"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:12
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:12
-#: app/Views/Admin/Campaign/Conditions/Total.php:12
-msgid "Greater than (>)"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:13
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:13
-#: app/Views/Admin/Campaign/Conditions/Total.php:13
-msgid "Less than or equal to (<=)"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:14
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:14
-#: app/Views/Admin/Campaign/Conditions/Total.php:14
-msgid "Less than (<)"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:15
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:15
-#: app/Views/Admin/Campaign/Conditions/Total.php:15
-msgid "Equal to (=)"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/Count.php:16
-#: app/Views/Admin/Campaign/Conditions/Subtotal.php:16
-#: app/Views/Admin/Campaign/Conditions/Total.php:16
-msgid "Range (from-to)"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Conditions/Coupons.php:14
@@ -1786,18 +4312,6 @@ msgstr ""
 msgid "Choose a condition"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:10
-#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:25
-#: app/Views/Admin/Campaigns/Delete.php:18
-msgid "Yes"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:11
-#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:28
-#: app/Views/Admin/Campaigns/Delete.php:21
-msgid "No"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Conditions/UserRole.php:5
 msgid "Guest"
 msgstr ""
@@ -1811,11 +4325,6 @@ msgstr ""
 msgid "Frequently Bought Together Products"
 msgstr ""
 
-#: app/Views/Admin/Campaign/FBT.php:79
-#: app/Views/Admin/Campaign/FBT.php:342
-msgid "Linked campaign"
-msgstr ""
-
 #: app/Views/Admin/Campaign/FBT.php:90
 #: app/Views/Admin/Campaign/FBT.php:93
 msgid "Show suggestions"
@@ -1823,12 +4332,6 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/FBT.php:91
 msgid "Hide suggestions"
-msgstr ""
-
-#: app/Views/Admin/Campaign/FBT.php:103
-#: app/Views/Admin/Campaign/FBT.php:296
-#: templates/fbt/variant-select-modal.php:28
-msgid "Price"
 msgstr ""
 
 #: app/Views/Admin/Campaign/FBT.php:104
@@ -1849,10 +4352,6 @@ msgstr ""
 #: app/Views/Admin/Campaign/FBT.php:140
 #: app/Views/Admin/Campaign/FBT.php:334
 msgid "NOTE: These suggestions are based on past orders. You can use these suggestions or you can search and add other products to the campaign."
-msgstr ""
-
-#: app/Views/Admin/Campaign/FBT.php:200
-msgid "Display location on Product page"
 msgstr ""
 
 #: app/Views/Admin/Campaign/FBT.php:214
@@ -1907,17 +4406,8 @@ msgstr ""
 msgid "New Campaign"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:174
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:29
-msgid "Save & Close"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Main.php:193
 msgid "Filters / Apply to"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Main.php:207
-msgid "Offers"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Main.php:221
@@ -1928,20 +4418,12 @@ msgstr ""
 msgid "Optional Settings"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:248
-msgid "Usage Limits"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Main.php:259
 msgid "Advanced Options"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Main.php:269
 msgid "Tutorials"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Main.php:280
-msgid "Information"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Metaboxes/NOC.php:25
@@ -1964,11 +4446,6 @@ msgstr ""
 msgid "Used by"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Modals/RemoveOffer.php:9
-#: app/Views/Admin/Campaign/Offer/Content.php:87
-msgid "Remove"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Modals/RemoveOffer.php:15
 msgid "Are you sure, you want to remove %s?"
 msgstr ""
@@ -1981,58 +4458,10 @@ msgstr ""
 msgid "Coupon Settings"
 msgstr ""
 
-#: app/Views/Admin/Campaign/NOC.php:29
-msgid "Display location on Thank you page"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:40
-msgid "Qty"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:41
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:79
-#: app/Views/Admin/Reports.php:48
-msgid "Custom"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:55
-msgid "Publish campaign to see the stats"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:58
-msgid "Offer Used"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:60
-#: app/Views/Admin/Campaigns/List.php:75
-msgid "Views"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:69
-#: app/Views/Admin/Campaigns/List.php:151
-msgid "Edit"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Offer/Content.php:80
 #: app/Views/Admin/Campaign/Offer/Content.php:83
 #: app/Views/Admin/Campaigns/List.php:168
 msgid "Duplicate"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Offer/Content.php:90
-#: app/Views/Admin/Campaigns/Delete.php:7
-#: app/Views/Admin/Campaigns/List.php:175
-msgid "Delete"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/AddCondition.php:18
-#: app/Views/Admin/Campaign/Sliders/AddFilter.php:16
-#: app/Views/Admin/Campaign/Sliders/ChangeCampaignTemplate.php:16
-#: app/Views/Admin/Campaign/Sliders/ChangeOfferTemplate.php:13
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:17
-#: app/Views/Admin/Campaign/Sliders/ViewOffer.php:24
-#: app/Views/Admin/Campaign/Sliders/ViewTemplate.php:27
-msgid "Close"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/ChangeCampaignTemplate.php:12
@@ -2043,26 +4472,8 @@ msgstr ""
 msgid "Choose an offer template"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:39
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:40
-msgid "Content"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:44
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:45
-msgid "Design"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:50
 msgid "Advanced"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:61
-msgid "Title"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:71
-msgid "Description"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:81
@@ -2082,86 +4493,6 @@ msgstr ""
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:183
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:217
 msgid "Reset"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:109
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:187
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:521
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:228
-msgid "Border"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:114
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:192
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:526
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:232
-msgid "None"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:115
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:193
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:527
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:233
-msgid "Thin"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:116
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:194
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:528
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:234
-msgid "Medium"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:117
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:195
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:529
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:235
-msgid "Thick"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:122
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:200
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:534
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:239
-msgid "Solid"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:123
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:201
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:535
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:240
-msgid "Double"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:124
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:202
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:536
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:241
-msgid "Dotted"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:125
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:203
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:537
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:242
-msgid "Dashed"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:143
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:277
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:335
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:393
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:429
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:499
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:555
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:633
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:683
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:732
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:259
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:309
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:357
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:403
-msgid "Background color"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:158
@@ -2184,83 +4515,6 @@ msgstr ""
 msgid "4px"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:164
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:421
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:475
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:572
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:609
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:659
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:708
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:283
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:333
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:380
-msgid "8px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:165
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:247
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:305
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:363
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:422
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:476
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:573
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:610
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:660
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:709
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:284
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:334
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:381
-msgid "12px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:166
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:249
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:307
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:365
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:423
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:478
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:575
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:612
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:662
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:711
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:286
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:336
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:383
-msgid "16px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:167
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:252
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:310
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:368
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:424
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:481
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:578
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:615
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:665
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:714
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:289
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:339
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:386
-msgid "24px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:168
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:254
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:312
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:370
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:425
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:482
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:579
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:616
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:666
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:715
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:290
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:340
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:387
-msgid "32px"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:178
 msgid "Modal styles"
 msgstr ""
@@ -2278,80 +4532,10 @@ msgstr ""
 msgid "Title styles"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:243
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:301
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:359
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:470
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:568
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:604
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:655
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:704
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:279
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:329
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:376
-msgid "Font size"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:248
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:306
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:364
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:477
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:574
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:611
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:661
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:710
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:285
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:335
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:382
-msgid "14px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:250
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:308
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:366
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:479
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:576
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:613
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:663
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:712
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:287
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:337
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:384
-msgid "18px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:251
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:309
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:367
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:480
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:577
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:614
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:664
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:713
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:288
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:338
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:385
-msgid "20px"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:253
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:311
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:369
 msgid "28px"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:261
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:319
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:377
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:486
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:583
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:620
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:670
-#: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:719
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:295
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:345
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:392
-msgid "Font color"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:296
@@ -2465,38 +4649,12 @@ msgstr ""
 msgid "Offer Product"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:65
-msgid "Choose an Offer Product"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:69
-msgid "Choose product"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:74
-#: templates/offer/quantity-input.php:15
-msgid "Quantity"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:101
 msgid "Usage limits"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:110
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:119
-msgid "Unlimited usage"
-msgstr ""
-
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:126
 msgid "Texts"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:130
-msgid "Offer title"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:136
-msgid "Offer description"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:141
@@ -2509,18 +4667,6 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:149
 msgid "Offer image"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:156
-msgid "Product image"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:162
-msgid "Custom image"
-msgstr ""
-
-#: app/Views/Admin/Campaign/Sliders/EditOffer.php:170
-msgid "Select / Change image"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:188
@@ -2581,32 +4727,8 @@ msgstr ""
 msgid "Create New Campaign"
 msgstr ""
 
-#: app/Views/Admin/Campaigns/List.php:79
-msgid "Created on"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/List.php:88
-msgid "Status"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/List.php:89
-msgid "Actions"
-msgstr ""
-
 #: app/Views/Admin/Campaigns/List.php:186
 msgid "No campaigns found"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/List.php:201
-msgid "Showing"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/List.php:203
-msgid "to"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/List.php:205
-msgid "of"
 msgstr ""
 
 #: app/Views/Admin/Campaigns/List.php:244
@@ -2617,37 +4739,12 @@ msgstr ""
 msgid "To create more campaigns"
 msgstr ""
 
-#: app/Views/Admin/Campaigns/Main.php:49
-msgid "All (%s)"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/Main.php:53
-msgid "Active (%s)"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/Main.php:57
-msgid "Draft (%s)"
-msgstr ""
-
 #: app/Views/Admin/Campaigns/Main.php:61
 msgid "Published (%s)"
 msgstr ""
 
-#: app/Views/Admin/Campaigns/Main.php:73
-#: app/Views/Admin/Campaigns/Main.php:82
-msgid "Type"
-msgstr ""
-
 #: app/Views/Admin/Campaigns/Main.php:97
 msgid "Search campaign"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/Main.php:102
-msgid "selected"
-msgstr ""
-
-#: app/Views/Admin/Campaigns/Main.php:107
-msgid "Delete All"
 msgstr ""
 
 #: app/Views/Admin/Components/Compatibility.php:33
@@ -2758,12 +4855,8 @@ msgstr ""
 msgid "Lite"
 msgstr ""
 
-#: app/Views/Admin/Page.php:110
+#: app/Views/Admin/Page.php:113
 msgid "Help"
-msgstr ""
-
-#: app/Views/Admin/Page.php:153
-msgid "Recommendation Engines"
 msgstr ""
 
 #: app/Views/Admin/Reports.php:26
@@ -2774,24 +4867,12 @@ msgstr ""
 msgid "This month"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:55
-msgid "From"
-msgstr ""
-
-#: app/Views/Admin/Reports.php:58
-msgid "To"
-msgstr ""
-
 #: app/Views/Admin/Reports.php:142
 msgid "Campaigns Created"
 msgstr ""
 
 #: app/Views/Admin/Reports.php:168
 msgid "Offers Created"
-msgstr ""
-
-#: app/Views/Admin/Settings.php:18
-msgid "Save Changes"
 msgstr ""
 
 #: app/Views/Admin/Settings.php:38
@@ -2930,14 +5011,6 @@ msgstr ""
 msgid "Within offer location"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:218
-msgid "Maximum number of products to display"
-msgstr ""
-
-#: app/Views/Admin/Settings.php:232
-msgid "Product variants"
-msgstr ""
-
 #: app/Views/Admin/Settings.php:235
 msgid "Product variant select template"
 msgstr ""
@@ -2954,32 +5027,72 @@ msgstr ""
 msgid "Attributes select"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:277
+#: app/Views/Admin/Settings.php:249
+msgid "Product quantity option template"
+msgstr ""
+
+#: app/Views/Admin/Settings.php:250
+msgid "Useful to change product quantity option template that allows customers to customize templates in different ways."
+msgstr ""
+
+#: app/Views/Admin/Settings.php:254
+msgid "Flat quantity selector"
+msgstr ""
+
+#: app/Views/Admin/Settings.php:255
+msgid "Outlined quantity selector"
+msgstr ""
+
+#: app/Views/Admin/Settings.php:291
 msgid "This section will list plugins and theme that require compatibility with our plugin to resolve conflicts."
 msgstr ""
 
-#: app/Views/Admin/Settings.php:289
+#: app/Views/Admin/Settings.php:303
 msgid "Plugins"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:293
+#: app/Views/Admin/Settings.php:307
 msgid "Theme"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:300
+#: app/Views/Admin/Settings.php:314
 msgid "Weekly report"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:303
+#: app/Views/Admin/Settings.php:317
 msgid "Enable/Disable"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:304
+#: app/Views/Admin/Settings.php:318
 msgid "Enable this email notification"
 msgstr ""
 
-#: app/Views/Admin/Settings.php:318
+#: app/Views/Admin/Settings.php:332
 msgid "Recipient(s)"
+msgstr ""
+
+#: templates/addon/cart-template-2.php:16
+#: templates/addon/cart-template-3.php:16
+msgid "Show Add-Ons"
+msgstr ""
+
+#: templates/addon/template-1.php:18
+#: templates/addon/template-2.php:18
+#: templates/addon/template-3.php:18
+#: templates/addon/template-4.php:18
+#: templates/fbt/template-1.php:97
+#: templates/fbt/template-3.php:65
+#: templates/fbt/template-3.php:227
+#: templates/fbt/template-4.php:113
+#: templates/fbt/template-5.php:111
+#: templates/fbt/template-6.php:108
+#: templates/fbt/template-7.php:114
+#: templates/fbt/variant-select-modal.php:78
+#: templates/products/template-1.php:99
+#: templates/products/template-2.php:102
+#: templates/products/template-3.php:130
+#: templates/products/template-4.php:126
+msgid "Total price"
 msgstr ""
 
 #: templates/email/top-revenue-campaigns.php:20
@@ -3025,16 +5138,18 @@ msgstr ""
 msgid "Conversion rate"
 msgstr ""
 
-#: templates/fbt/template-1.php:97
-#: templates/fbt/template-3.php:65
-#: templates/fbt/template-3.php:227
-#: templates/fbt/variant-select-modal.php:78
-msgid "Total price"
+#: templates/fbt/savings.php:19
+#: templates/products/savings.php:19
+msgid "You can save %s"
 msgstr ""
 
 #: templates/fbt/template-1.php:120
 #: templates/fbt/template-3.php:86
 #: templates/fbt/template-3.php:248
+#: templates/fbt/template-4.php:135
+#: templates/fbt/template-5.php:133
+#: templates/fbt/template-6.php:130
+#: templates/fbt/template-7.php:136
 msgid "Choose items to buy together."
 msgstr ""
 
@@ -3066,5 +5181,62 @@ msgstr ""
 #: templates/offer/template-6-wide.php:83
 #: templates/offer/template-7-mini.php:82
 #: templates/offer/template-8-mini.php:36
+#: templates/offer/template-9.php:79
+#: templates/offer/template-10.php:80
+#: templates/popup/template-1.php:124
+#: templates/popup/template-2.php:163
+#: templates/popup/template-3.php:127
+#: templates/popup/template-4.php:144
 msgid "Added"
+msgstr ""
+
+#: templates/page/offer-decline-link.php:18
+#: templates/page/offer-form.php:42
+msgid "No thanks"
+msgstr ""
+
+#: templates/popup/template-1.php:43
+#: templates/popup/template-2.php:45
+#: templates/popup/template-3.php:43
+#: templates/popup/template-4.php:45
+msgid "Your cart"
+msgstr ""
+
+#: templates/popup/template-1.php:153
+#: templates/popup/template-2.php:200
+#: templates/popup/template-3.php:156
+#: templates/popup/template-4.php:181
+msgid "You have saved"
+msgstr ""
+
+#: templates/post-purchase/components/order-details.php:20
+msgid "Skip offers"
+msgstr ""
+
+#: templates/post-purchase/components/order-totals.php:33
+msgid "Subtotal"
+msgstr ""
+
+#: templates/post-purchase/components/order-totals.php:41
+msgid "Tax"
+msgstr ""
+
+#: templates/post-purchase/components/order-totals.php:45
+msgid "Order Total"
+msgstr ""
+
+#: templates/products/default.php:33
+msgid "Default WooCommerce Products Loop"
+msgstr ""
+
+#: templates/products/template-1.php:116
+#: templates/products/template-2.php:119
+#: templates/products/template-3.php:148
+#: templates/products/template-4.php:144
+msgid "Choose items to buy."
+msgstr ""
+
+#: templates/products/template-3.php:126
+#: templates/products/template-4.php:122
+msgid "Added products"
 msgstr ""

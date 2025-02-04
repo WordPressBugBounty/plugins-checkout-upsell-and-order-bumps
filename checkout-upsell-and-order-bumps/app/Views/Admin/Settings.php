@@ -242,6 +242,20 @@ $default_tab = apply_filters('cuw_settings_default_tab', 'campaigns');
                                 </select>
                             </div>
                         </div>
+
+                        <h5 class="mb-n2 text-primary mt-3"><?php esc_html_e("Product quantity", 'checkout-upsell-woocommerce'); ?></h5>
+                        <div class="mt-3 row align-items-center">
+                            <div class="col-md-5">
+                                <label class="font-weight-semibold text-dark form-label"><?php esc_html_e("Product quantity option template", 'checkout-upsell-woocommerce'); ?></label>
+                                <p class="form-text"><?php esc_html_e("Useful to change product quantity option template that allows customers to customize templates in different ways.", 'checkout-upsell-woocommerce'); ?></p>
+                            </div>
+                            <div class="col-md-5">
+                                <select class="form-control" name="quantity_template">
+                                    <option value="quantity-input" <?php if ($settings['quantity_template'] == 'quantity-input') echo "selected"; ?>><?php esc_html_e("Flat quantity selector", 'checkout-upsell-woocommerce'); ?></option>
+                                    <option value="quantity-input-2" <?php if ($settings['quantity_template'] == 'quantity-input-2') echo "selected"; ?>><?php esc_html_e("Outlined quantity selector", 'checkout-upsell-woocommerce'); ?></option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <?php if (!empty($shortcodes)) {

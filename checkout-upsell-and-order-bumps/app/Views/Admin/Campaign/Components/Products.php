@@ -130,6 +130,28 @@ $has_pro = CUW()->plugin->has_pro;
             </div>
         <?php } ?>
 
+        <?php if (in_array('single', $use_options)) { ?>
+            <div class="custom-control use-product common-border custom-radio custom-control mb-2 <?php echo ($use_products == 'single') ? 'selected-border' : ''; ?>">
+                <input type="radio" class="use-products-radio position-relative custom-control-input" id="use-single"
+                       name="data[products][use]" value="single" <?php checked('single', $use_products); ?>>
+                <label class="custom-control-label font-weight-medium"
+                       for="use-single"><?php esc_html_e("Choose a Product", 'checkout-upsell-woocommerce'); ?></label>
+                <span class="d-block secondary small cuw-px-20px">
+                    <?php echo esc_html('This will use the below product to display in mentioned location.'); ?>
+                </span>
+                <div class="mt-2" id="single-product"
+                     style="margin: 0 24px; display: <?php echo !empty($use_products == 'single') ? 'block' : 'none'; ?>">
+                    <select class="select2-list" name="data[products][ids][]" data-list="products"
+                            data-placeholder="<?php esc_html_e("Choose product", 'checkout-upsell-woocommerce'); ?>">
+                        <?php foreach ($specific_products as $id => $name) { ?>
+                            <option value="<?php echo esc_attr($id); ?>"
+                                    selected><?php echo esc_html($name); ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+        <?php } ?>
+
         <?php if (in_array('engine', $use_options)) { ?>
             <div class="custom-control <?php echo $has_pro ? 'use-product' : ''; ?> custom-radio common-border custom-control mb-2 <?php echo ($use_products == 'engine') ? 'selected-border' : ''; ?>">
                 <input type="radio" class="use-products-radio position-relative custom-control-input" id="use-engine"
@@ -244,6 +266,7 @@ $has_pro = CUW()->plugin->has_pro;
             </div>
         </div>
     <?php } ?>
+    <?php do_action('cuw_campaign_after_change_quantity_section', $campaign, $products_data); ?>
 
     <?php if (!empty($change_variant)) { ?>
         <input type="hidden" name="data[products][change_variant]" value="1">

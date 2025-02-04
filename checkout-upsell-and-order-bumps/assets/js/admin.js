@@ -1444,11 +1444,13 @@ jQuery(function ($) {
                     $("#cuw-campaign #template-title-wrapper").hide();
                     $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").show();
                     $("#cuw-campaign #cuw-shortcode-wrapper").show();
+                    $("#cuw-campaign #cuw_product_recommendations_page .pr_columns").addClass('d-none');
                 } else {
                     $("#cuw-campaign #edit-template, #cuw-campaign #view-template").hide();
                     $("#cuw-campaign #template-title-wrapper").show();
                     $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").hide();
                     $("#cuw-campaign #cuw-shortcode-wrapper").hide();
+                    $("#cuw-campaign #cuw_product_recommendations_page .pr_columns").removeClass('d-none');
                 }
 
                 $("#cuw-campaign #template-name").val($(this).data("template")).trigger('change');
@@ -2079,6 +2081,14 @@ jQuery(function ($) {
                     cuw_campaign.select2();
                 } else {
                     $("#cuw-campaign #cuw-products #specific-products").slideUp();
+                }
+
+                $("#cuw-campaign #cuw-products #single-product select").prop('disabled', $(this).val() != 'single');
+                if ($(this).val() == 'single') {
+                    $("#cuw-campaign #cuw-products #single-product").slideDown();
+                    cuw_campaign.select2();
+                } else {
+                    $("#cuw-campaign #cuw-products #single-product").slideUp();
                 }
 
                 $("#cuw-campaign #cuw-products #recommendation-engines select").prop('disabled', $(this).val() != 'engine');

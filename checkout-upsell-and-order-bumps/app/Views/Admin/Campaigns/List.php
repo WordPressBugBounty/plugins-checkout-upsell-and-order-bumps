@@ -23,7 +23,7 @@ $like_args = ($search != $default_args['search']) ? ['title' => $search] : null;
 $campaigns = CampaignModel::all([
     'status' => $status,
     'type' => $type,
-    'columns' => ['id', 'type', 'title', 'enabled', 'priority', 'created_at', 'start_on', 'end_on'],
+    'columns' => ['id', 'type', 'title', 'enabled', 'priority', 'created_at', 'start_on', 'end_on', 'display_count'],
     'like' => $like_args,
     'limit' => $campaigns_per_page,
     'offset' => $page_no > 1 ? ($page_no - 1) * $campaigns_per_page : 0,
@@ -115,9 +115,9 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
                             <?php } ?>
                         </td>
 
-                        <td class="align-middle"><?php echo in_array($campaign['type'], ['checkout_upsells', 'cart_upsells', 'post_purchase'])
+                        <td class="align-middle"><?php echo in_array($campaign['type'], ['checkout_upsells', 'cart_upsells', 'post_purchase', 'post_purchase_upsells'])
                                 ? esc_html(CampaignModel::getTotalViews($campaign['id']))
-                                : esc_html__("N/A", 'checkout-upsell-woocommerce'); ?>
+                                : esc_html($campaign['display_count']); ?>
                         </td>
                         <td class="align-middle"><?php echo CUW()->wc->formatPrice(CampaignModel::getRevenue($campaign['id'])); // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
                         <td class="align-middle">

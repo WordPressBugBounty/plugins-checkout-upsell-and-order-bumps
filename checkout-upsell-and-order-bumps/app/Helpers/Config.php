@@ -167,6 +167,7 @@ class Config
             'always_display_offer' => '',
             'fbt_products_display_limit' => '2',
             'variant_select_template' => 'variant-select',
+            'quantity_template' => 'quantity-input',
         ]);
     }
 }

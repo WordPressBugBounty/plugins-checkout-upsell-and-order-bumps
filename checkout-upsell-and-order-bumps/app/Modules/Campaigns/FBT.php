@@ -143,6 +143,7 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
             }
 
             if (!empty($products) && count($products) > 1) {
+                CampaignModel::increaseCount($campaign['id'], 'display_count');
                 if ($is_bundle && $discount['apply_to'] != 'no_products' && $discount['type'] == 'fixed_price') {
                     $product_ids = array_column($products, 'id');
                     if ($discount_apply_to == 'only_upsells') {

@@ -35,7 +35,8 @@ class Events extends Controller
      */
     public static function loadQuantityInput($html, $offer)
     {
-        return self::app()->template('offer/quantity-input', ['offer' => $offer], false);
+        $template_name = self::app()->config->getSetting('quantity_template');
+        return self::app()->template('offer/' . $template_name, ['offer' => $offer], false);
     }
 
     /**
@@ -56,7 +57,8 @@ class Events extends Controller
      */
     public static function loadProductQuantityInput($html, $product, $attributes)
     {
-        return self::app()->template('products/quantity-input', ['product' => $product, 'attributes' => $attributes], false);
+        $template_name = self::app()->config->getSetting('quantity_template');
+        return self::app()->template('products/' . $template_name, ['product' => $product, 'attributes' => $attributes], false);
     }
 
     /**
