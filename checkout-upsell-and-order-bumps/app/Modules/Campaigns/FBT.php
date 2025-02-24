@@ -249,7 +249,7 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
             $campaigns = CampaignModel::all([
                 'status' => 'active',
                 'type' => 'fbt',
-                'columns' => ['id', 'title', 'type', 'filters', 'data'],
+                'columns' => apply_filters('cuw_fbt_campaign_db_columns', ['id', 'title', 'type', 'filters', 'data']),
                 'order_by' => 'priority',
                 'sort' => 'asc',
             ]);
@@ -258,6 +258,11 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
                 foreach ($campaigns as $campaign) {
                     // check filters
                     if (!Campaign::isFiltersPassed($campaign['filters'], $product_data)) {
+                        continue;
+                    }
+
+                    // check conditions
+                    if (!empty($campaign['conditions']) && !Campaign::isConditionsPassed($campaign['conditions'], $product_data)) {
                         continue;
                     }
 

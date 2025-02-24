@@ -147,7 +147,7 @@
           display: flex;
           align-items: center;
           gap: 8px; }
-  #cuw-page #cuw-campaign .select2-selection__rendered, #cuw-page #cuw-engine .select2-selection__rendered {
+  #cuw-page #cuw-campaign .select2-selection--multiple .select2-selection__rendered, #cuw-page #cuw-engine .select2-selection--multiple .select2-selection__rendered {
     word-wrap: break-word !important;
     white-space: normal !important; }
   #cuw-page #cuw_template #template-name {
@@ -603,11 +603,6 @@
   #cuw-page #cuw-campaign #cuw_template .view-template {
     height: 40px;
     width: 40px; }
-  #cuw-page #cuw-campaign #cuw-products .select2-selection__rendered,
-  #cuw-page #cuw-campaign #cuw-triggers .select2-selection__rendered,
-  #cuw-page #cuw-campaign #cuw-action .select2-selection__rendered {
-    word-wrap: break-word !important;
-    white-space: normal !important; }
   #cuw-page #cuw-campaign #filters-match, #cuw-page #cuw-campaign #conditions-match {
     flex-wrap: wrap;
     gap: 8px; }
@@ -1194,10 +1189,6 @@ select {
     z-index: 2;
     top: 38%;
     left: 38%; }
-
-#cuw-campaign #condition-slider .select2-selection__rendered, #cuw-campaign #filter-slider .select2-selection__rendered {
-  word-wrap: break-word !important;
-  white-space: normal !important; }
 
 #cuw-campaign .cuw-animate-top {
   animation-name: cuw-animate-top;

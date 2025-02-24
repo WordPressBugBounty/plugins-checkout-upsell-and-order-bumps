@@ -5,7 +5,7 @@ Tags: woocommerce, upsell, woocommerce upsell, order bump, boost sales
 Requires at least: 5.3
 Requires PHP: 7.0
 Tested up to: 6.7
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,7 +24,7 @@ Relevant offers can be set for specific targets with WooCommerce Order Bump Plug
 
 [youtube https://www.youtube.com/watch?v=JUCFEhmrHSY&w=754&h=424&rel=0]
 
-[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
+[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 == The Free version of UpsellWP comes with the following upsell features: ==
 
@@ -71,7 +71,7 @@ Choosing the PRO version means upgrading your sales game. Not only do you get al
 * Offers with **A/B testing** for better conversions
 * Unlimited upsell offer campaigns
 
-[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
+[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 Unleash the power of targeted marketing with just one WooCommerce Upsell and Order Bump Plugin.
 
@@ -180,7 +180,7 @@ The following is a list of upsell and cross-sell opportunities, which can help s
   * A Gift Wrap add-on
   * Related products or accessories
 
-[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
+[View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [PRO version](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 == Smart Product Recommendations Engine ==
 
@@ -205,7 +205,7 @@ Explore our [Video Tutorials on YouTube](https://www.youtube.com/@UpsellWP/video
 
 = Documentation =
 
-We have created step-by-step guides to create order bumps in WooCommerce. [Check out our documentation](https://docs.upsellwp.com/)
+We have created step-by-step guides to create order bumps in WooCommerce. [Check out our documentation](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 = Support =
 
@@ -284,6 +284,11 @@ The plugin currently supports displaying the offers in 4 different places in the
 8. Campaign offer edit page
 
 == Changelog ==
+= 2.1.7 - 24/02/2025 =
+* Add - Filter for FBT and Product Add-on.
+* Add - Logo for Email Upsell campaign.
+* Improve - Banner image for Recommendation page.
+
 = 2.1.6 - 04/02/2025 =
 * Add - View Count for all product campaigns.
 * Add - New tempates for all campaigns.

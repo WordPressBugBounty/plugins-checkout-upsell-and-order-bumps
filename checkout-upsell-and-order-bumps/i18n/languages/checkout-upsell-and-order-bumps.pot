@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.6\n"
+"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-04T10:31:06+00:00\n"
+"POT-Creation-Date: 2025-02-24T05:43:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-woocommerce\n"
@@ -427,8 +427,8 @@ msgid "Choose this type to show the upsell offers on the cart page"
 msgstr ""
 
 #: app/Helpers/Campaign.php:58
-#: app/Modules/Campaigns/FBT.php:543
-#: app/Modules/Campaigns/FBT.php:656
+#: app/Modules/Campaigns/FBT.php:548
+#: app/Modules/Campaigns/FBT.php:661
 #: app/Views/Admin/Campaign/FBT.php:181
 #: app/Views/Admin/Settings.php:215
 msgid "Frequently Bought Together"
@@ -1021,7 +1021,7 @@ msgstr ""
 
 #: app/Modules/Campaigns/CartUpsells.php:307
 #: app/Modules/Campaigns/CheckoutUpsells.php:287
-#: app/Modules/Campaigns/FBT.php:634
+#: app/Modules/Campaigns/FBT.php:639
 #: app/Pro/Helpers/Page.php:93
 #: app/Pro/Helpers/Page.php:121
 #: app/Pro/Helpers/Page.php:144
@@ -1085,22 +1085,22 @@ msgstr ""
 msgid "Checkout Block: After shipping"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:630
+#: app/Modules/Campaigns/FBT.php:635
 #: app/Pro/Helpers/Page.php:128
 msgid "Top of the Product page"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:631
+#: app/Modules/Campaigns/FBT.php:636
 #: app/Pro/Helpers/Page.php:132
 msgid "Bottom of the Product Page"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:632
+#: app/Modules/Campaigns/FBT.php:637
 #: app/Pro/Helpers/Page.php:136
 msgid "After Product summary"
 msgstr ""
 
-#: app/Modules/Campaigns/FBT.php:633
+#: app/Modules/Campaigns/FBT.php:638
 msgid "Before Product tabs"
 msgstr ""
 
@@ -1721,7 +1721,7 @@ msgid "Empty cart"
 msgstr ""
 
 #: app/Pro/Helpers/Page.php:140
-#: app/Pro/Modules/Campaigns/ProductAddons.php:347
+#: app/Pro/Modules/Campaigns/ProductAddons.php:353
 msgid "After Add to cart Button"
 msgstr ""
 
@@ -1845,7 +1845,7 @@ msgstr ""
 msgid "Invalid request"
 msgstr ""
 
-#: app/Pro/Modules/Campaigns/ProductAddons.php:346
+#: app/Pro/Modules/Campaigns/ProductAddons.php:352
 msgid "Before Add to cart Button"
 msgstr ""
 
@@ -3312,7 +3312,7 @@ msgstr ""
 #: app/Views/Admin/AddOns.php:110
 #: app/Views/Admin/Campaign/Components/Information.php:16
 #: app/Views/Admin/Campaign/Components/Information.php:29
-#: app/Views/Admin/Recommendations.php:29
+#: app/Views/Admin/Recommendations.php:33
 msgid "By"
 msgstr ""
 
@@ -3653,7 +3653,7 @@ msgid "Get"
 msgstr ""
 
 #: app/Views/Admin/AddOns.php:143
-#: app/Views/Admin/Recommendations.php:43
+#: app/Views/Admin/Recommendations.php:47
 msgid "Learn more"
 msgstr ""
 
