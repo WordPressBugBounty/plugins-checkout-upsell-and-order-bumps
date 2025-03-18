@@ -38,7 +38,7 @@ class WC
      * @param int|float $quantity
      * @return bool
      */
-    public static function isPurchasableProduct($object_or_id, $quantity = 1)
+    public static function isPurchasableProduct($object_or_id, $quantity = 1, $check_cart_existing_quantity = true)
     {
         $product = self::getProduct($object_or_id);
         if (is_object($product) && method_exists($product, 'is_purchasable') && $product->is_purchasable()) {
@@ -48,6 +48,23 @@ class WC
             if (method_exists($product, 'is_in_stock') && !$product->is_in_stock()) {
                 return false;
             }
+
+            if (apply_filters('cuw_check_cart_existing_quantity', $check_cart_existing_quantity, $product, $quantity)) {
+                if ($quantity == '') {
+                    $quantity = 1;
+                }
+                $cart_items = self::getCartItems();
+                if (!empty($cart_items)) {
+                    $product_id = $product->get_id();
+                    foreach ($cart_items as $cart_item_key => $cart_item) {
+                        $cart_item_product_id = !empty($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
+                        if ($cart_item_product_id == $product_id) {
+                            $quantity += (int)$cart_item['quantity'];
+                        }
+                    }
+                }
+            }
+
             if (method_exists($product, 'has_enough_stock') && !$product->has_enough_stock($quantity)) {
                 return false;
             }

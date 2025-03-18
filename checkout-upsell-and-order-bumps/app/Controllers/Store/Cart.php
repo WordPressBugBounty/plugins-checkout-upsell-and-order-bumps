@@ -39,7 +39,9 @@ class Cart extends Controller
 
                 // to avoid fixed offer quantity increasing
                 if (!empty($offer['fixed_quantity']) && $cart_item['quantity'] != $offer['fixed_quantity']) {
-                    WC::setCartItemQty($key, $offer['product']['qty'], false);
+                    if (apply_filters('cuw_cart_item_check_quantity_for_offer', true, $offer['product']['qty'], $offer, $cart_item, false)) {
+                        WC::setCartItemQty($key, $offer['product']['qty'], false);
+                    }
                 }
             } elseif (isset($cart_item['cuw_product']) && $data = $cart_item['cuw_product']) {
                 if (isset($data['discount']['type']) && $data['discount']['type'] != 'no_discount') {
@@ -52,14 +54,18 @@ class Cart extends Controller
 
                 // to avoid fixed product quantity increasing
                 if (!empty($data['fixed_quantity']) && $cart_item['quantity'] != $data['fixed_quantity']) {
-                    WC::setCartItemQty($key, $data['product']['qty'], false);
+                    if (apply_filters('cuw_cart_item_check_quantity_for_product', true, $data['product']['qty'], $data, $cart_item, false)) {
+                        WC::setCartItemQty($key, $data['product']['qty'], false);
+                    }
                 }
 
                 // to sync main item quantity with child item quantities
                 if (!empty($data['main_item_key']) && !empty($data['sync_quantity'])) {
                     $main_item = WC::getCartItem($data['main_item_key']);
                     if (!empty($main_item) && isset($main_item['quantity'])) {
-                        WC::setCartItemQty($key, $main_item['quantity'], false);
+                        if (apply_filters('cuw_cart_item_check_quantity_for_product', true, $main_item['quantity'], $data, $cart_item, true)) {
+                            WC::setCartItemQty($key, $main_item['quantity'], false);
+                        }
                     }
                 }
             }
@@ -274,5 +280,31 @@ class Cart extends Controller
                 ]);
             }
         }
+    }
+
+    /**
+     * To check the quantity with cart existing quantities.
+     *
+     * @param $status
+     * @param $quantity
+     * @param $data
+     * @param $cart_item
+     * @return bool
+     */
+    public static function checkCartItemExistingQuantity($status, $quantity, $data, $cart_item, $remove_if_out_of_stock = false)
+    {
+        if (!empty($quantity) && !empty($data) && !empty($cart_item)) {
+            $cart_item_quantity = $cart_item['quantity'] ?? 0;
+            if (!empty($cart_item_quantity) && in_array($data['campaign_type'], apply_filters('cuw_check_existing_cart_quantity_supported_campaign_types', ['double_order']))) {
+                $quantity += $cart_item_quantity;
+                $product_id = !empty($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
+                $is_in_stock = WC::isPurchasableProduct($product_id, $quantity, false);
+                if (!$is_in_stock && $remove_if_out_of_stock) {
+                    WC::removeCartItem($cart_item['key'] ?? '');
+                }
+                return $is_in_stock;
+            }
+        }
+        return $status; // returns default status.
     }
 }

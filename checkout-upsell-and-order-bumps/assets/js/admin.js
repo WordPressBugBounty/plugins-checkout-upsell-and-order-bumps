@@ -1445,7 +1445,9 @@ jQuery(function ($) {
                     $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").show();
                     $("#cuw-campaign #cuw-shortcode-wrapper").show();
                     $("#cuw-campaign #cuw_product_recommendations_page .pr_columns").addClass('d-none');
+                    $("#cuw-campaign #edit-template-slider #template-title").show().prop('disabled', false);
                 } else {
+                    $("#cuw-campaign #edit-template-slider #template-title").hide().prop('disabled', true);
                     $("#cuw-campaign #edit-template, #cuw-campaign #view-template").hide();
                     $("#cuw-campaign #template-title-wrapper").show();
                     $("#cuw-campaign #cuw_product_recommendations_page #display-location .shortcode-option").hide();
@@ -1511,6 +1513,7 @@ jQuery(function ($) {
         init: function () {
             this.select2();
             this.event_listeners();
+            this.init_template_title();
 
             if ($('#cuw-campaign #cuw-engine-filter-container').length > 0) {
                 cuw_engine.event_listeners();
@@ -1940,6 +1943,17 @@ jQuery(function ($) {
                 cuw_page.redirect('&tab=campaigns&page_no=' + page_no, delay);
             } else {
                 cuw_page.redirect('&tab=campaigns', delay);
+            }
+        },
+
+        init_template_title : function() {
+            if ($("#cuw_template #template-name").length > 0) {
+                let template_name = $("#cuw_template #template-name").val();
+                if (template_name.indexOf('default') === -1) {
+                    $("#cuw-campaign #edit-template-slider #template-title").show().prop('disabled', false);
+                } else {
+                    $("#cuw-campaign #edit-template-slider #template-title").hide().prop('disabled', true);
+                }
             }
         },
 

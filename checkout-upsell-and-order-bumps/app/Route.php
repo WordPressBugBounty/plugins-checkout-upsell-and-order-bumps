@@ -125,6 +125,9 @@ class Route
         add_action('woocommerce_after_cart_item_name', [Cart::class, 'changeCartItemVariant'], 1);
         add_action('woocommerce_cart_updated', [Cart::class, 'updateRegularPrice'], 10000);
 
+        add_filter('cuw_cart_item_check_quantity_for_product', [Cart::class, 'checkCartItemExistingQuantity'], 5, 100);
+        add_filter('cuw_cart_item_check_quantity_for_offer', [Cart::class, 'checkCartItemExistingQuantity'], 5, 100);
+
         // to save stats and add order meta
         add_action('woocommerce_checkout_create_order_line_item', [Checkout::class, 'addOrderItemMeta'], 100, 3);
         add_action('woocommerce_checkout_order_created', [Checkout::class, 'saveStats'], 100);

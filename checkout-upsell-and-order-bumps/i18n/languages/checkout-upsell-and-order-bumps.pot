@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.7\n"
+"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-24T05:43:47+00:00\n"
+"POT-Creation-Date: 2025-03-18T08:57:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-woocommerce\n"
@@ -253,7 +253,7 @@ msgstr ""
 
 #: app/Controllers/Admin/Page.php:253
 #: app/Controllers/Common/Campaigns.php:66
-#: app/Controllers/Store/Cart.php:90
+#: app/Controllers/Store/Cart.php:96
 #: app/Views/Admin/Campaign/Offer/Content.php:33
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:11
 msgid "Offer"
@@ -314,7 +314,7 @@ msgid "Get PRO"
 msgstr ""
 
 #: app/Controllers/Common/Campaigns.php:68
-#: app/Controllers/Store/Cart.php:105
+#: app/Controllers/Store/Cart.php:111
 #: app/Pro/Views/Admin/Campaign/CartAddons.php:68
 #: app/Pro/Views/Admin/Campaign/DoubleOrder.php:16
 #: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:223
@@ -1044,22 +1044,22 @@ msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:281
 #: app/Pro/Helpers/Page.php:163
-#: app/Pro/Modules/Campaigns/DoubleOrder.php:360
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:402
 msgid "Before Payment Gateways"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:282
-#: app/Pro/Modules/Campaigns/DoubleOrder.php:363
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:405
 msgid "Bottom of the Checkout Page"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:283
-#: app/Pro/Modules/Campaigns/DoubleOrder.php:361
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:403
 msgid "Before Place Order Button"
 msgstr ""
 
 #: app/Modules/Campaigns/CheckoutUpsells.php:284
-#: app/Pro/Modules/Campaigns/DoubleOrder.php:362
+#: app/Pro/Modules/Campaigns/DoubleOrder.php:404
 msgid "After Place Order Button"
 msgstr ""
 
@@ -1751,11 +1751,11 @@ msgstr ""
 msgid "Oops! Something went wrong."
 msgstr ""
 
-#: app/Pro/Modules/Campaigns/CartAddons.php:352
+#: app/Pro/Modules/Campaigns/CartAddons.php:354
 msgid "Seems your cart page is built by using WooCommerce Cart block and we unable to show addon inside the block."
 msgstr ""
 
-#: app/Pro/Modules/Campaigns/CartAddons.php:384
+#: app/Pro/Modules/Campaigns/CartAddons.php:386
 msgid "After Cart item name"
 msgstr ""
 

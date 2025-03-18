@@ -34,15 +34,18 @@ class Product
             'quantity' => 1,
             'discount' => [],
             'to_display' => false,
+            'is_preview' => false,
             'display_in' => 'shop',
             'format_title' => false,
             'format_image' => false,
             'include_variants' => false,
             'filter_purchasable' => false,
             'load_tax' => false,
+            'check_cart_item_existing_qty' => true,
         ]);
 
-        if ($args['filter_purchasable'] && !WC::isPurchasableProduct($product, $args['quantity'])) {
+        $check_cart_item_existing_qty = $args['is_preview'] ? false : $args['check_cart_item_existing_qty'];
+        if ($args['filter_purchasable'] && !WC::isPurchasableProduct($product, $args['quantity'], $check_cart_item_existing_qty)) {
             return false;
         }
 
@@ -181,6 +184,11 @@ class Product
                 if ($args['display_in'] == 'shop') {
                     $data['price_html'] .= $product->get_price_suffix($min_price);
                 }
+
+                if (!empty($data['default_variant']['stock_qty'])) {
+                    $data['stock_qty'] = $data['default_variant']['stock_qty'];
+                }
+
             } elseif ($args['filter_purchasable']) {
                 return false;
             }
