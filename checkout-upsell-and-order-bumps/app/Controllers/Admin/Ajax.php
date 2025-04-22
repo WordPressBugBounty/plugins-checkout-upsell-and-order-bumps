@@ -169,6 +169,7 @@ class Ajax extends Controller
                 'numberposts' => $search_limit,
                 'orderby' => 'name',
                 'order' => 'ASC',
+                /* phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query */
                 'tax_query' => [
                     [
                         'taxonomy' => 'product_type',

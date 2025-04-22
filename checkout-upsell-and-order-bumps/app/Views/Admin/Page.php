@@ -118,8 +118,8 @@ if (!CUW()->plugin->has_pro) {
                 <div style="display:flex; align-items: center;" class="help-menu">
                     <a class="help-link d-flex align-items-center" target="_blank" style="gap: 4px;"
                        href="<?php echo esc_url($link['url']); ?>"
-                       title="<?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); ?>">
-                        <?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); ?>
+                       title="<?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>">
+                        <?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
                         <i class="cuw-icon-external-link inherit-color" style="font-size: 16px;"></i>
                     </a>
                 </div>

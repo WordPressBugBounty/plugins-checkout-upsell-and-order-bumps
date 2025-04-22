@@ -64,7 +64,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
         <div style="display: flex; flex-direction: column; width: 100%">
             <select class="wc-product-search" multiple="multiple" id="cuw-fbt-products"
                     name="cuw_fbt_product_ids[]" style="width: 50%;"
-                    data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'woocommerce'); ?>"
+                    data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-woocommerce'); ?>"
                     data-action="woocommerce_json_search_products_and_variations"
                     data-exclude="<?php echo intval($post_id); ?>">
                 <?php foreach ($product_ids as $product_id) {
@@ -267,7 +267,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                 <label for="cuw-fbt-products-list"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-woocommerce'); ?></label>
                 <select class="wc-product-search" multiple="multiple" id="cuw-fbt-products-list"
                         name="cuw_fbt_product_ids[]" style="width: 50%;"
-                        data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'woocommerce'); ?>"
+                        data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-woocommerce'); ?>"
                         data-action="woocommerce_json_search_products_and_variations"
                         data-exclude="<?php echo intval($post_id); ?>">
                     <?php foreach ($product_ids as $product_id) {

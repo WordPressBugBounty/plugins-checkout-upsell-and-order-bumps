@@ -282,7 +282,7 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
             if ($display_method == 'ab_testing' && $offers_count == 2) {
                 $offer_ids = array(Offer::chooseOfferAorB($valid_offers[0], $valid_offers[1], $campaign_data)['id']);
             } elseif ($display_method == 'random') {
-                $offer_ids = array($offers_count == 1 ? $valid_offers[0]['id'] : $valid_offers[rand(0, $offers_count - 1)]['id']);
+                $offer_ids = array($offers_count == 1 ? $valid_offers[0]['id'] : $valid_offers[wp_rand(0, $offers_count - 1)]['id']);
             } else {
                 $offer_ids = array_map(function ($offer) {
                     return $offer['id'];

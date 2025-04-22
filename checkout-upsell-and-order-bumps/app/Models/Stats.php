@@ -64,6 +64,7 @@ class Stats extends Model
                  `currency` varchar(32) DEFAULT NULL,
                  `user_id` bigint(20) unsigned DEFAULT NULL,
                  `billing_email` varchar(255) DEFAULT NULL,
+                 `order_status` varchar(32) DEFAULT NULL,
                  `created_at` bigint(20) unsigned DEFAULT NULL,
                  PRIMARY KEY (id)
             ) {charset_collate};";
@@ -328,6 +329,11 @@ class Stats extends Model
     protected static function prepareReportWhereQuery($campaign = 'all', $date_from = null, $date_to = null, $currency = null)
     {
         $where_query = '';
+        $order_status = apply_filters('cuw_stats_failed_order_status', ['cancelled', 'failed', 'checkout-draft', 'refunded']);
+        if ($order_status) {
+            $where_query = self::addWhereQuery($where_query, "`order_status` NOT IN ('". implode("','", $order_status) ."')");
+        }
+
         if ($campaign != 'all' && $campaign != '') {
             if (is_numeric($campaign)) {
                 $where_query = self::addWhereQuery($where_query, self::db()->prepare("`campaign_id` = %d", [$campaign]));
@@ -530,7 +536,7 @@ class Stats extends Model
     public static function getDateByRange($range)
     {
         $date = [];
-        $day = date('N', current_time('timestamp'));
+        $day = gmdate('N', current_time('timestamp'));
         if ($range == 'last_30_days') {
             $date['from'] = Functions::getDateByString('-30 days', 'Y-m-d');
             $date['to'] = Functions::getDateByString('now', 'Y-m-d');
@@ -681,8 +687,22 @@ class Stats extends Model
             'revenue_with_tax' => $revenue_with_tax,
             'currency' => $order->get_currency(),
             'billing_email' => $order->get_billing_email(),
+            'order_status' => $order->get_status() ?? null,
             'user_id' => is_user_logged_in() ? get_current_user_id() : null,
             'created_at' => current_time('timestamp', true),
         ], ['%d', '%s', '%d', '%d', '%d', '%d', '%f', '%f', '%f', '%d', '%s', '%f', '%f', '%s', '%s', '%d', '%d']);
+    }
+
+    /**
+     * Update order status in stats table.
+     *
+     * @param $order_id
+     * @param $old_status
+     * @param $new_status
+     * @return void
+     */
+    public static function updateOrderStatus($order_id, $old_status, $new_status)
+    {
+        self::execQuery('UPDATE {table} SET `order_status` = "' . $new_status . '" WHERE `order_id` = "' . $order_id .'";');
     }
 }

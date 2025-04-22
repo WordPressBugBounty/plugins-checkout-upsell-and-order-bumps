@@ -111,6 +111,20 @@ class Tutorials
                   'url' => 'https://docs.upsellwp.com/campaigns/post-purchase-upsells-new',
               ],
             ],
+
+            'buy_more_save_more' => [
+                [
+                    'title' => 'Buy more save more documentation',
+                    'url' => 'https://docs.upsellwp.com/add-ons/buy-more-save-more'
+                ],
+            ],
+
+            'email_upsells' => [
+                [
+                    'title' => 'Email upsells documentation',
+                    'url' => 'https://docs.upsellwp.com/add-ons/email-upsell'
+                ],
+            ],
         ];
 
         return $links[$campaign_type] ?? [];
@@ -211,6 +225,20 @@ class Tutorials
                       'title' => 'Post-purchase upsells configuration',
                       'url' => 'https://youtu.be/VsKCkDHvj5Y',
                   ],
+            ],
+
+            'buy_more_save_more' => [
+                [
+                    'title' => 'Buy more save more configuration',
+                    'url' => 'https://youtu.be/736c_3sBVqk'
+                ],
+            ],
+
+            'email_upsells' => [
+                [
+                    'title' => 'Email upsells configuration',
+                    'url' => 'https://youtu.be/YGhO_L954H0'
+                ],
             ],
         ];
 

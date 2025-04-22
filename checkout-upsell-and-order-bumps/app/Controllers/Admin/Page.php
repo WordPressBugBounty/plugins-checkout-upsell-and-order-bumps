@@ -203,6 +203,7 @@ class Page extends Controller
                         'campaign_not_saved' => esc_html__("Campaign not saved", 'checkout-upsell-woocommerce'),
                         'this_field_is_required' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
                         'at_least_one_offer_required' => esc_html__("At least one offer is required", 'checkout-upsell-woocommerce'),
+                        // translators: %s value.
                         'offer_max_limit' => esc_html__("Maximum: %s", 'checkout-upsell-woocommerce'),
                         'offer_max_limit_reached' => esc_html__("Maximum offer limit is reached", 'checkout-upsell-woocommerce'),
                         'offer_unable_to_remove' => esc_html__("Unable to remove offer (At least one offer required)", 'checkout-upsell-woocommerce'),
@@ -347,7 +348,7 @@ class Page extends Controller
             $response = wp_remote_get($recommendation_list_url);
             if (!is_wp_error($response)) {
                 $recommendations_list = (array)json_decode(wp_remote_retrieve_body($response), true);
-                $site_name = $_SERVER['HTTP_HOST'];
+                $site_name = !empty($_SERVER['HTTP_HOST']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_HOST'])) : '';
                 foreach ($recommendations_list as &$recommendation) {
                     $recommendation['plugin_url'] = str_replace('{site-name}', $site_name, $recommendation['plugin_url']);
                 }

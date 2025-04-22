@@ -48,7 +48,10 @@ $has_pro = CUW()->plugin->has_pro;
                 <label class="custom-control-label font-weight-medium"
                        for="use-related"><?php esc_html_e("Use Related products", 'checkout-upsell-woocommerce'); ?></label>
                 <span class="d-block secondary small cuw-px-20px">
-                    <?php echo esc_html(sprintf(__("This will use WooCommerce Related Products as %s products.", 'checkout-upsell-woocommerce'), $products_text)); ?>
+                    <?php
+                        // translators: %s product text.
+                        echo esc_html(sprintf(__("This will use WooCommerce Related Products as %s products.", 'checkout-upsell-woocommerce'), $products_text));
+                    ?>
                 </span>
                 <span class="d-block secondary small cuw-px-20px">
                     <?php esc_html_e("WooCommerce decides the relation based on products having the same tags or categories.", 'checkout-upsell-woocommerce'); ?>
@@ -103,7 +106,10 @@ $has_pro = CUW()->plugin->has_pro;
                     <?php echo esc_html(__('This will use the products selected under the "Upsell Products" section in the product creation page.', 'checkout-upsell-woocommerce')); ?>
                 </span>
                 <span class="d-block text-dark secondary small cuw-px-20px">
-                    <?php echo esc_html(sprintf(__("NOTE: You need to choose the %s products manually when you create or edit the products.", 'checkout-upsell-woocommerce'), $products_text)); ?>
+                    <?php
+                        // translators: %s product text.
+                        echo esc_html(sprintf(__("NOTE: You need to choose the %s products manually when you create or edit the products.", 'checkout-upsell-woocommerce'), $products_text));
+                    ?>
                 </span>
             </div>
         <?php } ?>
@@ -115,7 +121,10 @@ $has_pro = CUW()->plugin->has_pro;
                 <label class="custom-control-label font-weight-medium"
                        for="use-specific"><?php esc_html_e("Specific products", 'checkout-upsell-woocommerce'); ?></label>
                 <span class="d-block secondary small cuw-px-20px">
-                    <?php echo esc_html(sprintf(__('This will use the following set of products as %s products.', 'checkout-upsell-woocommerce'), $products_text)); ?>
+                    <?php
+                        // translators: %s product text.
+                        echo esc_html(sprintf(__('This will use the following set of products as %s products.', 'checkout-upsell-woocommerce'), $products_text));
+                    ?>
                 </span>
                 <div class="mt-2" id="specific-products"
                      style="margin: 0 24px; display: <?php echo !empty($use_products == 'specific') ? 'block' : 'none'; ?>">
@@ -169,7 +178,10 @@ $has_pro = CUW()->plugin->has_pro;
                     <?php } ?>
                 </label>
                 <span class="d-block secondary small cuw-px-20px">
-                    <?php echo esc_html(sprintf(__('This will use the following set of products prepared by engine as %s products.', 'checkout-upsell-woocommerce'), $products_text)); ?>
+                    <?php
+                        // translators: %s product text.
+                        echo esc_html(sprintf(__('This will use the following set of products prepared by engine as %s products.', 'checkout-upsell-woocommerce'), $products_text));
+                    ?>
                 </span>
                 <div class="mt-2" id="recommendation-engines"
                      style="margin: 0 24px; display: <?php echo !empty($use_products == 'engine') ? 'block' : 'none'; ?>">

@@ -25,6 +25,7 @@ use CUW\App\Controllers\Store\Checkout;
 use CUW\App\Helpers\Compatibility;
 use CUW\App\Helpers\Config;
 use CUW\App\Helpers\WP;
+use CUW\App\Models\Stats;
 
 defined('ABSPATH') || exit;
 
@@ -61,6 +62,7 @@ class Route
 
         // to change order item display meta key to text
         add_filter('woocommerce_order_item_display_meta_key', [Campaigns::class, 'displayItemMetaKey']);
+        add_action('woocommerce_order_status_changed', [Stats::class, 'updateOrderStatus'], 10, 3);
     }
 
     /**

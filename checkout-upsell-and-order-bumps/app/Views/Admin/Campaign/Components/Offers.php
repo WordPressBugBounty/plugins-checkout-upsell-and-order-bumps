@@ -113,7 +113,12 @@ $display_location_on_mini_cart = \CUW\App\Helpers\Campaign::getDisplayLocation($
     <div>
         <?php $offers_max_limit = ($offer_display_method == 'ab_testing') ? 2 : $offers_max_limit; ?>
         <span>
-            <small class="font-weight-medium text-secondary offers-max-limit"><?php echo esc_html(sprintf(__("Maximum: %s", 'checkout-upsell-woocommerce'), $offers_max_limit)); ?></small>
+            <small class="font-weight-medium text-secondary offers-max-limit">
+                <?php
+                    // translators: %s offer limit.
+                    echo esc_html(sprintf(__("Maximum: %s", 'checkout-upsell-woocommerce'), $offers_max_limit));
+                ?>
+            </small>
         </span>
         <?php if (!$has_pro) { ?>
             <span class="d-block mt-1 small">

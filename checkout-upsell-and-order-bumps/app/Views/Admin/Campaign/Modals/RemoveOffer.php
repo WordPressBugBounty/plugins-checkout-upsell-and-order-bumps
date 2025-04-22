@@ -12,8 +12,10 @@ defined('ABSPATH') || exit;
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo sprintf(esc_html__("Are you sure, you want to remove %s?", 'checkout-upsell-woocommerce'),
-                    '<span class="offer-title font-weight-bold"></span>');
+                <?php
+                // translators: %s offer title.
+                echo wp_kses_post(sprintf(__("Are you sure, you want to remove %s?", 'checkout-upsell-woocommerce'),
+                    '<span class="offer-title font-weight-bold"></span>'));
                 ?>
                 <div class="mt-2 text-info cuw-child-offer-warning"
                      style="display: none; width: fit-content;">

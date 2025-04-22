@@ -13,6 +13,8 @@ foreach ($order_statuses as $slug => $status) {
         $order_statuses[$slug] = $list_statuses[$slug];
     }
 }
+$failed_order_statuses = array_flip(isset($campaign['data']['failed_order_statuses']) ? $campaign['data']['failed_order_statuses'] : ['wc-cancelled', 'wc-refunded']);
+$failed_order_statuses_list = array_intersect_key($list_statuses, array_flip(CUW()->wc->getOrderStatuses('failed')));
 ?>
 
 <div id="cuw-action">
@@ -206,6 +208,19 @@ foreach ($order_statuses as $slug => $status) {
             <input type="number" class="form-control" name="data[coupon][expire_after_x_days]"
                    value="<?php echo esc_attr($expire_after_x_days); ?>"
                    placeholder="<?php esc_html_e("Never expire", 'checkout-upsell-woocommerce'); ?>">
+        </div>
+    </div>
+
+    <div class="row px-3 pb-3">
+        <div class="col-md-6 when-generate-coupon">
+            <label for="display-location"
+                   class="form-label"><?php esc_html_e("Coupons should be invalidated for the following order statuses.", 'checkout-upsell-woocommerce'); ?></label>
+            <select multiple class="select2-local" name="data[failed_order_statuses][]"
+                    data-placeholder=" <?php esc_html_e("Choose order statuses", 'checkout-upsell-woocommerce'); ?>">
+                <?php foreach ($failed_order_statuses_list as $slug => $name) { ?>
+                    <option value="<?php echo esc_attr($slug); ?>" <?php if (isset($failed_order_statuses[$slug])) echo "selected"; ?>><?php echo esc_html($name); ?></option>
+                <?php } ?>
+            </select>
         </div>
     </div>
 </div>

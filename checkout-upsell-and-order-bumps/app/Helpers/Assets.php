@@ -189,7 +189,7 @@ class Assets
                 wp_enqueue_style($name, $style['src'], $style['deps'], $data['version']);
             }
             foreach ($data['scripts'] as $name => $script) {
-                wp_enqueue_script($name, $script['src'], $script['deps'], $data['version']);
+                wp_enqueue_script($name, $script['src'], $script['deps'], $data['version'], true);
                 if (!empty($script['data'])) {
                     wp_localize_script($name, $name, $script['data']);
                 }

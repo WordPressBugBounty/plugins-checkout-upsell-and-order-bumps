@@ -351,6 +351,7 @@ class Cart
             if ($is_checkout_upsells && $always_display_offer && !empty($add_limit) && $add_limit <= count(self::getAppliedOffers(true))) {
                 $result['status'] = 'notice';
                 $result['message'] = apply_filters('cuw_offer_limit_reached_message',
+                    // translators: %s offer add limit.
                     esc_html(sprintf(__("You can add only %s offer(s) at a time.", 'checkout-upsell-woocommerce'), $add_limit))
                 );
             } elseif ($data) {
@@ -360,7 +361,7 @@ class Cart
                     if ($key) {
                         do_action('cuw_offer_added_to_cart', $key, $data);
                         $success_message = Config::getSetting('offer_added_notice_message');
-                        $result['message'] = apply_filters('cuw_offer_add_to_cart_success_message', esc_html__($success_message, 'checkout-upsell-woocommerce'));
+                        $result['message'] = apply_filters('cuw_offer_add_to_cart_success_message', __($success_message, 'checkout-upsell-woocommerce')); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
                         $result['status'] = 'success';
                         $result['remove_offer'] = $allow_remove;
                     } else {
@@ -374,6 +375,10 @@ class Cart
                     if ($is_checkout_upsells) {
                         $result['cart_item_key'] = $key;
                     }
+
+                    $to_reload = apply_filters('cuw_offer_reload_page', false, $data['campaign_type'] ?? '');
+                    $result['reload_page'] = $to_reload;
+
                     $result['offer_id'] = $offer_id;
                 } catch (\Exception $e) {
                     $result['message'] = 'Unexpected error occurred.';

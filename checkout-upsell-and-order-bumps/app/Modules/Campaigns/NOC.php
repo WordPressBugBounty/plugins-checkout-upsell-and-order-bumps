@@ -22,6 +22,7 @@ use CUW\App\Helpers\WC;
 use CUW\App\Helpers\WP;
 use CUW\App\Models\Campaign as CampaignModel;
 use CUW\App\Models\Model;
+use WC_Coupon;
 
 class NOC extends Base
 {
@@ -31,13 +32,6 @@ class NOC extends Base
      * @var string
      */
     const TYPE = 'noc';
-
-    /**
-     * To hold processed actions
-     *
-     * @var array
-     */
-    private static $actions;
 
     /**
      * To add hooks.
@@ -136,6 +130,8 @@ class NOC extends Base
         if (self::isEnabled()) {
             add_action('woocommerce_coupon_is_valid', [__CLASS__, 'checkCouponIsValid'], 1000, 2);
             add_filter('cuw_campaign_usage_count_based_on_current_user', [__CLASS__, 'getUsageCountBasedOnCurrentUser'], 10, 2);
+            add_action('woocommerce_order_status_changed', [__CLASS__, 'processOrderCoupon'], 20);
+            add_action('woocommerce_after_order_object_save', [__CLASS__, 'processOrderCoupon'], 20);
         }
     }
 
@@ -147,6 +143,134 @@ class NOC extends Base
         if (!$sent_to_admin) {
             echo self::getActionsHtml(current_action(), self::getOrder($order)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
+    }
+
+    /**
+     * To get the html.
+     *
+     * @param $location
+     * @param $order
+     * @return mixed|string|null
+     */
+    public static function getActionsHtml($location, $order)
+    {
+        $html = '';
+        $order = WC::getOrder($order);
+        if (empty($order) || !is_object($order)) {
+            return $html;
+        }
+
+        if ($order->get_meta('_cuw_noc_processed')) {
+            $campaign_id = $order->get_meta('_cuw_processed_campaign_id');
+            $coupon_code  = $order->get_meta('_cuw_noc_coupon_code');
+            if (empty($campaign_id) || empty($coupon_code)) {
+                return $html;
+            }
+            $campaign = CampaignModel::get($campaign_id);
+
+            if (empty($campaign) || !is_array($campaign)) {
+                return $html;
+            }
+
+            $endpoint =  WC::getCurrentEndpoint();
+            if ($endpoint == get_option('woocommerce_checkout_order_received_endpoint', '')) {
+                $campaign_display_location = Campaign::getDisplayLocation($campaign);
+            } elseif ($endpoint == get_option('woocommerce_myaccount_view_order_endpoint', '')) {
+                $campaign_display_location = Campaign::getDisplayLocation($campaign, 'display_location_on_myaccount_page');
+            } else {
+                $campaign_display_location = Campaign::getDisplayLocation($campaign, 'display_location_on_email');
+            }
+
+            // return if display location is not matched.
+            if (empty($campaign_display_location) || $campaign_display_location != $location) {
+                return $html;
+            }
+
+            $campaign['data']['coupon']['code'] = $coupon_code;
+            $campaign['data']['coupon']['url'] = self::getCouponUrl($coupon_code, Campaign::getRedirectUrl($campaign));
+            $coupon_message = self::getCouponMessage($coupon_code);
+            if (empty($coupon_message)) {
+                $campaign['data']['template']['message'] = 'hide';
+            }
+            $campaign['data']['coupon']['message'] = $coupon_message;
+            $html .= Template::getHtml($campaign);
+            CampaignModel::increaseCount($campaign['id'], 'display_count');
+            return apply_filters('cuw_noc_template_html', $html, $order, $campaign);
+        }
+
+        return $html;
+    }
+
+    /**
+     * Get coupon message.
+     *
+     * @param string|int|\WC_Coupon $coupon
+     * @return string
+     */
+    public static function getCouponMessage($coupon)
+    {
+        $message = '';
+        if (class_exists('WC_Coupon')) {
+            $coupon = new \WC_Coupon($coupon);
+            if (empty($coupon->get_id())) {
+                $message = __('Deleted', 'checkout-upsell-woocommerce');
+            } else if (!empty($coupon->get_usage_limit()) && $coupon->get_usage_count() >= $coupon->get_usage_limit()) {
+                $message = __('Already used', 'checkout-upsell-woocommerce');
+            } else if (!empty($coupon->get_date_expires())) {
+                if (current_time('timestamp', true) < $coupon->get_date_expires()->getTimestamp()) {
+                    $date_format = apply_filters('cuw_noc_expire_date_format', WP::getFormat('datetime'));
+                    // translators: %s expire date.
+                    $message = sprintf(__('Expires on: %s', 'checkout-upsell-woocommerce'), $coupon->get_date_expires()->date($date_format));
+                } else {
+                    $message = __('Expired', 'checkout-upsell-woocommerce');
+                }
+            } else if (!self::isValidCoupon($coupon)) {
+                $message = __('Invalid', 'checkout-upsell-woocommerce');
+            }
+            $message = apply_filters('cuw_noc_message', $message, $coupon);
+        }
+        return $message;
+    }
+
+    /**
+     * Check if the coupon is valid.
+     *
+     * @param int|string|\WC_Coupon $coupon
+     * @return bool
+     */
+    public static function isValidCoupon($coupon)
+    {
+        if (!class_exists('WC_Coupon')) {
+            return false;
+        }
+        $coupon = new \WC_Coupon($coupon);
+
+        if ($coupon->get_meta('is_cuw_noc')) {
+            $oder_id = $coupon->get_meta('cuw_created_order_id');
+            $campaign_id = $coupon->get_meta('cuw_created_campaign_id');
+            $order = !empty($oder_id) ? WC::getOrder($oder_id) : false;
+            $campaign = !empty($campaign_id) ? CampaignModel::get($campaign_id, ['data']) : false;
+            if (empty($order) || empty($campaign)) {
+                return false;
+            }
+            if (in_array('wc-' . $order->get_status(), ($campaign['data']['failed_order_statuses'] ?? []))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Get coupon URL.
+     *
+     * @param string $coupon_code
+     * @param string $base_url
+     * @return string
+     */
+    public static function getCouponUrl($coupon_code, $base_url = '')
+    {
+        $url = apply_filters('cuw_coupon_base_url', (!empty($base_url) ? $base_url : home_url()));
+        return $url . (strpos($base_url, '?') === false ? '?' : '&') . 'cuw_coupon=' . rawurldecode(strtoupper($coupon_code));
     }
 
     /**
@@ -166,70 +290,161 @@ class NOC extends Base
     }
 
     /**
-     * Get actions html.
+     * To process order.
      *
-     * @param string $location
-     * @param \WC_Order $order
-     * @return string
+     * @param int $order_id
+     * @return void
      */
-    public static function getActionsHtml($location, $order)
+    public static function processOrderCoupon($order_id)
     {
-        $html = '';
-        if (empty($order)) {
-            return $html;
-        }
-
-        if ($actions = self::getActionsToDisplay($location, $order)) {
-            $html .= '<div class="cuw-actions">';
-            foreach ($actions as $campaign) {
-                $campaign = self::processCampaignCoupon($campaign, $order);
-                if (empty($campaign)) {
-                    continue;
-                }
-                $html .= Template::getHtml($campaign);
-                CampaignModel::increaseCount($campaign['id'], 'display_count');
+        $order = WC::getOrder($order_id);
+        if (!empty($order)) {
+            if ($order->get_meta('_cuw_noc_processed')) {
+                self::updateCouponData($order);
+            } else {
+                self::performAction($order);
             }
-            $html .= '</div>';
         }
-        return apply_filters('cuw_noc_template_html', $html);
     }
 
     /**
-     * To process campaign coupon.
+     * Check coupon is valid before apply coupon.
+     *
+     * @hooked woocommerce_coupon_is_valid
+     */
+    public static function checkCouponIsValid($status, $coupon)
+    {
+        return ($status && self::isValidCoupon($coupon));
+    }
+
+    /**
+     * To update coupon offer.
+     *
+     * @param  $order
+     * @return void
+     */
+    public static function updateCouponData($order)
+    {
+        $campaign_id = $order->get_meta('_cuw_processed_campaign_id');
+        $coupon_code = $order->get_meta('_cuw_noc_coupon_code');
+        if (!empty($coupon_code) && !empty($campaign_id)) {
+            $campaign = \CUW\App\Models\Campaign::get($campaign_id);
+            $expire_coupon = false;
+            if (empty($campaign)) {
+                $expire_coupon = true; // expire the coupon if the campaign deleted or not exist.
+            } else if (self::isOrderStatusMatchedWithCampaignFailedStatus($order, $campaign)) {
+                $expire_coupon = true; // expire the coupon if the campaign status not satisfy.
+            }
+
+            if ($expire_coupon) {
+                self::expireCoupon($coupon_code);
+            }
+        }
+    }
+
+    /**
+     * Override campaign usage count getting functionality.
+     *
+     * @hooked cuw_campaign_usage_count_based_on_current_user
+     */
+    public static function getUsageCountBasedOnCurrentUser($usage_count, $campaign)
+    {
+        if (!empty($campaign['id']) && !empty($campaign['type']) && $campaign['type'] == self::TYPE) {
+            $usage_count = 0;
+            $current_user = WP::getCurrentUserId();
+            if (empty($current_user)) {
+                $current_user = WC::getCustomerBillingEmail();
+            }
+            if (!empty($current_user)) {
+                $table = Model::db()->prefix . 'postmeta';
+                $usage_count = (int)Model::getScalar("SELECT count(post_id) FROM {$table} 
+                    WHERE post_id IN (SELECT post_id FROM {$table} WHERE meta_key = 'cuw_created_campaign_id' AND meta_value = %d) 
+                    AND meta_key = 'cuw_created_for' AND `meta_value` = %s;",
+                    [$campaign['id'], $current_user]
+                );
+            }
+        }
+        return $usage_count;
+    }
+
+    /**
+     * To check the campaign with order status.
+     *
+     * @param WC_Coupon $order
+     * @param array $campaign
+     * @return bool
+     */
+    protected static function isOrderStatusMatchedWithCampaignFailedStatus($order, $campaign)
+    {
+        $campaign_order_status = $campaign['data']['failed_order_statuses'] ?? apply_filters('cuw_noc_default_failed_order_status', ['wc-cancelled', 'wc-refunded']);
+        return in_array('wc-' . $order->get_status(), $campaign_order_status);
+    }
+
+    /**
+     * To expire coupon.
+     *
+     * @param string $coupon_code
+     * @return void
+     */
+    public static function expireCoupon($coupon_code)
+    {
+        if (empty($coupon_code) || !class_exists('WC_Coupon')) {
+            return;
+        }
+
+        $coupon = new \WC_Coupon($coupon_code);
+        $coupon_id = $coupon->get_id();
+        if (!$coupon_id) {
+            return;
+        }
+
+        $current_timestamp = Functions::getDateByString('yesterday', 'Y-m-d');
+        $coupon->set_date_expires($current_timestamp);
+        if ($coupon->save()) {
+            // Set usage limit to zero to prevent further use
+            update_post_meta($coupon_id, 'usage_limit', 0);
+            update_post_meta($coupon_id, 'date_expires', $current_timestamp);
+        }
+    }
+
+    /**
+     * To perform action.
+     *
+     * @param $order_obj_or_id
+     * @return void
+     */
+    public static function performAction($order_obj_or_id)
+    {
+        $order = WC::getOrder($order_obj_or_id);
+        if (empty($order) || !is_object($order)) {
+            return;
+        }
+
+        $campaign = self::getMatchedCampaign($order);
+        if (!empty($campaign) && is_array($campaign)) {
+            self::processCampaignCoupon($campaign, $order);
+        }
+    }
+
+    /**
+     * To process coupon and order.
      *
      * @param array $campaign
      * @param \WC_Order $order
-     * @return array|false
+     * @return void
      */
     public static function processCampaignCoupon($campaign, $order)
     {
-        if ($order->get_meta('_cuw_noc_processed')) {
-            if ($order->get_meta('_cuw_processed_campaign_id') == $campaign['id']) {
-                $coupon_code = $order->get_meta('_cuw_noc_coupon_code');
-            } else {
-                return false;
-            }
-        } else {
-            $coupon_code = self::createCoupon($campaign, $order);
-            if (empty($coupon_code)) {
-                return false;
-            }
-            Order::saveMeta($order, [
-                '_cuw_noc_processed' => true,
-                '_cuw_noc_coupon_code' => $coupon_code,
-                '_cuw_processed_campaign_id' => $campaign['id'],
-            ]);
-            CampaignModel::increaseCount($campaign['id'], 'usage_count'); // update campaign usage count
+        $coupon_code = self::createCoupon($campaign, $order);
+        if (empty($coupon_code)) {
+            return;
         }
-        $campaign['data']['coupon']['code'] = $coupon_code;
-        $campaign['data']['coupon']['url'] = self::getCouponUrl($coupon_code, Campaign::getRedirectUrl($campaign));
-
-        $coupon_message = self::getCouponMessage($coupon_code);
-        if (empty($coupon_message)) {
-            $campaign['data']['template']['message'] = 'hide';
-        }
-        $campaign['data']['coupon']['message'] = $coupon_message;
-        return $campaign;
+        Order::saveMeta($order, [
+            '_cuw_noc_processed' => true,
+            '_cuw_noc_coupon_code' => $coupon_code,
+            '_cuw_processed_campaign_id' => $campaign['id'],
+        ]);
+        CampaignModel::increaseCount($campaign['id'], 'usage_count'); // update campaign usage count
     }
 
     /**
@@ -317,19 +532,6 @@ class NOC extends Base
     }
 
     /**
-     * Get coupon URL.
-     *
-     * @param string $coupon_code
-     * @param string $base_url
-     * @return string
-     */
-    public static function getCouponUrl($coupon_code, $base_url = '')
-    {
-        $url = apply_filters('cuw_coupon_base_url', (!empty($base_url) ? $base_url : home_url()));
-        return $url . (strpos($base_url, '?') === false ? '?' : '&') . 'cuw_coupon=' . rawurldecode(strtoupper($coupon_code));
-    }
-
-    /**
      * Apply coupon by URL.
      */
     public static function applyCouponByUrl()
@@ -344,96 +546,59 @@ class NOC extends Base
     }
 
     /**
-     * Get coupon message.
+     * Get expire days.
      *
-     * @param string|int|\WC_Coupon $coupon
-     * @return string
+     * @param array $coupon_data
+     * @param bool $formatted
+     * @return string|int
      */
-    public static function getCouponMessage($coupon)
+    public static function getExpireDays($coupon_data, $formatted = false)
     {
-        $message = '';
-        if (class_exists('WC_Coupon')) {
-            $coupon = new \WC_Coupon($coupon);
-            if (empty($coupon->get_id())) {
-                $message = __('Deleted', 'checkout-upsell-woocommerce');
-            } else if (!empty($coupon->get_usage_limit()) && $coupon->get_usage_count() >= $coupon->get_usage_limit()) {
-                $message = __('Already used', 'checkout-upsell-woocommerce');
-            } else if (!self::isValidCoupon($coupon)) {
-                $message = __('Invalid', 'checkout-upsell-woocommerce');
-            } else if (!empty($coupon->get_date_expires())) {
-                if (current_time('timestamp', true) < $coupon->get_date_expires()->getTimestamp()) {
-                    $date_format = apply_filters('cuw_noc_expire_date_format', WP::getFormat('datetime'));
-                    $message = sprintf(__('Expires on: %s', 'checkout-upsell-woocommerce'), $coupon->get_date_expires()->date($date_format));
-                } else {
-                    $message = __('Expired', 'checkout-upsell-woocommerce');
+        $days = '';
+        if (!empty($coupon_data['expire_after_x_days'])) {
+            $days = $coupon_data['expire_after_x_days'];
+        } elseif (!empty($coupon_data['date_expires'])) {
+            $part = explode(' ', ltrim($coupon_data['date_expires'], '+'));
+            if (in_array($part[1], ['day', 'days'])) {
+                $days = $part[0];
+            } elseif (in_array($part[1], ['month', 'months'])) {
+                $days = $part[0] * 30;
+            }
+        }
+        return $formatted ? ('+' . $days . ($days == 1 ? 'day' : 'days')) : $days;
+    }
+
+    public static function getMatchedCampaign($order_obj_or_id)
+    {
+        $order = WC::getOrder($order_obj_or_id);
+        $campaigns = self::getAllCampaigns();
+        $order_data = Order::getData($order);
+        if (!empty($order) && is_object($order) && !empty($campaigns) && is_array($campaigns) && !empty($order_data)) {
+            foreach ($campaigns as $campaign) {
+                // check order status before proceed
+                if (!in_array('wc-' . $order_data['status'], ($campaign['data']['order_statuses'] ?? []))) {
+                    continue;
                 }
-            }
-            $message = apply_filters('cuw_noc_message', $message, $coupon);
-        }
-        return $message;
-    }
 
-    /**
-     * Override campaign usage count getting functionality.
-     *
-     * @hooked cuw_campaign_usage_count_based_on_current_user
-     */
-    public static function getUsageCountBasedOnCurrentUser($usage_count, $campaign)
-    {
-        if (!empty($campaign['id']) && !empty($campaign['type']) && $campaign['type'] == self::TYPE) {
-            $usage_count = 0;
-            $current_user = WP::getCurrentUserId();
-            if (empty($current_user)) {
-                $current_user = WC::getCustomerBillingEmail();
-            }
-            if (!empty($current_user)) {
-                $table = Model::db()->prefix . 'postmeta';
-                $usage_count = (int)Model::getScalar("SELECT count(post_id) FROM {$table} 
-                    WHERE post_id IN (SELECT post_id FROM {$table} WHERE meta_key = 'cuw_created_campaign_id' AND meta_value = %d) 
-                    AND meta_key = 'cuw_created_for' AND `meta_value` = %s;",
-                    [$campaign['id'], $current_user]
-                );
+                // check order is valid
+                if (!self::isValidOrder($order, $campaign)) {
+                    continue;
+                }
+
+                // check usage limits
+                if (!Campaign::isValid($campaign)) {
+                    continue;
+                }
+
+                // check conditions
+                if (!Campaign::isConditionsPassed($campaign['conditions'], $order_data)) {
+                    continue;
+                }
+
+                return $campaign;
             }
         }
-        return $usage_count;
-    }
-
-    /**
-     * Check coupon is valid before apply coupon.
-     *
-     * @hooked woocommerce_coupon_is_valid
-     */
-    public static function checkCouponIsValid($status, $coupon)
-    {
-        return ($status && self::isValidCoupon($coupon));
-    }
-
-    /**
-     * Check if the coupon is valid.
-     *
-     * @param int|string|\WC_Coupon $coupon
-     * @return bool
-     */
-    public static function isValidCoupon($coupon)
-    {
-        if (!class_exists('WC_Coupon')) {
-            return false;
-        }
-        $coupon = new \WC_Coupon($coupon);
-        if (!$coupon->get_meta('is_cuw_noc')) {
-            return true;
-        }
-        $oder_id = $coupon->get_meta('cuw_created_order_id');
-        $campaign_id = $coupon->get_meta('cuw_created_campaign_id');
-        $order = !empty($oder_id) ? WC::getOrder($oder_id) : false;
-        $campaign = !empty($campaign_id) ? CampaignModel::get($campaign_id, ['data']) : false;
-        if (empty($order) || empty($campaign)) {
-            return false;
-        }
-        if (!in_array('wc-' . $order->get_status(), ($campaign['data']['order_statuses'] ?? []))) {
-            return false;
-        }
-        return true;
+        return [];
     }
 
     /**
@@ -462,103 +627,19 @@ class NOC extends Base
     }
 
     /**
-     * Get actions data to display
+     * To get all campaigns.
      *
-     * @param string $location
-     * @param \WC_Order $order
      * @return array
      */
-    public static function getActionsToDisplay($location, $order)
+    public static function getAllCampaigns()
     {
-        if (!isset(self::$actions)) {
-            self::$actions = [];
-            $order_data = Order::getData($order);
-            $endpoint = WC::getCurrentEndpoint();
-            // $cache = WC::getSession('cuw_noc_data');
-            if (!empty($cache) && $cache['order_id'] == $order_data['id'] && $cache['order_status'] == $order_data['status'] && $cache['endpoint'] == $endpoint) {
-                self::$actions = $cache['actions'];
-            } else {
-                self::$actions = [];
-
-                $campaigns = CampaignModel::all([
-                    'status' => 'active',
-                    'type' => self::TYPE,
-                    'columns' => ['id', 'type', 'conditions', 'data', 'usage_limit', 'usage_limit_per_user', 'usage_count', 'created_at', 'start_on', 'end_on'],
-                    'order_by' => 'priority',
-                    'sort' => 'asc',
-                ]);
-
-                if (!empty($campaigns) && is_array($campaigns)) {
-                    // process only already processed order campaign if exists
-                    $processed_campaign_id = $order->get_meta('_cuw_processed_campaign_id');
-                    if (!empty($processed_campaign_id)) {
-                        $processed_campaign_found = false;
-                        foreach ($campaigns as $campaign) {
-                            if ($campaign['id'] == $processed_campaign_id) {
-                                $processed_campaign_found = true;
-                                $campaigns = array($campaign);
-                                break;
-                            }
-                        }
-                        if (!$processed_campaign_found) {
-                            $campaigns = array();
-                        }
-                    }
-
-                    foreach ($campaigns as $campaign) {
-                        // check order status before proceed
-                        if (!in_array('wc-' . $order_data['status'], ($campaign['data']['order_statuses'] ?? []))) {
-                            continue;
-                        }
-
-                        // check the following only when order is not processed already
-                        if ($campaign['id'] != $processed_campaign_id) {
-                            // check order is valid
-                            if (!self::isValidOrder($order, $campaign)) {
-                                continue;
-                            }
-
-                            // check usage limits
-                            if (!Campaign::isValid($campaign)) {
-                                continue;
-                            }
-
-                            // check conditions
-                            if (!Campaign::isConditionsPassed($campaign['conditions'], $order_data)) {
-                                continue;
-                            }
-                        }
-
-                        // set campaign data
-                        $display_location = Campaign::getDisplayLocation($campaign);
-                        $display_location_on_email = Campaign::getDisplayLocation($campaign, 'display_location_on_email');
-                        $display_location_on_myaccount_page = Campaign::getDisplayLocation($campaign, 'display_location_on_myaccount_page');
-                        if ($display_location != 'do_not_display' &&
-                            $endpoint == get_option('woocommerce_checkout_order_received_endpoint', ''))
-                        {
-                            self::$actions[$display_location][$campaign['id']] = $campaign;
-                        }
-                        if ($display_location_on_email != 'do_not_display') {
-                            self::$actions[$display_location_on_email][$campaign['id']] = $campaign;
-                        }
-                        if ($display_location_on_myaccount_page != 'do_not_display' &&
-                            $endpoint == get_option('woocommerce_myaccount_view_order_endpoint', ''))
-                        {
-                            self::$actions[$display_location_on_myaccount_page][$campaign['id']] = $campaign;
-                        }
-                        break;
-                    }
-                }
-
-                // WC::setSession('cuw_noc_data', [
-                //     'order_id' => $order_data['id'],
-                //     'order_status' => $order_data['status'],
-                //     'endpoint' => $endpoint,
-                //     'actions' => self::$actions,
-                // ]);
-            }
-        }
-        return isset(self::$actions[$location]) ? self::$actions[$location] : [];
+        return CampaignModel::all([
+            'status' => 'active',
+            'type' => self::TYPE,
+            'columns' => ['id', 'type', 'conditions', 'data', 'usage_limit', 'usage_limit_per_user', 'usage_count', 'created_at', 'start_on', 'end_on'],
+            'order_by' => 'priority',
+            'sort' => 'asc',
+        ]);
     }
 
     /**
@@ -613,28 +694,5 @@ class NOC extends Base
             'woocommerce_order_details_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-woocommerce'),
             'woocommerce_order_details_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-woocommerce'),
         ]);
-    }
-
-    /**
-     * Get expire days.
-     *
-     * @param array $coupon_data
-     * @param bool $formatted
-     * @return string|int
-     */
-    public static function getExpireDays($coupon_data, $formatted = false)
-    {
-        $days = '';
-        if (!empty($coupon_data['expire_after_x_days'])) {
-            $days = $coupon_data['expire_after_x_days'];
-        } elseif (!empty($coupon_data['date_expires'])) {
-            $part = explode(' ', ltrim($coupon_data['date_expires'], '+'));
-            if (in_array($part[1], ['day', 'days'])) {
-                $days = $part[0];
-            } elseif (in_array($part[1], ['month', 'months'])) {
-                $days = $part[0] * 30;
-            }
-        }
-        return $formatted ? ('+' . $days . ($days == 1 ? 'day' : 'days')) : $days;
     }
 }

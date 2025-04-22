@@ -57,7 +57,8 @@ class Product
         if ($args['to_display']) {
             $data['url'] = $product->get_permalink();
             $image_size_type = apply_filters('cuw_product_image_size', 'medium');
-            $data['image'] = $product->get_image($image_size_type);
+            $image_attributes = apply_filters('cuw_product_image_attributes', [], $product);
+            $data['image'] = $product->get_image($image_size_type, $image_attributes);
             $data['regular_price'] = WC::getPriceToDisplay($product, self::getPrice($product, 'regular_price'), $args['quantity'], $args['display_in']);
             $data['price'] = WC::getPriceToDisplay($product, '', $args['quantity'], $args['display_in']);
 
@@ -65,7 +66,7 @@ class Product
                 $data['title'] = self::formatTitle($product, $args['quantity']);
             }
             if ($args['format_image']) {
-                $data['image'] = self::formatImage($product, 0, $image_size_type);
+                $data['image'] = self::formatImage($product, 0, $image_size_type, $image_attributes);
             }
         } else {
             $data['regular_price'] = $product->get_regular_price();

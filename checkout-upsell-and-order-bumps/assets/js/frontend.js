@@ -41,6 +41,10 @@ jQuery(function ($) {
                     if (response.success && response.data) {
                         jQuery(document.body).trigger('cuw_offer_added_to_cart', [response.data, offer]);
 
+                        if (response.data.reload_page) {
+                            location.reload(true); // to reload page if requires.
+                        }
+
                         cuw_actions.update_fragments();
 
                         if (response.data.cart_item_key) {

@@ -30,7 +30,9 @@ class SGC extends Base
     {
         if (is_object($product) && method_exists($product, 'get_image_id')) {
             if (function_exists('wp_get_attachment_image_url') && $product->get_image_id()) {
-                $data['image'] = '<img src="' . wp_get_attachment_image_url($product->get_image_id()) . '" alt=""/>';
+                $image_attributes = apply_filters('cuw_product_image_attributes', [], $product);
+                $alt_text = isset($image_attributes['alt']) ? esc_attr($image_attributes['alt']) : '';
+                $data['image'] = '<img src="' . esc_url(wp_get_attachment_image_url($product->get_image_id())) . '" alt="' . $alt_text . '"/>'; // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
             }
         }
         return $data;

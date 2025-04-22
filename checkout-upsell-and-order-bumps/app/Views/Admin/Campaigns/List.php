@@ -41,7 +41,7 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
     <div class="campaign-create text-center d-flex justify-content-center vmh-50 align-items-center">
         <div class="my-5 py-5">
             <div class="mb-4">
-                <img src="<?php echo esc_url(CUW()->assets->getUrl("img/start-create-campaign.png")); ?>"/>
+                <img src="<?php echo esc_url(CUW()->assets->getUrl("img/start-create-campaign.png")); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"/>
             </div>
             <h5 class="mb-3"><?php esc_html_e("Start creating campaigns!", 'checkout-upsell-woocommerce'); ?></h5>
             <div class="w-50 mx-auto">

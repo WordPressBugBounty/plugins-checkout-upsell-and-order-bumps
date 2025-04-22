@@ -27,11 +27,15 @@ class Validate
             'required' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
             'numeric' => esc_html__("It must be numeric", 'checkout-upsell-woocommerce'),
             'integer' => esc_html__("It must be an integer", 'checkout-upsell-woocommerce'),
+            // translators: %s value.
             'min' => esc_html__("It must be at least %s", 'checkout-upsell-woocommerce'),
+            // translators: %s value.
             'max' => esc_html__("It must be no more than %s", 'checkout-upsell-woocommerce'),
             'url' => esc_html__("It is not a valid URL", 'checkout-upsell-woocommerce'),
             'regex' => esc_html__("It contains invalid characters", 'checkout-upsell-woocommerce'),
+            // translators: %s date.
             'dateAfter' => esc_html__("It must be date after %s", 'checkout-upsell-woocommerce'),
+            // translators: %d length.
             'lengthMax' => esc_html__("It must not exceed %d characters", 'checkout-upsell-woocommerce'),
             'requiredWith' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
 

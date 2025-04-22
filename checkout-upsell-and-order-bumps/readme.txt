@@ -4,8 +4,8 @@ Donate link: https://upsellwp.com
 Tags: woocommerce, upsell, woocommerce upsell, order bump, boost sales
 Requires at least: 5.3
 Requires PHP: 7.0
-Tested up to: 6.7
-Stable tag: 2.1.8
+Tested up to: 6.8
+Stable tag: 2.1.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -284,6 +284,15 @@ The plugin currently supports displaying the offers in 4 different places in the
 8. Campaign offer edit page
 
 == Changelog ==
+= 2.1.9 - 22/04/2025 =
+* Improved: Unsuccessful order status for Next Order Coupon campaign [Free]
+* Improved: Coupon limits for Next Order Coupon campaign [Free]
+* Improved: Add shipping details for Post-Purchase campaign (After payment) [PRO]
+* Fix: Add revenue for unsuccessful orders [Free]
+* Fix: Outlined quantity selector for Product add-on campaign [PRO]
+* Fix: Error notice shown for Next order coupon [Free]
+* Fix: Plugin check.
+
 = 2.1.8 - 18/03/2025 =
 * Improve - Stock management
 * Improve - Double the order campaign

@@ -21,7 +21,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                             <div class="d-flex justify-content-between align-baseline px-3 pt-3">
                                 <div class="d-flex justify-content-center">
                                     <a class="cuw-addon-image" href="<?php echo esc_url($addon['plugin_url']); ?>">
-                                        <img height="64px" width="64px" src="<?php echo esc_url($addon['icon_url']); ?>"
+                                        <img height="64px" width="64px" src="<?php echo esc_url($addon['icon_url']); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"
                                              alt="<?php echo esc_attr($addon['name']); ?>">
                                     </a>
                                 </div>
@@ -95,7 +95,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                             <div class="d-flex justify-content-between px-3 pt-3">
                                 <div class="d-flex justify-content-center">
                                     <a class="cuw-addon-image" href="<?php echo esc_url($addon['plugin_url']); ?>">
-                                        <img height="64px" width="64px" src="<?php echo esc_url($addon['icon_url']); ?>"
+                                        <img height="64px" width="64px" src="<?php echo esc_url($addon['icon_url']); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"
                                              alt="<?php echo esc_attr($addon['name']); ?>">
                                     </a>
                                 </div>

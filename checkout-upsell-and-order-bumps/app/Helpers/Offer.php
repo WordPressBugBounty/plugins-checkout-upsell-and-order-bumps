@@ -266,9 +266,9 @@ class Offer
         unset($offer['data']);
 
         // allow to translate offer title, description and CTA text
-        $offer['template']['title'] = !empty($offer['template']['title']) ? __($offer['template']['title'], 'checkout-upsell-woocommerce') : '';
-        $offer['template']['description'] = !empty($offer['template']['description']) ? nl2br(__($offer['template']['description'], 'checkout-upsell-woocommerce')) : '';
-        $offer['template']['cta_text'] = !empty($offer['template']['cta_text']) ? __($offer['template']['cta_text'], 'checkout-upsell-woocommerce') : '';
+        $offer['template']['title'] = !empty($offer['template']['title']) ? __($offer['template']['title'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $offer['template']['description'] = !empty($offer['template']['description']) ? nl2br(__($offer['template']['description'], 'checkout-upsell-woocommerce')) : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $offer['template']['cta_text'] = !empty($offer['template']['cta_text']) ? __($offer['template']['cta_text'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 
         $offer['discount']['text'] = self::getText($product, $offer['discount']);
         if (!empty($offer['discount']['text'])) {
@@ -305,7 +305,8 @@ class Offer
 
         // process fixed offer image
         if (!empty($offer['template']['image_id'])) {
-            $offer['product']['image'] = Product::formatImage($product, $offer['template']['image_id']);
+            $image_attributes = apply_filters('cuw_product_image_attributes', [], $product);
+            $offer['product']['image'] = Product::formatImage($product, $offer['template']['image_id'], '', $image_attributes);
             $offer['product']['fixed_image'] = $offer['product']['image'];
             if ($offer['product']['is_variable'] && !empty($offer['product']['default_variant'])) {
                 $offer['product']['default_variant']['image'] = $offer['product']['image'];
@@ -389,10 +390,10 @@ class Offer
      */
     public static function isSchedulePassed($start_on, $end_on)
     {
-        if (!empty($start_on) && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $start_on))) >= current_time('timestamp')) {
+        if (!empty($start_on) && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $start_on))) >= current_time('timestamp')) {
             return false;
         }
-        if (!empty($end_on) && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $end_on))) <= current_time('timestamp')) {
+        if (!empty($end_on) && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $end_on))) <= current_time('timestamp')) {
             return false;
         }
 

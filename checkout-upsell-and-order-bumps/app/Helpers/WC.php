@@ -641,9 +641,18 @@ class WC
      *
      * @return array
      */
-    public static function getOrderStatuses()
+    public static function getOrderStatuses($category = 'all')
     {
-        return function_exists('wc_get_order_statuses') ? wc_get_order_statuses() : [];
+        $order_status = function_exists('wc_get_order_statuses') ? wc_get_order_statuses() : [];
+        switch ($category) {
+            case 'all':
+                return $order_status;
+            case 'success':
+                return apply_filters('cuw_success_order_status', array('wc-pending', 'wc-processing', 'wc-on-hold', 'wc-completed'));
+            case 'failed':
+                return apply_filters('cuw_failed_order_status', array('wc-cancelled', 'wc-refunded', 'wc-failed'));
+        }
+        return [];
     }
 
     /**

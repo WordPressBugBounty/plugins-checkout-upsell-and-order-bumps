@@ -67,12 +67,13 @@ jQuery(function ($) {
             let product_price = section.find(".cuw-ppu-order-totals").data('price');
             let tax = section.find(".cuw-ppu-order-totals").data('tax');
             let order_total = section.find(".cuw-ppu-order-totals").data('order_total');
+            let shipping_tax = section.find(".cuw-ppu-order-totals").data('shipping_tax');
 
             let subtotal = parseFloat(product_price) * parseFloat(qty);
             let subtotal_tax = parseFloat(tax) * parseFloat(qty);
-            let updated_order_total = parseFloat(order_total) + subtotal + subtotal_tax;
+            let updated_order_total = parseFloat(order_total) + subtotal + subtotal_tax + shipping_tax;
             section.find(".cuw-ppu-subtotal").html(cuw_helper.format_price(subtotal));
-            section.find(".cuw-ppu-tax").html(cuw_helper.format_price(subtotal_tax));
+            section.find(".cuw-ppu-tax").html(cuw_helper.format_price(subtotal_tax + shipping_tax));
             section.find(".cuw-ppu-total").html(cuw_helper.format_price(updated_order_total));
         },
 

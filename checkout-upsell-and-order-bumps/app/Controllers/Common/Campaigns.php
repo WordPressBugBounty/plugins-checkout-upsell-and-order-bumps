@@ -130,7 +130,8 @@ class Campaigns extends Controller
     {
         if ($column == 'cuw_upsell_info') {
             $order = WC::getOrder($order_or_id);
-            if (!empty($order)) {
+            $message = '';
+            if (!empty($order) && !in_array($order->get_status(), apply_filters('cuw_stats_failed_order_status', ['cancelled', 'failed', 'checkout-draft', 'refunded']))) {
                 if ($order->get_meta('_has_cuw_coupons')) {
                     $message = WC::formatPrice($order->get_total()) . ' (100%)';
                 } elseif ($order->get_meta('_has_cuw_offers') || $order->get_meta('_has_cuw_products')) {
@@ -150,11 +151,11 @@ class Campaigns extends Controller
                         $message .= ' (' . round(($upsell_items_price_total / $items_price_total) * 100, 2) . '%)';
                     }
                 }
-                if (!empty($message)) {
-                    echo wp_kses_post($message);
-                } else {
-                    echo '<span style="opacity: 0.8;">' . esc_html__("N/A", 'checkout-upsell-woocommerce') . '</span>';
-                }
+            }
+            if (!empty($message)) {
+                echo wp_kses_post($message);
+            } else {
+                echo '<span style="opacity: 0.8;">' . esc_html__("N/A", 'checkout-upsell-woocommerce') . '</span>';
             }
         }
     }

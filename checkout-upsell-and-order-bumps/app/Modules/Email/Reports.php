@@ -127,24 +127,26 @@ class Reports extends \WC_Email
      */
     public function init_form_fields()
     {
-        $placeholder_text = sprintf(__('Available placeholders: %s', 'woocommerce'), '<code>' . implode('</code>, <code>', array_keys($this->placeholders)) . '</code>');
+        // translators: %s placeholders.
+        $placeholder_text = sprintf(__('Available placeholders: %s', 'checkout-upsell-woocommerce'), '<code>' . implode('</code>, <code>', array_keys($this->placeholders)) . '</code>');
         $this->form_fields = array(
             'enabled' => array(
-                'title' => __('Enable/Disable', 'woocommerce'),
+                'title' => __('Enable/Disable', 'checkout-upsell-woocommerce'),
                 'type' => 'checkbox',
-                'label' => __('Enable this email notification', 'woocommerce'),
+                'label' => __('Enable this email notification', 'checkout-upsell-woocommerce'),
                 'default' => 'yes',
             ),
             'recipient' => array(
-                'title' => __('Recipient(s)', 'woocommerce'),
+                'title' => __('Recipient(s)', 'checkout-upsell-woocommerce'),
                 'type' => 'text',
-                'description' => sprintf(__('Enter recipients (comma separated) for this email. Defaults to %s.', 'woocommerce'), '<code>' . esc_attr(get_option('admin_email')) . '</code>'),
+                // translators: %s email.
+                'description' => sprintf(__('Enter recipients (comma separated) for this email. Defaults to %s.', 'checkout-upsell-woocommerce'), '<code>' . esc_attr(get_option('admin_email')) . '</code>'),
                 'placeholder' => '',
                 'default' => '',
                 'desc_tip' => true,
             ),
             'subject' => array(
-                'title' => __('Subject', 'woocommerce'),
+                'title' => __('Subject', 'checkout-upsell-woocommerce'),
                 'type' => 'text',
                 'desc_tip' => true,
                 'description' => $placeholder_text,
@@ -152,13 +154,13 @@ class Reports extends \WC_Email
                 'default' => '',
             ),
             'email_type' => array(
-                'title' => __('Email type', 'woocommerce'),
+                'title' => __('Email type', 'checkout-upsell-woocommerce'),
                 'type' => 'select',
-                'description' => __('Choose which format of email to send.', 'woocommerce'),
+                'description' => __('Choose which format of email to send.', 'checkout-upsell-woocommerce'),
                 'default' => 'html',
                 'class' => 'email_type wc-enhanced-select',
                 'options' => array(
-                    'html' => __('HTML', 'woocommerce'),
+                    'html' => __('HTML', 'checkout-upsell-woocommerce'),
                 ),
                 'desc_tip' => true,
             ),

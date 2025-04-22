@@ -26,7 +26,7 @@ class Days extends Base
             return false;
         }
 
-        $day = array(strtolower(date('l', current_time('timestamp'))));
+        $day = array(strtolower(gmdate('l', current_time('timestamp'))));
         return self::checkLists($condition['values'], $day, $condition['method']);
     }
 

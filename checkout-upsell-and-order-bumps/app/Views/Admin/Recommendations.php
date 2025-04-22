@@ -15,13 +15,13 @@ $rtl = \CUW\App\Helpers\WP::isRtl();
                 <?php foreach ($recommendations_list as $slug => $recommendation) { ?>
                     <div class="cuw-recommendation card col-md-6 p-0 m-3 position-relative" style="max-width: 374px;">
                         <div style="min-height: 208px;">
-                            <img class="img-fluid h-100" src="<?php echo esc_url($recommendation['banner_image']); ?>"
+                            <img class="img-fluid h-100" src="<?php echo esc_url($recommendation['banner_image']); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"
                                  alt="<?php echo esc_attr($recommendation['name']); ?>">
                         </div>
                         <div class="d-flex justify-content-between px-3 pt-3">
                             <div class="d-flex justify-content-center">
                                 <a class="cuw-recommendation-image" href="<?php echo esc_url($recommendation['plugin_url']); ?>">
-                                    <img height="64px" width="64px" src="<?php echo esc_url($recommendation['icon_url']); ?>"
+                                    <img height="64px" width="64px" src="<?php echo esc_url($recommendation['icon_url']); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"
                                          alt="<?php echo esc_attr($recommendation['name']); ?>">
                                 </a>
                             </div>

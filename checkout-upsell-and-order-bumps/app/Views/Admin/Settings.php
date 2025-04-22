@@ -163,7 +163,7 @@ $default_tab = apply_filters('cuw_settings_default_tab', 'campaigns');
                         <div class="mt-3 row align-items-center">
                             <div class="col-md-5">
                                 <label class="font-weight-semibold text-dark form-label"><?php esc_html_e("Maximum number of offers a customer can pick at a time", 'checkout-upsell-woocommerce'); ?></label>
-                                <p class="form-text"><?php esc_html_e("Useful when you want to limit a customer from picking only x number of offers. Eg, Let's say you have 2 offers showing at checkout. But you only want to allow the customer to pick only 1 among the 2."); ?></p>
+                                <p class="form-text"><?php esc_html_e("Useful when you want to limit a customer from picking only x number of offers. Eg, Let's say you have 2 offers showing at checkout. But you only want to allow the customer to pick only 1 among the 2.", 'checkout-upsell-woocommerce'); ?></p>
                             </div>
                             <div class="col-md-5">
                                 <select class="form-control" name="offer_add_limit">
@@ -216,7 +216,7 @@ $default_tab = apply_filters('cuw_settings_default_tab', 'campaigns');
                         <div class="mt-3 row align-items-center">
                             <div class="col-md-5">
                                 <label class="font-weight-semibold text-dark form-label"><?php esc_html_e("Maximum number of products to display", 'checkout-upsell-woocommerce'); ?></label>
-                                <p class="form-text"><?php esc_html_e("Useful to limit frequently bought together products (excluding main product) that are display on a product page."); ?></p>
+                                <p class="form-text"><?php esc_html_e("Useful to limit frequently bought together products (excluding main product) that are display on a product page.", 'checkout-upsell-woocommerce'); ?></p>
                             </div>
                             <div class="col-md-5">
                                 <select class="form-control" name="fbt_products_display_limit">
@@ -330,7 +330,15 @@ $default_tab = apply_filters('cuw_settings_default_tab', 'campaigns');
                              style="<?php if ($email_enabled != 'yes') echo esc_attr('display: none;'); ?>">
                             <div class="col-md-5">
                                 <label class="font-weight-semibold text-dark form-label"><?php esc_html_e("Recipient(s)", 'checkout-upsell-woocommerce'); ?></label>
-                                <p class="form-text"><?php esc_html_e(sprintf('Enter recipients (comma separated) for this email. Defaults to %s.', esc_attr(get_option('admin_email'))), 'checkout-upsell-woocommerce'); ?></p>
+                                <p class="form-text">
+                                    <?php
+                                        echo esc_html(sprintf(
+                                        // translators: %s email.
+                                                __('Enter recipients (comma separated) for this email. Defaults to %s.', 'checkout-upsell-woocommerce'),
+                                                esc_attr(get_option('admin_email'))
+                                        ));
+                                    ?>
+                                </p>
                             </div>
                             <div class="col-md-5">
                                 <input type="text" class="form-control" name="report_recipient"

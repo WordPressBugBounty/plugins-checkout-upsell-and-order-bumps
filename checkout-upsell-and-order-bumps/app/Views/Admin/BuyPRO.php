@@ -15,7 +15,7 @@ $buy_pro_url = 'https://upsellwp.com/pricing/?utm_campaign=upsellwp&utm_medium=p
                 </a>
             </div>
             <div class="col-md-4">
-                <img class="img-fluid" src="<?php echo esc_url(\CUW\App\Helpers\Assets::getUrl('img/upsellwp.png')) ?>" alt="UpsellWP Logo">
+                <img class="img-fluid" src="<?php echo esc_url(\CUW\App\Helpers\Assets::getUrl('img/upsellwp.png')) // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>" alt="UpsellWP Logo">
             </div>
         </div>
     </div>

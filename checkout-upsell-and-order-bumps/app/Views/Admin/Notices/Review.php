@@ -6,10 +6,12 @@ if (!isset($data)) {
 ?>
 <div class="notice notice-info is-dismissible">
     <div style="display: flex; gap: 12px; align-items: center; padding: 12px 0;">
-        <img src="<?php echo esc_url(CUW()->assets->getUrl("img/logo.png")); ?>" style="width: 78px; height: 78px;"/>
+        <img src="<?php echo esc_url(CUW()->assets->getUrl("img/logo.png")); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>" style="width: 78px; height: 78px;"/>
         <div>
             <p style="margin: 0; padding: 0; font-size: 14px;">
-                <?php echo wp_kses_post(sprintf(__('Fantastic! You\'ve earned %1$s in the last %2$s days in upsells using our UpsellWP plugin! &#128640;', 'checkout-upsell-woocommerce'),
+                <?php echo wp_kses_post(
+                        /* translators: 1: revenue, 2: days */
+                        sprintf(__('Fantastic! You\'ve earned %1$s in the last %2$s days in upsells using our UpsellWP plugin! &#128640;', 'checkout-upsell-woocommerce'),
                     '<strong>' . $data['revenue'] . '</strong>', $data['days']
                 )); ?>
                 <br>

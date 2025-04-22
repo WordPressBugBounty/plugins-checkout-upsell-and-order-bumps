@@ -61,7 +61,7 @@ $page_url = Page::getUrl();
                         </div>
                         <div class="card-body py-1 px-4 text-center">
                             <p class="card-text text-custom-secondary"
-                               style="font-size: 14px;"><?php esc_html_e($campaign['description']); ?></p>
+                               style="font-size: 14px;"><?php esc_html_e($campaign['description'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?></p>
                         </div>
                         <button type="button" id="create-campaign-button"
                                 class="btn mt-2 btn-outline-primary px-4 py-2">

@@ -889,7 +889,7 @@ class Template
                     'display_in' => 'shop',
                 ]);
                 $image_url = Assets::getUrl('img/products/' . $dummy_data[$key]['slug'] . '.png');
-                $product_data['image'] = '<img src="' . $image_url . '">';
+                $product_data['image'] = '<img src="' . esc_url($image_url) . '">'; // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
                 if (!empty($product_data)) {
                     $product_data['classes'] = [];
                     $product_data['is_main'] = ($key == 1);
@@ -930,9 +930,9 @@ class Template
         $data['is_rtl'] = WP::isRtl();
 
         // allow to translate template title, description and CTA text
-        $data['template']['title'] = !empty($data['template']['title']) ? __($data['template']['title'], 'checkout-upsell-woocommerce') : '';
-        $data['template']['description'] = !empty($data['template']['description']) ? __($data['template']['description'], 'checkout-upsell-woocommerce') : '';
-        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? __($data['template']['cta_text'], 'checkout-upsell-woocommerce') : '';
+        $data['template']['title'] = !empty($data['template']['title']) ? __($data['template']['title'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $data['template']['description'] = !empty($data['template']['description']) ? __($data['template']['description'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? __($data['template']['cta_text'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 
         // to replace discount text
         if (!empty($data['discount'])) {

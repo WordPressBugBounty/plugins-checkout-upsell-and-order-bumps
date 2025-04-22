@@ -257,8 +257,8 @@ class Campaign extends Model
                 'filters' => isset($campaign['filters']) ? json_encode($campaign['filters']) : null,
                 'conditions' => isset($campaign['conditions']) ? json_encode($campaign['conditions']) : null,
                 'data' => isset($campaign['data']) ? json_encode(wp_unslash($campaign['data'])) : null,
-                'start_on' => !empty($campaign['date_from']) ? strtotime(get_gmt_from_date(date($campaign['date_from'] . ' 00:00:00'))) : null,
-                'end_on' => !empty($campaign['date_to']) ? strtotime(get_gmt_from_date(date($campaign['date_to'] . ' 23:59:59'))) : null,
+                'start_on' => !empty($campaign['date_from']) ? strtotime(get_gmt_from_date($campaign['date_from'] . ' 00:00:00')) : null,
+                'end_on' => !empty($campaign['date_to']) ? strtotime(get_gmt_from_date($campaign['date_to'] . ' 23:59:59')) : null,
                 'usage_limit' => !empty($campaign['limit']) ? $campaign['limit'] : 0,
                 'usage_limit_per_user' => !empty($campaign['limit_per_user']) ? $campaign['limit_per_user'] : 0,
             ];

@@ -46,19 +46,31 @@ $page_url = Page::getUrl();
             <div class="d-flex" style="gap:8px;">
                 <a class="dropdown-item  border-light campaign-sort <?php if ($status == '') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => ''], true)); ?>">
-                    <?php echo esc_html__(sprintf(__('All (%s)', 'checkout-upsell-woocommerce'), $campaigns_count)) ?>
+                    <?php
+                        // translators: %s campaign count.
+                        echo esc_html(sprintf(__('All (%s)', 'checkout-upsell-woocommerce'), $campaigns_count))
+                    ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'active') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'active'], true)); ?>">
-                    <?php echo esc_html__(sprintf(__('Active (%s)', 'checkout-upsell-woocommerce'), $active_campaigns_count)) ?>
+                    <?php
+                        // translators: %s active campaign count.
+                        echo esc_html(sprintf(__('Active (%s)', 'checkout-upsell-woocommerce'), $active_campaigns_count))
+                    ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'draft') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'draft'], true)); ?>">
-                    <?php echo esc_html__(sprintf(__('Draft (%s)', 'checkout-upsell-woocommerce'), $drafted_campaigns_count)) ?>
+                    <?php
+                        // translators: %s draft campaign count.
+                        echo esc_html(sprintf(__('Draft (%s)', 'checkout-upsell-woocommerce'), $drafted_campaigns_count))
+                    ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'publish') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'publish'], true)); ?>">
-                    <?php echo esc_html__(sprintf(__('Published (%s)', 'checkout-upsell-woocommerce'), $published_campaigns_count)) ?>
+                    <?php
+                        // translators: %s published campaign count.
+                        echo esc_html(sprintf(__('Published (%s)', 'checkout-upsell-woocommerce'), $published_campaigns_count))
+                    ?>
                 </a>
             </div>
             <div class="d-flex flex-wrap" style="gap: 8px;">
@@ -81,7 +93,7 @@ $page_url = Page::getUrl();
                     <div class="dropdown-menu">
                         <span class="dropdown-item text-dark font-weight-bold"><?php esc_html_e("Type", 'checkout-upsell-woocommerce'); ?></span>
                         <a href="<?php echo esc_url(Page::getUrl(['type' => ''], true)); ?>"
-                           class="dropdown-item <?php if ($type == '') echo 'active'; ?>"><?php esc_attr_e("All"); ?></a>
+                           class="dropdown-item <?php if ($type == '') echo 'active'; ?>"><?php esc_attr_e("All", 'checkout-upsell-woocommerce'); ?></a>
                         <?php foreach ($campaign_types as $campaign_type => $text) { ?>
                             <a href="<?php echo esc_url(Page::getUrl(['type' => $campaign_type], true)); ?>"
                                class="dropdown-item <?php if ($type == $campaign_type) echo 'active'; ?>"><?php echo esc_html($text); ?></a>

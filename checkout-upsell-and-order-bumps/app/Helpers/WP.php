@@ -91,12 +91,12 @@ class WP
     public static function formatDate($date, $format = 'date', $is_gmt = false)
     {
         if (is_numeric($date)) {
-            $date = date('Y-m-d H:i:s', $date);
+            $date = gmdate('Y-m-d H:i:s', $date);
         }
         if (in_array($format, ['datetime', 'date', 'time'])) {
             $format = self::getFormat($format);
         }
-        return $is_gmt ? get_date_from_gmt($date, $format) : date($format, strtotime($date));
+        return $is_gmt ? get_date_from_gmt($date, $format) : gmdate($format, strtotime($date));
     }
 
     /**

@@ -297,9 +297,9 @@ class Campaign
         }
 
         if ($campaign['enabled'] == 1) {
-            if ($campaign['end_on'] && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $campaign['end_on']))) < current_time('timestamp')) {
+            if ($campaign['end_on'] && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $campaign['end_on']))) < current_time('timestamp')) {
                 $status = ['code' => 'expired', 'class' => 'danger', 'text' => self::getStatuses('expired')];
-            } else if ($campaign['start_on'] && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $campaign['start_on']))) > current_time('timestamp')) {
+            } else if ($campaign['start_on'] && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $campaign['start_on']))) > current_time('timestamp')) {
                 $status = ['code' => 'scheduled', 'text' => self::getStatuses('scheduled')];
             } else {
                 $status = ['code' => 'active', 'text' => self::getStatuses('active')];
@@ -593,10 +593,10 @@ class Campaign
      */
     public static function isSchedulePassed($start_on, $end_on)
     {
-        if (!empty($start_on) && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $start_on))) >= current_time('timestamp')) {
+        if (!empty($start_on) && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $start_on))) >= current_time('timestamp')) {
             return false;
         }
-        if (!empty($end_on) && strtotime(get_date_from_gmt(date('Y-m-d H:i:s', $end_on))) <= current_time('timestamp')) {
+        if (!empty($end_on) && strtotime(get_date_from_gmt(gmdate('Y-m-d H:i:s', $end_on))) <= current_time('timestamp')) {
             return false;
         }
 
