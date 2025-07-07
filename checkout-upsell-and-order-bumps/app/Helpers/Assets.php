@@ -207,6 +207,6 @@ class Assets
      */
     public static function getFrontendEnqueuePriority()
     {
-        return (int)apply_filters('cuw_frontend_assets_enqueue_priority', 10);
+        return (int)apply_filters('cuw_frontend_assets_enqueue_priority', PHP_INT_MAX);
     }
 }

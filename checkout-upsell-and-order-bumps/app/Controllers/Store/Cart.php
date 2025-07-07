@@ -15,6 +15,7 @@ defined('ABSPATH') || exit;
 
 use CUW\App\Controllers\Controller;
 use CUW\App\Helpers\Cart as CartHelper;
+use CUW\App\Helpers\Config;
 use CUW\App\Helpers\Discount;
 use CUW\App\Helpers\Offer;
 use CUW\App\Helpers\Product;
@@ -128,13 +129,15 @@ class Cart extends Controller
      */
     public static function updateRegularPrice()
     {
-        $cart_items = WC::getCartItems();
-        if (!empty($cart_items) && is_array($cart_items)) {
-            foreach ($cart_items as $cart_item_key => $cart_item) {
-                if (!empty($cart_item['cuw_product']) && !empty($cart_item['cuw_product']['product']['price'])) {
-                    WC::setCartItemRegularPrice($cart_item, $cart_item['cuw_product']['product']['price']);
-                } elseif (!empty($cart_item['cuw_offer']) && !empty($cart_item['cuw_offer']['product']['price'])) {
-                    WC::setCartItemRegularPrice($cart_item, $cart_item['cuw_offer']['product']['price']);
+        if (Config::getSetting('calculate_discount_from') == 'sale_price') {
+            $cart_items = WC::getCartItems();
+            if (!empty($cart_items) && is_array($cart_items)) {
+                foreach ($cart_items as $cart_item_key => $cart_item) {
+                    if (!empty($cart_item['cuw_product']) && !empty($cart_item['cuw_product']['product']['price'])) {
+                        WC::setCartItemRegularPrice($cart_item, $cart_item['cuw_product']['product']['price']);
+                    } elseif (!empty($cart_item['cuw_offer']) && !empty($cart_item['cuw_offer']['product']['price'])) {
+                        WC::setCartItemRegularPrice($cart_item, $cart_item['cuw_offer']['product']['price']);
+                    }
                 }
             }
         }

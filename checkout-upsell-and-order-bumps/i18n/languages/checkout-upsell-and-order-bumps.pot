@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.9\n"
+"Project-Id-Version: UpsellWP PRO - WooCommerce Upsell, Cross-sell and Order Bumps 2.1.10\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-22T05:12:25+00:00\n"
+"POT-Creation-Date: 2025-07-04T04:37:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-woocommerce\n"
@@ -257,7 +257,7 @@ msgstr ""
 
 #: app/Controllers/Admin/Page.php:254
 #: app/Controllers/Common/Campaigns.php:66
-#: app/Controllers/Store/Cart.php:96
+#: app/Controllers/Store/Cart.php:97
 #: app/Views/Admin/Campaign/Offer/Content.php:33
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:11
 msgid "Offer"
@@ -318,7 +318,7 @@ msgid "Get PRO"
 msgstr ""
 
 #: app/Controllers/Common/Campaigns.php:68
-#: app/Controllers/Store/Cart.php:111
+#: app/Controllers/Store/Cart.php:112
 #: app/Pro/Views/Admin/Campaign/CartAddons.php:68
 #: app/Pro/Views/Admin/Campaign/DoubleOrder.php:16
 #: app/Pro/Views/Admin/Campaign/Offer/OfferOptionTabs.php:223
@@ -551,7 +551,7 @@ msgstr ""
 
 #: app/Helpers/Campaign.php:319
 #: app/Pro/Helpers/Engine.php:468
-#: app/Pro/Helpers/License.php:168
+#: app/Pro/Helpers/License.php:169
 #: app/Views/Admin/Components/Compatibility.php:22
 msgid "Active"
 msgstr ""
@@ -562,7 +562,7 @@ msgstr ""
 
 #: app/Helpers/Campaign.php:321
 #: app/Modules/Campaigns/NOC.php:225
-#: app/Pro/Helpers/License.php:172
+#: app/Pro/Helpers/License.php:173
 msgid "Expired"
 msgstr ""
 
@@ -1699,45 +1699,45 @@ msgstr ""
 msgid "Choose this sort to list the products by product price."
 msgstr ""
 
-#: app/Pro/Helpers/License.php:82
-#: app/Pro/Helpers/License.php:109
-#: app/Pro/Helpers/License.php:127
+#: app/Pro/Helpers/License.php:83
+#: app/Pro/Helpers/License.php:110
+#: app/Pro/Helpers/License.php:128
 msgid "Unable to connect server. Try again later!"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:170
+#: app/Pro/Helpers/License.php:171
 msgid "Inactive"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:271
-#: app/Pro/Helpers/License.php:310
+#: app/Pro/Helpers/License.php:272
+#: app/Pro/Helpers/License.php:311
 msgid "enter license key"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:273
-#: app/Pro/Helpers/License.php:312
+#: app/Pro/Helpers/License.php:274
+#: app/Pro/Helpers/License.php:313
 msgid "renew your license"
 msgstr ""
 
 #. translators: %s upgrade url.
-#: app/Pro/Helpers/License.php:276
-#: app/Pro/Helpers/License.php:316
+#: app/Pro/Helpers/License.php:277
+#: app/Pro/Helpers/License.php:317
 msgid "Please %s to receive automatic updates or you can manually update the plugin by downloading it."
 msgstr ""
 
-#: app/Pro/Helpers/License.php:289
+#: app/Pro/Helpers/License.php:290
 msgid "Make sure to activate your license to receive updates, support and security fixes!"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:292
+#: app/Pro/Helpers/License.php:293
 msgid "Enter license key"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:292
+#: app/Pro/Helpers/License.php:293
 msgid "Activate license"
 msgstr ""
 
-#: app/Pro/Helpers/License.php:294
+#: app/Pro/Helpers/License.php:295
 msgid "Get License"
 msgstr ""
 

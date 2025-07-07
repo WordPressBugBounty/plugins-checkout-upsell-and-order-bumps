@@ -195,7 +195,7 @@ class Stats extends Model
         if ($campaign != 'all') {
             return '-';
         }
-        $where_query = self::prepareReportWhereQuery($campaign, $date_from, $date_to, false);
+        $where_query = self::prepareReportWhereQuery($campaign, $date_from, $date_to, false,false);
         return (int)Campaign::getScalar("SELECT COUNT(`id`) FROM {table} $where_query");
     }
 
@@ -212,7 +212,7 @@ class Stats extends Model
         if ($campaign != 'all') {
             return '-';
         }
-        $where_query = self::prepareReportWhereQuery($campaign, $date_from, $date_to, false);
+        $where_query = self::prepareReportWhereQuery($campaign, $date_from, $date_to, false,false);
         return (int)Offer::getScalar("SELECT COUNT(`id`) FROM {table} $where_query");
     }
 
@@ -326,11 +326,11 @@ class Stats extends Model
      * @param string|null $date_to
      * @return string
      */
-    protected static function prepareReportWhereQuery($campaign = 'all', $date_from = null, $date_to = null, $currency = null)
+    protected static function prepareReportWhereQuery($campaign = 'all', $date_from = null, $date_to = null, $currency = null , $is_stats = true)
     {
         $where_query = '';
         $order_status = apply_filters('cuw_stats_failed_order_status', ['cancelled', 'failed', 'checkout-draft', 'refunded']);
-        if ($order_status) {
+        if ($order_status && $is_stats) {
             $where_query = self::addWhereQuery($where_query, "`order_status` NOT IN ('". implode("','", $order_status) ."')");
         }
 
