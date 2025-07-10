@@ -22,7 +22,7 @@ if (is_numeric($used_by)) {
 ?>
 
 <div style="padding: 6px 2px;">
-    <?php esc_html_e('Created order', 'checkout-upsell-woocommerce'); ?>:
+    <?php esc_html_e('Created order', 'checkout-upsell-and-order-bumps'); ?>:
     <?php if ($created_order) { ?>
         <a target="_blank" href="<?php echo esc_url($created_order->get_edit_order_url()); ?>"
            style="text-decoration: none; font-weight: bold;">
@@ -33,7 +33,7 @@ if (is_numeric($used_by)) {
     } ?>
 </div>
 <div style="padding: 6px 2px;">
-    <?php esc_html_e('Created via', 'checkout-upsell-woocommerce'); ?>:
+    <?php esc_html_e('Created via', 'checkout-upsell-and-order-bumps'); ?>:
     <?php if ($campaign) { ?>
         <a target="_blank" href="<?php echo esc_url(\CUW\App\Helpers\Campaign::getEditUrl($campaign)); ?>"
            style="text-decoration: none; font-weight: bold;">
@@ -44,7 +44,7 @@ if (is_numeric($used_by)) {
     } ?>
 </div>
 <div style="padding: 6px 2px;">
-    <?php esc_html_e('Created for', 'checkout-upsell-woocommerce'); ?>:
+    <?php esc_html_e('Created for', 'checkout-upsell-and-order-bumps'); ?>:
     <?php if ($created_for) { ?>
         <?php echo '<span style="font-weight: bold;">' . esc_html($created_for) . '</span>'; ?>
     <?php } else {
@@ -53,7 +53,7 @@ if (is_numeric($used_by)) {
 </div>
 
 <div style="padding: 6px 2px;">
-    <?php esc_html_e('Used order', 'checkout-upsell-woocommerce'); ?>:
+    <?php esc_html_e('Used order', 'checkout-upsell-and-order-bumps'); ?>:
     <?php if ($used_order) { ?>
         <a target="_blank" href="<?php echo esc_url($used_order->get_edit_order_url()); ?>"
            style="text-decoration: none; font-weight: bold;">
@@ -64,7 +64,7 @@ if (is_numeric($used_by)) {
     } ?>
 </div>
 <div style="padding: 6px 8px 4px 2px;">
-    <?php esc_html_e('Used by', 'checkout-upsell-woocommerce'); ?>:
+    <?php esc_html_e('Used by', 'checkout-upsell-and-order-bumps'); ?>:
     <?php if ($used_by) { ?>
         <?php echo '<span style="font-weight: bold;">' . esc_html($used_by) . '</span>'; ?>
     <?php } else {

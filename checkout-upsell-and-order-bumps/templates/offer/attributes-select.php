@@ -2,7 +2,7 @@
 /**
  * Offer variant (variation product) attributes select
  *
- * This template can be overridden by copying it to yourtheme/checkout-upsell-woocommerce/offer/attributes-select.php.
+ * This template can be overridden by copying it to yourtheme/checkout-upsell-and-order-bumps/offer/attributes-select.php.
  *
  * HOWEVER, on occasion we will need to update template files and you (the theme developer) will need to copy the new files
  * to your theme to maintain compatibility. We try to do this as little as possible, but it does happen.
@@ -48,7 +48,7 @@ $variations_json = function_exists('wc_esc_json') ? wc_esc_json(wp_json_encode($
                 <select class="attribute-select" id="<?php echo esc_attr($attribute); ?>"
                         name="<?php echo esc_attr($name); ?>"
                         data-attribute_name="<?php echo 'attribute_' . esc_attr(sanitize_title($attribute)); ?>">
-                    <option value=""><?php esc_html_e('Choose an option', 'checkout-upsell-woocommerce'); ?></option>
+                    <option value=""><?php esc_html_e('Choose an option', 'checkout-upsell-and-order-bumps'); ?></option>
                     <?php if (taxonomy_exists($attribute) && function_exists('wc_get_product_terms')) {
                         $terms = wc_get_product_terms($product_object->get_id(), $attribute, ['fields' => 'all']);
                         foreach ($terms as $term) {
@@ -65,7 +65,7 @@ $variations_json = function_exists('wc_esc_json') ? wc_esc_json(wp_json_encode($
             </div>
         <?php } ?>
         <a href="#" class="cuw-reset-attributes" style="display: none;">
-            <?php esc_html_e('Clear', 'checkout-upsell-woocommerce'); ?>
+            <?php esc_html_e('Clear', 'checkout-upsell-and-order-bumps'); ?>
         </a>
     </div>
 </div>

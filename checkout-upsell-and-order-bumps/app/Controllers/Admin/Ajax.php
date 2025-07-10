@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -102,7 +102,7 @@ class Ajax extends Controller
     {
         $nonce = self::app()->input->get('nonce', '', 'post');
         if (empty($nonce) || !WP::verifyNonce($nonce, 'cuw_ajax')) {
-            wp_send_json_error(['message' => __("Security check failed!", 'checkout-upsell-woocommerce')]);
+            wp_send_json_error(['message' => __("Security check failed!", 'checkout-upsell-and-order-bumps')]);
         }
     }
 
@@ -119,7 +119,7 @@ class Ajax extends Controller
         if (!empty($method) && isset($handlers[$method]) && is_callable($handlers[$method])) {
             wp_send_json_success(call_user_func($handlers[$method]));
         }
-        wp_send_json_error(['message' => __("Method not exists.", 'checkout-upsell-woocommerce')]);
+        wp_send_json_error(['message' => __("Method not exists.", 'checkout-upsell-and-order-bumps')]);
     }
 
     /**
@@ -135,7 +135,7 @@ class Ajax extends Controller
         if (!empty($method) && isset($handlers[$method]) && is_callable($handlers[$method])) {
             wp_send_json_success(call_user_func($handlers[$method]));
         }
-        wp_send_json_error(['message' => __("Method not exists.", 'checkout-upsell-woocommerce')]);
+        wp_send_json_error(['message' => __("Method not exists.", 'checkout-upsell-and-order-bumps')]);
     }
 
     /**
@@ -290,7 +290,7 @@ class Ajax extends Controller
                 $page_no = self::app()->input->get('page_no', '', 'post');
                 return [
                     'status' => "success",
-                    'message' => esc_html__("Campaign saved", 'checkout-upsell-woocommerce'),
+                    'message' => esc_html__("Campaign saved", 'checkout-upsell-and-order-bumps'),
                     'redirect' => "tab=campaigns" . ($page_no > 1 ? "&page_no=" . $page_no : '') . "&edit={$result['id']}",
                     'result' => $result,
                 ];
@@ -328,8 +328,8 @@ class Ajax extends Controller
                 if ($id) {
                     $response['id'] = $id;
                     $response['message'] = !empty($sanitized_data['id'])
-                        ? esc_html__("Offer saved", 'checkout-upsell-woocommerce')
-                        : esc_html__("Offer added", 'checkout-upsell-woocommerce');
+                        ? esc_html__("Offer saved", 'checkout-upsell-and-order-bumps')
+                        : esc_html__("Offer added", 'checkout-upsell-and-order-bumps');
                 }
             }
             return $response;
@@ -379,7 +379,7 @@ class Ajax extends Controller
             if ($result) {
                 return [
                     'status' => "success",
-                    'message' => esc_html__("Offer deleted", 'checkout-upsell-woocommerce'),
+                    'message' => esc_html__("Offer deleted", 'checkout-upsell-and-order-bumps'),
                 ];
             }
         }
@@ -402,8 +402,8 @@ class Ajax extends Controller
                 return [
                     'status' => "success",
                     'message' => $enabled
-                        ? esc_html__("Campaign published", 'checkout-upsell-woocommerce')
-                        : esc_html__("Campaign drafted", 'checkout-upsell-woocommerce'),
+                        ? esc_html__("Campaign published", 'checkout-upsell-and-order-bumps')
+                        : esc_html__("Campaign drafted", 'checkout-upsell-and-order-bumps'),
                     'change' => ['id' => $id, 'status' => \CUW\App\Helpers\Campaign::getStatus($id, true)],
                 ];
             }
@@ -425,7 +425,7 @@ class Ajax extends Controller
             if ($result) {
                 return [
                     'status' => "success",
-                    'message' => esc_html__("Campaign duplicated", 'checkout-upsell-woocommerce'),
+                    'message' => esc_html__("Campaign duplicated", 'checkout-upsell-and-order-bumps'),
                     'refresh' => true,
                 ];
             }
@@ -451,7 +451,7 @@ class Ajax extends Controller
                     do_action('cuw_campaign_deleted', $id, $campaign);
                     return [
                         'status' => "success",
-                        'message' => esc_html__("Campaign deleted", 'checkout-upsell-woocommerce'),
+                        'message' => esc_html__("Campaign deleted", 'checkout-upsell-and-order-bumps'),
                         'remove' => ['id' => $id],
                         'refresh' => true,
                     ];
@@ -487,7 +487,7 @@ class Ajax extends Controller
             if ($action == 'delete') {
                 return [
                     'status' => "success",
-                    'message' => esc_html__("Campaigns deleted", 'checkout-upsell-woocommerce'),
+                    'message' => esc_html__("Campaigns deleted", 'checkout-upsell-and-order-bumps'),
                     'remove' => ['ids' => $ids],
                     'refresh' => true,
                 ];
@@ -751,7 +751,7 @@ class Ajax extends Controller
 
             return [
                 'status' => "success",
-                'message' => esc_html__("Changes saved", 'checkout-upsell-woocommerce'),
+                'message' => esc_html__("Changes saved", 'checkout-upsell-and-order-bumps'),
             ];
         } else {
             return ['status' => "error"];

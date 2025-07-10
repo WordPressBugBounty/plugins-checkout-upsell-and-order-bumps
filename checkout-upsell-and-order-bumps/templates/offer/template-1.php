@@ -2,7 +2,7 @@
 /**
  * Offer template 1
  *
- * This template can be overridden by copying it to yourtheme/checkout-upsell-woocommerce/offer/template-1.php.
+ * This template can be overridden by copying it to yourtheme/checkout-upsell-and-order-bumps/offer/template-1.php.
  *
  * HOWEVER, on occasion we will need to update template files and you (the theme developer) will need to copy the new files
  * to your theme to maintain compatibility. We try to do this as little as possible, but it does happen.
@@ -79,7 +79,7 @@ $disable_cta = empty($offer['cart_item_key']) && !empty($offer['product']['is_va
                 </span>
                 <span class="cuw-offer-added-text"
                       style="font-size: inherit; margin-left: 2px; <?php if (empty($offer['cart_item_key'])) echo 'display: none;' ?>">
-                    <?php esc_html_e('Added', 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e('Added', 'checkout-upsell-and-order-bumps'); ?>
                 </span>
             </label>
         </div>

@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -545,7 +545,7 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
         if (is_object($post) && $product = WC::getProduct()) {
             if (self::getMatchedCampaign($product)) {
                 $tabs['cuw_fbt'] = [
-                    'label' => __("Frequently Bought Together", 'checkout-upsell-woocommerce'),
+                    'label' => __("Frequently Bought Together", 'checkout-upsell-and-order-bumps'),
                     'target' => 'cuw_fbt_product_data',
                     'class' => [],
                     'priority' => 45
@@ -632,11 +632,11 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
     public static function getDisplayLocations()
     {
         return (array)apply_filters('cuw_fbt_products_display_locations', [
-            'woocommerce_before_single_product' => esc_html__("Top of the Product page", 'checkout-upsell-woocommerce'),
-            'woocommerce_after_single_product' => esc_html__("Bottom of the Product Page", 'checkout-upsell-woocommerce'),
-            'woocommerce_after_single_product_summary' => esc_html__("After Product summary", 'checkout-upsell-woocommerce'),
-            'woocommerce_after_single_product_summary:1' => esc_html__("Before Product tabs", 'checkout-upsell-woocommerce'),
-            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-woocommerce') . ' [cuw_fbt]',
+            'woocommerce_before_single_product' => esc_html__("Top of the Product page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_after_single_product' => esc_html__("Bottom of the Product Page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_after_single_product_summary' => esc_html__("After Product summary", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_after_single_product_summary:1' => esc_html__("Before Product tabs", 'checkout-upsell-and-order-bumps'),
+            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-and-order-bumps') . ' [cuw_fbt]',
         ]);
     }
 
@@ -658,7 +658,7 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
             if (is_object($post) && $product = WC::getProduct()) {
                 if (self::getMatchedCampaign($product)) {
                     $tabs['cuw_fbt'] = [
-                        'label' => __("Frequently Bought Together", 'checkout-upsell-woocommerce'),
+                        'label' => __("Frequently Bought Together", 'checkout-upsell-and-order-bumps'),
                         'target' => 'cuw_fbt_product_data',
                         'class' => [],
                         'priority' => 45

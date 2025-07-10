@@ -32,12 +32,12 @@ $page_url = Page::getUrl();
     <div id="campaigns-list">
 
         <div class="d-flex  title-container align-items-center justify-content-between">
-            <h5><?php esc_html_e("Campaigns", 'checkout-upsell-woocommerce'); ?>
+            <h5><?php esc_html_e("Campaigns", 'checkout-upsell-and-order-bumps'); ?>
             </h5>
             <div>
                 <button class="create-campaign btn btn-primary d-flex align-items-center px-3">
                     <i class="cuw-icon-add-circle text-white mx-1"></i>
-                    <?php esc_html_e("Create New Campaign", 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e("Create New Campaign", 'checkout-upsell-and-order-bumps'); ?>
                 </button>
             </div>
         </div>
@@ -47,29 +47,29 @@ $page_url = Page::getUrl();
                 <a class="dropdown-item  border-light campaign-sort <?php if ($status == '') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => ''], true)); ?>">
                     <?php
-                        // translators: %s campaign count.
-                        echo esc_html(sprintf(__('All (%s)', 'checkout-upsell-woocommerce'), $campaigns_count))
+                        // translators: %s count.
+                        echo esc_html(sprintf(__('All (%s)', 'checkout-upsell-and-order-bumps'), $campaigns_count))
                     ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'active') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'active'], true)); ?>">
                     <?php
-                        // translators: %s active campaign count.
-                        echo esc_html(sprintf(__('Active (%s)', 'checkout-upsell-woocommerce'), $active_campaigns_count))
+                        // translators: %s active count.
+                        echo esc_html(sprintf(__('Active (%s)', 'checkout-upsell-and-order-bumps'), $active_campaigns_count))
                     ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'draft') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'draft'], true)); ?>">
                     <?php
-                        // translators: %s draft campaign count.
-                        echo esc_html(sprintf(__('Draft (%s)', 'checkout-upsell-woocommerce'), $drafted_campaigns_count))
+                        // translators: %s draft count.
+                        echo esc_html(sprintf(__('Draft (%s)', 'checkout-upsell-and-order-bumps'), $drafted_campaigns_count))
                     ?>
                 </a>
                 <a class="dropdown-item campaign-sort <?php if ($status == 'publish') echo 'active'; ?>"
                    href="<?php echo esc_url(Page::getUrl(['status' => 'publish'], true)); ?>">
                     <?php
                         // translators: %s published campaign count.
-                        echo esc_html(sprintf(__('Published (%s)', 'checkout-upsell-woocommerce'), $published_campaigns_count))
+                        echo esc_html(sprintf(__('Published (%s)', 'checkout-upsell-and-order-bumps'), $published_campaigns_count))
                     ?>
                 </a>
             </div>
@@ -82,18 +82,18 @@ $page_url = Page::getUrl();
                             $filters = [];
                             echo '<span class="text-dark">';
                             if ($type) {
-                                $filters[] = esc_html(__("Type", 'checkout-upsell-woocommerce') . ": " . Campaign::getTypes($type));
+                                $filters[] = esc_html(__("Type", 'checkout-upsell-and-order-bumps') . ": " . Campaign::getTypes($type));
                             }
                             echo esc_html(implode(", ", $filters));
                             echo '</span>';
                         } else {
-                            echo esc_html__("Filter", 'checkout-upsell-woocommerce');
+                            echo esc_html__("Filter", 'checkout-upsell-and-order-bumps');
                         } ?>
                     </button>
                     <div class="dropdown-menu">
-                        <span class="dropdown-item text-dark font-weight-bold"><?php esc_html_e("Type", 'checkout-upsell-woocommerce'); ?></span>
+                        <span class="dropdown-item text-dark font-weight-bold"><?php esc_html_e("Type", 'checkout-upsell-and-order-bumps'); ?></span>
                         <a href="<?php echo esc_url(Page::getUrl(['type' => ''], true)); ?>"
-                           class="dropdown-item <?php if ($type == '') echo 'active'; ?>"><?php esc_attr_e("All", 'checkout-upsell-woocommerce'); ?></a>
+                           class="dropdown-item <?php if ($type == '') echo 'active'; ?>"><?php esc_attr_e("All", 'checkout-upsell-and-order-bumps'); ?></a>
                         <?php foreach ($campaign_types as $campaign_type => $text) { ?>
                             <a href="<?php echo esc_url(Page::getUrl(['type' => $campaign_type], true)); ?>"
                                class="dropdown-item <?php if ($type == $campaign_type) echo 'active'; ?>"><?php echo esc_html($text); ?></a>
@@ -106,17 +106,17 @@ $page_url = Page::getUrl();
                     <input type="hidden" name="tab" value="<?php echo esc_attr(Page::getCurrentTab()); ?>">
                     <input type="text" id="search-campaign" name="search" value="<?php echo esc_attr($search); ?>"
                            class="form-control <?php if ($search) echo 'border-primary' ?>"
-                           placeholder="<?php esc_attr_e("Search campaign", 'checkout-upsell-woocommerce'); ?>">
+                           placeholder="<?php esc_attr_e("Search campaign", 'checkout-upsell-and-order-bumps'); ?>">
                 </form>
             </div>
         </div>
         <div class="d-none justify-content-between p-3 align-items-center" id="bulk-toolbar">
-            <p class=""><span id="checks-count">0</span> <?php esc_html_e("selected", 'checkout-upsell-woocommerce'); ?>
+            <p class=""><span id="checks-count">0</span> <?php esc_html_e("selected", 'checkout-upsell-and-order-bumps'); ?>
             </p>
             <div>
                 <button class="btn btn-outline-danger px-3" data-toggle="modal" data-target="#modal-delete"
                         data-bulk="1">
-                    <i class="cuw-icon-delete inherit-color mx-1"></i> <?php esc_html_e("Delete All", 'checkout-upsell-woocommerce'); ?>
+                    <i class="cuw-icon-delete inherit-color mx-1"></i> <?php esc_html_e("Delete All", 'checkout-upsell-and-order-bumps'); ?>
                 </button>
             </div>
         </div>

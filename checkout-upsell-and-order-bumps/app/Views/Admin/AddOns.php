@@ -9,11 +9,11 @@ $available_addons = $addons_list['available_addons'] ?? [];
 
 <div id="cuw-add-ons">
     <div class="d-flex title-container align-items-center justify-content-between">
-        <h5><?php esc_html_e("Add-ons", 'checkout-upsell-woocommerce'); ?></h5>
+        <h5><?php esc_html_e("Add-ons", 'checkout-upsell-and-order-bumps'); ?></h5>
     </div>
     <div class="row mx-auto">
         <div class="col-md-12 my-2">
-            <h2 class="mx-3 mt-3"><?php esc_html_e('Active add-ons', 'checkout-upsell-woocommerce'); ?></h2>
+            <h2 class="mx-3 mt-3"><?php esc_html_e('Active add-ons', 'checkout-upsell-and-order-bumps'); ?></h2>
             <div class="d-flex flex-wrap">
                 <?php if (!empty($active_addons)) { ?>
                     <?php foreach ($active_addons as $slug => $addon) { ?>
@@ -34,7 +34,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                         </span>
                                     </h2>
                                     <div class="cuw-addon-author" style="font-size: 14px;">
-                                        <?php esc_html_e('By', 'checkout-upsell-woocommerce'); ?>
+                                        <?php esc_html_e('By', 'checkout-upsell-and-order-bumps'); ?>
                                         <?php echo esc_html($addon['author']); ?>
                                     </div>
                                 </div>
@@ -47,14 +47,14 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                     <?php if (!empty($addon['page_url'])) : ?>
                                         <a href="<?php echo esc_url($addon['page_url']); ?>"
                                            class="btn btn-primary text-decoration-none">
-                                            <?php esc_html_e("Open", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Open", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php endif; ?>
                                     <?php if (!empty($addon['settings_url'])): ?>
                                         <a href="<?php echo esc_url($addon['settings_url']); ?>"
                                            title="<?php echo esc_attr($addon['name']); ?>"
                                            class="btn btn-outline-primary text-decoration-none">
-                                            <?php esc_html_e("Configure", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Configure", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php endif; ?>
                                     <?php do_action('cuw_' . $slug . '_addon_actions', $addon); ?>
@@ -63,7 +63,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                     <div class="d-flex" style="gap: 8px;">
                                         <a href="<?php echo esc_url(add_query_arg(['cuw_deactivate_addon' => $slug, 'nonce' => wp_create_nonce('cuw_addon_deactivate')])); ?>"
                                            class="btn btn-outline-secondary text-decoration-none">
-                                            <?php esc_html_e("Deactivate", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Deactivate", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     </div>
                                 <?php } ?>
@@ -72,13 +72,13 @@ $available_addons = $addons_list['available_addons'] ?? [];
                     <?php } ?>
                 <?php } else { ?>
                     <div class="m-3">
-                        <p class="text-secondary"><?php esc_html_e("No active add-ons", 'checkout-upsell-woocommerce'); ?></p>
+                        <p class="text-secondary"><?php esc_html_e("No active add-ons", 'checkout-upsell-and-order-bumps'); ?></p>
                     </div>
                 <?php } ?>
             </div>
         </div>
         <div class="col-md-12 my-2">
-            <h2 class="mx-3"><?php esc_html_e('Available add-ons', 'checkout-upsell-woocommerce'); ?></h2>
+            <h2 class="mx-3"><?php esc_html_e('Available add-ons', 'checkout-upsell-and-order-bumps'); ?></h2>
             <div class="d-flex flex-wrap">
                 <?php if (!empty($available_addons)) { ?>
                     <?php foreach ($available_addons as $slug => $addon) { ?>
@@ -88,7 +88,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                      style="<?php echo $rtl ? 'left: 4px;' : 'right: 4px;'; ?> top: 4px;">
                                     <small class="badge badge-blue-primary font-weight-medium"
                                            style="line-height:1; padding: 3px 6px; margin: 2px 2px 0 2px; border-radius: 4px;">
-                                        <?php esc_html_e('Paid', 'checkout-upsell-woocommerce'); ?>
+                                        <?php esc_html_e('Paid', 'checkout-upsell-and-order-bumps'); ?>
                                     </small>
                                 </div>
                             <?php } ?>
@@ -107,7 +107,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                         </span>
                                     </h2>
                                     <div class="cuw-addon-author" style="font-size: 14px;">
-                                        <?php esc_html_e('By', 'checkout-upsell-woocommerce'); ?>
+                                        <?php esc_html_e('By', 'checkout-upsell-and-order-bumps'); ?>
                                         <?php echo esc_html($addon['author']); ?>
                                     </div>
                                 </div>
@@ -126,13 +126,13 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                         <a href="<?php echo esc_url($addon['download_url']); ?>"
                                            title="<?php echo esc_attr($addon['name']); ?>"
                                            class="btn btn-primary text-decoration-none">
-                                            <?php esc_html_e("Download", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Download", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php elseif (empty($addon['download_url']) && empty($addon['is_installed']) && !empty($addon['plugin_url'])) : ?>
                                         <a href="<?php echo esc_url($addon['plugin_url']); ?>" target="_blank"
                                            title="<?php echo esc_attr($addon['name']); ?>"
                                            class="btn btn-primary text-decoration-none px-4">
-                                            <?php esc_html_e("Get", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Get", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php endif; ?>
 
@@ -140,7 +140,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                         <a href="<?php echo esc_url($addon['plugin_url']); ?>" target="_blank"
                                            title="<?php echo esc_attr($addon['name']); ?>"
                                            class="btn btn-outline-primary text-decoration-none">
-                                            <?php esc_html_e("Learn more", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Learn more", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -149,7 +149,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                         <a href="<?php echo esc_url(add_query_arg(['cuw_activate_addon' => $slug, 'nonce' => wp_create_nonce('cuw_addon_activate')])); ?>"
                                            class="btn btn-primary text-decoration-none"
                                            style="<?php if (empty($addon['is_activatable'])) echo 'pointer-events: none; opacity: 0.8;'; ?>">
-                                            <?php esc_html_e("Activate", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Activate", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -158,7 +158,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                     <?php } ?>
                 <?php } else { ?>
                     <div class="m-3">
-                        <p class="text-secondary"><?php esc_html_e("No more available add-ons", 'checkout-upsell-woocommerce'); ?></p>
+                        <p class="text-secondary"><?php esc_html_e("No more available add-ons", 'checkout-upsell-and-order-bumps'); ?></p>
                     </div>
                 <?php } ?>
             </div>

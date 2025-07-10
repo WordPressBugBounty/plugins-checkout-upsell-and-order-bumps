@@ -7,7 +7,7 @@ $rtl = \CUW\App\Helpers\WP::isRtl();
 
 <div id="cuw-add-ons">
     <div class="d-flex title-container align-items-center justify-content-between">
-        <h5><?php esc_html_e("Recommendations", 'checkout-upsell-woocommerce'); ?></h5>
+        <h5><?php esc_html_e("Recommendations", 'checkout-upsell-and-order-bumps'); ?></h5>
     </div>
     <div class="row mx-auto">
         <div class="col-md-12 my-2">
@@ -30,7 +30,7 @@ $rtl = \CUW\App\Helpers\WP::isRtl();
                                     <?php echo esc_html($recommendation['name']); ?>
                                 </h2>
                                 <div class="cuw-recommendation-author" style="font-size: 14px;">
-                                    <?php esc_html_e('By', 'checkout-upsell-woocommerce'); ?>
+                                    <?php esc_html_e('By', 'checkout-upsell-and-order-bumps'); ?>
                                     <?php echo esc_html($recommendation['author']); ?>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ $rtl = \CUW\App\Helpers\WP::isRtl();
                                     <a href="<?php echo esc_url($recommendation['plugin_url']); ?>" target="_blank"
                                        title="<?php echo esc_attr($recommendation['name']); ?>"
                                        class="btn btn-outline-primary text-decoration-none">
-                                        <?php esc_html_e("Learn more", 'checkout-upsell-woocommerce'); ?>
+                                        <?php esc_html_e("Learn more", 'checkout-upsell-and-order-bumps'); ?>
                                     </a>
                                 <?php endif; ?>
                             </div>

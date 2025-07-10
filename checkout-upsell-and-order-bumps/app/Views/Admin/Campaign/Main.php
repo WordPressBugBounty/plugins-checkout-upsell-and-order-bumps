@@ -66,7 +66,7 @@ if (!empty($campaign['offers'])) {
             $product = CUW()->wc->getProduct($offer['product']['id']);
             $product_title = is_object($product)
                 ? CUW()->wc->getProductTitle($product->get_id(), true)
-                : __('(Deleted)', 'checkout-upsell-woocommerce');
+                : __('(Deleted)', 'checkout-upsell-and-order-bumps');
             $is_valid_product = CUW()->wc->isPurchasableProduct($product, $offer['product']['qty']);
             $campaign['offers'][$key]['product_title'] = $product_title;
             $campaign['offers'][$key]['is_valid'] = $is_valid_product;
@@ -79,7 +79,7 @@ if (!empty($campaign['offers'])) {
         $invalid_products = array_unique($invalid_products);
         $notices[] = [
             'status' => 'warning',
-            'message' => __("The following offer products are not purchasable or not has enough stock.", 'checkout-upsell-woocommerce')
+            'message' => __("The following offer products are not purchasable or not has enough stock.", 'checkout-upsell-and-order-bumps')
                 . '<br>' . implode("<br>", $invalid_products),
         ];
     }
@@ -94,12 +94,12 @@ if (!empty($campaign['offers'])) {
                 <div class="d-flex flex-row" style="gap: 8px;">
                     <input type="text" class="form-control" id="title" name="title"
                            value="<?php echo esc_attr($campaign['title']); ?>"
-                           placeholder="<?php esc_attr_e("Campaign name", 'checkout-upsell-woocommerce'); ?>"
+                           placeholder="<?php esc_attr_e("Campaign name", 'checkout-upsell-and-order-bumps'); ?>"
                            maxlength="255"
                            style="font-size: 16px;"/>
                     <button type="button" id="campaign-name-save" class="btn btn-primary px-3">
                         <i class="cuw-icon-tick-circle text-white mx-1"></i>
-                        <?php esc_html_e("Save", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Save", 'checkout-upsell-and-order-bumps'); ?>
                     </button>
                     <button type="button" id="campaign-name-close" class="btn btn-outline-secondary px-3">
                         <i class="cuw-icon-close-circle inherit-color mx-1"></i>
@@ -118,7 +118,7 @@ if (!empty($campaign['offers'])) {
                             <div id="campaign-name-settings" style="gap:6px" class="d-flex align-items-center">
                                 <div style="gap:6px" class="d-flex align-items-center"><h5 class="" id="campaign-name">
                                         <?php echo $form == 'create'
-                                            ? esc_html__("New Campaign", 'checkout-upsell-woocommerce')
+                                            ? esc_html__("New Campaign", 'checkout-upsell-and-order-bumps')
                                             : esc_html($campaign['title']);
                                         ?>
                                     </h5>
@@ -135,7 +135,7 @@ if (!empty($campaign['offers'])) {
                             <div class="d-flex align-items-center flex-fill">
                                 <input type="text" class="form-control" id="title" name="title"
                                        value="<?php echo !empty($campaign['title']) ? esc_attr($campaign['title']) : ''; ?>"
-                                       placeholder="<?php esc_attr_e("Campaign name", 'checkout-upsell-woocommerce'); ?>"
+                                       placeholder="<?php esc_attr_e("Campaign name", 'checkout-upsell-and-order-bumps'); ?>"
                                        maxlength="255"
                                        style="font-size: 16px;">
                             </div>
@@ -166,12 +166,12 @@ if (!empty($campaign['offers'])) {
                         <button type="button" id="campaign-save"
                                 class="btn btn-outline-primary px-2">
                             <i class="cuw-icon-tick-circle inherit-color mx-1"></i>
-                            <?php esc_html_e("Save", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("Save", 'checkout-upsell-and-order-bumps'); ?>
                         </button>
                         <button type="button" id="campaign-save-close"
                                 class="btn btn-primary px-2">
                             <i class="cuw-icon-save text-white mx-1"></i>
-                            <?php esc_html_e("Save & Close", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("Save & Close", 'checkout-upsell-and-order-bumps'); ?>
                         </button>
                     </div>
                 </div>
@@ -190,7 +190,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'filter',
-                        'title' => __('Filters / Apply to', 'checkout-upsell-woocommerce'),
+                        'title' => __('Filters / Apply to', 'checkout-upsell-and-order-bumps'),
                         'icon' => 'filter',
                         'view' => 'Admin/Campaign/Components/Filters',
                         'data' => ['campaign' => $campaign],
@@ -204,7 +204,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'offers',
-                        'title' => __('Offers', 'checkout-upsell-woocommerce'),
+                        'title' => __('Offers', 'checkout-upsell-and-order-bumps'),
                         'icon' => 'offers',
                         'view' => 'Admin/Campaign/Components/Offers',
                         'data' => ['campaign' => $campaign, 'available_conditions' => $available_conditions],
@@ -218,7 +218,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'condition',
-                        'title' => __('Conditions', 'checkout-upsell-woocommerce'),
+                        'title' => __('Conditions', 'checkout-upsell-and-order-bumps'),
                         'icon' => "rules",
                         'view' => 'Admin/Campaign/Components/Conditions',
                         'data' => ['campaign' => $campaign, 'available_conditions' => $available_conditions],
@@ -234,7 +234,7 @@ if (!empty($campaign['offers'])) {
                 <?php
                 CUW()->view('Admin/Components/Accordion', [
                     'id' => 'optional_settings',
-                    'title' => __('Optional Settings', 'checkout-upsell-woocommerce'),
+                    'title' => __('Optional Settings', 'checkout-upsell-and-order-bumps'),
                     'icon' => 'settings',
                     'view' => 'Admin/Campaign/Components/OptionalSettings',
                     'data' => ['campaign' => $campaign, 'is_single' => $is_single],
@@ -245,7 +245,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'usage_limits',
-                        'title' => __('Usage Limits', 'checkout-upsell-woocommerce'),
+                        'title' => __('Usage Limits', 'checkout-upsell-and-order-bumps'),
                         'icon' => 'usage-limit',
                         'view' => 'Admin/Campaign/Components/UsageLimit',
                         'data' => ['campaign' => $campaign],
@@ -256,7 +256,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'advanced_options',
-                        'title' => __('Advanced Options', 'checkout-upsell-woocommerce'),
+                        'title' => __('Advanced Options', 'checkout-upsell-and-order-bumps'),
                         'icon' => 'options',
                         'view' => 'Admin/Campaign/Components/AdvancedOptions',
                         'data' => array_merge(['campaign' => $campaign], $advanced_options),
@@ -266,7 +266,7 @@ if (!empty($campaign['offers'])) {
                 <?php
                 CUW()->view('Admin/Components/Accordion', [
                     'id' => 'tutorials',
-                    'title' => __('Tutorials', 'checkout-upsell-woocommerce'),
+                    'title' => __('Tutorials', 'checkout-upsell-and-order-bumps'),
                     'icon' => 'books',
                     'view' => 'Admin/Campaign/Components/Tutorials',
                     'data' => ['campaign' => $campaign],
@@ -277,7 +277,7 @@ if (!empty($campaign['offers'])) {
                     <?php
                     CUW()->view('Admin/Components/Accordion', [
                         'id' => 'info',
-                        'title' => __('Information', 'checkout-upsell-woocommerce'),
+                        'title' => __('Information', 'checkout-upsell-and-order-bumps'),
                         'icon' => 'info-circle',
                         'view' => 'Admin/Campaign/Components/Information',
                         'data' => ['campaign' => $campaign],

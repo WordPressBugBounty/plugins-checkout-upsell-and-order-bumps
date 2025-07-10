@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -24,53 +24,53 @@ class Validate
     {
         return [
             // validator messages
-            'required' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
-            'numeric' => esc_html__("It must be numeric", 'checkout-upsell-woocommerce'),
-            'integer' => esc_html__("It must be an integer", 'checkout-upsell-woocommerce'),
+            'required' => esc_html__("This field is required", 'checkout-upsell-and-order-bumps'),
+            'numeric' => esc_html__("It must be numeric", 'checkout-upsell-and-order-bumps'),
+            'integer' => esc_html__("It must be an integer", 'checkout-upsell-and-order-bumps'),
             // translators: %s value.
-            'min' => esc_html__("It must be at least %s", 'checkout-upsell-woocommerce'),
+            'min' => esc_html__("It must be at least %s", 'checkout-upsell-and-order-bumps'),
             // translators: %s value.
-            'max' => esc_html__("It must be no more than %s", 'checkout-upsell-woocommerce'),
-            'url' => esc_html__("It is not a valid URL", 'checkout-upsell-woocommerce'),
-            'regex' => esc_html__("It contains invalid characters", 'checkout-upsell-woocommerce'),
+            'max' => esc_html__("It must be no more than %s", 'checkout-upsell-and-order-bumps'),
+            'url' => esc_html__("It is not a valid URL", 'checkout-upsell-and-order-bumps'),
+            'regex' => esc_html__("It contains invalid characters", 'checkout-upsell-and-order-bumps'),
             // translators: %s date.
-            'dateAfter' => esc_html__("It must be date after %s", 'checkout-upsell-woocommerce'),
+            'dateAfter' => esc_html__("It must be date after %s", 'checkout-upsell-and-order-bumps'),
             // translators: %d length.
-            'lengthMax' => esc_html__("It must not exceed %d characters", 'checkout-upsell-woocommerce'),
-            'requiredWith' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
+            'lengthMax' => esc_html__("It must not exceed %d characters", 'checkout-upsell-and-order-bumps'),
+            'requiredWith' => esc_html__("This field is required", 'checkout-upsell-and-order-bumps'),
 
             // custom messages
-            'coupon_exists' => esc_html__('This coupon already exists in WooCommerce', 'checkout-upsell-woocommerce'),
+            'coupon_exists' => esc_html__('This coupon already exists in WooCommerce', 'checkout-upsell-and-order-bumps'),
 
             // other messages
-            // 'equals'         => esc_html__("{field} must be the same as '%s'", 'checkout-upsell-woocommerce'),
-            // 'different'      => esc_html__("{field} must be different than '%s'", 'checkout-upsell-woocommerce'),
-            // 'accepted'       => esc_html__("{field} must be accepted", 'checkout-upsell-woocommerce'),
-            // 'length'         => esc_html__("{field} must be %d characters long", 'checkout-upsell-woocommerce'),
-            // 'listContains'   => esc_html__("{field} contains invalid value", 'checkout-upsell-woocommerce'),
-            // 'in'             => esc_html__("{field} contains invalid value", 'checkout-upsell-woocommerce'),
-            // 'notIn'          => esc_html__("{field} contains invalid value", 'checkout-upsell-woocommerce'),
-            // 'ip'             => esc_html__("{field} is not a valid IP address", 'checkout-upsell-woocommerce'),
-            // 'ipv4'           => esc_html__("{field} is not a valid IPv4 address", 'checkout-upsell-woocommerce'),
-            // 'ipv6'           => esc_html__("{field} is not a valid IPv6 address", 'checkout-upsell-woocommerce'),
-            // 'email'          => esc_html__("{field} is not a valid email address", 'checkout-upsell-woocommerce'),
-            // 'urlActive'      => esc_html__("{field} must be an active domain", 'checkout-upsell-woocommerce'),
-            // 'alpha'          => esc_html__("{field} must contain only letters a-z", 'checkout-upsell-woocommerce'),
-            // 'alphaNum'       => esc_html__("{field} must contain only letters a-z and/or numbers 0-9", 'checkout-upsell-woocommerce'),
-            // 'slug'           => esc_html__("{field} must contain only letters a-z, numbers 0-9, dashes and underscores", 'checkout-upsell-woocommerce'),
-            // 'date'           => esc_html__("{field} is not a valid date", 'checkout-upsell-woocommerce'),
-            // 'dateFormat'     => esc_html__("{field} must be date with format '%s'", 'checkout-upsell-woocommerce'),
-            // 'dateBefore'     => esc_html__("{field} must be date before %s", 'checkout-upsell-woocommerce'),
-            // 'contains'       => esc_html__("{field} must contain %s", 'checkout-upsell-woocommerce'),
-            // 'boolean'        => esc_html__("{field} must be a boolean", 'checkout-upsell-woocommerce'),
-            // 'lengthBetween'  => esc_html__("{field} must be between %d and %d characters", 'checkout-upsell-woocommerce'),
-            // 'creditCard'     => esc_html__("{field} must be a valid credit card number", 'checkout-upsell-woocommerce'),
-            // 'lengthMin'      => esc_html__("{field} must be at least %d characters long", 'checkout-upsell-woocommerce'),
-            // 'instanceOf'     => esc_html__("{field} must be an instance of '%s'", 'checkout-upsell-woocommerce'),
-            // 'containsUnique' => esc_html__("{field} must contain unique elements only", 'checkout-upsell-woocommerce'),
-            // 'requiredWithout'=> esc_html__("{field} is required", 'checkout-upsell-woocommerce'),
-            // 'subset'         => esc_html__("{field} contains an item that is not in the list", 'checkout-upsell-woocommerce'),
-            // 'arrayHasKeys'   => esc_html__("{field} does not contain all required keys", 'checkout-upsell-woocommerce'),
+            // 'equals'         => esc_html__("{field} must be the same as '%s'", 'checkout-upsell-and-order-bumps'),
+            // 'different'      => esc_html__("{field} must be different than '%s'", 'checkout-upsell-and-order-bumps'),
+            // 'accepted'       => esc_html__("{field} must be accepted", 'checkout-upsell-and-order-bumps'),
+            // 'length'         => esc_html__("{field} must be %d characters long", 'checkout-upsell-and-order-bumps'),
+            // 'listContains'   => esc_html__("{field} contains invalid value", 'checkout-upsell-and-order-bumps'),
+            // 'in'             => esc_html__("{field} contains invalid value", 'checkout-upsell-and-order-bumps'),
+            // 'notIn'          => esc_html__("{field} contains invalid value", 'checkout-upsell-and-order-bumps'),
+            // 'ip'             => esc_html__("{field} is not a valid IP address", 'checkout-upsell-and-order-bumps'),
+            // 'ipv4'           => esc_html__("{field} is not a valid IPv4 address", 'checkout-upsell-and-order-bumps'),
+            // 'ipv6'           => esc_html__("{field} is not a valid IPv6 address", 'checkout-upsell-and-order-bumps'),
+            // 'email'          => esc_html__("{field} is not a valid email address", 'checkout-upsell-and-order-bumps'),
+            // 'urlActive'      => esc_html__("{field} must be an active domain", 'checkout-upsell-and-order-bumps'),
+            // 'alpha'          => esc_html__("{field} must contain only letters a-z", 'checkout-upsell-and-order-bumps'),
+            // 'alphaNum'       => esc_html__("{field} must contain only letters a-z and/or numbers 0-9", 'checkout-upsell-and-order-bumps'),
+            // 'slug'           => esc_html__("{field} must contain only letters a-z, numbers 0-9, dashes and underscores", 'checkout-upsell-and-order-bumps'),
+            // 'date'           => esc_html__("{field} is not a valid date", 'checkout-upsell-and-order-bumps'),
+            // 'dateFormat'     => esc_html__("{field} must be date with format '%s'", 'checkout-upsell-and-order-bumps'),
+            // 'dateBefore'     => esc_html__("{field} must be date before %s", 'checkout-upsell-and-order-bumps'),
+            // 'contains'       => esc_html__("{field} must contain %s", 'checkout-upsell-and-order-bumps'),
+            // 'boolean'        => esc_html__("{field} must be a boolean", 'checkout-upsell-and-order-bumps'),
+            // 'lengthBetween'  => esc_html__("{field} must be between %d and %d characters", 'checkout-upsell-and-order-bumps'),
+            // 'creditCard'     => esc_html__("{field} must be a valid credit card number", 'checkout-upsell-and-order-bumps'),
+            // 'lengthMin'      => esc_html__("{field} must be at least %d characters long", 'checkout-upsell-and-order-bumps'),
+            // 'instanceOf'     => esc_html__("{field} must be an instance of '%s'", 'checkout-upsell-and-order-bumps'),
+            // 'containsUnique' => esc_html__("{field} must contain unique elements only", 'checkout-upsell-and-order-bumps'),
+            // 'requiredWithout'=> esc_html__("{field} is required", 'checkout-upsell-and-order-bumps'),
+            // 'subset'         => esc_html__("{field} contains an item that is not in the list", 'checkout-upsell-and-order-bumps'),
+            // 'arrayHasKeys'   => esc_html__("{field} does not contain all required keys", 'checkout-upsell-and-order-bumps'),
         ];
     }
 
@@ -379,7 +379,7 @@ class Validate
         $validator->rule('required', ['product_id', 'discount_type', 'discount_value'])->message($messages['required']);
         if ($check_product && $product) {
             $validator->rule('isPurchasableProduct', ['product_id'], $data['product_qty'])
-                ->message(esc_html__("This product is not purchasable or not has enough stock", 'checkout-upsell-woocommerce'));
+                ->message(esc_html__("This product is not purchasable or not has enough stock", 'checkout-upsell-and-order-bumps'));
         }
 
         if (!empty($data['product_qty'])) {

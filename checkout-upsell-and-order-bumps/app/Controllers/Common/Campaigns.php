@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -63,9 +63,9 @@ class Campaigns extends Controller
     public static function displayItemMetaKey($display_key)
     {
         if ($display_key == 'cuw_offer_text') {
-            $display_key = __("Offer", 'checkout-upsell-woocommerce');
+            $display_key = __("Offer", 'checkout-upsell-and-order-bumps');
         } elseif ($display_key == 'cuw_discount_text') {
-            $display_key = __("Discount", 'checkout-upsell-woocommerce');
+            $display_key = __("Discount", 'checkout-upsell-and-order-bumps');
         }
         return $display_key;
     }
@@ -80,8 +80,8 @@ class Campaigns extends Controller
         global $post;
         if (is_object($post) && isset($post->ID)) {
             if (apply_filters('cuw_show_upsell_products_data_tab', false, $post->ID)) {
-                $label = __("Upsell Products", 'checkout-upsell-woocommerce');
-                $label .= ' (' . __("UpsellWP", 'checkout-upsell-woocommerce') . ')';
+                $label = __("Upsell Products", 'checkout-upsell-and-order-bumps');
+                $label .= ' (' . __("UpsellWP", 'checkout-upsell-and-order-bumps') . ')';
                 $tabs['cuw_upsells'] = [
                     'label' => $label,
                     'target' => 'cuw_upsells_product_data_tab',
@@ -117,7 +117,7 @@ class Campaigns extends Controller
         foreach ($columns as $key => $column) {
             $reordered_columns[$key] = $column;
             if ($key == 'order_status') {
-                $reordered_columns['cuw_upsell_info'] = __("Upsell Revenue", 'checkout-upsell-woocommerce');
+                $reordered_columns['cuw_upsell_info'] = __("Upsell Revenue", 'checkout-upsell-and-order-bumps');
             }
         }
         return $reordered_columns;
@@ -155,7 +155,7 @@ class Campaigns extends Controller
             if (!empty($message)) {
                 echo wp_kses_post($message);
             } else {
-                echo '<span style="opacity: 0.8;">' . esc_html__("N/A", 'checkout-upsell-woocommerce') . '</span>';
+                echo '<span style="opacity: 0.8;">' . esc_html__("N/A", 'checkout-upsell-and-order-bumps') . '</span>';
             }
         }
     }

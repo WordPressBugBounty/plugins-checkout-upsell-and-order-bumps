@@ -14,21 +14,21 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
 
 <div id="cuw-reports" data-tab="reports">
     <div class="d-flex justify-content-between title-container align-items-center">
-        <h5><?php esc_html_e("Reports", 'checkout-upsell-woocommerce'); ?></h5>
+        <h5><?php esc_html_e("Reports", 'checkout-upsell-and-order-bumps'); ?></h5>
         <?php if (!empty($currency_types)) { ?>
             <div class="d-flex" style="gap: 8px;">
                 <div class="select-box-with-icon position-relative d-flex">
                     <i class="cuw-icon-campaigns px-1"></i>
                     <select id="campaign" class="form-control">
                         <option value="all" <?php if (empty($campaign_id)) echo 'selected'; ?>>
-                            <?php esc_html_e("All campaigns", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("All campaigns", 'checkout-upsell-and-order-bumps'); ?>
                         </option>
-                        <optgroup label="<?php esc_attr_e("Campaign type", 'checkout-upsell-woocommerce'); ?>">
+                        <optgroup label="<?php esc_attr_e("Campaign type", 'checkout-upsell-and-order-bumps'); ?>">
                             <?php foreach ($campaign_types as $key => $title) {
                                 echo '<option value="' . esc_attr($key) . '">' . esc_html($title) . '</option>';
                             } ?>
                         </optgroup>
-                        <optgroup label="<?php esc_attr_e("Campaign", 'checkout-upsell-woocommerce'); ?>">
+                        <optgroup label="<?php esc_attr_e("Campaign", 'checkout-upsell-and-order-bumps'); ?>">
                             <?php foreach ($campaigns as $campaign) {
                                 $selected = !empty($campaign_id) && $campaign_id == $campaign['id'] ? 'selected' : '';
                                 echo '<option value="' . esc_attr($campaign['id']) . '" ' . esc_attr($selected) . '>' . esc_html($campaign['title']) . '</option>';
@@ -40,22 +40,22 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                     <div class="select-box-with-icon position-relative d-flex">
                         <i class="cuw-icon-calendar px-1"></i>
                         <select id="range" class="form-control">
-                            <option value="this_week"><?php esc_html_e("This week", 'checkout-upsell-woocommerce'); ?></option>
-                            <option value="last_week"><?php esc_html_e("Last week", 'checkout-upsell-woocommerce'); ?></option>
+                            <option value="this_week"><?php esc_html_e("This week", 'checkout-upsell-and-order-bumps'); ?></option>
+                            <option value="last_week"><?php esc_html_e("Last week", 'checkout-upsell-and-order-bumps'); ?></option>
                             <option value="this_month"
-                                    selected><?php esc_html_e("This month", 'checkout-upsell-woocommerce'); ?></option>
-                            <option value="last_month"><?php esc_html_e("Last month", 'checkout-upsell-woocommerce'); ?></option>
-                            <option value="custom"><?php esc_html_e("Custom", 'checkout-upsell-woocommerce'); ?></option>
+                                    selected><?php esc_html_e("This month", 'checkout-upsell-and-order-bumps'); ?></option>
+                            <option value="last_month"><?php esc_html_e("Last month", 'checkout-upsell-and-order-bumps'); ?></option>
+                            <option value="custom"><?php esc_html_e("Custom", 'checkout-upsell-and-order-bumps'); ?></option>
                         </select>
                     </div>
                     <div id="custom-range" style="display: none;">
                         <div class="d-flex" style="gap: 6px;">
                             <input class="form-control" type="date" id="date-from" min="2022-01-01"
                                    max="<?php echo esc_attr(current_time('Y-m-d')); ?>"
-                                   title="<?php esc_html_e("From", 'checkout-upsell-woocommerce'); ?>">
+                                   title="<?php esc_html_e("From", 'checkout-upsell-and-order-bumps'); ?>">
                             <input class="form-control" type="date" id="date-to" min="2022-01-01"
                                    max="<?php echo esc_attr(current_time('Y-m-d')); ?>"
-                                   title="<?php esc_html_e("To", 'checkout-upsell-woocommerce'); ?>">
+                                   title="<?php esc_html_e("To", 'checkout-upsell-and-order-bumps'); ?>">
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,8 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="select-box-with-icon position-relative d-flex">
                     <i class="cuw-icon-currency text-light-gray"></i>
                     <select id="revenue-type" class="form-control">
-                        <option value="<?php esc_attr_e('without_tax', 'checkout-upsell-woocommerce') ?>" <?php if ($revenue_tax_display == 'without_tax') echo 'selected'; ?>><?php esc_html_e('Excluding tax', 'checkout-upsell-woocommerce') ?></option>
-                        <option value="<?php esc_attr_e('with_tax', 'checkout-upsell-woocommerce') ?>" <?php if ($revenue_tax_display == 'with_tax') echo 'selected'; ?> ><?php esc_html_e('Including tax', 'checkout-upsell-woocommerce') ?></option>
+                        <option value="<?php esc_attr_e('without_tax', 'checkout-upsell-and-order-bumps') ?>" <?php if ($revenue_tax_display == 'without_tax') echo 'selected'; ?>><?php esc_html_e('Excluding tax', 'checkout-upsell-and-order-bumps') ?></option>
+                        <option value="<?php esc_attr_e('with_tax', 'checkout-upsell-and-order-bumps') ?>" <?php if ($revenue_tax_display == 'with_tax') echo 'selected'; ?> ><?php esc_html_e('Including tax', 'checkout-upsell-and-order-bumps') ?></option>
                     </select>
                 </div>
             </div>
@@ -85,7 +85,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="col-md-6">
                     <div class="card cuw-card ">
                         <div class="d-flex-between">
-                            <p class="font-weight-medium"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-woocommerce'); ?></p>
+                            <p class="font-weight-medium"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-and-order-bumps'); ?></p>
                             <div class="img-icon cuw-icon-container"
                                  style="background: #D8E5FE; padding: 8px; border-radius: 50%;">
                                 <i class="cuw-icon-total-revenue"></i>
@@ -111,7 +111,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="col-md-6">
                     <div class="card cuw-card ">
                         <div class="d-flex-between">
-                            <p class="font-weight-medium mb-2"><?php esc_html_e("Products Purchased", 'checkout-upsell-woocommerce'); ?></p>
+                            <p class="font-weight-medium mb-2"><?php esc_html_e("Products Purchased", 'checkout-upsell-and-order-bumps'); ?></p>
                             <div class="img-icon cuw-icon-container"
                                  style="background: #D8E5FE; padding: 8px; border-radius: 50%;">
                                 <i class="cuw-icon-purchased text-primary"></i>
@@ -139,7 +139,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="col-md-6">
                     <div class="card cuw-card ">
                         <div class="d-flex-between">
-                            <p class="font-weight-medium mb-2"><?php esc_html_e("Campaigns Created", 'checkout-upsell-woocommerce'); ?></p>
+                            <p class="font-weight-medium mb-2"><?php esc_html_e("Campaigns Created", 'checkout-upsell-and-order-bumps'); ?></p>
                             <div class="img-icon cuw-icon-container"
                                  style="background: #D8E5FE; padding: 8px; border-radius: 50%;">
                                 <i class="cuw-icon-campaigns-created"></i>
@@ -165,7 +165,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="col-md-6">
                     <div class="card cuw-card ">
                         <div class="d-flex-between">
-                            <p class="font-weight-medium mb-2"><?php esc_html_e("Offers Created", 'checkout-upsell-woocommerce'); ?></p>
+                            <p class="font-weight-medium mb-2"><?php esc_html_e("Offers Created", 'checkout-upsell-and-order-bumps'); ?></p>
                             <div class="img-icon cuw-icon-container"
                                  style="background: #D8E5FE; padding: 8px; border-radius: 50%;">
                                 <i class="cuw-icon-offers-created"></i>

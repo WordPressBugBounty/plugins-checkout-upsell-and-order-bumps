@@ -37,8 +37,8 @@ class Campaign
         if (!isset(self::$data)) {
             self::$data = apply_filters('cuw_campaigns', [
                 'checkout_upsells' => [
-                    'title' => __("Checkout Upsells", 'checkout-upsell-woocommerce'),
-                    'description' => __("Choose this type to show the upsell offers on the checkout page (before customer places the order)", 'checkout-upsell-woocommerce'),
+                    'title' => __("Checkout Upsells", 'checkout-upsell-and-order-bumps'),
+                    'description' => __("Choose this type to show the upsell offers on the checkout page (before customer places the order)", 'checkout-upsell-and-order-bumps'),
                     'handler' => new Campaigns\CheckoutUpsells(),
                     'categories' => ['checkout'],
                     'is_single' => false,
@@ -46,8 +46,8 @@ class Campaign
                     'is_pro' => false,
                 ],
                 'cart_upsells' => [
-                    'title' => __("Cart Upsells", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to show the upsell offers on the cart page', 'checkout-upsell-woocommerce'),
+                    'title' => __("Cart Upsells", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to show the upsell offers on the cart page', 'checkout-upsell-and-order-bumps'),
                     'handler' => new Campaigns\CartUpsells(),
                     'categories' => ['cart'],
                     'is_single' => false,
@@ -55,8 +55,8 @@ class Campaign
                     'is_pro' => false,
                 ],
                 'fbt' => [
-                    'title' => __("Frequently Bought Together", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to display the frequently bought together products on the product detail page', 'checkout-upsell-woocommerce'),
+                    'title' => __("Frequently Bought Together", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to display the frequently bought together products on the product detail page', 'checkout-upsell-and-order-bumps'),
                     'handler' => new Campaigns\FBT(),
                     'categories' => ['product'],
                     'is_single' => false,
@@ -64,24 +64,24 @@ class Campaign
                     'is_pro' => false,
                 ],
                 'product_addons' => [
-                    'title' => __("Product Add-Ons", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to display the add-on products on the product detail page', 'checkout-upsell-woocommerce'),
+                    'title' => __("Product Add-Ons", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to display the add-on products on the product detail page', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['product'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'cart_addons' => [
-                    'title' => __("Cart Add-Ons", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to display the add-on products on the cart page', 'checkout-upsell-woocommerce'),
+                    'title' => __("Cart Add-Ons", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to display the add-on products on the cart page', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['cart'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'post_purchase_upsells' => [
-                    'title' => __("Post-purchase Upsells", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to display the upsell offer after customer clicks the "Place order button"', 'checkout-upsell-woocommerce'),
+                    'title' => __("Post-purchase Upsells", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to display the upsell offer after customer clicks the "Place order button"', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['post_purchase'],
                     'is_single' => false,
                     'is_in_beta' => true,
@@ -89,16 +89,16 @@ class Campaign
                     'page_builder' => true,
                 ],
                 'upsell_popups' => [
-                    'title' => __("Upsell popups", 'checkout-upsell-woocommerce'),
-                    'description' => __('Show relevant upsells and cross-sells after a customer added an item to cart or when clicking the "Proceed to Checkout" button at the cart page', 'checkout-upsell-woocommerce'),
+                    'title' => __("Upsell popups", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Show relevant upsells and cross-sells after a customer added an item to cart or when clicking the "Proceed to Checkout" button at the cart page', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['loop', 'product', 'cart'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'noc' => [
-                    'title' => __("Next Order Coupons", 'checkout-upsell-woocommerce'),
-                    'description' => __('Generates a unique coupon code after a customer places a successful order and displays the coupon on the Thank you page, My account page and order emails', 'checkout-upsell-woocommerce'),
+                    'title' => __("Next Order Coupons", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Generates a unique coupon code after a customer places a successful order and displays the coupon on the Thank you page, My account page and order emails', 'checkout-upsell-and-order-bumps'),
                     'handler' => new Campaigns\NOC(),
                     'categories' => ['thankyou'],
                     'is_single' => false,
@@ -106,32 +106,32 @@ class Campaign
                     'is_pro' => false,
                 ],
                 'thankyou_upsells' => [
-                    'title' => __("Thank you Page Upsells", 'checkout-upsell-woocommerce'),
-                    'description' => __('Displays upsell on the thank you page (after a customer placed an order)', 'checkout-upsell-woocommerce'),
+                    'title' => __("Thank you Page Upsells", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Displays upsell on the thank you page (after a customer placed an order)', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['thankyou'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'product_recommendations' => [
-                    'title' => __("Smart Product Recommendations", 'checkout-upsell-woocommerce'),
-                    'description' => __('Recommend products based on a number of conditions / parameters at your shop, product, cart, checkout and thank you pages', 'checkout-upsell-woocommerce'),
+                    'title' => __("Smart Product Recommendations", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Recommend products based on a number of conditions / parameters at your shop, product, cart, checkout and thank you pages', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['loop', 'product', 'cart', 'checkout', 'thankyou'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'double_order' => [
-                    'title' => __("Double the order", 'checkout-upsell-woocommerce'),
-                    'description' => __('Offer customers to double whatever they are ordering at the checkout and offer them a discount with one-click', 'checkout-upsell-woocommerce'),
+                    'title' => __("Double the order", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Offer customers to double whatever they are ordering at the checkout and offer them a discount with one-click', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['checkout'],
                     'is_single' => false,
                     'is_in_beta' => false,
                     'is_pro' => true,
                 ],
                 'post_purchase' => [
-                    'title' => __("Post-purchase Upsells (Old)", 'checkout-upsell-woocommerce'),
-                    'description' => __('Choose this type to display the upsell offer after customer clicks the "Place order button"', 'checkout-upsell-woocommerce'),
+                    'title' => __("Post-purchase Upsells (Old)", 'checkout-upsell-and-order-bumps'),
+                    'description' => __('Choose this type to display the upsell offer after customer clicks the "Place order button"', 'checkout-upsell-and-order-bumps'),
                     'categories' => ['post_purchase'],
                     'is_single' => false,
                     'is_in_beta' => false,
@@ -154,12 +154,12 @@ class Campaign
     public static function getCategories()
     {
         return [
-            'loop' => __("Shop & category page", 'checkout-upsell-woocommerce'),
-            'product' => __("Product page", 'checkout-upsell-woocommerce'),
-            'cart' => __("Cart page", 'checkout-upsell-woocommerce'),
-            'checkout' => __("Checkout page", 'checkout-upsell-woocommerce'),
-            'post_purchase' => __("Post-purchase", 'checkout-upsell-woocommerce'),
-            'thankyou' => __("Thank you page", 'checkout-upsell-woocommerce'),
+            'loop' => __("Shop & category page", 'checkout-upsell-and-order-bumps'),
+            'product' => __("Product page", 'checkout-upsell-and-order-bumps'),
+            'cart' => __("Cart page", 'checkout-upsell-and-order-bumps'),
+            'checkout' => __("Checkout page", 'checkout-upsell-and-order-bumps'),
+            'post_purchase' => __("Post-purchase", 'checkout-upsell-and-order-bumps'),
+            'thankyou' => __("Thank you page", 'checkout-upsell-and-order-bumps'),
         ];
     }
 
@@ -230,7 +230,7 @@ class Campaign
             return false;
         }
         return 'admin.php?' . http_build_query([
-                'page' => Config::get('plugin.slug', 'checkout-upsell-woocommerce'),
+                'page' => Config::get('plugin.slug', 'checkout-upsell-and-order-bumps'),
                 'tab' => 'campaigns',
                 'edit' => $campaign_id,
             ]);
@@ -270,7 +270,7 @@ class Campaign
         $types = [];
         foreach (self::get() as $type => $campaign) {
             if ($show_pro && $campaign['is_pro'] && !CUW()->plugin->has_pro) {
-                $types[$type] = $campaign['title'] . ' [' . esc_html__('PRO', 'checkout-upsell-woocommerce') . ']';
+                $types[$type] = $campaign['title'] . ' [' . esc_html__('PRO', 'checkout-upsell-and-order-bumps') . ']';
             } else {
                 $types[$type] = $campaign['title'];
             }
@@ -316,11 +316,11 @@ class Campaign
     public static function getStatuses($key = '')
     {
         $statuses = [
-            'active' => __("Active", 'checkout-upsell-woocommerce'),
-            'scheduled' => __("Scheduled", 'checkout-upsell-woocommerce'),
-            'expired' => __("Expired", 'checkout-upsell-woocommerce'),
-            'publish' => __("Publish", 'checkout-upsell-woocommerce'),
-            'draft' => __("Draft", 'checkout-upsell-woocommerce'),
+            'active' => __("Active", 'checkout-upsell-and-order-bumps'),
+            'scheduled' => __("Scheduled", 'checkout-upsell-and-order-bumps'),
+            'expired' => __("Expired", 'checkout-upsell-and-order-bumps'),
+            'publish' => __("Publish", 'checkout-upsell-and-order-bumps'),
+            'draft' => __("Draft", 'checkout-upsell-and-order-bumps'),
         ];
         return $key === '' ? $statuses : (isset($statuses[$key]) ? $statuses[$key] : false);
     }
@@ -336,13 +336,13 @@ class Campaign
     {
         if ($campaign = self::get($type)) {
             if ($campaign['is_pro'] && empty($campaign['handler'])) {
-                $badge = ['badge' => 'pro', 'icon' => 'pro', 'class' => 'secondary', 'color' => 'green-primary', 'text' => __("Unlock with PRO", 'checkout-upsell-woocommerce')];
+                $badge = ['badge' => 'pro', 'icon' => 'pro', 'class' => 'secondary', 'color' => 'green-primary', 'text' => __("Unlock with PRO", 'checkout-upsell-and-order-bumps')];
             } elseif ($campaign['is_in_beta']) {
-                $badge = ['badge' => 'beta', 'icon' => 'beta', 'class' => 'warning', 'color' => 'warning', 'text' => __("Beta", 'checkout-upsell-woocommerce')];
+                $badge = ['badge' => 'beta', 'icon' => 'beta', 'class' => 'warning', 'color' => 'warning', 'text' => __("Beta", 'checkout-upsell-and-order-bumps')];
             } elseif (!empty($campaign['is_new'])) {
-                $badge = ['badge' => 'new', 'icon' => 'star', 'class' => 'success', 'color' => 'success', 'text' => __("New", 'checkout-upsell-woocommerce')];
+                $badge = ['badge' => 'new', 'icon' => 'star', 'class' => 'success', 'color' => 'success', 'text' => __("New", 'checkout-upsell-and-order-bumps')];
             } elseif (!empty($campaign['deprecated'])) {
-                $badge = ['badge' => 'deprecated', 'icon' => 'deprecated', 'class' => 'grey-secondary', 'color' => 'grey-secondary', 'text' => __("Deprecated", 'checkout-upsell-woocommerce')];
+                $badge = ['badge' => 'deprecated', 'icon' => 'deprecated', 'class' => 'grey-secondary', 'color' => 'grey-secondary', 'text' => __("Deprecated", 'checkout-upsell-and-order-bumps')];
             }
         }
         return isset($badge) ? ($detailed ? $badge : $badge['badge']) : false;

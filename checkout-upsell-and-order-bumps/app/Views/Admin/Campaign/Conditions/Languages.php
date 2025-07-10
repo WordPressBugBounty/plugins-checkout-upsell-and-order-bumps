@@ -8,7 +8,7 @@ $value = isset($condition['value']) && !empty($condition['value']) ? $condition[
 
 <div class="condition-value">
     <select class="select2-local optional trigger-change" name="conditions[<?php echo esc_attr($key); ?>][value]"
-            data-placeholder=" <?php esc_html_e("Choose language", 'checkout-upsell-woocommerce'); ?>">
+            data-placeholder=" <?php esc_html_e("Choose language", 'checkout-upsell-and-order-bumps'); ?>">
         <?php foreach ($languages as $slug => $language) { ?>
             <option value="<?php echo esc_attr($slug); ?>" <?php if ($slug == $value) echo "selected"; ?>><?php echo esc_html($language['translated_name']); ?></option>
         <?php } ?>

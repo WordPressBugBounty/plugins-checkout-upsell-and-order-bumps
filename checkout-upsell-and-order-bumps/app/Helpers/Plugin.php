@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -169,13 +169,13 @@ class Plugin
     public static function getDependenciesError($requires, $plugin_name = '')
     {
         /* translators: %s value. */
-        $package_requirement_short = __('Requires %s plugin.', 'checkout-upsell-woocommerce');
+        $package_requirement_short = __('Requires %s plugin.', 'checkout-upsell-and-order-bumps');
         /* translators: 1: plugin name, 2: plugin name */
-        $package_requirement = __('%1$s requires %2$s plugin to be installed and active.', 'checkout-upsell-woocommerce');
+        $package_requirement = __('%1$s requires %2$s plugin to be installed and active.', 'checkout-upsell-and-order-bumps');
         /* translators: 1: plugin name, 2: version */
-        $version_requirement_short = __('Requires %1$s version %2$s or above.', 'checkout-upsell-woocommerce');
+        $version_requirement_short = __('Requires %1$s version %2$s or above.', 'checkout-upsell-and-order-bumps');
         /* translators: 1: plugin name, 2: version, 3:  */
-        $version_requirement = __('%1$s requires %2$s version %3$s or above.', 'checkout-upsell-woocommerce');
+        $version_requirement = __('%1$s requires %2$s version %3$s or above.', 'checkout-upsell-and-order-bumps');
 
         if (!empty($requires['php'])) {
             if (!Functions::checkVersion(PHP_VERSION, $requires['php'])) {
@@ -209,8 +209,8 @@ class Plugin
 
         if (!empty($requires['upsellwp']) && defined('CUW_VERSION')) {
             if (!Functions::checkVersion(CUW_VERSION, $requires['upsellwp'])) {
-                return empty($plugin_name) ? sprintf($version_requirement_short, __('UpsellWP', 'checkout-upsell-woocommerce'), $requires['upsellwp'])
-                    : sprintf($version_requirement, $plugin_name, __('UpsellWP', 'checkout-upsell-woocommerce'), $requires['upsellwp']);
+                return empty($plugin_name) ? sprintf($version_requirement_short, __('UpsellWP', 'checkout-upsell-and-order-bumps'), $requires['upsellwp'])
+                    : sprintf($version_requirement, $plugin_name, __('UpsellWP', 'checkout-upsell-and-order-bumps'), $requires['upsellwp']);
             }
         }
 

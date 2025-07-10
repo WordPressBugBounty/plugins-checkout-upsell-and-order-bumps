@@ -14,25 +14,25 @@ $is_engine_tab = $current_tab == 'engines' && (isset($_GET['create']) || isset($
 
 $help_options = [
     'documentation' => [
-        'title' => esc_html__("Documentation", 'checkout-upsell-woocommerce'),
+        'title' => esc_html__("Documentation", 'checkout-upsell-and-order-bumps'),
         'url' => 'https://docs.upsellwp.com',
     ],
     'video_tutorials' => [
-        'title' => esc_html__("Video tutorials", 'checkout-upsell-woocommerce'),
+        'title' => esc_html__("Video tutorials", 'checkout-upsell-and-order-bumps'),
         'url' => 'https://www.youtube.com/@UpsellWP/videos',
     ],
     'feature_request' => [
-        'title' => esc_html__("Request a feature", 'checkout-upsell-woocommerce'),
+        'title' => esc_html__("Request a feature", 'checkout-upsell-and-order-bumps'),
         'url' => 'https://features.upsellwp.net',
     ],
     'support' => [
-        'title' => esc_html__("Support", 'checkout-upsell-woocommerce'),
+        'title' => esc_html__("Support", 'checkout-upsell-and-order-bumps'),
         'url' => CUW()->plugin->getSupportUrl(),
     ],
 ];
 if (!CUW()->plugin->has_pro) {
     $help_options['upgrade'] = [
-        'title' => esc_html__("Upgrade to PRO", 'checkout-upsell-woocommerce'),
+        'title' => esc_html__("Upgrade to PRO", 'checkout-upsell-and-order-bumps'),
         'url' => CUW()->plugin->getUrl('upgrade'),
     ];
 }
@@ -49,12 +49,12 @@ if (!CUW()->plugin->has_pro) {
          style="<?php echo ($is_campaign_tab || $is_engine_tab) ? 'display: none;' : ''; ?>">
         <div class="d-flex align-items-center" style="gap:6px">
             <h2 class="navbar-brand plugin-title font-weight-bold"
-                href="#"> <?php esc_html_e('UpsellWP', 'checkout-upsell-woocommerce'); ?></h2>
+                href="#"> <?php esc_html_e('UpsellWP', 'checkout-upsell-and-order-bumps'); ?></h2>
             <span style="font-size: 14px; line-height: 1.2;"
                   class="<?php echo CUW()->plugin->has_pro ? 'badge-pill-green-primary' : 'badge-pill-blue-primary'; ?> font-weight-medium px-2 py-1">
                 <?php echo CUW()->plugin->has_pro
-                    ? esc_html__('PRO', 'checkout-upsell-woocommerce')
-                    : esc_html__('Lite', 'checkout-upsell-woocommerce');
+                    ? esc_html__('PRO', 'checkout-upsell-and-order-bumps')
+                    : esc_html__('Lite', 'checkout-upsell-and-order-bumps');
                 ?>
             </span>
         </div>
@@ -80,7 +80,7 @@ if (!CUW()->plugin->has_pro) {
                             <?php if ($tab == 'engines' && !CUW()->plugin->has_pro) { ?>
                                 <small class="badge badge-success font-weight-medium"
                                        style="line-height:1; padding: 3px 4px; margin:2px 2px 0 2px; background: #fff;">
-                                    <?php esc_html_e('PRO', 'checkout-upsell-woocommerce'); ?>
+                                    <?php esc_html_e('PRO', 'checkout-upsell-and-order-bumps'); ?>
                                 </small>
                             <?php } ?>
                         </a>
@@ -110,7 +110,7 @@ if (!CUW()->plugin->has_pro) {
 
     <div class="help-panel border border-gray-extra-light rounded-lg" id="help-panel">
         <div class="d-flex justify-content-between align-items-center p-3 border-bottom ">
-            <h6 class="mb-0"><?php esc_html_e("Help", 'checkout-upsell-woocommerce'); ?></h6>
+            <h6 class="mb-0"><?php esc_html_e("Help", 'checkout-upsell-and-order-bumps'); ?></h6>
             <button id="help-panel-close"><i class="cuw-icon-close-circle"></i></button>
         </div>
         <div class="help-actions p-3 d-flex flex-column">
@@ -118,8 +118,8 @@ if (!CUW()->plugin->has_pro) {
                 <div style="display:flex; align-items: center;" class="help-menu">
                     <a class="help-link d-flex align-items-center" target="_blank" style="gap: 4px;"
                        href="<?php echo esc_url($link['url']); ?>"
-                       title="<?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>">
-                        <?php esc_html_e($link['title'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
+                       title="<?php esc_html_e($link['title'], 'checkout-upsell-and-order-bumps'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>">
+                        <?php esc_html_e($link['title'], 'checkout-upsell-and-order-bumps'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?>
                         <i class="cuw-icon-external-link inherit-color" style="font-size: 16px;"></i>
                     </a>
                 </div>
@@ -155,7 +155,7 @@ if (!CUW()->plugin->has_pro) {
             if ($current_tab == 'engines' && !CUW()->plugin->has_pro) {
                 ?>
                 <div class="d-flex flex-wrap title-container align-items-center justify-content-between">
-                    <h5><?php esc_html_e("Recommendation Engines", 'checkout-upsell-woocommerce'); ?></h5>
+                    <h5><?php esc_html_e("Recommendation Engines", 'checkout-upsell-and-order-bumps'); ?></h5>
                     <div></div>
                 </div>
                 <div style="padding: 64px 16px;">

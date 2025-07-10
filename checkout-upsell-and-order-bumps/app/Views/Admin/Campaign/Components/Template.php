@@ -21,7 +21,7 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
 <div class="row p-3">
     <div class="col-md-12">
             <label for="template-name"
-                   class="form-label"><?php esc_html_e("Template", 'checkout-upsell-woocommerce'); ?></label>
+                   class="form-label"><?php esc_html_e("Template", 'checkout-upsell-and-order-bumps'); ?></label>
             <div class="input-group d-flex align-items-center justify-content-between">
 <!--                <p id="template-name" class="font-weight-semibold text-dark" name="data[template][name]">-->
 <!--                --><?php //echo (isset($template['name'])) ? esc_attr($template['name']) : esc_attr($template['template']); ?><!--</p>-->
@@ -30,23 +30,23 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
                        readonly>
                 <div class="input-group-append d-flex flex-wrap align-items-center" style="gap:8px;">
                     <div class="d-flex-center border rounded-lg view-template" id="view-template" style="display:<?php echo $is_default_template ? 'none' : '' ?>; padding: 6px;"
-                         title="<?php echo esc_attr__('Preview', 'checkout-upsell-woocommerce'); ?>">
+                         title="<?php echo esc_attr__('Preview', 'checkout-upsell-and-order-bumps'); ?>">
                         <i class="cuw-icon-eye"></i>
                     </div>
                     <button type="button" class="btn rounded border border-primary text-primary choose-template "
                             id="choose-template">
-                        <i class="cuw-icon-campaigns text-primary mx-1"></i><?php esc_html_e("Change template", 'checkout-upsell-woocommerce'); ?>
+                        <i class="cuw-icon-campaigns text-primary mx-1"></i><?php esc_html_e("Change template", 'checkout-upsell-and-order-bumps'); ?>
                     </button>
                     <button type="button" class="btn btn-primary rounded edit-template" id="edit-template"
                             style="display:<?php echo $is_default_template ? 'none' : '' ?>">
                         <i class="cuw-icon-edit-simple text-white  mx-1"></i>
-                        <?php esc_html_e("Edit Content/Style", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Edit Content/Style", 'checkout-upsell-and-order-bumps'); ?>
                     </button>
                 </div>
             </div>
     </div>
     <div class="col-md-6 mt-2" id="template-title-wrapper" style="display:<?php echo !$is_default_template ? 'none' : 'flex' ;?>; flex-direction: column;">
-        <label for="template-title" class="form-label"><?php esc_html_e("Template title", 'checkout-upsell-woocommerce'); ?></label>
+        <label for="template-title" class="form-label"><?php esc_html_e("Template title", 'checkout-upsell-and-order-bumps'); ?></label>
         <input type="text" class="form-control" id="template-title" name="data[template][title]"
                value="<?php echo (isset($template['title'])) ? esc_attr($template['title']) : ''; ?>">
     </div>
@@ -81,12 +81,12 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
             ?>
             <div class="col-md-6 email-display-location">
                 <label for="email-display-location" class="form-label d-block">
-                    <?php esc_html_e("Display location on Emails", 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e("Display location on Emails", 'checkout-upsell-and-order-bumps'); ?>
                     <?php if (!$has_pro) { ?>
-                        <span class="float-right"><?php esc_html_e("Unlock this feature by", 'checkout-upsell-woocommerce'); ?>
+                        <span class="float-right"><?php esc_html_e("Unlock this feature by", 'checkout-upsell-and-order-bumps'); ?>
                             <a class="text-decoration-none"
                                href="<?php echo esc_url(CUW()->plugin->getUrl($campaign_type)); ?>" target="_blank">
-                                <?php esc_html_e("Upgrading to PRO", 'checkout-upsell-woocommerce'); ?>
+                                <?php esc_html_e("Upgrading to PRO", 'checkout-upsell-and-order-bumps'); ?>
                             </a>
                         </span>
                     <?php } ?>
@@ -98,7 +98,7 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
             </div>
             <div class="col-md-6 display-location-on-myacccount-page mt-2">
                 <label for="display-location"
-                       class="form-label"><?php esc_html_e("Display location on the My account page", 'checkout-upsell-woocommerce'); ?></label>
+                       class="form-label"><?php esc_html_e("Display location on the My account page", 'checkout-upsell-and-order-bumps'); ?></label>
                 <select class="form-control" id="display-location" name="data[display_location_on_myaccount_page]">
                     <?php CUW()->view('Admin/Campaign/Components/LocationOptions', ['locations' => $display_locations_on_myaccount_page, 'selected_location' => $display_location_on_myaccount_page]); ?>
                 </select>
@@ -114,7 +114,7 @@ $display_location = \CUW\App\Helpers\Campaign::getDisplayLocation($campaign);
         <button type="button" id="campaign-save"
                 class="btn btn-outline-primary px-2">
             <i class="cuw-icon-tick-circle inherit-color mx-1"></i>
-            <?php esc_html_e("Save", 'checkout-upsell-woocommerce'); ?>
+            <?php esc_html_e("Save", 'checkout-upsell-and-order-bumps'); ?>
         </button>
     </div>
 <?php } ?>

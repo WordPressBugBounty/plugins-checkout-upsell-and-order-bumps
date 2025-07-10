@@ -128,9 +128,9 @@ class Discount
                 $price = WC::getPriceToDisplay($product, $price, 1, $display_in);
                 $text = html_entity_decode(WC::formatPriceRaw($price, ['trim_zeros' => true]));
             } elseif ($discount['type'] == "free") {
-                $text = esc_html__("Free", 'checkout-upsell-woocommerce');
+                $text = esc_html__("Free", 'checkout-upsell-and-order-bumps');
             } elseif ($discount['type'] == "no_discount") {
-                $text = esc_html__("Product", 'checkout-upsell-woocommerce');
+                $text = esc_html__("Product", 'checkout-upsell-and-order-bumps');
             }
             $text = apply_filters('cuw_discount_text', $text, $product, $discount, $display_in);
         }

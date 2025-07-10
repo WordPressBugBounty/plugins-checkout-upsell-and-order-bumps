@@ -12,7 +12,7 @@ $page_url = Page::getUrl();
         <button type="button" id="back-to-campaigns" class="btn  border border-gray-light p-2">
             <i class="cuw-icon-arrow-left mx-1"></i>
         </button>
-        <h5 class=""><?php esc_html_e("Choose campaign type...", 'checkout-upsell-woocommerce'); ?></h5>
+        <h5 class=""><?php esc_html_e("Choose campaign type...", 'checkout-upsell-and-order-bumps'); ?></h5>
     </div>
     <div class="row m-0">
         <div class="col-md-2 campaign-filters p-0">
@@ -20,7 +20,7 @@ $page_url = Page::getUrl();
                 <li style="border-left:3px solid transparent;"
                     class="campaign-filter-type cursor-pointer nav-item active-tab-container " id="all">
                     <h6 class="campaign-filter-name p-3 text-primary" id="all">
-                        <?php esc_html_e("All campaigns", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("All campaigns", 'checkout-upsell-and-order-bumps'); ?>
                     </h6>
                 </li>
                 <?php foreach (Campaign::getCategories() as $slug => $name) { ?>
@@ -35,14 +35,14 @@ $page_url = Page::getUrl();
         </div>
         <div class="col-md-10 p-3">
             <h5 class="mt-1" id="campaign-sort-name">
-                <?php esc_html_e("All Campaigns", 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e("All Campaigns", 'checkout-upsell-and-order-bumps'); ?>
             </h5>
             <div class="my-4 d-flex flex-wrap justify-content-center w-100 " id="available-campaigns"
                  style="gap: 20px;">
                 <?php foreach (Campaign::get() as $type => $campaign) {
                     $badge = Campaign::getBadge($type, true);
                     if ($campaign['is_single'] && Campaign::isCreated($type)) {
-                        $badge = ['badge' => 'created', 'class' => 'success', 'text' => __("Created", 'checkout-upsell-woocommerce')];
+                        $badge = ['badge' => 'created', 'class' => 'success', 'text' => __("Created", 'checkout-upsell-and-order-bumps')];
                     }
                     $page_builder_available = !empty($campaign['page_builder']) && !empty($campaign['handler']);
                     ?>
@@ -61,11 +61,11 @@ $page_url = Page::getUrl();
                         </div>
                         <div class="card-body py-1 px-4 text-center">
                             <p class="card-text text-custom-secondary"
-                               style="font-size: 14px;"><?php esc_html_e($campaign['description'], 'checkout-upsell-woocommerce'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?></p>
+                               style="font-size: 14px;"><?php esc_html_e($campaign['description'], 'checkout-upsell-and-order-bumps'); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText ?></p>
                         </div>
                         <button type="button" id="create-campaign-button"
                                 class="btn mt-2 btn-outline-primary px-4 py-2">
-                            <?php echo (!empty($campaign['is_pro']) && !CUW()->plugin->has_pro) ? esc_html__("Unlock with PRO", 'checkout-upsell-woocommerce') : esc_html__("Create Campaign", 'checkout-upsell-woocommerce'); ?>
+                            <?php echo (!empty($campaign['is_pro']) && !CUW()->plugin->has_pro) ? esc_html__("Unlock with PRO", 'checkout-upsell-and-order-bumps') : esc_html__("Create Campaign", 'checkout-upsell-and-order-bumps'); ?>
                         </button>
                     </a>
                 <?php } ?>

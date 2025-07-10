@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -29,7 +29,7 @@ class Cron extends Controller
     {
         return apply_filters('cuw_schedules', [
             'send_weekly_report' => [
-                'title' => __('Send weekly reports', 'checkout-upsell-woocommerce'),
+                'title' => __('Send weekly reports', 'checkout-upsell-and-order-bumps'),
                 'recurrence' => 'weekly',
                 'day' => 'next monday',
                 'at' => '10:00:00',

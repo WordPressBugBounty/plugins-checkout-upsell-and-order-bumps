@@ -2,7 +2,7 @@
 /**
  * Frequently bought together template 3
  *
- * This template can be overridden by copying it to yourtheme/checkout-upsell-woocommerce/fbt/template-3.php.
+ * This template can be overridden by copying it to yourtheme/checkout-upsell-and-order-bumps/fbt/template-3.php.
  *
  * HOWEVER, on occasion we will need to update template files and you (the theme developer) will need to copy the new files
  * to your theme to maintain compatibility. We try to do this as little as possible, but it does happen.
@@ -13,9 +13,9 @@ if (!isset($data) || !isset($products) || !isset($campaign)) {
     return;
 }
 
-$heading = !empty($data['template']['title']) ? $data['template']['title'] : __('Frequently bought together', 'checkout-upsell-woocommerce');
+$heading = !empty($data['template']['title']) ? $data['template']['title'] : __('Frequently bought together', 'checkout-upsell-and-order-bumps');
 $heading = apply_filters('cuw_fbt_products_heading', $heading);
-$cta_text = !empty($data['template']['cta_text']) ? $data['template']['cta_text'] : __('Add to cart', 'checkout-upsell-woocommerce');
+$cta_text = !empty($data['template']['cta_text']) ? $data['template']['cta_text'] : __('Add to cart', 'checkout-upsell-and-order-bumps');
 $product_ids = array_column($products, 'id');
 ?>
 
@@ -62,7 +62,7 @@ $product_ids = array_column($products, 'id');
             <div class="cuw-column cuw-buy-section" style="max-width: 256px; padding: 26px;">
                 <div class="cuw-actions" style="display: none;">
                     <div class="cuw-total-price-section" style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px;">
-                        <span><?php esc_html_e("Total price", 'checkout-upsell-woocommerce'); ?>:</span>
+                        <span><?php esc_html_e("Total price", 'checkout-upsell-and-order-bumps'); ?>:</span>
                         <span class="cuw-total-price" style="font-weight: bold; font-size: 110%;"></span>
                     </div>
                     <div style="margin-top: 8px;">
@@ -77,13 +77,13 @@ $product_ids = array_column($products, 'id');
                                 class="cuw-add-to-cart cuw-template-cta-button single_add_to_cart_button button alt"
                                 data-text="<?php echo esc_attr($cta_text); ?>"
                                 style="width: 100%; text-transform: initial; border-radius: 100px; white-space: normal; <?php echo esc_attr($data['styles']['cta']); ?>">
-                            <?php esc_html_e("Add to cart", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("Add to cart", 'checkout-upsell-and-order-bumps'); ?>
                         </button>
                     </div>
                 </div>
                 <div class="cuw-message" style="display: none;">
                     <p style="padding-top: 48px; margin: 0;">
-                        <?php esc_html_e("Choose items to buy together.", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Choose items to buy together.", 'checkout-upsell-and-order-bumps'); ?>
                     </p>
                 </div>
             </div>
@@ -224,7 +224,7 @@ $product_ids = array_column($products, 'id');
                  style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 0 26px;">
                 <div class="cuw-actions" style="display: none; width: 100%; margin-bottom: 8px;">
                     <div class="cuw-total-price-section" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 8px;">
-                        <span><?php esc_html_e("Total price", 'checkout-upsell-woocommerce'); ?>:</span>
+                        <span><?php esc_html_e("Total price", 'checkout-upsell-and-order-bumps'); ?>:</span>
                         <span class="cuw-total-price" style="font-weight: bold; font-size: 110%;"></span>
                     </div>
                     <?php echo apply_filters('cuw_fbt_template_savings', '', null, $data, 'dynamic'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -239,13 +239,13 @@ $product_ids = array_column($products, 'id');
                                 class="cuw-add-to-cart cuw-template-cta-button single_add_to_cart_button button alt"
                                 data-text="<?php echo esc_attr($cta_text); ?>"
                                 style="width: 100%; text-transform: initial; white-space: normal; border-radius: 100px; <?php echo esc_attr($data['styles']['cta']); ?>">
-                            <?php esc_html_e("Add to cart", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("Add to cart", 'checkout-upsell-and-order-bumps'); ?>
                         </button>
                     </div>
                 </div>
                 <div class="cuw-message" style="display: none;">
                     <p style="margin: 0;">
-                        <?php esc_html_e("Choose items to buy together.", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Choose items to buy together.", 'checkout-upsell-and-order-bumps'); ?>
                     </p>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -36,31 +36,31 @@ class Filter
             self::$filters = (array)apply_filters('cuw_filters', [
                 // common filters
                 'all_products' => [
-                    'name' => __("All Products", 'checkout-upsell-woocommerce'),
-                    'group' => __("Product", 'checkout-upsell-woocommerce'),
+                    'name' => __("All Products", 'checkout-upsell-and-order-bumps'),
+                    'group' => __("Product", 'checkout-upsell-and-order-bumps'),
                     'handler' => new Filters\AllProducts(),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ],
                 'products' => [
-                    'name' => __("Specific products", 'checkout-upsell-woocommerce'),
-                    'group' => __("Product", 'checkout-upsell-woocommerce'),
+                    'name' => __("Specific products", 'checkout-upsell-and-order-bumps'),
+                    'group' => __("Product", 'checkout-upsell-and-order-bumps'),
                     'handler' => new Filters\Products(),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ],
                 'categories' => [
-                    'name' => __("Product categories", 'checkout-upsell-woocommerce'),
-                    'group' => __("Product", 'checkout-upsell-woocommerce'),
+                    'name' => __("Product categories", 'checkout-upsell-and-order-bumps'),
+                    'group' => __("Product", 'checkout-upsell-and-order-bumps'),
                     'handler' => new Filters\Categories(),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ],
                 'tags' => [
-                    'name' => __("Product tags", 'checkout-upsell-woocommerce'),
-                    'group' => __("Product", 'checkout-upsell-woocommerce'),
+                    'name' => __("Product tags", 'checkout-upsell-and-order-bumps'),
+                    'group' => __("Product", 'checkout-upsell-and-order-bumps'),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ],
                 'skus' => [
-                    'name' => __("Product SKUs", 'checkout-upsell-woocommerce'),
-                    'group' => __("Product", 'checkout-upsell-woocommerce'),
+                    'name' => __("Product SKUs", 'checkout-upsell-and-order-bumps'),
+                    'group' => __("Product", 'checkout-upsell-and-order-bumps'),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ],
             ]);

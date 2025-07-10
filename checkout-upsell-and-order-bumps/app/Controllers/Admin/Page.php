@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -33,7 +33,7 @@ class Page extends Controller
     {
         $tabs = self::getTabs();
         $page_slug = self::app()->plugin->slug;
-        $page_title = esc_html__("UpsellWP", 'checkout-upsell-woocommerce');
+        $page_title = esc_html__("UpsellWP", 'checkout-upsell-and-order-bumps');
 
         add_menu_page(
             $page_title,
@@ -199,24 +199,24 @@ class Page extends Controller
                     $data['data']['default_template'] = Template::getDefault($campaign_type);
 
                     $data['i18n'] = [
-                        'offer_not_saved' => esc_html__("Offer not saved", 'checkout-upsell-woocommerce'),
-                        'campaign_not_saved' => esc_html__("Campaign not saved", 'checkout-upsell-woocommerce'),
-                        'this_field_is_required' => esc_html__("This field is required", 'checkout-upsell-woocommerce'),
-                        'at_least_one_offer_required' => esc_html__("At least one offer is required", 'checkout-upsell-woocommerce'),
+                        'offer_not_saved' => esc_html__("Offer not saved", 'checkout-upsell-and-order-bumps'),
+                        'campaign_not_saved' => esc_html__("Campaign not saved", 'checkout-upsell-and-order-bumps'),
+                        'this_field_is_required' => esc_html__("This field is required", 'checkout-upsell-and-order-bumps'),
+                        'at_least_one_offer_required' => esc_html__("At least one offer is required", 'checkout-upsell-and-order-bumps'),
                         // translators: %s value.
-                        'offer_max_limit' => esc_html__("Maximum: %s", 'checkout-upsell-woocommerce'),
-                        'offer_max_limit_reached' => esc_html__("Maximum offer limit is reached", 'checkout-upsell-woocommerce'),
-                        'offer_unable_to_remove' => esc_html__("Unable to remove offer (At least one offer required)", 'checkout-upsell-woocommerce'),
-                        'offer_ab_unable_to_add' => esc_html__("Unable to add offer (A/B Testing Enabled)", 'checkout-upsell-woocommerce'),
-                        'offer_ab_unable_to_remove' => esc_html__("Unable to remove offer (A/B Testing Enabled)", 'checkout-upsell-woocommerce'),
-                        'offer_ab_requires_two_offers' => esc_html__("A/B Testing requires two offers", 'checkout-upsell-woocommerce'),
-                        'offer_ab_requires_exactly_two_offers' => esc_html__("A/B Testing requires exactly two offers", 'checkout-upsell-woocommerce'),
-                        'customize_template' => esc_html__("Customize template", 'checkout-upsell-woocommerce'),
-                        'customize_change_template' => esc_html__("Change template", 'checkout-upsell-woocommerce'),
-                        'select2_no_results' => esc_html__("No results", 'checkout-upsell-woocommerce'),
-                        'select2_error_loading' => esc_html__("Unable to search results", 'checkout-upsell-woocommerce'),
-                        'condition_text' => esc_html__("Condition", 'checkout-upsell-woocommerce'),
-                        'filter_text' => esc_html__("Filter", 'checkout-upsell-woocommerce'),
+                        'offer_max_limit' => esc_html__("Maximum: %s", 'checkout-upsell-and-order-bumps'),
+                        'offer_max_limit_reached' => esc_html__("Maximum offer limit is reached", 'checkout-upsell-and-order-bumps'),
+                        'offer_unable_to_remove' => esc_html__("Unable to remove offer (At least one offer required)", 'checkout-upsell-and-order-bumps'),
+                        'offer_ab_unable_to_add' => esc_html__("Unable to add offer (A/B Testing Enabled)", 'checkout-upsell-and-order-bumps'),
+                        'offer_ab_unable_to_remove' => esc_html__("Unable to remove offer (A/B Testing Enabled)", 'checkout-upsell-and-order-bumps'),
+                        'offer_ab_requires_two_offers' => esc_html__("A/B Testing requires two offers", 'checkout-upsell-and-order-bumps'),
+                        'offer_ab_requires_exactly_two_offers' => esc_html__("A/B Testing requires exactly two offers", 'checkout-upsell-and-order-bumps'),
+                        'customize_template' => esc_html__("Customize template", 'checkout-upsell-and-order-bumps'),
+                        'customize_change_template' => esc_html__("Change template", 'checkout-upsell-and-order-bumps'),
+                        'select2_no_results' => esc_html__("No results", 'checkout-upsell-and-order-bumps'),
+                        'select2_error_loading' => esc_html__("Unable to search results", 'checkout-upsell-and-order-bumps'),
+                        'condition_text' => esc_html__("Condition", 'checkout-upsell-and-order-bumps'),
+                        'filter_text' => esc_html__("Filter", 'checkout-upsell-and-order-bumps'),
                     ];
 
                     if ($tab == 'engines') {
@@ -227,32 +227,32 @@ class Page extends Controller
                         do_action('cuw_before_campaign_page_load', $campaign_type, $campaign_id);
                     }
                 } else {
-                    $data['i18n']['campaign_max_limit_reached'] = esc_html__("Maximum campaign limit reached", 'checkout-upsell-woocommerce');
+                    $data['i18n']['campaign_max_limit_reached'] = esc_html__("Maximum campaign limit reached", 'checkout-upsell-and-order-bumps');
                 }
             } elseif ($tab == 'reports' || $tab == 'dashboard') {
-                $data['i18n']['since_last_week'] = esc_html__("Since last week", 'checkout-upsell-woocommerce');
-                $data['i18n']['since_last_month'] = esc_html__("Since last month", 'checkout-upsell-woocommerce');
-                $data['i18n']['since_previous_30_days'] = esc_html__("Since previous 30 days", 'checkout-upsell-woocommerce');
-                $data['i18n']['since_previous_7_days'] = esc_html__("Since previous 7 days", 'checkout-upsell-woocommerce');
+                $data['i18n']['since_last_week'] = esc_html__("Since last week", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['since_last_month'] = esc_html__("Since last month", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['since_previous_30_days'] = esc_html__("Since previous 30 days", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['since_previous_7_days'] = esc_html__("Since previous 7 days", 'checkout-upsell-and-order-bumps');
 
-                $data['i18n']['revenue'] = esc_html__("Revenue", 'checkout-upsell-woocommerce');
-                $data['i18n']['items'] = esc_html__("Items", 'checkout-upsell-woocommerce');
-                $data['i18n']['products_purchased'] = esc_html__("Products Purchased", 'checkout-upsell-woocommerce');
-                $data['i18n']['no_data_found'] = esc_html__("No data found", 'checkout-upsell-woocommerce');
+                $data['i18n']['revenue'] = esc_html__("Revenue", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['items'] = esc_html__("Items", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['products_purchased'] = esc_html__("Products Purchased", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['no_data_found'] = esc_html__("No data found", 'checkout-upsell-and-order-bumps');
 
                 self::app()->assets->addJs('chart', 'chart');
             } else if ($tab == 'addons') {
-                $data['i18n']['addon_activated'] = esc_html__("Add-on activated", 'checkout-upsell-woocommerce');
-                $data['i18n']['addon_deactivated'] = esc_html__("Add-on deactivated", 'checkout-upsell-woocommerce');
-                $data['i18n']['addon_activation_failed'] = esc_html__("Add-on activation failed", 'checkout-upsell-woocommerce');
-                $data['i18n']['addon_deactivation_failed'] = esc_html__("Add-on deactivation failed", 'checkout-upsell-woocommerce');
+                $data['i18n']['addon_activated'] = esc_html__("Add-on activated", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['addon_deactivated'] = esc_html__("Add-on deactivated", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['addon_activation_failed'] = esc_html__("Add-on activation failed", 'checkout-upsell-and-order-bumps');
+                $data['i18n']['addon_deactivation_failed'] = esc_html__("Add-on deactivation failed", 'checkout-upsell-and-order-bumps');
             }
 
-            $data['i18n']['save'] = esc_html__("Save", 'checkout-upsell-woocommerce');
-            $data['i18n']['error'] = esc_html__("Something went wrong!", 'checkout-upsell-woocommerce');
-            $data['i18n']['campaign'] = esc_html__("Campaign", 'checkout-upsell-woocommerce');
-            $data['i18n']['offer'] = esc_html__("Offer", 'checkout-upsell-woocommerce');
-            $data['i18n']['copied'] = esc_html__("Copied", 'checkout-upsell-woocommerce');
+            $data['i18n']['save'] = esc_html__("Save", 'checkout-upsell-and-order-bumps');
+            $data['i18n']['error'] = esc_html__("Something went wrong!", 'checkout-upsell-and-order-bumps');
+            $data['i18n']['campaign'] = esc_html__("Campaign", 'checkout-upsell-and-order-bumps');
+            $data['i18n']['offer'] = esc_html__("Offer", 'checkout-upsell-and-order-bumps');
+            $data['i18n']['copied'] = esc_html__("Copied", 'checkout-upsell-and-order-bumps');
 
             self::app()->assets->addCss('admin', 'admin')->addJs('admin', 'admin', $data)
                 ->addCss('bootstrap', 'bootstrap')->addJs('bootstrap', 'bootstrap')
@@ -295,14 +295,14 @@ class Page extends Controller
     public static function getTabs()
     {
         return apply_filters('cuw_page_tabs', [
-            'dashboard' => __("Dashboard", 'checkout-upsell-woocommerce'),
-            'campaigns' => __("Campaigns", 'checkout-upsell-woocommerce'),
-            'engines' => __("Engines", 'checkout-upsell-woocommerce'),
-            'reports' => __("Reports", 'checkout-upsell-woocommerce'),
-            'settings' => __("Settings", 'checkout-upsell-woocommerce'),
-            'addons' => __("Add-ons", 'checkout-upsell-woocommerce'),
-            'recommendations' => __("Recommendations", 'checkout-upsell-woocommerce'),
-            'buy-pro' => __("Buy PRO", 'checkout-upsell-woocommerce'),
+            'dashboard' => __("Dashboard", 'checkout-upsell-and-order-bumps'),
+            'campaigns' => __("Campaigns", 'checkout-upsell-and-order-bumps'),
+            'engines' => __("Engines", 'checkout-upsell-and-order-bumps'),
+            'reports' => __("Reports", 'checkout-upsell-and-order-bumps'),
+            'settings' => __("Settings", 'checkout-upsell-and-order-bumps'),
+            'addons' => __("Add-ons", 'checkout-upsell-and-order-bumps'),
+            'recommendations' => __("Recommendations", 'checkout-upsell-and-order-bumps'),
+            'buy-pro' => __("Buy PRO", 'checkout-upsell-and-order-bumps'),
         ]);
     }
 
@@ -364,11 +364,11 @@ class Page extends Controller
     public static function pluginLinks($links)
     {
         $links = array_merge([
-            'campaigns' => '<a href="' . esc_url(self::getUrl(['tab' => 'campaigns'])) . '">' . esc_html__("Campaigns", 'checkout-upsell-woocommerce') . '</a>',
-            'settings' => '<a href="' . esc_url(self::getUrl(['tab' => 'settings'])) . '">' . esc_html__("Settings", 'checkout-upsell-woocommerce') . '</a>',
+            'campaigns' => '<a href="' . esc_url(self::getUrl(['tab' => 'campaigns'])) . '">' . esc_html__("Campaigns", 'checkout-upsell-and-order-bumps') . '</a>',
+            'settings' => '<a href="' . esc_url(self::getUrl(['tab' => 'settings'])) . '">' . esc_html__("Settings", 'checkout-upsell-and-order-bumps') . '</a>',
         ], $links);
         if (!self::app()->plugin->has_pro) {
-            $links['get_pro'] = '<a style="font-weight: bold; color: #16a34a;" href="' . esc_url(self::app()->plugin->getUrl('upgrade')) . '" target="_blank">' . esc_html__("Get PRO", 'checkout-upsell-woocommerce') . '</a>';
+            $links['get_pro'] = '<a style="font-weight: bold; color: #16a34a;" href="' . esc_url(self::app()->plugin->getUrl('upgrade')) . '" target="_blank">' . esc_html__("Get PRO", 'checkout-upsell-and-order-bumps') . '</a>';
         }
         return $links;
     }

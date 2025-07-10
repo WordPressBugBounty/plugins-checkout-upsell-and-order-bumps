@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -594,7 +594,7 @@ class Stats extends Model
             }, \CUW\App\Helpers\Campaign::get());
             $campaign_titles = array_map(function ($campaign) {
                 if ($campaign['is_pro'] && !CUW()->plugin->has_pro) {
-                    return $campaign['title'] . ' [' . esc_html__('PRO', 'checkout-upsell-woocommerce') . ']';
+                    return $campaign['title'] . ' [' . esc_html__('PRO', 'checkout-upsell-and-order-bumps') . ']';
                 }
                 return $campaign['title'];
             }, \CUW\App\Helpers\Campaign::get());

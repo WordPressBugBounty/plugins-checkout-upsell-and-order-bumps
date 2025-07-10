@@ -8,7 +8,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
 
 <div id="cuw-dashboard" data-tab="dashboard">
     <div class="d-flex  title-container align-items-center">
-        <h5><?php esc_html_e("Dashboard", 'checkout-upsell-woocommerce'); ?></h5>
+        <h5><?php esc_html_e("Dashboard", 'checkout-upsell-and-order-bumps'); ?></h5>
     </div>
 
     <div class="d-flex justify-content-between align-items-center p-3" style="padding-bottom: 0 !important; gap: 8px;">
@@ -16,27 +16,27 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
             <div class="btn-group d-flex" style="gap:8px;" id="range">
                 <label class="btn">
                     <input type="radio" name="range" value="last_7_days" class="d-none"> <span
-                            class="mx-1"><?php esc_html_e("Last 7 days", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"><?php esc_html_e("Last 7 days", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="range" value="last_30_days" class="d-none" checked><span
-                            class="mx-1"><?php esc_html_e("Last 30 days", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"><?php esc_html_e("Last 30 days", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
                 <label class="btn">
                     <input type="radio" name="range" value="this_week" class="d-none"><span
-                            class="mx-1"> <?php esc_html_e("This week", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"> <?php esc_html_e("This week", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
                 <label class="btn">
                     <input type="radio" name="range" value="last_week" class="d-none" <span
-                            class="mx-1"><?php esc_html_e("Last week", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"><?php esc_html_e("Last week", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
                 <label class="btn">
                     <input type="radio" name="range" value="this_month" class="d-none"><span
-                            class="mx-1"><?php esc_html_e(" This month", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"><?php esc_html_e(" This month", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
                 <label class="btn">
                     <input type="radio" name="range" value="last_month" class="d-none"><span
-                            class="mx-1"><?php esc_html_e("Last month", 'checkout-upsell-woocommerce'); ?></span>
+                            class="mx-1"><?php esc_html_e("Last month", 'checkout-upsell-and-order-bumps'); ?></span>
                 </label>
             </div>
             <div class="d-flex align-items-center" style="gap: 8px">
@@ -51,9 +51,9 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 <div class="select-box-with-icon position-relative d-flex">
                     <i class="cuw-icon-currency text-light-gray"></i>
                     <select id="revenue-type" class="form-control">
-                        <option value="<?php esc_attr_e('without_tax', 'checkout-upsell-woocommerce') ?>"
-                                selected <?php if ($revenue_tax_display == 'without_tax') echo 'selected'; ?>><?php esc_html_e('Excluding tax', 'checkout-upsell-woocommerce') ?></option>
-                        <option value="<?php esc_attr_e('with_tax', 'checkout-upsell-woocommerce') ?>" <?php if ($revenue_tax_display == 'with_tax') echo 'selected'; ?> ><?php esc_html_e('Including tax', 'checkout-upsell-woocommerce') ?></option>
+                        <option value="<?php esc_attr_e('without_tax', 'checkout-upsell-and-order-bumps') ?>"
+                                selected <?php if ($revenue_tax_display == 'without_tax') echo 'selected'; ?>><?php esc_html_e('Excluding tax', 'checkout-upsell-and-order-bumps') ?></option>
+                        <option value="<?php esc_attr_e('with_tax', 'checkout-upsell-and-order-bumps') ?>" <?php if ($revenue_tax_display == 'with_tax') echo 'selected'; ?> ><?php esc_html_e('Including tax', 'checkout-upsell-and-order-bumps') ?></option>
                     </select>
                 </div>
             </div>
@@ -64,7 +64,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
         <div class="col-md-3 col-sm-6">
             <div class="card bg-white cuw-card">
                 <div class="header d-flex-between">
-                    <p class="font-weight-medium mb-2"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-woocommerce'); ?></p>
+                    <p class="font-weight-medium mb-2"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-and-order-bumps'); ?></p>
                     <div class="cuw-icon-container"><i class="cuw-icon-money text-primary"></i></div>
                 </div>
                 <div class="card-body p-0">
@@ -89,7 +89,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
         <div class="col-md-3 col-sm-6 ">
             <div class="card cuw-card bg-white">
                 <div class="header d-flex-between">
-                    <p class="font-weight-medium mb-2"><?php esc_html_e("Conversion", 'checkout-upsell-woocommerce'); ?></p>
+                    <p class="font-weight-medium mb-2"><?php esc_html_e("Conversion", 'checkout-upsell-and-order-bumps'); ?></p>
                     <div class="cuw-icon-container"><i class="cuw-icon-conversion text-primary"></i></div>
                 </div>
                 <div class="card-body p-0">
@@ -114,7 +114,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
         <div class="col-md-3 col-sm-6">
             <div class="card bg-white cuw-card">
                 <div class="header d-flex-between">
-                    <p class="font-weight-medium mb-2"><?php esc_html_e("Upsell Orders", 'checkout-upsell-woocommerce'); ?></p>
+                    <p class="font-weight-medium mb-2"><?php esc_html_e("Upsell Orders", 'checkout-upsell-and-order-bumps'); ?></p>
                     <div class="cuw-icon-container"><i class="cuw-icon-upsell-revenue text-primary"></i></div>
                 </div>
                 <div class="card-body p-0">
@@ -139,7 +139,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
         <div class="col-md-3 col-sm-6">
             <div class="card  bg-white cuw-card">
                 <div class="header d-flex-between">
-                    <p class="font-weight-medium mb-2"><?php esc_html_e("Products Purchased", 'checkout-upsell-woocommerce'); ?></p>
+                    <p class="font-weight-medium mb-2"><?php esc_html_e("Products Purchased", 'checkout-upsell-and-order-bumps'); ?></p>
                     <div class="cuw-icon-container">
                         <i class="cuw-icon-purchased text-primary"></i>
                     </div>
@@ -168,7 +168,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
     <div class="row px-3">
         <div class="col-md-6 pb-2">
             <div class="p-3 mt-4 mb-2 bg-white chart-section">
-                <h5 class=" text-dark" style="font-size: 16px;"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-woocommerce'); ?></h5>
+                <h5 class=" text-dark" style="font-size: 16px;"><?php esc_html_e("Upsell Revenue", 'checkout-upsell-and-order-bumps'); ?></h5>
                 <canvas id="upsell-revenue-chart" class="mt-2" height="75"></canvas>
                 <div id="default-text"
                      style="display: flex; justify-content:center; height:100px; font-size: 1rem; align-items: start">
@@ -176,7 +176,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
                 </div>
             </div>
             <div class="p-3 mt-4 mb-2 bg-white chart-section">
-                <h5 class="text-dark" style="font-size: 16px;"><?php esc_html_e("Products Purchased", 'checkout-upsell-woocommerce'); ?></h5>
+                <h5 class="text-dark" style="font-size: 16px;"><?php esc_html_e("Products Purchased", 'checkout-upsell-and-order-bumps'); ?></h5>
                 <canvas id="products-purchased-chart" class="mt-2" height="75"></canvas>
                 <div id="default-text"
                      style="display: flex; justify-content:center; height:100px; font-size: 1rem; align-items: start">
@@ -187,7 +187,7 @@ $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
 
         <div class="col-md-6 pb-2">
             <div class="p-3 mt-4 bg-white chart-section">
-                <h5 class="text-dark" style="font-size: 16px;"><?php esc_html_e("Campaigns Revenue", 'checkout-upsell-woocommerce'); ?></h5>
+                <h5 class="text-dark" style="font-size: 16px;"><?php esc_html_e("Campaigns Revenue", 'checkout-upsell-and-order-bumps'); ?></h5>
                 <canvas id="campaign-revenue-chart" class="mt-1" height="150"></canvas>
                 <div id="default-text"
                      style="display:flex; justify-content:center; height:150px; font-size: 1rem; align-items: start;">

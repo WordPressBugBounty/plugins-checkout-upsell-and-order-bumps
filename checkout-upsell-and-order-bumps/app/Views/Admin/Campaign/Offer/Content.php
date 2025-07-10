@@ -30,19 +30,19 @@ $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
 ?>
 
 <div class="cuw-offer" id="offer-<?php echo esc_attr($key); ?>" data-key="<?php echo esc_attr($key); ?>" data-index="">
-    <p class="mt-2 mb-2 offer-text text-uppercase"><?php esc_html_e("Offer", 'checkout-upsell-woocommerce'); ?><?php echo ' ' . esc_attr($key); ?></p>
+    <p class="mt-2 mb-2 offer-text text-uppercase"><?php esc_html_e("Offer", 'checkout-upsell-and-order-bumps'); ?><?php echo ' ' . esc_attr($key); ?></p>
     <div class="offer-item mt-2 mb-3 p-3 d-flex align-items-center <?php if (is_numeric($key) && !$is_valid) echo 'border-warning'; ?>">
         <div class="offer-item-image rounded"
              style="min-width: 48px; height: 48px;"><?php echo isset($image) ? wp_kses_post($image) : ''; ?></div>
         <div class="<?php echo CUW()->wp->isRtl() ? 'mr-2 ml-auto' : 'ml-2 mr-auto'; ?>" style="max-width: 50%">
             <span class="offer-item-name text-dark font-weight-bold d-block"><?php echo esc_html($product_name); ?></span>
             <div class="d-flex" style="gap:8px;">
-                <small><?php esc_html_e("Qty", 'checkout-upsell-woocommerce'); ?>:
-                    <span class="offer-item-qty font-weight-bold"><?php echo !empty($product_qty) ? esc_html($product_qty) : esc_html__("Custom", 'checkout-upsell-woocommerce'); ?></span>
+                <small><?php esc_html_e("Qty", 'checkout-upsell-and-order-bumps'); ?>:
+                    <span class="offer-item-qty font-weight-bold"><?php echo !empty($product_qty) ? esc_html($product_qty) : esc_html__("Custom", 'checkout-upsell-and-order-bumps'); ?></span>
                 </small>
                 <?php if ($discount_type != 'no_discount') { ?>
                     <span>|</span>
-                    <small><?php esc_html_e("Discount", 'checkout-upsell-woocommerce'); ?>:
+                    <small><?php esc_html_e("Discount", 'checkout-upsell-and-order-bumps'); ?>:
                         <span class="offer-item-discount font-weight-bold">
                             <?php echo esc_html(\CUW\App\Helpers\Discount::getText($product_id, ['value' => $discount_value, 'type' => $discount_type])); ?>
                         </span>
@@ -52,21 +52,21 @@ $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
         </div>
         <div class="offer-stats mx-5 d-flex" style="min-width: 128px; gap: 32px">
             <?php if (!isset($offer)) {
-                esc_html_e("Publish campaign to see the stats", 'checkout-upsell-woocommerce');
+                esc_html_e("Publish campaign to see the stats", 'checkout-upsell-and-order-bumps');
             } else { ?>
                 <div><h5 class="offer-used text-dark mb-0"><?php echo esc_html($used); ?></h5>
-                    <?php esc_html_e("Offer Used", 'checkout-upsell-woocommerce'); ?> </div>
+                    <?php esc_html_e("Offer Used", 'checkout-upsell-and-order-bumps'); ?> </div>
                 <div><h5 class="offer-views text-dark mb-0"><?php echo esc_html($views); ?></h5>
-                    <?php esc_html_e("Views", 'checkout-upsell-woocommerce'); ?></div>
+                    <?php esc_html_e("Views", 'checkout-upsell-and-order-bumps'); ?></div>
             <?php } ?>
         </div>
         <div class="offer-actions d-flex mx-2" style="gap: 8px; min-width: 104px;">
             <span class="offer-view text-secondary d-flex-center cursor-pointer border rounded-lg "
-                  title="<?php echo esc_attr__('Preview', 'checkout-upsell-woocommerce'); ?>">
+                  title="<?php echo esc_attr__('Preview', 'checkout-upsell-and-order-bumps'); ?>">
                  <i class="cuw-icon-eye"></i>
             </span>
             <span class="offer-edit text-secondary d-flex-center cursor-pointer border border-gray-light rounded-lg"
-                  title="<?php esc_html_e("Edit", 'checkout-upsell-woocommerce'); ?>"
+                  title="<?php esc_html_e("Edit", 'checkout-upsell-and-order-bumps'); ?>"
                   data-id="<?php echo esc_attr($key); ?>">
                  <i class="cuw-icon-edit-note"></i>
             </span>
@@ -77,17 +77,17 @@ $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
                 <div class="dropdown-menu">
                     <?php if ($campaign_type != 'post_purchase') { ?>
                         <a class="dropdown-item duplicate-icon-container offer-duplicate d-flex align-items-center text-secondary cursor-pointer"
-                           title="<?php esc_html_e("Duplicate", 'checkout-upsell-woocommerce'); ?>"
+                           title="<?php esc_html_e("Duplicate", 'checkout-upsell-and-order-bumps'); ?>"
                            data-key="<?php echo esc_attr($key); ?>">
                             <i class="cuw-icon-copy  px-1"></i>
-                            <?php esc_html_e("Duplicate", 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e("Duplicate", 'checkout-upsell-and-order-bumps'); ?>
                         </a>
                     <?php } ?>
                     <a class="dropdown-item delete-icon-container offer-remove d-flex align-items-center text-secondary cursor-pointer"
-                       title="<?php esc_html_e("Remove", 'checkout-upsell-woocommerce'); ?>"
+                       title="<?php esc_html_e("Remove", 'checkout-upsell-and-order-bumps'); ?>"
                        data-key="<?php echo esc_attr($key); ?>" data-toggle="modal" data-target="#modal-remove">
                         <i class="cuw-icon-delete  px-1"></i>
-                        <?php esc_html_e("Delete", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Delete", 'checkout-upsell-and-order-bumps'); ?>
                     </a>
                 </div>
             </div>

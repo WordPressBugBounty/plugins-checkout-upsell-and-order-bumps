@@ -43,12 +43,12 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
             <div class="mb-4">
                 <img src="<?php echo esc_url(CUW()->assets->getUrl("img/start-create-campaign.png")); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>"/>
             </div>
-            <h5 class="mb-3"><?php esc_html_e("Start creating campaigns!", 'checkout-upsell-woocommerce'); ?></h5>
+            <h5 class="mb-3"><?php esc_html_e("Start creating campaigns!", 'checkout-upsell-and-order-bumps'); ?></h5>
             <div class="w-50 mx-auto">
-                <p class="text-secondary mb-3"><?php esc_html_e("Create an upsell campaign to boost the average order value. Get started in a few clicks.", 'checkout-upsell-woocommerce'); ?></p>
+                <p class="text-secondary mb-3"><?php esc_html_e("Create an upsell campaign to boost the average order value. Get started in a few clicks.", 'checkout-upsell-and-order-bumps'); ?></p>
                 <button class="create-campaign btn btn-primary mx-auto">
                     <i class="cuw-icon-add-circle px-1 text-white"></i>
-                    <span class="mx-auto"><?php esc_html_e("Create New Campaign", 'checkout-upsell-woocommerce'); ?></span>
+                    <span class="mx-auto"><?php esc_html_e("Create New Campaign", 'checkout-upsell-and-order-bumps'); ?></span>
                 </button>
             </div>
         </div>
@@ -67,26 +67,26 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
                 <th style="width: 25%;" class="text-uppercase">
                     <a class="text-decoration-none d-flex align-items-center"
                        href="<?php echo esc_url(Page::getUrl(['order_by' => 'id', 'sort' => $future_id_sort], true)); ?>">
-                        <?php esc_html_e("Campaigns", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Campaigns", 'checkout-upsell-and-order-bumps'); ?>
                         <?php if ($order_by == 'id') echo '<span class="cuw-icon-' . esc_attr($sort) . '"><i class="path1"></i><i class="path2" style="vertical-align: inherit"></i></span>'; ?>
                     </a>
                 </th>
                 <th style="width: 10%; vertical-align: middle"
-                    class="text-uppercase"><?php esc_html_e("Views", 'checkout-upsell-woocommerce'); ?></th>
+                    class="text-uppercase"><?php esc_html_e("Views", 'checkout-upsell-and-order-bumps'); ?></th>
                 <th style="width: 10%; vertical-align: middle"
-                    class="text-uppercase"><?php esc_html_e("Revenue", 'checkout-upsell-woocommerce'); ?></th>
+                    class="text-uppercase"><?php esc_html_e("Revenue", 'checkout-upsell-and-order-bumps'); ?></th>
                 <th style="width: 15%; vertical-align: middle"
-                    class="text-uppercase"><?php esc_html_e("Created on", 'checkout-upsell-woocommerce'); ?></th>
+                    class="text-uppercase"><?php esc_html_e("Created on", 'checkout-upsell-and-order-bumps'); ?></th>
                 <th style="width: 10%; vertical-align: middle" class="text-uppercase">
                     <a class="text-decoration-none d-flex align-items-center"
                        href="<?php echo esc_url(Page::getUrl(['order_by' => 'priority', 'sort' => $future_priority_sort], true)); ?>">
-                        <?php esc_html_e("Priority", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Priority", 'checkout-upsell-and-order-bumps'); ?>
                         <?php if ($order_by == 'priority') echo '<span class="cuw-icon-' . esc_attr($sort) . '"><i class="path1"></i><i class="path2"></i></span>'; ?>
                     </a>
                 </th>
                 <th style="width: 10%; vertical-align: middle"
-                    class="text-uppercase cuw-action-status"><?php esc_html_e("Status", 'checkout-upsell-woocommerce'); ?></th>
-                <th class="text-uppercase cuw-action-header"><?php esc_html_e("Actions", 'checkout-upsell-woocommerce'); ?></th>
+                    class="text-uppercase cuw-action-status"><?php esc_html_e("Status", 'checkout-upsell-and-order-bumps'); ?></th>
+                <th class="text-uppercase cuw-action-header"><?php esc_html_e("Actions", 'checkout-upsell-and-order-bumps'); ?></th>
             </tr>
             </thead>
             <tbody>
@@ -148,11 +148,11 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
                                 <a href="<?php echo esc_url($edit_url); ?>"
                                    class="btn border border-gray-light btn-outline-secondary p-2">
                                     <i class="cuw-icon-edit-note inherit-color px-1"></i>
-                                    <?php esc_html_e("Edit", 'checkout-upsell-woocommerce'); ?>
+                                    <?php esc_html_e("Edit", 'checkout-upsell-and-order-bumps'); ?>
                                 </a>
                                 <a href="<?php echo esc_url($page_url . "&tab=reports&campaign_id=" . $campaign['id']); ?>"
                                    class="btn btn-outline-secondary border border-gray-light p-2 "
-                                   title="<?php echo esc_attr__('Reports', 'checkout-upsell-woocommerce'); ?>">
+                                   title="<?php echo esc_attr__('Reports', 'checkout-upsell-and-order-bumps'); ?>">
                                     <i class="cuw-icon-analytics inherit-color px-1"></i>
                                 </a>
                                 <div class="dropdown d-inline-block">
@@ -165,14 +165,14 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
                                             <a class="dropdown-item campaign-duplicate d-flex align-items-center"
                                                data-id="<?php echo esc_attr($campaign['id']); ?>">
                                                 <i class="cuw-icon-copy px-1"></i>
-                                                <?php esc_html_e("Duplicate", 'checkout-upsell-woocommerce'); ?>
+                                                <?php esc_html_e("Duplicate", 'checkout-upsell-and-order-bumps'); ?>
                                             </a>
                                         <?php } ?>
                                         <a class="dropdown-item delete-icon-container d-flex align-items-center"
                                            data-id="<?php echo esc_attr($campaign['id']); ?>"
                                            data-toggle="modal" data-target="#modal-delete">
                                             <i class="cuw-icon-delete  px-1"></i>
-                                            <?php esc_html_e("Delete", 'checkout-upsell-woocommerce'); ?>
+                                            <?php esc_html_e("Delete", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
             } else { ?>
                 <tr class="campaign campaign-empty">
                     <td colspan="8"
-                        class="text-center p-4"><?php esc_html_e("No campaigns found", 'checkout-upsell-woocommerce'); ?></td>
+                        class="text-center p-4"><?php esc_html_e("No campaigns found", 'checkout-upsell-and-order-bumps'); ?></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -198,11 +198,11 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
                 ?>
                 <?php if (!empty($campaigns)) { ?>
                     <p class="my-2">
-                        <?php esc_html_e("Showing", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Showing", 'checkout-upsell-and-order-bumps'); ?>
                         <strong>
-                            <?php echo esc_html($showing_from == $showing_to ? $showing_to : $showing_from . ' ' . __("to", 'checkout-upsell-woocommerce') . ' ' . $showing_to); ?>
+                            <?php echo esc_html($showing_from == $showing_to ? $showing_to : $showing_from . ' ' . __("to", 'checkout-upsell-and-order-bumps') . ' ' . $showing_to); ?>
                         </strong>
-                        <?php esc_html_e("of", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("of", 'checkout-upsell-and-order-bumps'); ?>
                         <strong><?php echo esc_html($campaigns_count); ?></strong>
                     </p>
                 <?php } ?>
@@ -241,14 +241,14 @@ $future_priority_sort = ($order_by == 'priority' && $sort == 'asc') ? 'desc' : '
             <?php } else { ?>
                 <p class="my-2">
                     <strong><?php echo esc_html(count($campaigns)); ?> </strong>
-                    <?php esc_html_e("out of", 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e("out of", 'checkout-upsell-and-order-bumps'); ?>
                     <strong>5</strong>
                 </p>
                 <p class="my-2 ml-auto">
-                    <span><?php esc_html_e("To create more campaigns", 'checkout-upsell-woocommerce'); ?></span> –
+                    <span><?php esc_html_e("To create more campaigns", 'checkout-upsell-and-order-bumps'); ?></span> –
                     <a class="text-decoration-none font-weight-bold"
                        href="<?php echo esc_url(CUW()->plugin->getUrl('upgrade')); ?>" target="_blank">
-                        <?php esc_html_e("Upgrade to PRO", 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e("Upgrade to PRO", 'checkout-upsell-and-order-bumps'); ?>
                     </a>
                 </p>
             <?php } ?>

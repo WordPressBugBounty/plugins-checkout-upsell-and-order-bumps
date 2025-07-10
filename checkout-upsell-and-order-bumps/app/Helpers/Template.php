@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -39,19 +39,19 @@ class Template
             ],
             'i18n' => [
                 'add_to_cart' => [
-                    'text' => esc_html__('Add to cart', 'checkout-upsell-woocommerce'),
-                    'items' => esc_html__('items', 'checkout-upsell-woocommerce'),
-                    'all_items' => esc_html__('all items', 'checkout-upsell-woocommerce'),
-                    'selected_items' => esc_html__('selected items', 'checkout-upsell-woocommerce'),
+                    'text' => esc_html__('Add to cart', 'checkout-upsell-and-order-bumps'),
+                    'items' => esc_html__('items', 'checkout-upsell-and-order-bumps'),
+                    'all_items' => esc_html__('all items', 'checkout-upsell-and-order-bumps'),
+                    'selected_items' => esc_html__('selected items', 'checkout-upsell-and-order-bumps'),
                     'number_to_text' => [
-                        1 => esc_html__('one', 'checkout-upsell-woocommerce'),
-                        2 => esc_html__('both', 'checkout-upsell-woocommerce'),
-                        3 => esc_html__('all three', 'checkout-upsell-woocommerce'),
-                        4 => esc_html__('all four', 'checkout-upsell-woocommerce'),
-                        5 => esc_html__('all five', 'checkout-upsell-woocommerce'),
+                        1 => esc_html__('one', 'checkout-upsell-and-order-bumps'),
+                        2 => esc_html__('both', 'checkout-upsell-and-order-bumps'),
+                        3 => esc_html__('all three', 'checkout-upsell-and-order-bumps'),
+                        4 => esc_html__('all four', 'checkout-upsell-and-order-bumps'),
+                        5 => esc_html__('all five', 'checkout-upsell-and-order-bumps'),
                     ],
                 ],
-                'free' => esc_html__("Free", 'checkout-upsell-woocommerce'),
+                'free' => esc_html__("Free", 'checkout-upsell-and-order-bumps'),
             ],
             'is_rtl' => WP::isRtl(),
         ];
@@ -906,7 +906,7 @@ class Template
                 'trigger' => [
                     'popup_actions' => [
                         'view_cart' => [
-                            'text' => __("View cart", 'checkout-upsell-woocommerce'),
+                            'text' => __("View cart", 'checkout-upsell-and-order-bumps'),
                         ],
                     ],
                 ]
@@ -930,9 +930,9 @@ class Template
         $data['is_rtl'] = WP::isRtl();
 
         // allow to translate template title, description and CTA text
-        $data['template']['title'] = !empty($data['template']['title']) ? __($data['template']['title'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $data['template']['description'] = !empty($data['template']['description']) ? __($data['template']['description'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? __($data['template']['cta_text'], 'checkout-upsell-woocommerce') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $data['template']['title'] = !empty($data['template']['title']) ? __($data['template']['title'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $data['template']['description'] = !empty($data['template']['description']) ? __($data['template']['description'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? __($data['template']['cta_text'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 
         // to replace discount text
         if (!empty($data['discount'])) {
@@ -1005,7 +1005,7 @@ class Template
                 $price = apply_filters('cuw_convert_price', $discount['value'], 'fixed_price');
                 $text = html_entity_decode(WC::formatPriceRaw($price, ['trim_zeros' => true]));
             } elseif ($discount['type'] == "free") {
-                $text = esc_html__("Free", 'checkout-upsell-woocommerce');
+                $text = esc_html__("Free", 'checkout-upsell-and-order-bumps');
             }
         }
         return $text;
@@ -1017,24 +1017,24 @@ class Template
     public static function getDefaultTexts()
     {
         return [
-            __('{discount} offer', 'checkout-upsell-woocommerce'),
-            __('Hey there, you can get this offer by just clicking the checkbox below to add this offer to your order, you will never get such a discount on any other place on this site.', 'checkout-upsell-woocommerce'),
-            __('Get this exclusive offer now!', 'checkout-upsell-woocommerce'),
-            __('Offer: {discount}', 'checkout-upsell-woocommerce'),
-            __('Add to cart', 'checkout-upsell-woocommerce'),
-            __('Click here to double your order and get a {discount} discount!', 'checkout-upsell-woocommerce'),
-            __('{discount} Off Your Next Purchase', 'checkout-upsell-woocommerce'),
-            __('To thank you for being a loyal customer we want to offer you an exclusive voucher for your next order!', 'checkout-upsell-woocommerce'),
-            __('Go!', 'checkout-upsell-woocommerce'),
-            __('Frequently bought together', 'checkout-upsell-woocommerce'),
-            __('Add {items_text} to cart', 'checkout-upsell-woocommerce'),
-            __('-{price}', 'checkout-upsell-woocommerce'),
-            __('You may also like…', 'checkout-upsell-woocommerce'),
-            __('Buy now', 'checkout-upsell-woocommerce'),
-            __('Wait! Don\'t miss our special deals', 'checkout-upsell-woocommerce'),
-            __('Add', 'checkout-upsell-woocommerce'),
-            __('Add-Ons:', 'checkout-upsell-woocommerce'),
-            __('Recommended products', 'checkout-upsell-woocommerce'),
+            __('{discount} offer', 'checkout-upsell-and-order-bumps'),
+            __('Hey there, you can get this offer by just clicking the checkbox below to add this offer to your order, you will never get such a discount on any other place on this site.', 'checkout-upsell-and-order-bumps'),
+            __('Get this exclusive offer now!', 'checkout-upsell-and-order-bumps'),
+            __('Offer: {discount}', 'checkout-upsell-and-order-bumps'),
+            __('Add to cart', 'checkout-upsell-and-order-bumps'),
+            __('Click here to double your order and get a {discount} discount!', 'checkout-upsell-and-order-bumps'),
+            __('{discount} Off Your Next Purchase', 'checkout-upsell-and-order-bumps'),
+            __('To thank you for being a loyal customer we want to offer you an exclusive voucher for your next order!', 'checkout-upsell-and-order-bumps'),
+            __('Go!', 'checkout-upsell-and-order-bumps'),
+            __('Frequently bought together', 'checkout-upsell-and-order-bumps'),
+            __('Add {items_text} to cart', 'checkout-upsell-and-order-bumps'),
+            __('-{price}', 'checkout-upsell-and-order-bumps'),
+            __('You may also like…', 'checkout-upsell-and-order-bumps'),
+            __('Buy now', 'checkout-upsell-and-order-bumps'),
+            __('Wait! Don\'t miss our special deals', 'checkout-upsell-and-order-bumps'),
+            __('Add', 'checkout-upsell-and-order-bumps'),
+            __('Add-Ons:', 'checkout-upsell-and-order-bumps'),
+            __('Recommended products', 'checkout-upsell-and-order-bumps'),
         ];
     }
 

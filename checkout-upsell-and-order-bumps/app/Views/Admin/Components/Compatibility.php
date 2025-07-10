@@ -19,7 +19,7 @@ foreach ($packages as $package) { ?>
                     <?php if (!empty($package['active'])) echo 'checked'; ?>>
                 <label class="custom-control-label"
                        for="compat-<?php echo esc_attr($package['key']); ?>-active">
-                    <?php esc_html_e("Active", 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e("Active", 'checkout-upsell-and-order-bumps'); ?>
                 </label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
@@ -30,7 +30,7 @@ foreach ($packages as $package) { ?>
                     <?php if (empty($package['active'])) echo 'checked'; ?>>
                 <label class="custom-control-label"
                        for="compat-<?php echo esc_attr($package['key']); ?>-disable">
-                    <?php esc_html_e("Disable", 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e("Disable", 'checkout-upsell-and-order-bumps'); ?>
                 </label>
             </div>
         </div>

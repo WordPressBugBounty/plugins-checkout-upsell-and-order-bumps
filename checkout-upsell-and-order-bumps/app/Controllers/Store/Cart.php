@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -94,7 +94,7 @@ class Cart extends Controller
         if (isset($cart_item['cuw_offer']) && $offer = $cart_item['cuw_offer']) {
             if (apply_filters('cuw_show_upsell_item_text', true, 'offer', 'cart_item')) {
                 if ($text = Offer::getText($cart_item['data'], $offer['discount'], 'cart')) {
-                    $label = esc_html__("Offer", 'checkout-upsell-woocommerce');
+                    $label = esc_html__("Offer", 'checkout-upsell-and-order-bumps');
                     $text = '<span class="cuw-offer-text">' . $text . '</span>';
                     $item_data['cuw_offer'] = [
                         'key' => apply_filters('cuw_cart_item_offer_label', $label),
@@ -109,7 +109,7 @@ class Cart extends Controller
                         $data['discount']['value'] = $data['product']['price'] - CartHelper::getPricePerItem($cart_item['key'], $data);
                     }
                     if ($text = Discount::getText($cart_item['data'], $data['discount'], 'cart')) {
-                        $label = esc_html__("Discount", 'checkout-upsell-woocommerce');
+                        $label = esc_html__("Discount", 'checkout-upsell-and-order-bumps');
                         $text = '<span class="cuw-discount-text">' . $text . '</span>';
                         $item_data['cuw_product'] = [
                             'key' => apply_filters('cuw_cart_item_discount_label', $label),

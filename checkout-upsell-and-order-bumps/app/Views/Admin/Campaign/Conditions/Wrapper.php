@@ -26,7 +26,7 @@ $count = $count ?? '';
 
     <span class="condition-relation-wrapper" style="display:flex; gap:4px; align-items: center">
         <span class="cuw-relation condition-relation relation-<?php echo esc_attr($relation); ?>"><?php echo !empty($show_relation) ? esc_html($relation) : '' ?></span>
-        <div class="condition-count text-uppercase"><?php echo esc_html__('Condition', 'checkout-upsell-woocommerce') . ' ' . esc_html(!empty($count) ? $count : ''); ?></div>
+        <div class="condition-count text-uppercase"><?php echo esc_html__('Condition', 'checkout-upsell-and-order-bumps') . ' ' . esc_html(!empty($count) ? $count : ''); ?></div>
     </span>
 
     <div class="condition-row">

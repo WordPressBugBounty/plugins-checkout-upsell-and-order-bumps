@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -300,18 +300,18 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
     public static function getDisplayLocations()
     {
         $locations = (array)apply_filters('cuw_cart_upsell_offer_display_locations', [
-            'woocommerce_before_cart' => esc_html__("Top of the Cart page", 'checkout-upsell-woocommerce'),
-            'woocommerce_before_cart_table' => esc_html__("Before Cart items table", 'checkout-upsell-woocommerce'),
-            'woocommerce_after_cart_table' => esc_html__("After Cart items table", 'checkout-upsell-woocommerce'),
-            'woocommerce_cart_contents' => esc_html__("After Cart items (within the table)", 'checkout-upsell-woocommerce'),
-            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-woocommerce') . ' [cuw_cart_upsells]',
+            'woocommerce_before_cart' => esc_html__("Top of the Cart page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_before_cart_table' => esc_html__("Before Cart items table", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_after_cart_table' => esc_html__("After Cart items table", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_cart_contents' => esc_html__("After Cart items (within the table)", 'checkout-upsell-and-order-bumps'),
+            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-and-order-bumps') . ' [cuw_cart_upsells]',
         ]);
 
         if (WC::requiredVersion('8.3') && WC::cartBlockEnabled()) {
             $locations = array_merge([
-                'blocks/woocommerce/cart/order_meta' => esc_html__("Cart Block: After total", 'checkout-upsell-woocommerce'),
-                'blocks/woocommerce/cart/coupon' => esc_html__("Cart Block: After subtotal", 'checkout-upsell-woocommerce'),
-                'blocks/woocommerce/cart/shipping' => esc_html__("Cart Block: After shipping", 'checkout-upsell-woocommerce'),
+                'blocks/woocommerce/cart/order_meta' => esc_html__("Cart Block: After total", 'checkout-upsell-and-order-bumps'),
+                'blocks/woocommerce/cart/coupon' => esc_html__("Cart Block: After subtotal", 'checkout-upsell-and-order-bumps'),
+                'blocks/woocommerce/cart/shipping' => esc_html__("Cart Block: After shipping", 'checkout-upsell-and-order-bumps'),
             ], $locations);
         }
         return $locations;

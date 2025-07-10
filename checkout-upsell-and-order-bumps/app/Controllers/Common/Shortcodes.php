@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -29,22 +29,22 @@ class Shortcodes extends Controller
     {
         $shortcodes = apply_filters('cuw_shortcodes', [
             'cart_upsells' => [
-                'title' => __('Cart upsell offers', 'checkout-upsell-woocommerce'),
-                'description' => __('To show Cart Upsell offers on the cart page', 'checkout-upsell-woocommerce'),
-                'group' => __("Cart page", 'checkout-upsell-woocommerce'),
+                'title' => __('Cart upsell offers', 'checkout-upsell-and-order-bumps'),
+                'description' => __('To show Cart Upsell offers on the cart page', 'checkout-upsell-and-order-bumps'),
+                'group' => __("Cart page", 'checkout-upsell-and-order-bumps'),
                 'callback' => [__CLASS__, 'cartUpsellOffers'],
             ],
             'checkout_upsells' => [
-                'title' => __('Checkout upsell offers', 'checkout-upsell-woocommerce'),
-                'description' => __('To show Checkout Upsell offers on the checkout page', 'checkout-upsell-woocommerce')
-                    . '<br><span class="form-text text-dark">' . __('NOTE: [cuw_offers] shortcode has been deprecated since v1.3.2. Use this shortcode instead.', 'checkout-upsell-woocommerce') . '</span>',
-                'group' => __("Checkout page", 'checkout-upsell-woocommerce'),
+                'title' => __('Checkout upsell offers', 'checkout-upsell-and-order-bumps'),
+                'description' => __('To show Checkout Upsell offers on the checkout page', 'checkout-upsell-and-order-bumps')
+                    . '<br><span class="form-text text-dark">' . __('NOTE: [cuw_offers] shortcode has been deprecated since v1.3.2. Use this shortcode instead.', 'checkout-upsell-and-order-bumps') . '</span>',
+                'group' => __("Checkout page", 'checkout-upsell-and-order-bumps'),
                 'callback' => [__CLASS__, 'checkoutUpsellOffers'],
             ],
             'fbt' => [
-                'title' => __('Frequently bought together', 'checkout-upsell-woocommerce'),
-                'description' => __('To show Frequently bought together products on the product page', 'checkout-upsell-woocommerce'),
-                'group' => __('Product page', 'checkout-upsell-woocommerce'),
+                'title' => __('Frequently bought together', 'checkout-upsell-and-order-bumps'),
+                'description' => __('To show Frequently bought together products on the product page', 'checkout-upsell-and-order-bumps'),
+                'group' => __('Product page', 'checkout-upsell-and-order-bumps'),
                 'callback' => [__CLASS__, 'fbtProducts'],
             ],
         ]);

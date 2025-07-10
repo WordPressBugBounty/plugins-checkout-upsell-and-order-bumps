@@ -27,8 +27,8 @@ class Reports extends \WC_Email
     {
         $this->id = 'cuw_weekly_report';
         $this->customer_email = false;
-        $this->title = __('Upsells summary', 'checkout-upsell-woocommerce');
-        $this->description = esc_html__('This email is help to send an upsells summary of the week to admin.', 'checkout-upsell-woocommerce');
+        $this->title = __('Upsells summary', 'checkout-upsell-and-order-bumps');
+        $this->description = esc_html__('This email is help to send an upsells summary of the week to admin.', 'checkout-upsell-and-order-bumps');
         $this->email_type = 'html';
         $this->template_html = 'email/weekly-report.php';
 
@@ -44,7 +44,7 @@ class Reports extends \WC_Email
      */
     public function get_default_subject()
     {
-        return esc_html__('[{site_title}]: Upsells summary', 'checkout-upsell-woocommerce');
+        return esc_html__('[{site_title}]: Upsells summary', 'checkout-upsell-and-order-bumps');
     }
 
     /**
@@ -77,7 +77,7 @@ class Reports extends \WC_Email
         if (!empty($top_revenue_campaigns)) {
             foreach ($top_revenue_campaigns as &$top_revenue_campaign) {
                 if ($top_revenue_campaign['title'] === null) {
-                    $top_revenue_campaign['title'] = __("(Deleted)", 'checkout-upsell-woocommerce');
+                    $top_revenue_campaign['title'] = __("(Deleted)", 'checkout-upsell-and-order-bumps');
                 }
             }
             $top_revenue_html = CUW()->template('email/top-revenue-campaigns', ['top_revenue_campaigns' => $top_revenue_campaigns], false);
@@ -128,25 +128,25 @@ class Reports extends \WC_Email
     public function init_form_fields()
     {
         // translators: %s placeholders.
-        $placeholder_text = sprintf(__('Available placeholders: %s', 'checkout-upsell-woocommerce'), '<code>' . implode('</code>, <code>', array_keys($this->placeholders)) . '</code>');
+        $placeholder_text = sprintf(__('Available placeholders: %s', 'checkout-upsell-and-order-bumps'), '<code>' . implode('</code>, <code>', array_keys($this->placeholders)) . '</code>');
         $this->form_fields = array(
             'enabled' => array(
-                'title' => __('Enable/Disable', 'checkout-upsell-woocommerce'),
+                'title' => __('Enable/Disable', 'checkout-upsell-and-order-bumps'),
                 'type' => 'checkbox',
-                'label' => __('Enable this email notification', 'checkout-upsell-woocommerce'),
+                'label' => __('Enable this email notification', 'checkout-upsell-and-order-bumps'),
                 'default' => 'yes',
             ),
             'recipient' => array(
-                'title' => __('Recipient(s)', 'checkout-upsell-woocommerce'),
+                'title' => __('Recipient(s)', 'checkout-upsell-and-order-bumps'),
                 'type' => 'text',
                 // translators: %s email.
-                'description' => sprintf(__('Enter recipients (comma separated) for this email. Defaults to %s.', 'checkout-upsell-woocommerce'), '<code>' . esc_attr(get_option('admin_email')) . '</code>'),
+                'description' => sprintf(__('Enter recipients (comma separated) for this email. Defaults to %s.', 'checkout-upsell-and-order-bumps'), '<code>' . esc_attr(get_option('admin_email')) . '</code>'),
                 'placeholder' => '',
                 'default' => '',
                 'desc_tip' => true,
             ),
             'subject' => array(
-                'title' => __('Subject', 'checkout-upsell-woocommerce'),
+                'title' => __('Subject', 'checkout-upsell-and-order-bumps'),
                 'type' => 'text',
                 'desc_tip' => true,
                 'description' => $placeholder_text,
@@ -154,13 +154,13 @@ class Reports extends \WC_Email
                 'default' => '',
             ),
             'email_type' => array(
-                'title' => __('Email type', 'checkout-upsell-woocommerce'),
+                'title' => __('Email type', 'checkout-upsell-and-order-bumps'),
                 'type' => 'select',
-                'description' => __('Choose which format of email to send.', 'checkout-upsell-woocommerce'),
+                'description' => __('Choose which format of email to send.', 'checkout-upsell-and-order-bumps'),
                 'default' => 'html',
                 'class' => 'email_type wc-enhanced-select',
                 'options' => array(
-                    'html' => __('HTML', 'checkout-upsell-woocommerce'),
+                    'html' => __('HTML', 'checkout-upsell-and-order-bumps'),
                 ),
                 'desc_tip' => true,
             ),

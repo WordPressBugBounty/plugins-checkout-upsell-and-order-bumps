@@ -14,13 +14,13 @@ foreach ($conditions as $key => $condition) {
 
 <div id="condition-type">
     <select class="form-control">
-        <option value="" selected disabled><?php esc_html_e("Choose a condition", 'checkout-upsell-woocommerce'); ?></option>
+        <option value="" selected disabled><?php esc_html_e("Choose a condition", 'checkout-upsell-and-order-bumps'); ?></option>
         <?php foreach ($grouped_conditions as $group => $conditions) { ?>
             <optgroup label="<?php echo esc_attr($group); ?>">
             <?php foreach ($conditions as $key => $condition) { ?>
                 <option value="<?php echo esc_attr($key); ?>" <?php if ($type == $key) echo "selected"; ?> <?php if (empty($condition['handler'])) echo "disabled" ?>>
                     <?php echo esc_html($condition['name']); ?>
-                    <?php if (empty($condition['handler']) && !CUW()->plugin->has_pro) echo esc_html(" – " . __("PRO", 'checkout-upsell-woocommerce')); ?>
+                    <?php if (empty($condition['handler']) && !CUW()->plugin->has_pro) echo esc_html(" – " . __("PRO", 'checkout-upsell-and-order-bumps')); ?>
                 </option>
             <?php } ?>
             </optgroup>

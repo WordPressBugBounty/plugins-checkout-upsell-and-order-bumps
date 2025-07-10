@@ -15,21 +15,21 @@ if (!isset($campaign)) {
     <div class="form-group mb-0">
         <label for="campaign-limit" class="form-label">
             <?php if ($campaign_type == 'noc') {
-                esc_html_e("Overall coupon generation limit", 'checkout-upsell-woocommerce');
+                esc_html_e("Overall coupon generation limit", 'checkout-upsell-and-order-bumps');
             } else {
-                esc_html_e("Overall usage limit", 'checkout-upsell-woocommerce');
+                esc_html_e("Overall usage limit", 'checkout-upsell-and-order-bumps');
             } ?>
-            <?php esc_html_e("(optional)", 'checkout-upsell-woocommerce'); ?>
+            <?php esc_html_e("(optional)", 'checkout-upsell-and-order-bumps'); ?>
         </label>
         <input class="form-control" type="number" step="1" id="campaign-limit" name="limit" min="0"
                value="<?php echo esc_attr($limit); ?>"
-               placeholder="<?php esc_attr_e("Unlimited", 'checkout-upsell-woocommerce'); ?>">
+               placeholder="<?php esc_attr_e("Unlimited", 'checkout-upsell-and-order-bumps'); ?>">
         <?php if (!empty($campaign['id'])) { ?>
             <span class="mt-1 mb-0 d-block form-label">
                 <?php if ($campaign_type == 'noc') {
-                    esc_html_e("Generated coupons", 'checkout-upsell-woocommerce');
+                    esc_html_e("Generated coupons", 'checkout-upsell-and-order-bumps');
                 } else {
-                    esc_html_e("Used", 'checkout-upsell-woocommerce');
+                    esc_html_e("Used", 'checkout-upsell-and-order-bumps');
                 } ?>:
                 <span class="font-weight-medium text-dark"><?php echo esc_html($used); ?></span>
             </span>
@@ -38,14 +38,14 @@ if (!isset($campaign)) {
     <div class="form-group mt-2 mb-0">
         <label for="campaign-limit-per-user" class="form-label">
             <?php if ($campaign_type == 'noc') {
-                esc_html_e("Coupon generation limit per customer", 'checkout-upsell-woocommerce');
+                esc_html_e("Coupon generation limit per customer", 'checkout-upsell-and-order-bumps');
             } else {
-                esc_html_e("Usage limit per customer", 'checkout-upsell-woocommerce');
+                esc_html_e("Usage limit per customer", 'checkout-upsell-and-order-bumps');
             } ?>
-            <?php esc_html_e("(optional)", 'checkout-upsell-woocommerce'); ?>
+            <?php esc_html_e("(optional)", 'checkout-upsell-and-order-bumps'); ?>
         </label>
         <input class="form-control" type="number" step="1" id="campaign-limit-per-user"
                name="limit_per_user" min="0" value="<?php echo esc_attr($limit_per_user); ?>"
-               placeholder="<?php esc_attr_e("Unlimited", 'checkout-upsell-woocommerce'); ?>">
+               placeholder="<?php esc_attr_e("Unlimited", 'checkout-upsell-and-order-bumps'); ?>">
     </div>
 </div>

@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -278,20 +278,20 @@ class CheckoutUpsells extends Base
     public static function getDisplayLocations()
     {
         $locations = (array)apply_filters('cuw_checkout_upsell_offer_display_locations', [
-            'woocommerce_review_order_before_payment' => esc_html__("Before Payment Gateways", 'checkout-upsell-woocommerce'),
-            'woocommerce_review_order_after_payment' => esc_html__("Bottom of the Checkout Page", 'checkout-upsell-woocommerce'),
-            'woocommerce_review_order_before_submit' => esc_html__("Before Place Order Button", 'checkout-upsell-woocommerce'),
-            'woocommerce_review_order_after_submit' => esc_html__("After Place Order Button", 'checkout-upsell-woocommerce'),
-            'woocommerce_checkout_billing' => esc_html__("Before Billing section", 'checkout-upsell-woocommerce'),
-            'woocommerce_after_order_notes' => esc_html__("After Order notes", 'checkout-upsell-woocommerce'),
-            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-woocommerce') . ' [cuw_checkout_upsells]',
+            'woocommerce_review_order_before_payment' => esc_html__("Before Payment Gateways", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_review_order_after_payment' => esc_html__("Bottom of the Checkout Page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_review_order_before_submit' => esc_html__("Before Place Order Button", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_review_order_after_submit' => esc_html__("After Place Order Button", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_checkout_billing' => esc_html__("Before Billing section", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_after_order_notes' => esc_html__("After Order notes", 'checkout-upsell-and-order-bumps'),
+            'shortcode' => esc_html__("Use a shortcode", 'checkout-upsell-and-order-bumps') . ' [cuw_checkout_upsells]',
         ]);
 
         if (WC::requiredVersion('8.3') && WC::checkoutBlockEnabled()) {
             $locations = array_merge([
-                'blocks/woocommerce/checkout/order_meta' => esc_html__("Checkout Block: After total", 'checkout-upsell-woocommerce'),
-                'blocks/woocommerce/checkout/coupon' => esc_html__("Checkout Block: After subtotal", 'checkout-upsell-woocommerce'),
-                'blocks/woocommerce/checkout/shipping' => esc_html__("Checkout Block: After shipping", 'checkout-upsell-woocommerce'),
+                'blocks/woocommerce/checkout/order_meta' => esc_html__("Checkout Block: After total", 'checkout-upsell-and-order-bumps'),
+                'blocks/woocommerce/checkout/coupon' => esc_html__("Checkout Block: After subtotal", 'checkout-upsell-and-order-bumps'),
+                'blocks/woocommerce/checkout/shipping' => esc_html__("Checkout Block: After shipping", 'checkout-upsell-and-order-bumps'),
             ], $locations);
         }
 

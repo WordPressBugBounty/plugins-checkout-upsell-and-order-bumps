@@ -51,7 +51,7 @@ class NOC extends Base
                     if (is_numeric($post_id) && get_post_meta($post_id, 'is_cuw_noc', true)) {
                         add_meta_box(
                             'cuw_noc',
-                            __('Next Order Coupon', 'checkout-upsell-woocommerce'),
+                            __('Next Order Coupon', 'checkout-upsell-and-order-bumps'),
                             function ($post) {
                                 self::app()->view('Admin/Campaign/Metaboxes/NOC', ['post_id' => $post->ID]);
                             },
@@ -65,7 +65,7 @@ class NOC extends Base
 
             // to load noc filter on coupons list page
             add_filter('views_edit-shop_coupon', function ($views) {
-                $title = esc_html__('Next Order Coupon', 'checkout-upsell-woocommerce');
+                $title = esc_html__('Next Order Coupon', 'checkout-upsell-and-order-bumps');
                 $views['metakey'] = '<a href="edit.php?post_type=shop_coupon&cuw_filter=noc">' . $title . '</a>';
                 return $views;
             });
@@ -213,19 +213,19 @@ class NOC extends Base
         if (class_exists('WC_Coupon')) {
             $coupon = new \WC_Coupon($coupon);
             if (empty($coupon->get_id())) {
-                $message = __('Deleted', 'checkout-upsell-woocommerce');
+                $message = __('Deleted', 'checkout-upsell-and-order-bumps');
             } else if (!empty($coupon->get_usage_limit()) && $coupon->get_usage_count() >= $coupon->get_usage_limit()) {
-                $message = __('Already used', 'checkout-upsell-woocommerce');
+                $message = __('Already used', 'checkout-upsell-and-order-bumps');
             } else if (!empty($coupon->get_date_expires())) {
                 if (current_time('timestamp', true) < $coupon->get_date_expires()->getTimestamp()) {
                     $date_format = apply_filters('cuw_noc_expire_date_format', WP::getFormat('datetime'));
                     // translators: %s expire date.
-                    $message = sprintf(__('Expires on: %s', 'checkout-upsell-woocommerce'), $coupon->get_date_expires()->date($date_format));
+                    $message = sprintf(__('Expires on: %s', 'checkout-upsell-and-order-bumps'), $coupon->get_date_expires()->date($date_format));
                 } else {
-                    $message = __('Expired', 'checkout-upsell-woocommerce');
+                    $message = __('Expired', 'checkout-upsell-and-order-bumps');
                 }
             } else if (!self::isValidCoupon($coupon)) {
-                $message = __('Invalid', 'checkout-upsell-woocommerce');
+                $message = __('Invalid', 'checkout-upsell-and-order-bumps');
             }
             $message = apply_filters('cuw_noc_message', $message, $coupon);
         }
@@ -660,11 +660,11 @@ class NOC extends Base
     public static function getDisplayLocations()
     {
         return (array)apply_filters('cuw_noc_action_display_locations', [
-            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-woocommerce'),
-            'woocommerce_before_thankyou' => esc_html__("Top of the Thankyou page", 'checkout-upsell-woocommerce'),
-            'woocommerce_thankyou' => esc_html__("Bottom of the Thankyou page", 'checkout-upsell-woocommerce'),
-            'woocommerce_order_details_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-woocommerce'),
-            'woocommerce_order_details_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-woocommerce'),
+            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_before_thankyou' => esc_html__("Top of the Thankyou page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_thankyou' => esc_html__("Bottom of the Thankyou page", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_order_details_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_order_details_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-and-order-bumps'),
         ]);
     }
 
@@ -676,9 +676,9 @@ class NOC extends Base
     public static function getDisplayLocationsOnEmail()
     {
         return (array)apply_filters('cuw_noc_action_display_locations_on_email', [
-            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-woocommerce'),
-            'woocommerce_email_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-woocommerce'),
-            'woocommerce_email_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-woocommerce'),
+            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_email_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_email_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-and-order-bumps'),
         ]);
     }
 
@@ -690,9 +690,9 @@ class NOC extends Base
     public static function getDisplayLocationsOnMyAccountPage()
     {
         return (array)apply_filters('cuw_noc_action_display_locations_on_myaccount_page', [
-            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-woocommerce'),
-            'woocommerce_order_details_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-woocommerce'),
-            'woocommerce_order_details_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-woocommerce'),
+            'do_not_display' => esc_html__("Do not display", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_order_details_before_order_table' => esc_html__("Before the Order details", 'checkout-upsell-and-order-bumps'),
+            'woocommerce_order_details_after_order_table' => esc_html__("After the Order details", 'checkout-upsell-and-order-bumps'),
         ]);
     }
 }

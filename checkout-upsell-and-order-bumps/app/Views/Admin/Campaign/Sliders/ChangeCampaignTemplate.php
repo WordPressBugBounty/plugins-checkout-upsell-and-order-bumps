@@ -9,11 +9,11 @@ $campaign_type = !empty($campaign_type) ? $campaign_type : '';
 ?>
 
 <div class="cuw-slider-header d-flex justify-content-between align-items-center mt-3" style="gap:8px;">
-    <h4 class="cuw-slider-title"><?php esc_html_e("Choose Template", 'checkout-upsell-woocommerce'); ?></h4>
+    <h4 class="cuw-slider-title"><?php esc_html_e("Choose Template", 'checkout-upsell-and-order-bumps'); ?></h4>
     <div>
         <button type="button" id="cuw-change-template-close" class="btn btn-outline-secondary" style="gap:6px;">
             <i class="cuw-icon-close-circle inherit-color"></i>
-            <?php esc_html_e("Close", 'checkout-upsell-woocommerce'); ?>
+            <?php esc_html_e("Close", 'checkout-upsell-and-order-bumps'); ?>
         </button>
     </div>
 </div>

@@ -17,21 +17,21 @@ $filter_relation = $campaign['filters']['relation'] ?? ''
         <?php echo sprintf("%s of the following filters",
             '<span class="filter-match-radio"><span class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="filters-match-all" name="filters[relation]" value="and"' . ($filters_relation == "and" ? ' checked' : '') . (empty($filters) ? ' disabled' : '') . '>
-                                <label class="custom-control-label" for="filters-match-all">' . esc_html__("Match All", "checkout-upsell-woocommerce") . '</label>
+                                <label class="custom-control-label" for="filters-match-all">' . esc_html__("Match All", "checkout-upsell-and-order-bumps") . '</label>
                         </span>
                         <span class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="filters-match-any" name="filters[relation]" value="or"' . ($filters_relation == "or" ? ' checked' : '') . (empty($filters) ? ' disabled' : '') . '>
-                            <label class="custom-control-label" for="filters-match-any">' . esc_html__("Match Any", "checkout-upsell-woocommerce") . '</label>
+                            <label class="custom-control-label" for="filters-match-any">' . esc_html__("Match Any", "checkout-upsell-and-order-bumps") . '</label>
                         </span></span>'); ?>
     </div>
     <div id="delete-all-filters" class="d-flex cursor-pointer justify-content-end align-items-center" style="gap:6px;">
         <i class="cuw-icon-delete text-danger"></i>
-        <p class="text-danger font-weight-medium"><?php esc_html_e('Delete all filters', 'checkout-upsell-woocommerce'); ?></p>
+        <p class="text-danger font-weight-medium"><?php esc_html_e('Delete all filters', 'checkout-upsell-and-order-bumps'); ?></p>
     </div>
 </div>
 
 <div id="no-filters" class="text-center mt-2 text-danger" <?php if (!empty($filters)) echo 'style="display: none;"' ?>>
-    <?php esc_html_e("At least one filter is required", 'checkout-upsell-woocommerce'); ?>
+    <?php esc_html_e("At least one filter is required", 'checkout-upsell-and-order-bumps'); ?>
 </div>
 
 <div id="cuw-filters">
@@ -62,7 +62,7 @@ $filter_relation = $campaign['filters']['relation'] ?? ''
 <div class="input-group mt-3 d-flex flex-row" style="gap: 8px;">
     <button type="button" id="add-filter" class="btn btn-outline-primary">
         <i class="cuw-icon-add-circle inherit-color mx-1"></i>
-        <?php esc_html_e("Add filter", 'checkout-upsell-woocommerce'); ?>
+        <?php esc_html_e("Add filter", 'checkout-upsell-and-order-bumps'); ?>
     </button>
 </div>
 

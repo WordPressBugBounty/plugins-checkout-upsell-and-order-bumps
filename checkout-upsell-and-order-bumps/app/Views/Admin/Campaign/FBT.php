@@ -59,12 +59,12 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
         </style>
 
         <p class="form-field">
-            <label for="cuw-fbt-products"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-woocommerce'); ?></label>
+            <label for="cuw-fbt-products"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-and-order-bumps'); ?></label>
         </p>
         <div style="display: flex; flex-direction: column; width: 100%">
             <select class="wc-product-search" multiple="multiple" id="cuw-fbt-products"
                     name="cuw_fbt_product_ids[]" style="width: 50%;"
-                    data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-woocommerce'); ?>"
+                    data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-and-order-bumps'); ?>"
                     data-action="woocommerce_json_search_products_and_variations"
                     data-exclude="<?php echo intval($post_id); ?>">
                 <?php foreach ($product_ids as $product_id) {
@@ -76,7 +76,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
             <div class="options_group cuw-fbt-campaign">
                 <div style="margin: 8px 0;">
                     <span style="display: none">
-                        <?php esc_html_e("Linked campaign", 'checkout-upsell-woocommerce'); ?>:
+                        <?php esc_html_e("Linked campaign", 'checkout-upsell-and-order-bumps'); ?>:
                         <a target="_blank"
                            href="<?php echo esc_url(\CUW\App\Helpers\Campaign::getEditUrl($campaign)); ?>"
                            style="text-decoration: none; font-weight: bold;">
@@ -87,10 +87,10 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                     </span>
                     <span>
                         <a id="cuw-toggle-fbt-suggestions" style="text-decoration: none; font-weight: bold;"
-                           data-show_text="<?php esc_html_e('Show suggestions', 'checkout-upsell-woocommerce'); ?>"
-                           data-hide_text="<?php esc_html_e('Hide suggestions', 'checkout-upsell-woocommerce'); ?>">
+                           data-show_text="<?php esc_html_e('Show suggestions', 'checkout-upsell-and-order-bumps'); ?>"
+                           data-hide_text="<?php esc_html_e('Hide suggestions', 'checkout-upsell-and-order-bumps'); ?>">
                             <span class="dashicons dashicons-arrow-down"></span>
-                            <span class="cuw-suggestion-text"><?php esc_html_e('Show suggestions', 'checkout-upsell-woocommerce'); ?></span>
+                            <span class="cuw-suggestion-text"><?php esc_html_e('Show suggestions', 'checkout-upsell-and-order-bumps'); ?></span>
                         </a>
                     </span>
                 </div>
@@ -99,9 +99,9 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                         <thead>
                         <tr>
                             <th style="width: 24px;"></th>
-                            <th><?php esc_html_e("Product", 'checkout-upsell-woocommerce'); ?></th>
-                            <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-woocommerce'); ?></th>
-                            <th style="max-width: 80px; text-align: center;"><?php esc_html_e("Purchase count", 'checkout-upsell-woocommerce'); ?></th>
+                            <th><?php esc_html_e("Product", 'checkout-upsell-and-order-bumps'); ?></th>
+                            <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-and-order-bumps'); ?></th>
+                            <th style="max-width: 80px; text-align: center;"><?php esc_html_e("Purchase count", 'checkout-upsell-and-order-bumps'); ?></th>
                             <th style="width: 24px;"></th>
                         </tr>
                         </thead>
@@ -128,16 +128,16 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                                 }
                             }
                             if ($count == 0) {
-                                echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No more products.", 'checkout-upsell-woocommerce') . '</td></tr>';
+                                echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No more products.", 'checkout-upsell-and-order-bumps') . '</td></tr>';
                             }
                         } else {
-                            echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No products found.", 'checkout-upsell-woocommerce') . '</td></tr>';
+                            echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No products found.", 'checkout-upsell-and-order-bumps') . '</td></tr>';
                         } ?>
                         </tbody>
                     </table>
                     <?php if (!empty($products_from_orders)) { ?>
                         <div style="width: 60%; margin-top: 8px; margin-bottom: 12px;">
-                            <?php esc_html_e('NOTE: These suggestions are based on past orders. You can use these suggestions or you can search and add other products to the campaign.', 'checkout-upsell-woocommerce'); ?>
+                            <?php esc_html_e('NOTE: These suggestions are based on past orders. You can use these suggestions or you can search and add other products to the campaign.', 'checkout-upsell-and-order-bumps'); ?>
                         </div>
                     <?php } ?>
                 </div>
@@ -178,7 +178,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
             'use_options' => ['related', 'cross_sell', 'upsell', 'custom', 'specific', 'engine'],
             'default_use' => 'related',
             'allow_bundle' => true,
-            'products_text' => __('Frequently Bought Together', 'checkout-upsell-woocommerce'),
+            'products_text' => __('Frequently Bought Together', 'checkout-upsell-and-order-bumps'),
         ],
     ]);
     CUW()->view('Admin/Components/Accordion', [
@@ -197,7 +197,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
         'data' => [
             'campaign' => $campaign,
             'display_locations' => $display_locations,
-            'display_location_text' => __('Display location on Product page', 'checkout-upsell-woocommerce'),
+            'display_location_text' => __('Display location on Product page', 'checkout-upsell-and-order-bumps'),
         ],
     ]);
     ?>
@@ -211,7 +211,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
     <div id="cuw_fbt_product_data" class="panel woocommerce_options_panel hidden">
         <div class="inline notice notice-warning woocommerce-message" style="margin: 9px 12px;">
             <p style="margin: 0; padding: 6px 0; font-size: 13px;">
-                <?php esc_html_e('This section was deprecated since v2.0.0. Please use "Upsell Products" tab instead of this tab.', 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e('This section was deprecated since v2.0.0. Please use "Upsell Products" tab instead of this tab.', 'checkout-upsell-and-order-bumps'); ?>
             </p>
         </div>
 
@@ -264,10 +264,10 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
 
         <div class="options_group cuw-fbt-products">
             <p class="form-field">
-                <label for="cuw-fbt-products-list"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-woocommerce'); ?></label>
+                <label for="cuw-fbt-products-list"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-and-order-bumps'); ?></label>
                 <select class="wc-product-search" multiple="multiple" id="cuw-fbt-products-list"
                         name="cuw_fbt_product_ids[]" style="width: 50%;"
-                        data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-woocommerce'); ?>"
+                        data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'checkout-upsell-and-order-bumps'); ?>"
                         data-action="woocommerce_json_search_products_and_variations"
                         data-exclude="<?php echo intval($post_id); ?>">
                     <?php foreach ($product_ids as $product_id) {
@@ -279,12 +279,12 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
             </p>
 
             <p class="form-field">
-                <label style="width: calc(50% + 86px); margin-right: 10px;"><?php esc_html_e('See a list of products that you can show as Frequently Bought Together based on past orders in the store.', 'checkout-upsell-woocommerce'); ?></label>
+                <label style="width: calc(50% + 86px); margin-right: 10px;"><?php esc_html_e('See a list of products that you can show as Frequently Bought Together based on past orders in the store.', 'checkout-upsell-and-order-bumps'); ?></label>
                 <button id="cuw-fbt-toggle-product-suggestions" type="button"
                         class="button-primary button-small cuw-show" style="min-width: 54px; text-align: center;"
-                        data-i18n_show="<?php esc_html_e('Show', 'checkout-upsell-woocommerce'); ?>"
-                        data-i18n_hide="<?php esc_html_e('Hide', 'checkout-upsell-woocommerce'); ?>">
-                    <?php esc_html_e('Show', 'checkout-upsell-woocommerce'); ?>
+                        data-i18n_show="<?php esc_html_e('Show', 'checkout-upsell-and-order-bumps'); ?>"
+                        data-i18n_hide="<?php esc_html_e('Hide', 'checkout-upsell-and-order-bumps'); ?>">
+                    <?php esc_html_e('Show', 'checkout-upsell-and-order-bumps'); ?>
                 </button>
             </p>
             <div id="cuw-fbt-product-suggestions" style="display: none;">
@@ -292,9 +292,9 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                     <thead>
                     <tr>
                         <th style="width: 24px;"></th>
-                        <th><?php esc_html_e("Product", 'checkout-upsell-woocommerce'); ?></th>
-                        <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-woocommerce'); ?></th>
-                        <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Purchase count", 'checkout-upsell-woocommerce'); ?></th>
+                        <th><?php esc_html_e("Product", 'checkout-upsell-and-order-bumps'); ?></th>
+                        <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-and-order-bumps'); ?></th>
+                        <th style="max-width: 100px; text-align: center;"><?php esc_html_e("Purchase count", 'checkout-upsell-and-order-bumps'); ?></th>
                         <th style="width: 24px;"></th>
                     </tr>
                     </thead>
@@ -322,16 +322,16 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                         }
 
                         if ($count == 0) {
-                            echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No more products.", 'checkout-upsell-woocommerce') . '</td></tr>';
+                            echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No more products.", 'checkout-upsell-and-order-bumps') . '</td></tr>';
                         }
                     } else {
-                        echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No products found.", 'checkout-upsell-woocommerce') . '</td></tr>';
+                        echo '<tr><td class="fbt-no-products" colspan="5">' . esc_html__("No products found.", 'checkout-upsell-and-order-bumps') . '</td></tr>';
                     } ?>
                     </tbody>
                 </table>
                 <?php if (!empty($products_from_orders)) { ?>
                     <div style="width: calc(50% + 60px); margin: 12px;">
-                        <?php esc_html_e('NOTE: These suggestions are based on past orders. You can use these suggestions or you can search and add other products to the campaign.', 'checkout-upsell-woocommerce'); ?>
+                        <?php esc_html_e('NOTE: These suggestions are based on past orders. You can use these suggestions or you can search and add other products to the campaign.', 'checkout-upsell-and-order-bumps'); ?>
                     </div>
                 <?php } ?>
             </div>
@@ -339,7 +339,7 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
 
         <div class="options_group cuw-fbt-campaign">
             <p class="form-field cuw-linked-campaign">
-                <label><?php esc_html_e("Linked campaign", 'checkout-upsell-woocommerce'); ?></label>
+                <label><?php esc_html_e("Linked campaign", 'checkout-upsell-and-order-bumps'); ?></label>
                 <a target="_blank" href="<?php echo esc_url(\CUW\App\Helpers\Campaign::getEditUrl($campaign)); ?>"
                    style="text-decoration: none; font-weight: bold;">
                     <span class="dashicons dashicons-admin-links"
@@ -348,43 +348,43 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                 </a>
             </p>
             <p class="form-field cuw-products-override">
-                <label><?php esc_html_e("Override products", 'checkout-upsell-woocommerce'); ?></label>
+                <label><?php esc_html_e("Override products", 'checkout-upsell-and-order-bumps'); ?></label>
                 <input type="checkbox" name="cuw_fbt_products_override"
                        value="1" <?php checked(true, !empty($products_override)); ?>>
-                <span class="description"><?php esc_html_e("Always use the above custom products as frequently bought together products.", 'checkout-upsell-woocommerce'); ?></span>
+                <span class="description"><?php esc_html_e("Always use the above custom products as frequently bought together products.", 'checkout-upsell-and-order-bumps'); ?></span>
             </p>
 
             <p class="form-field cuw-discount-override">
-                <label><?php esc_html_e("Override discount", 'checkout-upsell-woocommerce'); ?></label>
+                <label><?php esc_html_e("Override discount", 'checkout-upsell-and-order-bumps'); ?></label>
                 <input type="checkbox" name="cuw_fbt_discount_override"
                        value="1" <?php checked(true, !empty($products_discount)); ?>>
-                <span class="description"><?php esc_html_e("Set a custom discount for this product.", 'checkout-upsell-woocommerce'); ?></span>
+                <span class="description"><?php esc_html_e("Set a custom discount for this product.", 'checkout-upsell-and-order-bumps'); ?></span>
             </p>
             <div class="cuw-discount" style="<?php if (empty($products_discount)) echo 'display:none;' ?>">
                 <p class="form-field cuw-discount-apply-to m-0">
-                    <label for="cuw-discount-apply-to"><?php esc_html_e("Discount apply to", 'checkout-upsell-woocommerce'); ?></label>
+                    <label for="cuw-discount-apply-to"><?php esc_html_e("Discount apply to", 'checkout-upsell-and-order-bumps'); ?></label>
                     <select id="cuw-discount-apply-to" name="cuw_fbt_products_discount[apply_to]" class="select short">
-                        <option value="no_products" <?php selected('no_products', $discount_apply_to); ?>><?php esc_html_e("No products", 'checkout-upsell-woocommerce'); ?></option>
-                        <option value="only_upsells" <?php selected('only_upsells', $discount_apply_to); ?>><?php esc_html_e("Only Upsell products", 'checkout-upsell-woocommerce'); ?></option>
-                        <option value="all_products" <?php selected('all_products', $discount_apply_to); ?>><?php esc_html_e("All Products (Main + Upsell products)", 'checkout-upsell-woocommerce'); ?></option>
+                        <option value="no_products" <?php selected('no_products', $discount_apply_to); ?>><?php esc_html_e("No products", 'checkout-upsell-and-order-bumps'); ?></option>
+                        <option value="only_upsells" <?php selected('only_upsells', $discount_apply_to); ?>><?php esc_html_e("Only Upsell products", 'checkout-upsell-and-order-bumps'); ?></option>
+                        <option value="all_products" <?php selected('all_products', $discount_apply_to); ?>><?php esc_html_e("All Products (Main + Upsell products)", 'checkout-upsell-and-order-bumps'); ?></option>
                     </select>
                 </p>
                 <div class="cuw-discount-details"
                      style="<?php if ($discount_apply_to == 'no_products') echo 'display: none;' ?>">
                     <p class="form-field cuw-discount-type">
-                        <label for="cuw-discount-type"><?php esc_html_e("Discount type", 'checkout-upsell-woocommerce'); ?></label>
+                        <label for="cuw-discount-type"><?php esc_html_e("Discount type", 'checkout-upsell-and-order-bumps'); ?></label>
                         <select id="cuw-discount-type" name="cuw_fbt_products_discount[type]"
                                 class="select short" <?php if ($discount_apply_to == 'no_products') echo 'disabled' ?>>
-                            <option value="percentage" <?php selected('percentage', $discount_type); ?>><?php esc_html_e("Percentage discount", 'checkout-upsell-woocommerce'); ?></option>
-                            <option value="fixed_price" <?php selected('fixed_price', $discount_type); ?>><?php esc_html_e("Fixed discount", 'checkout-upsell-woocommerce'); ?></option>
+                            <option value="percentage" <?php selected('percentage', $discount_type); ?>><?php esc_html_e("Percentage discount", 'checkout-upsell-and-order-bumps'); ?></option>
+                            <option value="fixed_price" <?php selected('fixed_price', $discount_type); ?>><?php esc_html_e("Fixed discount", 'checkout-upsell-and-order-bumps'); ?></option>
                         </select>
                     </p>
                     <p class="form-field cuw-discount-value">
-                        <label for="cuw-discount-value"><?php esc_html_e("Discount value", 'checkout-upsell-woocommerce'); ?></label>
+                        <label for="cuw-discount-value"><?php esc_html_e("Discount value", 'checkout-upsell-and-order-bumps'); ?></label>
                         <input class="short" type="number" id="cuw-discount-value"
                                name="cuw_fbt_products_discount[value]" min="0"
                                value="<?php echo esc_attr($discount_value); ?>"
-                               placeholder="<?php esc_attr_e("Value", 'checkout-upsell-woocommerce'); ?>"
+                               placeholder="<?php esc_attr_e("Value", 'checkout-upsell-and-order-bumps'); ?>"
                             <?php echo $discount_apply_to == 'no_products' ? 'disabled' : 'required'; ?>>
                     </p>
                 </div>

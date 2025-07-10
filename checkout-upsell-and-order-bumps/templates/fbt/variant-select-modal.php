@@ -2,7 +2,7 @@
 /**
  * Frequently bought together product variant select modal
  *
- * This template can be overridden by copying it to yourtheme/checkout-upsell-woocommerce/fbt/variant-select-modal.php.
+ * This template can be overridden by copying it to yourtheme/checkout-upsell-and-order-bumps/fbt/variant-select-modal.php.
  *
  * HOWEVER, on occasion we will need to update template files and you (the theme developer) will need to copy the new files
  * to your theme to maintain compatibility. We try to do this as little as possible, but it does happen.
@@ -15,7 +15,7 @@ if (!isset($products) || !isset($data)) return;
 <div class="cuw-modal">
     <div class="cuw-modal-content cuw-animate-fade" style="max-width: 720px;">
         <div class="cuw-modal-header">
-            <h4><?php esc_html_e("Choose variants", 'checkout-upsell-woocommerce'); ?></h4>
+            <h4><?php esc_html_e("Choose variants", 'checkout-upsell-and-order-bumps'); ?></h4>
             <span class="cuw-modal-close">&times;</span>
         </div>
         <div class="cuw-modal-body" style="padding: 12px 16px; overflow-x: auto; overflow-y: auto; max-height: 480px;">
@@ -23,9 +23,9 @@ if (!isset($products) || !isset($data)) return;
                 <thead>
                 <tr>
                     <th></th>
-                    <th style="text-align: center;"><?php esc_html_e("Product", 'checkout-upsell-woocommerce'); ?></th>
+                    <th style="text-align: center;"><?php esc_html_e("Product", 'checkout-upsell-and-order-bumps'); ?></th>
                     <th></th>
-                    <th style="text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-woocommerce'); ?></th>
+                    <th style="text-align: center;"><?php esc_html_e("Price", 'checkout-upsell-and-order-bumps'); ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,14 +75,14 @@ if (!isset($products) || !isset($data)) return;
         <div class="cuw-modal-footer" style="padding: 12px 16px; gap: 8px; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 16px;">
                 <div class="cuw-total-price-section">
-                    <?php esc_html_e("Total price", 'checkout-upsell-woocommerce'); ?>:
+                    <?php esc_html_e("Total price", 'checkout-upsell-and-order-bumps'); ?>:
                     <span class="cuw-total-price" style="font-weight: bold; font-size: 110%;"></span>
                 </div>
                 <?php echo apply_filters('cuw_fbt_template_savings', '', null, $data, 'static'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </div>
             <button type="button" style="text-transform: initial;"
                     class="cuw-add-to-cart single_add_to_cart_button button alt">
-                <?php esc_html_e("Add to cart", 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e("Add to cart", 'checkout-upsell-and-order-bumps'); ?>
             </button>
         </div>
     </div>

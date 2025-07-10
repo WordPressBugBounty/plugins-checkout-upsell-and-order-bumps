@@ -23,7 +23,7 @@ $relation = $relation ?? 'and';
     </div>
     <span class="filter-relation-wrapper">
         <span class="cuw-relation filter-relation relation-<?php echo esc_attr($relation) ?>"><?php echo !empty($show_relation) ? esc_html($relation) : '' ?></span>
-        <span class="filter-count cuw-count text-uppercase"><?php echo esc_html__('Filter', 'checkout-upsell-woocommerce') . ' ' . esc_html(!empty($count) ? $count : ''); ?></span>
+        <span class="filter-count cuw-count text-uppercase"><?php echo esc_html__('Filter', 'checkout-upsell-and-order-bumps') . ' ' . esc_html(!empty($count) ? $count : ''); ?></span>
     </span>
     <div class="filter-row">
         <div class="d-flex align-items-center justify-content-between" style="gap:8px;">

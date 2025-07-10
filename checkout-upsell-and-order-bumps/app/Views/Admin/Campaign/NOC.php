@@ -12,7 +12,7 @@ $display_locations = \CUW\App\Modules\Campaigns\NOC::getDisplayLocations();
     <?php
     CUW()->view('Admin/Components/Accordion', [
         'id' => 'coupon',
-        'title' => __('Coupon Settings', 'checkout-upsell-woocommerce'),
+        'title' => __('Coupon Settings', 'checkout-upsell-and-order-bumps'),
         'icon' => 'next-order-coupon',
         'view' => 'Admin/Campaign/Components/Coupon',
         'data' => ['campaign' => $campaign],
@@ -20,14 +20,14 @@ $display_locations = \CUW\App\Modules\Campaigns\NOC::getDisplayLocations();
 
     CUW()->view('Admin/Components/Accordion', [
         'id' => 'template',
-        'title' => __('Template', 'checkout-upsell-woocommerce'),
+        'title' => __('Template', 'checkout-upsell-and-order-bumps'),
         'icon' => 'campaigns',
         'view' => 'Admin/Campaign/Components/Template',
         'data' => [
             'campaign' => $campaign,
             'display_locations' => $display_locations,
-            'display_location_text' => __('Display location on Thank you page', 'checkout-upsell-woocommerce'),
+            'display_location_text' => __('Display location on Thank you page', 'checkout-upsell-and-order-bumps'),
         ],
     ]);
     ?>
-<?php endif; ?>
+<?php endif;

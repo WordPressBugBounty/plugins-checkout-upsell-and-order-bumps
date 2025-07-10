@@ -9,8 +9,8 @@ if (!isset($campaign) || !isset($is_single)) {
     <?php if (!$is_single) { ?>
         <div class="form-group mb-2">
             <label for="priority" class="form-label">
-                <?php esc_html_e("Priority", 'checkout-upsell-woocommerce'); ?>
-                <?php esc_html_e("(optional)", 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e("Priority", 'checkout-upsell-and-order-bumps'); ?>
+                <?php esc_html_e("(optional)", 'checkout-upsell-and-order-bumps'); ?>
             </label>
             <input type="number" class="form-control" id="priority" name="priority"
                    value="<?php echo esc_attr($campaign['priority']); ?>" placeholder="10">
@@ -23,8 +23,8 @@ if (!isset($campaign) || !isset($is_single)) {
         ?>
         <div class="form-group">
             <label for="date-from" class="form-label">
-                <?php esc_html_e("Start date", 'checkout-upsell-woocommerce'); ?>
-                <?php esc_html_e("(optional)", 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e("Start date", 'checkout-upsell-and-order-bumps'); ?>
+                <?php esc_html_e("(optional)", 'checkout-upsell-and-order-bumps'); ?>
             </label>
             <input type="date" class="form-control" id="date-from" name="date_from"
                    value="<?php echo esc_attr($date_from); ?>">
@@ -36,8 +36,8 @@ if (!isset($campaign) || !isset($is_single)) {
         </div>
         <div class="form-group mb-2 mt-1" id="end-date" style="display: <?php echo empty($date_to) ? 'none' : ''; ?>">
             <label for="date-to" class="form-label">
-                <?php esc_html_e("End date", 'checkout-upsell-woocommerce'); ?>
-                <?php esc_html_e("(optional)", 'checkout-upsell-woocommerce'); ?>
+                <?php esc_html_e("End date", 'checkout-upsell-and-order-bumps'); ?>
+                <?php esc_html_e("(optional)", 'checkout-upsell-and-order-bumps'); ?>
             </label>
             <input type="date" class="form-control" id="date-to" name="date_to"
                    value="<?php echo esc_attr($date_to); ?>">

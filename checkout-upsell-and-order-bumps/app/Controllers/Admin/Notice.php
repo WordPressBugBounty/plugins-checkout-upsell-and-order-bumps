@@ -54,7 +54,7 @@ class Notice extends Controller
             $view_data = [
                 'days' => self::DAYS,
                 'revenue' => WC::formatPrice($revenue),
-                'review_url' => 'https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps/reviews/?filter=5',
+                'review_url' => 'https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps/reviews/',
                 'later_url' => add_query_arg(['cuw_review_notice' => 1, 'cuw_action' => 'later', 'cuw_nonce' => $nonce]),
                 'done_url' => add_query_arg(['cuw_review_notice' => 1, 'cuw_action' => 'done', 'cuw_nonce' => $nonce]),
             ];

@@ -2,7 +2,7 @@
 /**
  * UpsellWP
  *
- * @package   checkout-upsell-woocommerce
+ * @package   checkout-upsell-and-order-bumps
  * @author    Anantharaj B <anantharaj@flycart.org>
  * @copyright 2024 UpsellWP
  * @license   GPL-3.0-or-later
@@ -96,7 +96,7 @@ class Offers implements IntegrationInterface
         return [
             'properties' => [
                 'upsell_offers' => [
-                    'description' => __('Upsell offers', 'checkout-upsell-woocommerce'),
+                    'description' => __('Upsell offers', 'checkout-upsell-and-order-bumps'),
                     'type' => 'object',
                     'context' => [
                         'view', //'edit'

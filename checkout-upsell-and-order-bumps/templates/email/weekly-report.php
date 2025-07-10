@@ -2,7 +2,7 @@
 /**
  * Weekly Reports template
  *
- * This template can be overridden by copying it to yourtheme/checkout-upsell-woocommerce/email/reports.php.
+ * This template can be overridden by copying it to yourtheme/checkout-upsell-and-order-bumps/email/reports.php.
  *
  * HOWEVER, on occasion we will need to update template files and you (the theme developer) will need to copy the new files
  * to your theme to maintain compatibility. We try to do this as little as possible, but it does happen.
@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php esc_html_e('Upsells summary', 'checkout-upsell-woocommerce') ?></title>
+    <title><?php esc_html_e('Upsells summary', 'checkout-upsell-and-order-bumps') ?></title>
 </head>
 <body style="background: #f7f7f7; padding: 20px 0; font-family: 'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;">
 <table style="max-width: 600px; width: 100%; margin: 20px auto;">
@@ -22,13 +22,13 @@ defined('ABSPATH') || exit;
         <table style="width: 100%;">
             <tr>
                 <td style="font-size: 24px;font-weight: 600; color:#2563eb;">
-                    <?php esc_html_e('UpsellWP', 'checkout-upsell-woocommerce'); ?>
+                    <?php esc_html_e('UpsellWP', 'checkout-upsell-and-order-bumps'); ?>
                 </td>
                 <td style="float: right;">
                     <table>
                         <tr>
                             <td style="padding: 5px 6px; font-size: 14px; color:#4b5563;">
-                                <?php esc_html_e('Weekly dashboard', 'checkout-upsell-woocommerce'); ?>
+                                <?php esc_html_e('Weekly dashboard', 'checkout-upsell-and-order-bumps'); ?>
                             </td>
                             <td style="padding: 4px 6px; font-size: 14px; color:#4b5563;border-radius: 24px;background:white; border: 1px solid #e2e2e2;">
                                 {report_from} - {report_to}
@@ -49,15 +49,15 @@ defined('ABSPATH') || exit;
                         <tr>
                             <td style="padding: 0; background-color: #ffffff; width: 50%; ">
                                 <div style="font-size: 20px; color: #0f172a; padding: 6px;">
-                                    <span>&#128075;</span> <?php esc_html_e('Hey There!', 'checkout-upsell-woocommerce') ?>
+                                    <span>&#128075;</span> <?php esc_html_e('Hey There!', 'checkout-upsell-and-order-bumps') ?>
                                 </div>
                                 <div style="font-size: 24px; font-weight: bold; padding: 6px; color: #0f172a; text-align: left;">
-                                    <?php esc_html_e("Your site's upsells summary", 'checkout-upsell-woocommerce') ?>
+                                    <?php esc_html_e("Your site's upsells summary", 'checkout-upsell-and-order-bumps') ?>
                                 </div>
                             </td>
                             <td style="padding: 0 24px; background-color: #ffffff; vertical-align: middle; color: #0f172a;">
                                 <div style="padding: 4px; font-size: 16px; color: #9ca3af;">
-                                    <?php esc_html_e('Below is a look at how your store earned via upsells in last week', 'checkout-upsell-woocommerce') ?>
+                                    <?php esc_html_e('Below is a look at how your store earned via upsells in last week', 'checkout-upsell-and-order-bumps') ?>
                                 </div>
                                 <div style="padding: 4px;">
                                     <a style="color:#2563eb; font-size: 16px;" href="{site_url}">{site_url}</a>
@@ -78,7 +78,7 @@ defined('ABSPATH') || exit;
                                             {total_revenue}
                                         </td>
                                         <td style="padding: 0; background-color: #f1f5f9; font-size: 18px; color: #0f172a;">
-                                            <?php esc_html_e('Total Upsell Revenue', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('Total Upsell Revenue', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +87,7 @@ defined('ABSPATH') || exit;
                                         </td>
 
                                         <td style="padding: 4px; font-size: 14px; background-color: #f1f5f9; color: #1e293b;">
-                                             <?php esc_html_e('vs previous week', 'checkout-upsell-woocommerce') ?>
+                                             <?php esc_html_e('vs previous week', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                 </table>
@@ -101,7 +101,7 @@ defined('ABSPATH') || exit;
                                             {items_count}
                                         </td>
                                         <td style="padding: 0; font-size: 18px; background-color: #f1f5f9; color: #0f172a;">
-                                            <?php esc_html_e('Total Products Purchased', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('Total Products Purchased', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -109,7 +109,7 @@ defined('ABSPATH') || exit;
                                             {items_count_percentage}
                                         </td>
                                         <td style="padding: 4px;  font-size: 14px; background-color: #f1f5f9; color: #1e293b;">
-                                            <?php esc_html_e('vs previous week', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('vs previous week', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                 </table>
@@ -126,7 +126,7 @@ defined('ABSPATH') || exit;
                                             {orders_count}
                                         </td>
                                         <td style="padding: 0; font-size: 18px; background-color: #f1f5f9; color: #0f172a;">
-                                            <?php esc_html_e('Upsell Orders made', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('Upsell Orders made', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -134,7 +134,7 @@ defined('ABSPATH') || exit;
                                             {orders_count_percentage}
                                         </td>
                                         <td style="padding: 4px;font-size: 14px; background-color: #f1f5f9; color: #1e293b;">
-                                            <?php esc_html_e('vs previous week', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('vs previous week', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                 </table>
@@ -148,7 +148,7 @@ defined('ABSPATH') || exit;
                                             {conversion}
                                         </td>
                                         <td style="padding: 0; font-size: 18px; background-color: #f1f5f9; color: #0f172a;">
-                                            <?php esc_html_e('Conversion rate', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('Conversion rate', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -156,7 +156,7 @@ defined('ABSPATH') || exit;
                                             {conversion_percentage}
                                         </td>
                                         <td style="padding: 4px; font-size: 14px; background-color: #f1f5f9; color: #1e293b;">
-                                            <?php esc_html_e('vs previous week', 'checkout-upsell-woocommerce') ?>
+                                            <?php esc_html_e('vs previous week', 'checkout-upsell-and-order-bumps') ?>
                                         </td>
                                     </tr>
                                 </table>
