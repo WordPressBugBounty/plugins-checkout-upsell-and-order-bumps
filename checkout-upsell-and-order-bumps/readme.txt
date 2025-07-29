@@ -2,10 +2,10 @@
 Contributors: flycart
 Donate link: https://upsellwp.com
 Tags: woocommerce, upsell, woocommerce upsell, order bump, related products
-Requires at least: 5.3
+Requires at least: 6.0
 Requires PHP: 7.0
 Tested up to: 6.8
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -212,6 +212,10 @@ Learn how to create high-converting upsells and orders bumps in WooCommerce that
 
 Need help maximizing your upsell performance? Our dedicated team provides free setup guidance and optimization tips to ensure you see results fast. [Contact our experts now](https://upsellwp.com/support/?utm_source=upsell-wp-repo-website&utm_medium=wprepo&utm_campaign=upsell-pro).
 
+= External services =
+
+Flycart CDN: The Flycart CDN is used to fetch static assets including images and content hosted at static.flycart.net. [Terms](https://www.flycart.org/terms-conditions), [privacy policy](https://www.flycart.org/privacy-policy)
+
 == Installation ==
 
 1. Download UpsellWP plugin.
@@ -280,16 +284,23 @@ The PRO version allows you to create multiple offers in the same campaign and ch
 
 == Screenshots ==
 
-1. Frequently Bought Together on the Product page
-2. Cart Upsells on the Cart page
-3. Checkout Upsells on the Checkout page
-4. Next Order Coupon on the Thank you page
-5. Dashboard page
-6. Campaigns page
-7. Campaign edit page
-8. Campaign offer edit page
+1. Frequently Bought Together
+2. Cart Upsells
+3. Checkout Upsells
+4. Next Order Coupon
+5. Cart Add-ons (PRO)
+6. Product Add-ons (PRO)
+7. Double the Order (PRO)
+8. Post Purchase Upsells (PRO)
+9. Thank you upsells (PRO)
+10. Upsell Popups (PRO)
 
 == Changelog ==
+= 2.2.1 - 29/07/2025 =
+* Fix: Improved WPML compatibility for Buy More Save More Addon [PRO].
+* Fix: WooCommerce 10 compatibility.
+* Fix: load text domain warning
+
 = 2.2.0 - 10/07/2025 =
 * Fix: Plugin check issue.
 

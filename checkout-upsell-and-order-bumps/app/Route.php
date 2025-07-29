@@ -42,13 +42,15 @@ class Route
         } else {
             self::addStoreHooks();
         }
+		add_action('woocommerce_init',function(){
+			Events::add();
+			Campaigns::init();
+			Shortcodes::add();
+			Blocks::register();
+			Compatibility::init();
+			Cron::handleEvents();
+		});
 
-        Events::add();
-        Campaigns::init();
-        Shortcodes::add();
-        Blocks::register();
-        Compatibility::init();
-        Cron::handleEvents();
     }
 
     /**

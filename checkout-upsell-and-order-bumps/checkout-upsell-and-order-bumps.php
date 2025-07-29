@@ -3,8 +3,8 @@
  * Plugin Name:          UpsellWP – WooCommerce Upsell and Related Products Offers
  * Plugin URI:           https://upsellwp.com
  * Description:          Boost your store revenue by presenting upsell offers, products and next order coupons to your customers.
- * Version:              2.2.0
- * Requires at least:    5.3
+ * Version:              2.2.1
+ * Requires at least:    6.0
  * Requires PHP:         7.0
  * Author:               UpsellWP
  * Slug:                 checkout-upsell-and-order-bumps
@@ -14,8 +14,8 @@
  * License:              GPL v3 or later
  * License URI:          https://www.gnu.org/licenses/gpl-3.0.html
  *
- * WC requires at least: 4.4
- * WC tested up to:      9.9
+ * WC requires at least: 6.5
+ * WC tested up to:      10.0
  */
 
 defined('ABSPATH') || exit;
@@ -37,7 +37,7 @@ if (!cuw_pro_is_active()) {
     defined('CUW_PLUGIN_FILE') || define('CUW_PLUGIN_FILE', __FILE__);
     defined('CUW_PLUGIN_PATH') || define('CUW_PLUGIN_PATH', plugin_dir_path(__FILE__));
     defined('CUW_PLUGIN_NAME') || define('CUW_PLUGIN_NAME', 'UpsellWP Lite');
-    defined('CUW_VERSION') || define('CUW_VERSION', '2.2.0');
+    defined('CUW_VERSION') || define('CUW_VERSION', '2.2.1');
 
     // to load composer autoload (psr-4)
     if (file_exists(CUW_PLUGIN_PATH . '/vendor/autoload.php')) {

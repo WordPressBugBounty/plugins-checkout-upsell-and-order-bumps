@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP – WooCommerce Upsell and Related Products Offers 2.2.0\n"
+"Project-Id-Version: UpsellWP – WooCommerce Upsell and Related Products Offers 2.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-10T09:49:31+00:00\n"
+"POT-Creation-Date: 2025-07-29T08:29:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-and-order-bumps\n"
@@ -715,7 +715,7 @@ msgstr ""
 msgid "Offer applied successfully."
 msgstr ""
 
-#: app/Helpers/Discount.php:131
+#: app/Helpers/Discount.php:132
 #: app/Helpers/Template.php:54
 #: app/Helpers/Template.php:1008
 #: app/Views/Admin/Campaign/Components/Discount.php:21
@@ -723,7 +723,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: app/Helpers/Discount.php:133
+#: app/Helpers/Discount.php:134
 #: app/Helpers/Filter.php:40
 #: app/Helpers/Filter.php:46
 #: app/Helpers/Filter.php:52
@@ -754,26 +754,6 @@ msgstr ""
 
 #: app/Helpers/Filter.php:62
 msgid "Product SKUs"
-msgstr ""
-
-#. translators: %s value.
-#: app/Helpers/Plugin.php:172
-msgid "Requires %s plugin."
-msgstr ""
-
-#. translators: 1: plugin name, 2: plugin name
-#: app/Helpers/Plugin.php:174
-msgid "%1$s requires %2$s plugin to be installed and active."
-msgstr ""
-
-#. translators: 1: plugin name, 2: version
-#: app/Helpers/Plugin.php:176
-msgid "Requires %1$s version %2$s or above."
-msgstr ""
-
-#. translators: 1: plugin name, 2: version, 3:
-#: app/Helpers/Plugin.php:178
-msgid "%1$s requires %2$s version %3$s or above."
 msgstr ""
 
 #: app/Helpers/Template.php:42

@@ -86,7 +86,7 @@ class WCML extends Base
     public static function getCartItemDiscountPrice($price, $cart_item, $offer)
     {
         if (did_action('woocommerce_before_calculate_totals') == 1 && isset($cart_item['key'])) {
-            self::$cart_item_prices[$cart_item['key']] = Discount::getPrice($cart_item['data'], $offer['discount']);
+            self::$cart_item_prices[$cart_item['key']] = Discount::getPrice($cart_item['data'], $offer['discount'],null,$cart_item['quantity']);
         }
         return isset($cart_item['key']) && isset(self::$cart_item_prices[$cart_item['key']]) ? self::$cart_item_prices[$cart_item['key']] : $price;
     }

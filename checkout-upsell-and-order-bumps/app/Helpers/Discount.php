@@ -23,7 +23,7 @@ class Discount
      * @param int|float|null $product_price
      * @return int|float
      */
-    public static function getPrice($product, $discount, $product_price = null)
+    public static function getPrice($product, $discount, $product_price = null,$qty = 1)
     {
         if (is_null($product_price)) {
             $product_price = self::getProductPrice($product, $discount);
@@ -41,6 +41,7 @@ class Discount
                 $price = $price - ($price * ($discount['value'] / 100));
             } elseif ($discount['type'] == "fixed_price") {
                 $discount['value'] = apply_filters('cuw_convert_price', $discount['value'], 'fixed_price');
+					$discount['value'] = $discount['value'] / $qty;
                 if ($discount['value'] > $price) {
                     $discount['value'] = $price;
                 }

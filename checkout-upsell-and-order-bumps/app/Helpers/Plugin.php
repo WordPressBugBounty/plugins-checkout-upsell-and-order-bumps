@@ -169,13 +169,13 @@ class Plugin
     public static function getDependenciesError($requires, $plugin_name = '')
     {
         /* translators: %s value. */
-        $package_requirement_short = __('Requires %s plugin.', 'checkout-upsell-and-order-bumps');
+        $package_requirement_short = 'Requires %s plugin.';
         /* translators: 1: plugin name, 2: plugin name */
-        $package_requirement = __('%1$s requires %2$s plugin to be installed and active.', 'checkout-upsell-and-order-bumps');
+        $package_requirement = '%1$s requires %2$s plugin to be installed and active.';
         /* translators: 1: plugin name, 2: version */
-        $version_requirement_short = __('Requires %1$s version %2$s or above.', 'checkout-upsell-and-order-bumps');
+        $version_requirement_short = 'Requires %1$s version %2$s or above.' ;
         /* translators: 1: plugin name, 2: version, 3:  */
-        $version_requirement = __('%1$s requires %2$s version %3$s or above.', 'checkout-upsell-and-order-bumps');
+        $version_requirement = '%1$s requires %2$s version %3$s or above.';
 
         if (!empty($requires['php'])) {
             if (!Functions::checkVersion(PHP_VERSION, $requires['php'])) {
