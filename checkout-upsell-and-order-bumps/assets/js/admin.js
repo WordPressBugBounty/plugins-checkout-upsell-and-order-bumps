@@ -1524,6 +1524,12 @@ jQuery(function ($) {
             this.action = campaign.data('action');
             this.format_conditions($("#cuw-campaign #cuw-conditions"));
             this.format_filters($("#cuw-campaign #cuw-filters"));
+            const selectedValue = $("select#offer-display-location").val();
+            if (selectedValue === "blocks/woocommerce/cart/shipping") {
+                $('#cart-upsell-after-shipping-notice').removeClass('d-none');
+            } else {
+                $('#cart-upsell-after-shipping-notice').addClass('d-none');
+            }
 
             cuw_offer.init();
             cuw_action.init();
@@ -1587,7 +1593,7 @@ jQuery(function ($) {
 
         // filters methods
         add_filter: function () {
-            let select_type = $("#cuw-campaign #filter-type select");
+            let select_type = $("#cuw-campaign #filter-slider #filter-type select");
             let type = select_type.val();
             if (type) {
                 let id = $.now();
@@ -1597,17 +1603,17 @@ jQuery(function ($) {
                 html = html.replace('{name}', name);
                 html = html.replace(/{type}/g, type);
                 html = html.replace('{data}', data);
-                $("#cuw-campaign #filter-section").html(html);
-                $("#cuw-campaign #filter-section .filter-inputs").show();
-                $("#cuw-campaign #filter-section").find(".filter-row, .filter-name, .filter-count").hide();
+                $("#cuw-campaign #filter-slider #filter-section").html(html);
+                $("#cuw-campaign #filter-slider #filter-section .filter-inputs").show();
+                $("#cuw-campaign #filter-slider #filter-section").find(".filter-row, .filter-name, .filter-count").hide();
                 if (type == 'all_products') {
-                    $("#cuw-campaign #filter-section .filter-edit").hide();
-                    $("#cuw-campaign #slider-filter-add").prop('disabled', false);
+                    $("#cuw-campaign #filter-slider #filter-section .filter-edit").hide();
+                    $("#cuw-campaign #filter-slider #slider-filter-add").prop('disabled', false);
                 } else {
-                    $("#cuw-campaign #slider-filter-add").prop('disabled', true);
+                    $("#cuw-campaign #filter-slider #slider-filter-add").prop('disabled', true);
                 }
                 select_type.removeClass('border-danger');
-                cuw_campaign.select2('#cuw-campaign #filter-section');
+                cuw_campaign.select2('#cuw-campaign #filter-slider #filter-section');
             } else {
                 select_type.addClass('border-danger');
             }
@@ -1823,11 +1829,6 @@ jQuery(function ($) {
                 }
             }
 
-            if ($('#cuw-filters').length > 0) {
-                if ($("#cuw-filters .cuw-filter").length === 0) {
-                    passed = false;
-                }
-            }
             if ($('#cuw-offers').length > 0) {
                 let offers_count = cuw_offer.get_offers_count();
                 let display_method = cuw_offer.get_display_method();
@@ -1866,18 +1867,23 @@ jQuery(function ($) {
                     }
                 }
             }
-
+            if ($('#cuw-filters').length > 0) {
+                if ($("#cuw-filters .cuw-filter").length === 0) {
+                    passed = false;
+                }
+            }
             if ($('#cuw-campaign #cuw-discounts').length > 0) {
                 if ($("#cuw-campaign #cuw-discounts .cuw-discount").length === 0) {
                     passed = false;
                     $('#cuw-no-discounts-added').removeClass('d-none');
                 }
             }
-
-            if (!passed) {
+            let validation = { passed: passed };
+            $(document).trigger('cuw_campaign_validate', [validation]);
+            if (!validation.passed) {
                 cuw_page.notify(cuw_i18n.campaign_not_saved, 'error');
             }
-            return passed;
+            return validation.passed;
         },
 
         // save campaign
@@ -1925,9 +1931,9 @@ jQuery(function ($) {
                             cuw_page.notify(message, status);
                         }
                         if (status === "success" && close) {
-                            cuw_campaign.close(2000);
+                              cuw_campaign.close(2000);
                         } else if (response.data.redirect) {
-                            cuw_page.redirect('&' + response.data.redirect, 2000);
+                              cuw_page.redirect('&' + response.data.redirect, 2000);
                         }
                     } else {
                         cuw_page.notify(cuw_i18n.error, 'error');
@@ -1970,6 +1976,15 @@ jQuery(function ($) {
             $("#cuw-campaign #condition-type").on('change', 'select', function () {
                 cuw_campaign.add_condition();
             });
+            $("#cuw-campaign").on("change", "select#offer-display-location", function() {
+                const selectedValue = $(this).val();
+                if (selectedValue === "blocks/woocommerce/cart/shipping") {
+                    $('#cart-upsell-after-shipping-notice').removeClass('d-none');
+                } else {
+                    $('#cart-upsell-after-shipping-notice').addClass('d-none');
+                }
+            });
+
 
             $('#cuw-campaign #conditions-match input[name="conditions[relation]"]').on('change', function () {
                 $("#cuw-campaign #cuw-conditions .condition-relation").text($(this).val());
@@ -2168,10 +2183,10 @@ jQuery(function ($) {
             });
 
             $("#cuw-campaign #add-filter").click(function () {
-                $("#cuw-campaign #filter-section").data('action', 'add');
-                $("#cuw-campaign #filter-type").show();
+                $("#cuw-campaign #filter-slider #filter-section").data('action', 'add');
+                $("#cuw-campaign #filter-slider #filter-type").show();
                 $("#cuw-campaign #filter-slider .cuw-slider-body #filter-section").html('');
-                $("#cuw-campaign #filter-type select").val('');
+                $("#cuw-campaign #filter-slider #filter-type select").val('');
                 cuw_slider.show('#filter-slider');
             });
 
@@ -2278,30 +2293,30 @@ jQuery(function ($) {
             });
 
             //to add or edit filter
-            $("#cuw-campaign #slider-filter-add").click(function () {
-                let id = $("#cuw-campaign #filter-section .cuw-filter").data('id');
-                let action = $("#cuw-campaign #filter-section").data('action');
+            $("#cuw-campaign #filter-slider #slider-filter-add").click(function () {
+                let id = $("#cuw-campaign #filter-slider #filter-section .cuw-filter").data('id');
+                let action = $("#cuw-campaign #filter-slider #filter-section").data('action');
                 if (!id || !action) {
                     return;
                 }
 
-                cuw_campaign.format_filter($("#cuw-campaign #filter-section .cuw-filter"));
-                cuw_campaign.select2('#cuw-campaign #filter-section', 'destroy');
+                cuw_campaign.format_filter($("#cuw-campaign #filter-slider #filter-section .cuw-filter"));
+                cuw_campaign.select2('#cuw-campaign #filter-slider #filter-section', 'destroy');
 
                 if (action === 'add') {
-                    $("#cuw-campaign #cuw-filters").append($("#cuw-campaign #filter-section").html());
+                    $("#cuw-campaign #cuw-filters").append($("#cuw-campaign  #filter-slider #filter-section").html());
                 } else if (action === 'edit') {
-                    let html = $("#cuw-campaign #filter-section .cuw-filter").html();
+                    let html = $("#cuw-campaign  #filter-slider #filter-section .cuw-filter").html();
                     $("#cuw-campaign #cuw-filters .cuw-filter[data-id='" + id + "']").html(html);
                 }
 
-                $("#cuw-campaign #filter-section .cuw-filter[data-id='" + id + "'] :input").each(function (index, el) {
+                $("#cuw-campaign  #filter-slider #filter-section .cuw-filter[data-id='" + id + "'] :input").each(function (index, el) {
                     $("#cuw-campaign #cuw-filters .cuw-filter[data-id='" + id + "'] :input").eq(index).val($(this).val());
                 });
                 $("#cuw-campaign #cuw-filters .filter-inputs").hide();
-                $("#cuw-campaign #filter-section .cuw-filter").remove();
+                $("#cuw-campaign  #filter-slider #filter-section .cuw-filter").remove();
                 $("#cuw-campaign #cuw-filters").find(".filter-row, .filter-count").show();
-                $("#cuw-campaign #slider-filter-add").prop('disabled', true);
+                $("#cuw-campaign  #filter-slider #slider-filter-add").prop('disabled', true);
                 cuw_campaign.update_filters_section();
                 cuw_slider.hide('#filter-slider');
             });
@@ -2350,7 +2365,12 @@ jQuery(function ($) {
             //to toggle end date in optional settings
             $("#cuw-campaign #cuw-schedule #toggle-end-date").change(function () {
                 $(this).closest('#cuw-schedule').find('#end-date').toggle();
+                if(!$(this).is(":checked"))
+                {
+                    $("#date-to").val("");
+                }
             });
+
 
             $("#cuw-campaign #cuw_product_recommendations_page #display-location").change(function () {
                 if ($(this).val() == 'shortcode') {
@@ -3236,6 +3256,99 @@ jQuery(function ($) {
                 }
             }
         },
+        cuw_show_reports_popup: function (section) {
+            let button = section.find('#cuw-synchronize-reports');
+            button.prop('disabled', true);
+            $.ajax({
+                type: 'POST',
+                url: cuw_ajax_url,
+                data: {
+                    action: 'cuw_ajax',
+                    method: 'show_reports_sync_popup',
+                    nonce: cuw_ajax_nonce || ""
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#cuw-reports-syncronize-popup').html(response.data?.html);
+                    } else {
+                        cuw_page.notify(response.data.message || cuw_i18n.error, 'error');
+                    }
+                },
+                error: function () {
+                    cuw_page.notify(cuw_i18n.error || 'Something went wrong.', 'error');
+                },
+                complete: function () {
+                    button.prop('disabled', false);
+                }
+            });
+
+        },
+        synchronize_reports: function (section) {
+            let button = section.find('#cuw-reports-next-btn');
+            let closeBtn = section.find('.cuw-popup-close');
+            button.prop('disabled', true).text(cuw_i18n.processing || 'Processing...');
+            closeBtn.data('isprocessed',true);
+            function processBatch() {
+                $.ajax({
+                    type: 'POST',
+                    url: cuw_ajax_url,
+                    data: {
+                        action: 'cuw_ajax',
+                        method: 'synchronize_reports',
+                        nonce: cuw_ajax_nonce || "",
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            let data = response.data;
+
+                            let currentProcessed = parseInt(section.find('.processed-count').text()) || 0;
+
+                            if (data.process_count !== undefined) {
+                                let newProcessed = currentProcessed + parseInt(data.process_count);
+                                let totalCount = Number($('.total-count').text()) || 0;
+
+                                section.find('.processed-count').text(newProcessed);
+
+                                if (totalCount !== undefined && section.find('#cuw-progress-bar').data('total') === undefined) {
+                                    section.find('#cuw-progress-bar').data('total', totalCount);
+                                    section.find('.total-count').text(totalCount);
+                                }
+
+                                let total = section.find('#cuw-progress-bar').data('total');
+                                let percent = Math.min((newProcessed / total) * 100, 100);
+                                section.find('#cuw-progress-bar').css('width', percent + '%');
+                                section.find('.cuw-reports-progress-bar-percentage').text(Math.floor(percent) + '%');
+
+                            }
+
+
+                            if (data.success === "incomplete") {
+                                processBatch();
+                            } else if (data.success === "completed") {
+                                closeBtn.data('isprocessed',false);
+                                $('#cuw-progress-bar').css('width', '100%');
+                                $('.step-2').addClass('completed');
+                                button.prop('disabled', false).text(cuw_i18n.finish || 'Finish');
+                                button.data('mode', 'finish');
+                                closeBtn.data('mode', 'finish');
+                                cuw_page.notify(data.message || cuw_i18n.success, 'success');
+                            }
+                        } else {
+                            section.find('#cuw-stats-retry-btn').removeClass('d-none');
+                            cuw_page.notify(response.data.message || cuw_i18n.error, 'error');
+                        }
+                    },
+
+                    error: function () {
+                        section.find('#cuw-stats-retry-btn').removeClass('d-none')
+                        cuw_page.notify(cuw_i18n.error || 'Something went wrong.', 'error');
+                    }
+                });
+            }
+
+            // start batch loop
+            processBatch();
+        },
 
         // load chart data
         load_chart: function (data, section) {
@@ -3411,6 +3524,54 @@ jQuery(function ($) {
             $(section).on("change", "#campaign, #range, #date-from, #date-to, #currency", function () {
                 cuw_stats.load(section)
             });
+            $(section).on("click","#cuw-synchronize-reports",function (){
+               cuw_stats.cuw_show_reports_popup(section);
+            })
+            $(section).on('click', '.cuw-popup-close', function () {
+                let process = $(this).data('isprocessed');
+                if(process){
+                    $('#cuw-close-confirm').removeClass('hidden');
+                    return;
+                }
+                let mode = $(this).data('mode');
+                if(mode === 'finish'){
+                    close();
+                    location.reload();
+                    return;
+                }
+                $('#cuw-sync-popup').remove();
+            });
+            $(section).on('click', '.cuw-reports-popup-cancel', function () {
+                $('#cuw-sync-popup').remove();
+            });
+            $(section).on('click','#cuw-reports-sync-close-no',function(){
+                $('#cuw-close-confirm').addClass('hidden');
+            })
+            $(section).on('click','#cuw-reports-sync-close-yes',function(){
+                location.reload();
+            })
+            $(section).on('click', '#cuw-reports-next-btn', function () {
+                let mode = $(this).data('mode');
+                if (mode === 'finish') {
+                    close();
+                    location.reload();
+                    return;
+                }
+                $('.step-1-content').remove();
+                $('.step-1 span').css('background-color', 'seagreen');
+                $('.step-2 span').css('background-color', '#4F46E5');
+                $('.step-2 span').css('color', '#ffffff');
+
+                $('.step-2-content').removeClass('hidden');
+                cuw_stats.synchronize_reports(section);
+            });
+            $(section).on("click", "#cuw-reports-finish-btn", function() {
+                $("#cuw-sync-popup").fadeOut();
+            });
+            $(section).on("click",'#cuw-stats-retry-btn',function(){
+                $(this).addClass('d-none');
+                cuw_stats.synchronize_reports(section);
+            })
 
             $(section).on("change", "input[type='radio'][name='range']", function () {
                 $("input[type='radio'][name='range']").closest('label').removeClass('btn-primary').addClass('btn-white');

@@ -1401,3 +1401,246 @@ select {
   color: #ffffff;
   font-size: 14px;
   font-weight: 500; }
+
+
+/*Reports popup*/
+
+/* Overlay */
+#cuw-reports .cuw-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Popup */
+#cuw-reports .cuw-popup {
+    background: #fff;
+    border-radius: 10px;
+    width: 550px;
+    max-width: 95%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Header */
+#cuw-reports .cuw-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#cuw-reports .cuw-popup-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+#cuw-reports .cuw-popup-close {
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: bold;
+    color: #666;
+}
+#cuw-reports .cuw-popup-close:hover {
+    color: #000;
+}
+
+/* Steps */
+#cuw-reports .cuw-popup-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#cuw-reports .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#cuw-reports .step span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    color: #555;
+}
+#cuw-reports .step.active span {
+    background: #4F46E5; /* purple */
+    color: #fff;
+    border: none;
+}
+#cuw-reports .step p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+}
+#cuw-reports .step-line {
+    width: 40px;
+    height: 2px;
+    background: #ddd;
+    margin: 0 12px;
+}
+
+/* Total Items Box */
+#cuw-reports .cuw-total-box {
+    background: #f7f7ff;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+#cuw-reports .cuw-total-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+#cuw-reports .cuw-total-count {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4F46E5;
+    text-align: right;
+}
+
+/* Footer */
+#cuw-reports .cuw-popup-footer {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+/* Progress bar */
+#cuw-reports .progress-wrapper {
+    width: 100%;
+    height: 12px;
+    background: #f0fdf4;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+#cuw-reports .progress-bar {
+    height: 100%;
+    background: #4F46E5;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 12px;
+    transition: width 0.3s ease;
+}
+#cuw-reports #cuw-progress-bar {
+    display: block;
+    height: 10px;
+    border-radius: 20px;
+    background: seagreen;
+    min-width: 1px;
+}
+#cuw-reports .cuw-reports-progress-bar-percentage{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: 700;
+}
+#cuw-reports .cuw-reports-progress-bar-container{
+    display: block;
+    height: 10px;
+    border-radius: 20px;
+    background: #d1d1d1;
+    min-width: 1px;
+}
+#cuw-reports .cuw-reports-sync-compt-text{
+    font-weight: 600;
+    font-size: 15px;
+}
+#cuw-reports .cuw-total-head-text{
+    font-size: 17px;
+    font-weight: 500;
+}
+#cuw-reports .cuw-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+    animation: fadeIn .3s ease;
+}
+#cuw-reports .cuw-popup {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    animation: slideIn .3s ease;
+}
+#cuw-reports .cuw-reports-sync-close-popup {
+    position: fixed; /* better than absolute for overlay popups */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 9999;
+    width: 380px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#cuw-reports .cuw-reports-sync-close-popup h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#cuw-reports .cuw-reports-sync-close-popup div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#cuw-reports .cuw-reports-sync-close-popup button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#cuw-reports #cuw-reports-sync-close-no {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+#cuw-reports #cuw-reports-sync-close-no:hover {
+    background: #d1d5db;
+}
+
+#cuw-reports #cuw-reports-sync-close-yes {
+    background: #ef4444;
+    color: #fff;
+}
+
+#cuw-reports #cuw-reports-sync-close-yes:hover {
+    background: #dc2626;
+}

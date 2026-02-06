@@ -43,7 +43,7 @@ class Campaigns extends Controller
     {
         $script_data = apply_filters('cuw_frontend_script_data', [
             'ajax_url' => admin_url('admin-ajax.php'),
-            'ajax_nonce' => WP::createNonce('cuw_ajax'),
+            'ajax_nonce' => WP::createNonce('cuw_frontend_ajax'),
             'is_cart' => function_exists('is_cart') && is_cart(),
             'is_checkout' => function_exists('is_checkout') && is_checkout(),
             'has_cart_block' => function_exists('has_block') && has_block('woocommerce/cart'),

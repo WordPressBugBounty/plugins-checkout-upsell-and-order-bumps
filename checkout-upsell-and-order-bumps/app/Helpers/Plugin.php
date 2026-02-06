@@ -209,8 +209,8 @@ class Plugin
 
         if (!empty($requires['upsellwp']) && defined('CUW_VERSION')) {
             if (!Functions::checkVersion(CUW_VERSION, $requires['upsellwp'])) {
-                return empty($plugin_name) ? sprintf($version_requirement_short, __('UpsellWP', 'checkout-upsell-and-order-bumps'), $requires['upsellwp'])
-                    : sprintf($version_requirement, $plugin_name, __('UpsellWP', 'checkout-upsell-and-order-bumps'), $requires['upsellwp']);
+                return empty($plugin_name) ? sprintf($version_requirement_short, 'UpsellWP' , $requires['upsellwp'])
+                    : sprintf($version_requirement, $plugin_name, 'UpsellWP',  $requires['upsellwp']);
             }
         }
 

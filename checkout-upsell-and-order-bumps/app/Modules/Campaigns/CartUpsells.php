@@ -115,7 +115,7 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
     public static function addCampaignNotices($notices, $campaign_type)
     {
         if ($campaign_type == self::TYPE) {
-            //
+			//
         }
         return $notices;
     }
@@ -317,7 +317,7 @@ class CartUpsells extends \CUW\App\Modules\Campaigns\Base
         return $locations;
     }
 
-    /**
+	/**
      * Get mini cart offer display locations
      *
      * @return array

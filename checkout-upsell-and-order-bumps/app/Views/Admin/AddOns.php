@@ -18,6 +18,15 @@ $available_addons = $addons_list['available_addons'] ?? [];
                 <?php if (!empty($active_addons)) { ?>
                     <?php foreach ($active_addons as $slug => $addon) { ?>
                         <div class="cuw-addon card col-md-6 p-0 m-3 position-relative" style="max-width: 374px;">
+                            <?php if ( !empty($addon['is_pro']) && !\CUW\App\Helpers\Plugin::hasPro()) { ?>
+                                <div class="position-absolute"
+                                     style="<?php echo $rtl ? 'left: 4px;' : 'right: 4px;'; ?> top: 4px;">
+                                    <small class="badge badge-green-primary font-weight-medium"
+                                           style="line-height:1; padding: 3px 6px; margin: 2px 2px 0 2px; border-radius: 4px;">
+                                        <?php esc_html_e('Pro', 'checkout-upsell-and-order-bumps'); ?>
+                                    </small>
+                                </div>
+                            <?php } ?>
                             <div class="d-flex justify-content-between align-baseline px-3 pt-3">
                                 <div class="d-flex justify-content-center">
                                     <a class="cuw-addon-image" href="<?php echo esc_url($addon['plugin_url']); ?>">
@@ -43,6 +52,11 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                 <?php echo esc_html($addon['description']); ?>
                             </div>
                             <div class="cuw-addon-actions d-flex justify-content-between align-items-center border-top p-2 m-0 mt-auto">
+                                <?php if ( !empty($addon['is_pro']) && !\CUW\App\Helpers\Plugin::hasPro()) { ?>
+                                <div class="text-danger  small">
+                                        <?php echo  esc_html__('Requires UpsellWP PRO plugin.','checkout-upsell-and-order-bumps') ?>
+                                </div>
+                                <?php }else{ ?>
                                 <div class="d-flex" style="gap: 8px;">
                                     <?php if (!empty($addon['page_url'])) : ?>
                                         <a href="<?php echo esc_url($addon['page_url']); ?>"
@@ -66,7 +80,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                             <?php esc_html_e("Deactivate", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
                                     </div>
-                                <?php } ?>
+                                <?php }} ?>
                             </div>
                         </div>
                     <?php } ?>

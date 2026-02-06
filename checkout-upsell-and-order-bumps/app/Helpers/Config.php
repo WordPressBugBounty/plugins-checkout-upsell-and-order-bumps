@@ -151,9 +151,6 @@ class Config
      */
     public static function getDefaultSettings()
     {
-        // translatable default texts
-        __("Offer applied successfully.", 'checkout-upsell-and-order-bumps');
-
         return apply_filters('cuw_default_settings', [
             'show_product_details' => 'disable',
             'calculate_discount_from' => 'regular_price',

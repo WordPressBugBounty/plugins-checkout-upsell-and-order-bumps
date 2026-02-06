@@ -18,6 +18,7 @@ use CUW\App\Helpers\Assets;
 use CUW\App\Helpers\Condition;
 use CUW\App\Helpers\Filter;
 use CUW\App\Helpers\Offer;
+use CUW\App\Helpers\Plugin;
 use CUW\App\Helpers\Template;
 use CUW\App\Helpers\WP;
 use CUW\App\Setup;
@@ -294,7 +295,7 @@ class Page extends Controller
      */
     public static function getTabs()
     {
-        return apply_filters('cuw_page_tabs', [
+        $tabs =   [
             'dashboard' => __("Dashboard", 'checkout-upsell-and-order-bumps'),
             'campaigns' => __("Campaigns", 'checkout-upsell-and-order-bumps'),
             'engines' => __("Engines", 'checkout-upsell-and-order-bumps'),
@@ -302,8 +303,12 @@ class Page extends Controller
             'settings' => __("Settings", 'checkout-upsell-and-order-bumps'),
             'addons' => __("Add-ons", 'checkout-upsell-and-order-bumps'),
             'recommendations' => __("Recommendations", 'checkout-upsell-and-order-bumps'),
-            'buy-pro' => __("Buy PRO", 'checkout-upsell-and-order-bumps'),
-        ]);
+
+        ];
+        if(!Plugin::hasPro()){
+           $tabs['buy-pro']  = __("Buy PRO", 'checkout-upsell-and-order-bumps');
+        }
+        return apply_filters('cuw_page_tabs',$tabs);
     }
 
     /**

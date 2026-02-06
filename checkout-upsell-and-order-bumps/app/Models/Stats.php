@@ -11,6 +11,7 @@
 
 namespace CUW\App\Models;
 
+use CUW\App\Helpers\Config;
 use CUW\App\Helpers\Functions;
 use CUW\App\Helpers\WC;
 
@@ -255,6 +256,23 @@ class Stats extends Model
         return 0;
     }
 
+	/**
+	 * Get Stats Row
+	 *
+	 * @param string $select
+	 * @param string $where_query
+	 * @param bool $count
+	 *
+	 * @return array|int
+	 */
+	public static function getStatsRow($select = '*', $where_query = '', $count = false, $limit = 0) {
+		if ($count) {
+			$result = self::getResults("SELECT COUNT(*) as total FROM {table} $where_query");
+			return isset($result[0]['total']) ? (int) $result[0]['total'] : 0;
+		}
+		$limit_sql = ($limit > 0) ? "LIMIT " . intval($limit) : "";
+		return (array)self::getResults("SELECT {$select} FROM {table} $where_query $limit_sql");
+	}
     /**
      * Get available currencies.
      *

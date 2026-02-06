@@ -1,15 +1,15 @@
-# Copyright (C) 2025 UpsellWP
+# Copyright (C) 2026 UpsellWP
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP – WooCommerce Upsell and Related Products Offers 2.2.1\n"
+"Project-Id-Version: UpsellWP – WooCommerce Upsell and Related Products Offers 2.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-29T08:29:41+00:00\n"
+"POT-Creation-Date: 2026-01-27T06:17:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-and-order-bumps\n"
@@ -31,222 +31,234 @@ msgstr ""
 
 #. Author of the plugin
 #: checkout-upsell-and-order-bumps.php
-#: app/Controllers/Admin/Page.php:36
+#: app/Controllers/Admin/Page.php:37
 #: app/Controllers/Common/Campaigns.php:84
-#: app/Helpers/Plugin.php:212
-#: app/Helpers/Plugin.php:213
 #: app/Views/Admin/Page.php:52
 #: templates/email/weekly-report.php:25
 msgid "UpsellWP"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:105
+#: app/Controllers/Admin/Ajax.php:113
+msgid "No records found with NULL order_status."
+msgstr ""
+
+#: app/Controllers/Admin/Ajax.php:124
+msgid "Something went wrong."
+msgstr ""
+
+#: app/Controllers/Admin/Ajax.php:139
+msgid "Synchronizing completed"
+msgstr ""
+
+#: app/Controllers/Admin/Ajax.php:163
+#: app/Controllers/Admin/Page.php:253
+msgid "Something went wrong!"
+msgstr ""
+
+#: app/Controllers/Admin/Ajax.php:189
 msgid "Security check failed!"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:122
-#: app/Controllers/Admin/Ajax.php:138
+#: app/Controllers/Admin/Ajax.php:206
+#: app/Controllers/Admin/Ajax.php:222
+#: app/Controllers/Admin/Ajax.php:238
 msgid "Method not exists."
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:293
+#: app/Controllers/Admin/Ajax.php:393
 msgid "Campaign saved"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:331
+#: app/Controllers/Admin/Ajax.php:431
 msgid "Offer saved"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:332
+#: app/Controllers/Admin/Ajax.php:432
 msgid "Offer added"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:382
+#: app/Controllers/Admin/Ajax.php:482
 msgid "Offer deleted"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:405
+#: app/Controllers/Admin/Ajax.php:506
 msgid "Campaign published"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:406
+#: app/Controllers/Admin/Ajax.php:507
 msgid "Campaign drafted"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:428
+#: app/Controllers/Admin/Ajax.php:529
 msgid "Campaign duplicated"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:454
+#: app/Controllers/Admin/Ajax.php:556
 msgid "Campaign deleted"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:490
+#: app/Controllers/Admin/Ajax.php:592
 msgid "Campaigns deleted"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax.php:754
+#: app/Controllers/Admin/Ajax.php:856
 msgid "Changes saved"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:202
+#: app/Controllers/Admin/Page.php:203
 msgid "Offer not saved"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:203
+#: app/Controllers/Admin/Page.php:204
 msgid "Campaign not saved"
 msgstr ""
 
 #. translators: %d length.
-#: app/Controllers/Admin/Page.php:204
+#: app/Controllers/Admin/Page.php:205
 #: app/Helpers/Validate.php:27
 #: app/Helpers/Validate.php:40
 msgid "This field is required"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:205
+#: app/Controllers/Admin/Page.php:206
 msgid "At least one offer is required"
 msgstr ""
 
 #. translators: %s value.
-#: app/Controllers/Admin/Page.php:207
-#: app/Views/Admin/Campaign/Components/Offers.php:119
+#: app/Controllers/Admin/Page.php:208
+#: app/Views/Admin/Campaign/Components/Offers.php:122
 msgid "Maximum: %s"
 msgstr ""
 
 #. translators: %s value.
-#: app/Controllers/Admin/Page.php:208
+#: app/Controllers/Admin/Page.php:209
 msgid "Maximum offer limit is reached"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:209
+#: app/Controllers/Admin/Page.php:210
 msgid "Unable to remove offer (At least one offer required)"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:210
+#: app/Controllers/Admin/Page.php:211
 msgid "Unable to add offer (A/B Testing Enabled)"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:211
+#: app/Controllers/Admin/Page.php:212
 msgid "Unable to remove offer (A/B Testing Enabled)"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:212
+#: app/Controllers/Admin/Page.php:213
 msgid "A/B Testing requires two offers"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:213
+#: app/Controllers/Admin/Page.php:214
 msgid "A/B Testing requires exactly two offers"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:214
+#: app/Controllers/Admin/Page.php:215
 msgid "Customize template"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:215
+#: app/Controllers/Admin/Page.php:216
 #: app/Views/Admin/Campaign/Components/Template.php:38
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:193
 msgid "Change template"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:216
+#: app/Controllers/Admin/Page.php:217
 msgid "No results"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:217
+#: app/Controllers/Admin/Page.php:218
 msgid "Unable to search results"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:218
+#: app/Controllers/Admin/Page.php:219
 #: app/Views/Admin/Campaign/Conditions/Wrapper.php:29
 #: app/Views/Admin/Campaign/Sliders/AddCondition.php:14
 msgid "Condition"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:219
+#: app/Controllers/Admin/Page.php:220
 #: app/Views/Admin/Campaign/Filters/Wrapper.php:26
 #: app/Views/Admin/Campaign/Sliders/AddFilter.php:12
 #: app/Views/Admin/Campaigns/Main.php:90
 msgid "Filter"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:230
+#: app/Controllers/Admin/Page.php:231
 msgid "Maximum campaign limit reached"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:233
+#: app/Controllers/Admin/Page.php:234
 msgid "Since last week"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:234
+#: app/Controllers/Admin/Page.php:235
 msgid "Since last month"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:235
+#: app/Controllers/Admin/Page.php:236
 msgid "Since previous 30 days"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:236
+#: app/Controllers/Admin/Page.php:237
 msgid "Since previous 7 days"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:238
+#: app/Controllers/Admin/Page.php:239
 #: app/Views/Admin/Campaigns/List.php:77
 #: templates/email/top-revenue-campaigns.php:28
 msgid "Revenue"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:239
+#: app/Controllers/Admin/Page.php:240
 msgid "Items"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:240
+#: app/Controllers/Admin/Page.php:241
 #: app/Views/Admin/Dashboard.php:142
 #: app/Views/Admin/Dashboard.php:179
-#: app/Views/Admin/Reports.php:114
+#: app/Views/Admin/Reports.php:119
 msgid "Products Purchased"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:241
+#: app/Controllers/Admin/Page.php:242
 msgid "No data found"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:245
+#: app/Controllers/Admin/Page.php:246
 msgid "Add-on activated"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:246
+#: app/Controllers/Admin/Page.php:247
 msgid "Add-on deactivated"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:247
+#: app/Controllers/Admin/Page.php:248
 msgid "Add-on activation failed"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:248
+#: app/Controllers/Admin/Page.php:249
 msgid "Add-on deactivation failed"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:251
+#: app/Controllers/Admin/Page.php:252
 #: app/Views/Admin/Campaign/Components/Template.php:117
-#: app/Views/Admin/Campaign/Main.php:102
-#: app/Views/Admin/Campaign/Main.php:169
+#: app/Views/Admin/Campaign/Main.php:103
+#: app/Views/Admin/Campaign/Main.php:170
 #: app/Views/Admin/Campaign/Sliders/AddCondition.php:30
 #: app/Views/Admin/Campaign/Sliders/AddFilter.php:28
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:21
 msgid "Save"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:252
-msgid "Something went wrong!"
-msgstr ""
-
-#: app/Controllers/Admin/Page.php:253
-#: app/Views/Admin/Reports.php:31
+#: app/Controllers/Admin/Page.php:254
+#: app/Views/Admin/Reports.php:36
 msgid "Campaign"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:254
+#: app/Controllers/Admin/Page.php:255
 #: app/Controllers/Common/Campaigns.php:66
 #: app/Controllers/Store/Cart.php:97
 #: app/Views/Admin/Campaign/Offer/Content.php:33
@@ -254,17 +266,17 @@ msgstr ""
 msgid "Offer"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:255
+#: app/Controllers/Admin/Page.php:256
 msgid "Copied"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:298
+#: app/Controllers/Admin/Page.php:299
 #: app/Views/Admin/Dashboard.php:11
 msgid "Dashboard"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:299
-#: app/Controllers/Admin/Page.php:367
+#: app/Controllers/Admin/Page.php:300
+#: app/Controllers/Admin/Page.php:372
 #: app/Views/Admin/Campaigns/List.php:70
 #: app/Views/Admin/Campaigns/Main.php:35
 #: app/Views/Admin/Settings.php:32
@@ -272,37 +284,37 @@ msgstr ""
 msgid "Campaigns"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:300
+#: app/Controllers/Admin/Page.php:301
 msgid "Engines"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:301
+#: app/Controllers/Admin/Page.php:302
 #: app/Views/Admin/Campaigns/List.php:155
-#: app/Views/Admin/Reports.php:17
+#: app/Views/Admin/Reports.php:18
 msgid "Reports"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:302
-#: app/Controllers/Admin/Page.php:368
+#: app/Controllers/Admin/Page.php:303
+#: app/Controllers/Admin/Page.php:373
 #: app/Views/Admin/Settings.php:15
 msgid "Settings"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:303
+#: app/Controllers/Admin/Page.php:304
 #: app/Views/Admin/AddOns.php:12
 msgid "Add-ons"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:304
+#: app/Controllers/Admin/Page.php:305
 #: app/Views/Admin/Recommendations.php:10
 msgid "Recommendations"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:305
+#: app/Controllers/Admin/Page.php:309
 msgid "Buy PRO"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:371
+#: app/Controllers/Admin/Page.php:376
 msgid "Get PRO"
 msgstr ""
 
@@ -319,7 +331,7 @@ msgstr ""
 #: app/Controllers/Common/Campaigns.php:120
 #: app/Views/Admin/Dashboard.php:67
 #: app/Views/Admin/Dashboard.php:171
-#: app/Views/Admin/Reports.php:88
+#: app/Views/Admin/Reports.php:93
 msgid "Upsell Revenue"
 msgstr ""
 
@@ -499,10 +511,10 @@ msgid "Thank you page"
 msgstr ""
 
 #: app/Helpers/Campaign.php:273
-#: app/Models/Stats.php:597
+#: app/Models/Stats.php:615
 #: app/Views/Admin/Campaign/Components/LocationOptions.php:14
-#: app/Views/Admin/Campaign/Components/Offers.php:43
-#: app/Views/Admin/Campaign/Components/Offers.php:50
+#: app/Views/Admin/Campaign/Components/Offers.php:46
+#: app/Views/Admin/Campaign/Components/Offers.php:53
 #: app/Views/Admin/Campaign/Conditions/List.php:23
 #: app/Views/Admin/Campaign/Filters/List.php:25
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:764
@@ -709,10 +721,6 @@ msgstr ""
 
 #: app/Helpers/Condition.php:203
 msgid "WPML"
-msgstr ""
-
-#: app/Helpers/Config.php:155
-msgid "Offer applied successfully."
 msgstr ""
 
 #: app/Helpers/Discount.php:132
@@ -1033,7 +1041,7 @@ msgstr ""
 #: app/Modules/Campaigns/NOC.php:663
 #: app/Modules/Campaigns/NOC.php:679
 #: app/Modules/Campaigns/NOC.php:693
-#: app/Views/Admin/Campaign/Components/Offers.php:86
+#: app/Views/Admin/Campaign/Components/Offers.php:89
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:786
 msgid "Do not display"
 msgstr ""
@@ -1073,7 +1081,7 @@ msgstr ""
 
 #: app/Modules/Email/Reports.php:80
 #: app/Views/Admin/Campaign/Components/Products.php:33
-#: app/Views/Admin/Campaign/Main.php:69
+#: app/Views/Admin/Campaign/Main.php:70
 msgid "(Deleted)"
 msgstr ""
 
@@ -1123,56 +1131,64 @@ msgstr ""
 msgid "Active add-ons"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:37
-#: app/Views/Admin/AddOns.php:110
+#: app/Views/Admin/AddOns.php:26
+msgid "Pro"
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:46
+#: app/Views/Admin/AddOns.php:124
 #: app/Views/Admin/Campaign/Components/Information.php:16
 #: app/Views/Admin/Campaign/Components/Information.php:29
 #: app/Views/Admin/Recommendations.php:33
 msgid "By"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:50
+#: app/Views/Admin/AddOns.php:57
+msgid "Requires UpsellWP PRO plugin."
+msgstr ""
+
+#: app/Views/Admin/AddOns.php:64
 msgid "Open"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:57
+#: app/Views/Admin/AddOns.php:71
 msgid "Configure"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:66
+#: app/Views/Admin/AddOns.php:80
 msgid "Deactivate"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:75
+#: app/Views/Admin/AddOns.php:89
 msgid "No active add-ons"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:81
+#: app/Views/Admin/AddOns.php:95
 msgid "Available add-ons"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:91
+#: app/Views/Admin/AddOns.php:105
 msgid "Paid"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:129
+#: app/Views/Admin/AddOns.php:143
 msgid "Download"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:135
+#: app/Views/Admin/AddOns.php:149
 msgid "Get"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:143
+#: app/Views/Admin/AddOns.php:157
 #: app/Views/Admin/Recommendations.php:47
 msgid "Learn more"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:152
+#: app/Views/Admin/AddOns.php:166
 msgid "Activate"
 msgstr ""
 
-#: app/Views/Admin/AddOns.php:161
+#: app/Views/Admin/AddOns.php:175
 msgid "No more available add-ons"
 msgstr ""
 
@@ -1703,47 +1719,51 @@ msgstr ""
 msgid "Display location at Checkout page"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:39
-msgid "Display Method"
+#: app/Views/Admin/Campaign/Components/Offers.php:37
+msgid "The 'After Shipping' location has been deprecated in the latest version of WooCommerce."
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Offers.php:42
+msgid "Display Method"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/Offers.php:45
 msgid "All offers"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:46
+#: app/Views/Admin/Campaign/Components/Offers.php:49
 msgid "Random offer"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:49
+#: app/Views/Admin/Campaign/Components/Offers.php:52
 msgid "A/B Testing"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:59
+#: app/Views/Admin/Campaign/Components/Offers.php:62
 msgid "Offer A"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:68
+#: app/Views/Admin/Campaign/Components/Offers.php:71
 msgid "Offer B"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:81
+#: app/Views/Admin/Campaign/Components/Offers.php:84
 msgid "Display location on Mini-cart"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:97
+#: app/Views/Admin/Campaign/Components/Offers.php:100
 msgid "Add an offer to start using this campaign"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:110
+#: app/Views/Admin/Campaign/Components/Offers.php:113
 msgid "Add offer"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:125
+#: app/Views/Admin/Campaign/Components/Offers.php:128
 msgid "To add more offers"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Offers.php:128
+#: app/Views/Admin/Campaign/Components/Offers.php:131
 #: app/Views/Admin/Campaigns/List.php:251
 #: app/Views/Admin/Components/Upgrade.php:16
 #: app/Views/Admin/Page.php:35
@@ -1897,6 +1917,7 @@ msgstr ""
 #: app/Views/Admin/Campaign/Offer/Content.php:65
 #: app/Views/Admin/Campaign/Sliders/ViewOffer.php:10
 #: app/Views/Admin/Campaign/Sliders/ViewTemplate.php:13
+#: app/Views/Admin/Components/Popup.php:20
 msgid "Preview"
 msgstr ""
 
@@ -2075,12 +2096,14 @@ msgstr ""
 #: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:10
 #: app/Views/Admin/Campaign/Modals/RemoveOffer.php:27
 #: app/Views/Admin/Campaigns/Delete.php:18
+#: app/Views/Admin/Components/Popup.php:92
 msgid "Yes"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Conditions/UserLoggedIn.php:11
 #: app/Views/Admin/Campaign/Modals/RemoveOffer.php:30
 #: app/Views/Admin/Campaigns/Delete.php:21
+#: app/Views/Admin/Components/Popup.php:89
 msgid "No"
 msgstr ""
 
@@ -2185,53 +2208,53 @@ msgstr ""
 msgid "Choose a filter"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:82
+#: app/Views/Admin/Campaign/Main.php:83
 msgid "The following offer products are not purchasable or not has enough stock."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:97
-#: app/Views/Admin/Campaign/Main.php:138
+#: app/Views/Admin/Campaign/Main.php:98
+#: app/Views/Admin/Campaign/Main.php:139
 msgid "Campaign name"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:121
+#: app/Views/Admin/Campaign/Main.php:122
 msgid "New Campaign"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:174
+#: app/Views/Admin/Campaign/Main.php:175
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:29
 msgid "Save & Close"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:193
+#: app/Views/Admin/Campaign/Main.php:194
 msgid "Filters / Apply to"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:207
+#: app/Views/Admin/Campaign/Main.php:208
 msgid "Offers"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:221
+#: app/Views/Admin/Campaign/Main.php:222
 msgid "Conditions"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:237
+#: app/Views/Admin/Campaign/Main.php:238
 msgid "Optional Settings"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:248
+#: app/Views/Admin/Campaign/Main.php:249
 msgid "Usage Limits"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:259
+#: app/Views/Admin/Campaign/Main.php:260
 msgid "Advanced Options"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:269
+#: app/Views/Admin/Campaign/Main.php:270
 msgid "Tutorials"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Main.php:280
+#: app/Views/Admin/Campaign/Main.php:281
 msgid "Information"
 msgstr ""
 
@@ -2283,7 +2306,7 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Offer/Content.php:41
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:79
-#: app/Views/Admin/Reports.php:48
+#: app/Views/Admin/Reports.php:53
 msgid "Custom"
 msgstr ""
 
@@ -2841,7 +2864,7 @@ msgid "Choose campaign type..."
 msgstr ""
 
 #: app/Views/Admin/Campaigns/Create.php:23
-#: app/Views/Admin/Reports.php:24
+#: app/Views/Admin/Reports.php:29
 msgid "All campaigns"
 msgstr ""
 
@@ -2952,6 +2975,39 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
+#: app/Views/Admin/Components/Popup.php:12
+msgid "Synchronize Reports"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:25
+msgid "Processing"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:32
+msgid "Total Items"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:40
+msgid "Processed Items"
+msgstr ""
+
+#. translators: %1$s is the number of items processed, %2$s is the total number of items.
+#: app/Views/Admin/Components/Popup.php:57
+msgid "%1$s of %2$s completed"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:65
+msgid "Retry"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:75
+msgid "Next"
+msgstr ""
+
+#: app/Views/Admin/Components/Popup.php:85
+msgid "Process is not complete. Do you want to exit?"
+msgstr ""
+
 #: app/Views/Admin/Components/Upgrade.php:11
 msgid "To unlock this feature"
 msgstr ""
@@ -2965,12 +3021,12 @@ msgid "Last 30 days"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:27
-#: app/Views/Admin/Reports.php:43
+#: app/Views/Admin/Reports.php:48
 msgid "This week"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:31
-#: app/Views/Admin/Reports.php:44
+#: app/Views/Admin/Reports.php:49
 msgid "Last week"
 msgstr ""
 
@@ -2979,27 +3035,27 @@ msgid " This month"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:39
-#: app/Views/Admin/Reports.php:47
+#: app/Views/Admin/Reports.php:52
 msgid "Last month"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:54
-#: app/Views/Admin/Reports.php:75
+#: app/Views/Admin/Reports.php:80
 msgid "without_tax"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:55
-#: app/Views/Admin/Reports.php:75
+#: app/Views/Admin/Reports.php:80
 msgid "Excluding tax"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:56
-#: app/Views/Admin/Reports.php:76
+#: app/Views/Admin/Reports.php:81
 msgid "with_tax"
 msgstr ""
 
 #: app/Views/Admin/Dashboard.php:56
-#: app/Views/Admin/Reports.php:76
+#: app/Views/Admin/Reports.php:81
 msgid "Including tax"
 msgstr ""
 
@@ -3064,27 +3120,31 @@ msgstr ""
 msgid "Recommendation Engines"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:26
+#: app/Views/Admin/Reports.php:23
+msgid "Synchronize"
+msgstr ""
+
+#: app/Views/Admin/Reports.php:31
 msgid "Campaign type"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:46
+#: app/Views/Admin/Reports.php:51
 msgid "This month"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:55
+#: app/Views/Admin/Reports.php:60
 msgid "From"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:58
+#: app/Views/Admin/Reports.php:63
 msgid "To"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:142
+#: app/Views/Admin/Reports.php:147
 msgid "Campaigns Created"
 msgstr ""
 
-#: app/Views/Admin/Reports.php:168
+#: app/Views/Admin/Reports.php:173
 msgid "Offers Created"
 msgstr ""
 

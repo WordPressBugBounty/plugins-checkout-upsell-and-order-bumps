@@ -1293,4 +1293,20 @@ class WC
         }
         return false;
     }
+	/**
+	 * To check if tax enabled.
+	 *
+	 */
+	public static function isTaxEnabled() {
+		return function_exists('wc_tax_enabled') && wc_tax_enabled();
+	}
+
+	/**
+	 * To check if prices included with tax.
+	 *
+	 */
+	public static function isPricesIncludeTax()
+	{
+		return function_exists('wc_prices_include_tax') && wc_prices_include_tax();
+	}
 }

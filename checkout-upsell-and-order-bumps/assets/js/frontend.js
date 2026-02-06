@@ -24,7 +24,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'add_offer_to_cart',
                     offer_id: offer_id,
                     quantity: offer.find('[name="quantity"]').val() || 1,
@@ -91,7 +91,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'remove_item_from_cart',
                     item_key: key,
                     nonce: cuw_ajax_nonce || ''
@@ -123,7 +123,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'perform_action',
                     params: params,
                     nonce: cuw_ajax_nonce || ''
@@ -193,6 +193,7 @@ jQuery(function ($) {
                 }
             } else {
                 cuw_spinner.show(section.find(".cuw-buy-section, .cuw-modal-content"));
+                $(document).trigger("cuw_add_to_cart_triggered", [section]);
                 section.find('form').submit();
             }
         },
@@ -206,7 +207,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'add_product_to_cart',
                     campaign_id: section.data('campaign_id') || 0,
                     product_id: product.data('id') || 0,
@@ -249,7 +250,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'remove_item_from_cart',
                     item_key: key,
                     page: page,
@@ -286,7 +287,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'add_addon_to_cart',
                     campaign_id: section.data('campaign_id') || 0,
                     product_id: product.data('id') || 0,
@@ -324,7 +325,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'remove_addon_from_cart',
                     item_key: key,
                     nonce: cuw_ajax_nonce || ""
@@ -359,7 +360,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'change_cart_item_variant',
                     item_key: key,
                     variation_id: variant.val() || 0,
@@ -415,7 +416,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: false,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'get_product_details_popup',
                     product_id: product_id,
                     nonce: cuw_ajax_nonce || ''
@@ -440,7 +441,7 @@ jQuery(function ($) {
                 url: cuw_ajax_url,
                 async: true,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'get_offer_image',
                     product_id: product_id,
                     nonce: cuw_ajax_nonce || ''
@@ -554,7 +555,7 @@ jQuery(function ($) {
             url: cuw_ajax_url,
             async: false,
             data: {
-                action: 'cuw_ajax',
+                action: 'cuw_frontend_ajax',
                 method: 'get_all_offers_html',
                 campaign_type: campaign_type,
                 nonce: cuw_ajax_nonce || ''
@@ -587,7 +588,7 @@ jQuery(function ($) {
                 type: 'post',
                 url: cuw_ajax_url,
                 data: {
-                    action: 'cuw_ajax',
+                    action: 'cuw_frontend_ajax',
                     method: 'get_upsell_popup',
                     campaign_id: data.campaign_id,
                     product_id: data.product_id,

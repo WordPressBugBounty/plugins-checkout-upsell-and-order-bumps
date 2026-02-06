@@ -10,13 +10,18 @@ $campaign_id = CUW()->input->get('campaign_id', '', 'query');
 $campaign_types = \CUW\App\Helpers\Campaign::getTypes();
 $currency_types = \CUW\App\Models\Stats::getAvailableCurrencies();
 $revenue_tax_display = CUW()->config->get('revenue_tax_display', 'without_tax');
+$is_synchronized = \CUW\App\Helpers\Config::get('stats_is_synchronized');
 ?>
 
 <div id="cuw-reports" data-tab="reports">
     <div class="d-flex justify-content-between title-container align-items-center">
         <h5><?php esc_html_e("Reports", 'checkout-upsell-and-order-bumps'); ?></h5>
+        <div id="cuw-reports-syncronize-popup"></div>
         <?php if (!empty($currency_types)) { ?>
             <div class="d-flex" style="gap: 8px;">
+                <?php if(empty($is_synchronized) || !$is_synchronized ) {  ?>
+                <div><button class="btn btn-primary d-flex align-items-center px-3" id="cuw-synchronize-reports"><?php echo esc_html__('Synchronize','checkout-upsell-and-order-bumps') ?></button></div>
+                <?php } ?>
                 <div class="select-box-with-icon position-relative d-flex">
                     <i class="cuw-icon-campaigns px-1"></i>
                     <select id="campaign" class="form-control">

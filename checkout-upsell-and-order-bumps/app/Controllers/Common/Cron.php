@@ -112,4 +112,11 @@ class Cron extends Controller
         }
         return $emails;
     }
+	public static function changeEmailOverridePath($template_dir, $template) {
+		if ( $template === 'email/weekly-report.php' ) {
+				return 'checkout-upsell-woocommerce';
+			}
+
+			return $template_dir;
+	}
 }

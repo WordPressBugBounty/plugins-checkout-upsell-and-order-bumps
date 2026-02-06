@@ -10,17 +10,17 @@ $id = 0;
 if (CUW()->input->get('create', '', 'query') == 'new') {
     $form = 'create';
     $type = CUW()->input->get('type', '', 'query');
-    $campaign = [
-        'id' => $id,
-        'type' => $type,
-        'title' => '',
-        'enabled' => 1,
-        'priority' => '',
-        'offers' => [],
-        'filters' => [floor(microtime(true) * 1000) => ['type' => 'all_products']],
-        'conditions' => [],
-        'data' => ['display_method' => 'random'],
-    ];
+    $campaign = apply_filters('cuw_campaign_data',[
+            'id' => $id,
+            'type' => $type,
+            'title' => '',
+            'enabled' => 1,
+            'priority' => '',
+            'offers' => [],
+            'filters' => [floor(microtime(true) * 1000) => ['type' => 'all_products']],
+            'conditions' => [],
+            'data' => ['display_method' => 'random'],
+    ]);
 } elseif (is_numeric($id = CUW()->input->get('edit', '', 'query'))) {
     $form = 'edit';
     $campaign = CampaignModel::get($id, null, true);
@@ -55,7 +55,8 @@ $campaign_data = isset($campaign['data']) ? $campaign['data'] : [];
 $advanced_options = [];
 if ($campaign_type == 'noc') {
     $advanced_options['redirect_options'] = ['home', 'shop', 'cart', 'checkout', 'custom'];
-} elseif (in_array($campaign_type, ['fbt', 'thankyou_upsells'])) {
+} elseif (in_array($campaign_type,
+        apply_filters('cuw_advanced_redirect_options',['fbt', 'thankyou_upsells']))) {
     $advanced_options['redirect_options'] = ['default', 'cart', 'checkout', 'custom'];
 }
 
@@ -283,6 +284,7 @@ if (!empty($campaign['offers'])) {
                         'data' => ['campaign' => $campaign],
                         'expand' => false,
                     ]);
+                    do_action('cuw_campaign_side_contents', $campaign_type, $campaign);
                     ?>
                 <?php } ?>
             </div>
@@ -315,7 +317,7 @@ if (!empty($campaign['offers'])) {
         ]);
     }
 
-    if (in_array($campaign_type, ['fbt', 'product_addons', 'cart_addons'])) {
+    if (in_array($campaign_type, apply_filters('cuw_campaign_filter_slider',['fbt', 'product_addons', 'cart_addons']))) {
         CUW()->view('Admin/Components/Slider', [
             'id' => 'filter',
             'width' => '25%',

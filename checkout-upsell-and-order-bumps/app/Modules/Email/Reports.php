@@ -107,7 +107,7 @@ class Reports extends \WC_Email
             ),
             $this->placeholders
         );
-        wc_get_template($this->template_html, [], '', $this->template_base);
+        wc_get_template($this->template_html, [], 'checkout-upsell-woocommerce', $this->template_base);
         return str_replace(PHP_EOL, '', $this->format_string(ob_get_clean()));
     }
 

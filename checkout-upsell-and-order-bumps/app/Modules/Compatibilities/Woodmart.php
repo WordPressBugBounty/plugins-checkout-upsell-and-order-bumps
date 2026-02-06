@@ -10,7 +10,7 @@
  */
 
 namespace CUW\App\Modules\Compatibilities;
-
+defined('ABSPATH') || exit;
 class Woodmart extends Base
 {
     /**

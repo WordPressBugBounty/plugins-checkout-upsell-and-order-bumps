@@ -52,6 +52,22 @@ class Ajax extends Controller
             'get_offer_image' => [__CLASS__, 'getOfferImage'],
             'get_chart_data' => [__CLASS__, 'getChartData'],
             'get_upsell_info' => [__CLASS__, 'getUpsellInfo'],
+            'set_campaigns_list_limit' => [__CLASS__, 'setCampaignsListLimit'],
+            'set_revenue_tax_display' => [__CLASS__, 'setRevenueTaxDisplay'],
+	        'show_reports_sync_popup' => [__CLASS__, 'showSynchronizeReportsPopup'],
+	        'synchronize_reports' => [__CLASS__,'synchronizeReports']
+        ]);
+    }
+
+    /**
+     * Get frontend request handlers.
+     *
+     * @return array
+     */
+    private static function getFrontendRequestHandlers()
+    {
+        return (array)apply_filters('cuw_frontend_ajax_request_handlers', [
+            'get_offer_image' => [__CLASS__, 'getOfferImage'],
             'add_offer_to_cart' => [__CLASS__, 'addOfferToCart'],
             'perform_action' => [__CLASS__, 'performAction'],
             'add_product_to_cart' => [__CLASS__, 'addProductToCart'],
@@ -59,13 +75,14 @@ class Ajax extends Controller
             'change_cart_item_variant' => [__CLASS__, 'changeCartItemVariant'],
             'get_all_offers_html' => [__CLASS__, 'getAllOffersHtml'],
             'get_product_details_popup' => [__CLASS__, 'getProductDetailsPopup'],
-            'set_campaigns_list_limit' => [__CLASS__, 'setCampaignsListLimit'],
-            'set_revenue_tax_display' => [__CLASS__, 'setRevenueTaxDisplay'],
         ]);
     }
 
     /**
      * Get non-authenticated (guest) user request handlers.
+     * 
+     * @deprecated This method is kept for backward compatibility but should not be used.
+     * Frontend requests should use getFrontendRequestHandlers() instead.
      *
      * @return array
      */
@@ -83,7 +100,73 @@ class Ajax extends Controller
         ]);
     }
 
-    /**
+	/**
+	 * Synchronize Old reports
+	 *
+	 * @return void
+	 */
+	public static function showSynchronizeReportsPopup() {
+		$where = Stats::addWhereQuery('',"`order_status` IS NULL");
+		$count = Stats::getStatsRow('*', $where, true);
+
+		if (empty($count)) {
+			wp_send_json_error(['message' => __('No records found with NULL order_status.','checkout-upsell-and-order-bumps')]);
+		}
+		$popup_html = CUW()->view('Admin/Components/Popup',['count'=>$count],false);
+
+		if (!empty($popup_html) && trim($popup_html) !== ''){
+			wp_send_json_success([
+				'success'=>true,
+				'html' => $popup_html
+			]);
+		}else{
+			wp_send_json_error([
+				'message' => __('Something went wrong.', 'checkout-upsell-and-order-bumps'),
+			]);
+		}
+
+	}
+	public static function synchronizeReports() {
+		try {
+			$where  = Stats::addWhereQuery('', "`order_status` IS NULL");
+			$limit  = apply_filters('cuw_reports_sync_limit', 50);
+
+			$status_rows = Stats::getStatsRow('*', $where ,false,$limit);
+			if (empty($status_rows)) {
+				Config::set('stats_is_synchronized', true);
+				wp_send_json_success([
+					'success' => 'completed',
+					'message' => __('Synchronizing completed','checkout-upsell-and-order-bumps'),
+					'reload'  => true,
+				]);
+			}
+			$updated_order = [];
+			foreach ($status_rows as $row) {
+				$order_id = (int) ($row['order_id'] ?? 0);
+				if (!$order_id) continue;
+				$order = WC::getOrder($order_id);
+				if (empty($order) || !is_a($order,'WC_Order')) {
+					continue;
+				}
+				$status = method_exists($order, 'get_status') ? $order->get_status() : '';
+				if (!empty($status)) {
+					Stats::updateOrderStatus($order_id, null, $status);
+					$updated_order[] = $order_id;
+				}
+			}
+			wp_send_json_success([
+				'success'       => 'incomplete',
+				'process_count' => count($updated_order),
+			]);
+		}catch (\Exception $e){
+			wp_send_json_error([
+				'message' => __("Something went wrong!", 'checkout-upsell-and-order-bumps'),
+			]);
+		}
+
+	}
+
+	/**
      * Get search list items limit.
      *
      * @return int
@@ -96,12 +179,13 @@ class Ajax extends Controller
     /**
      * To verify nonce
      *
+     * @param string $nonce_name Nonce name to verify against
      * @return void
      */
-    private static function verifyNonce()
+    private static function verifyNonce($nonce_name = 'cuw_ajax')
     {
         $nonce = self::app()->input->get('nonce', '', 'post');
-        if (empty($nonce) || !WP::verifyNonce($nonce, 'cuw_ajax')) {
+        if (empty($nonce) || !WP::verifyNonce($nonce, $nonce_name)) {
             wp_send_json_error(['message' => __("Security check failed!", 'checkout-upsell-and-order-bumps')]);
         }
     }
@@ -132,6 +216,22 @@ class Ajax extends Controller
         self::verifyNonce();
         $method = self::app()->input->get('method', '', 'post');
         $handlers = self::getGuestRequestHandlers();
+        if (!empty($method) && isset($handlers[$method]) && is_callable($handlers[$method])) {
+            wp_send_json_success(call_user_func($handlers[$method]));
+        }
+        wp_send_json_error(['message' => __("Method not exists.", 'checkout-upsell-and-order-bumps')]);
+    }
+
+    /**
+     * To handle frontend requests.
+     *
+     * @return void
+     */
+    public static function handleFrontendRequests()
+    {
+        self::verifyNonce('cuw_frontend_ajax');
+        $method = self::app()->input->get('method', '', 'post');
+        $handlers = self::getFrontendRequestHandlers();
         if (!empty($method) && isset($handlers[$method]) && is_callable($handlers[$method])) {
             wp_send_json_success(call_user_func($handlers[$method]));
         }
@@ -399,6 +499,7 @@ class Ajax extends Controller
         if ($id) {
             $result = Campaign::updateById($id, ['enabled' => $enabled], ['%d']);
             if ($result) {
+	            do_action('cuw_campaign_enabled', $id, $enabled);
                 return [
                     'status' => "success",
                     'message' => $enabled
@@ -445,6 +546,7 @@ class Ajax extends Controller
         if ($id) {
             $campaign = Campaign::get($id, ['type', 'data']);
             if ($campaign) {
+	            do_action('cuw_campaign_before_deleted', $id, $campaign);
                 $result = Campaign::deleteById($id);
                 if ($result) {
                     OfferModel::delete(['campaign_id' => $id], ['%d']);

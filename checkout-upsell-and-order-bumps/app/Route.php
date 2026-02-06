@@ -58,9 +58,13 @@ class Route
      */
     private static function addGeneralHooks()
     {
-        // ajax request handlers
+        // backend ajax request handlers (admin only)
         add_action('wp_ajax_cuw_ajax', [Ajax::class, 'handleAuthRequests']);
-        add_action('wp_ajax_nopriv_cuw_ajax', [Ajax::class, 'handleGuestRequests']);
+//        add_action('wp_ajax_nopriv_cuw_ajax', [Ajax::class, 'handleGuestRequests']);
+
+        // frontend ajax request handlers (store/public)
+        add_action('wp_ajax_cuw_frontend_ajax', [Ajax::class, 'handleFrontendRequests']);
+        add_action('wp_ajax_nopriv_cuw_frontend_ajax', [Ajax::class, 'handleFrontendRequests']);
 
         // to change order item display meta key to text
         add_filter('woocommerce_order_item_display_meta_key', [Campaigns::class, 'displayItemMetaKey']);
@@ -97,6 +101,7 @@ class Route
 
         // to load email templates
         add_filter('woocommerce_email_classes', [Cron::class, 'loadEmailTemplates']);
+		add_filter('woocommerce_template_directory',[Cron::class, 'changeEmailOverridePath'],10,2);
     }
 
     /**

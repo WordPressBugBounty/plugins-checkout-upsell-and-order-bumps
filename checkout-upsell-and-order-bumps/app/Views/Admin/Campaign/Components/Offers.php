@@ -33,6 +33,9 @@ $display_location_on_mini_cart = \CUW\App\Helpers\Campaign::getDisplayLocation($
             <select class="form-control" id="offer-display-location" name="data[display_location]">
                 <?php CUW()->view('Admin/Campaign/Components/LocationOptions', ['locations' => $offer_display_locations, 'selected_location' => $offer_display_location]); ?>
             </select>
+            <div id="cart-upsell-after-shipping-notice" class="d-none" style="font-size: 14px; color: crimson">
+                <?php echo esc_html( apply_filters( 'cuw_cart_upsell_after_shipping_notice', esc_html__( "The 'After Shipping' location has been deprecated in the latest version of WooCommerce.", 'checkout-upsell-and-order-bumps' ) ) ); ?>
+                </div>
         </div>
         <div class="offer-select col-md-3">
             <label for="offer-display-method"

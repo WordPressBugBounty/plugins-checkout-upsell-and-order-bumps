@@ -4,8 +4,8 @@ Donate link: https://upsellwp.com
 Tags: woocommerce, upsell, woocommerce upsell, order bump, related products
 Requires at least: 6.0
 Requires PHP: 7.0
-Tested up to: 6.8
-Stable tag: 2.2.1
+Tested up to: 6.9
+Stable tag: 2.2.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -296,6 +296,17 @@ The PRO version allows you to create multiple offers in the same campaign and ch
 10. Upsell Popups (PRO)
 
 == Changelog ==
+= 2.2.3 - 27/01/2026 =
+* Fix: Ajax nonce handle.
+* Fix: Text domain issue.
+* Fix: Campaign end date reset.
+
+= 2.2.2 - 15/10/2025 =
+* Fix: Double the order stock management issue.
+* Fix: Add-on activation issue.
+* Fix: Upsell email template override issue.
+* Fix: Redirect customer after item is added to cart in add to cart popup.
+
 = 2.2.1 - 29/07/2025 =
 * Fix: Improved WPML compatibility for Buy More Save More Addon [PRO].
 * Fix: WooCommerce 10 compatibility.
