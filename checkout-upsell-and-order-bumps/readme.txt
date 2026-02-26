@@ -5,7 +5,7 @@ Tags: woocommerce, upsell, woocommerce upsell, order bump, related products
 Requires at least: 6.0
 Requires PHP: 7.0
 Tested up to: 6.9
-Stable tag: 2.2.3
+Stable tag: 2.2.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -296,6 +296,14 @@ The PRO version allows you to create multiple offers in the same campaign and ch
 10. Upsell Popups (PRO)
 
 == Changelog ==
+= 2.2.5 - 26/02/2026 =
+* Security Fix: campaigns/engines list page.
+
+= 2.2.4 - 25/02/2026 =
+* Fix: Recently viewed products recommendation in engine.
+* Added: Compatibility for WordPress 6.9
+* Added: Compatibility for WooCommerce 10.5
+
 = 2.2.3 - 27/01/2026 =
 * Fix: Ajax nonce handle.
 * Fix: Text domain issue.

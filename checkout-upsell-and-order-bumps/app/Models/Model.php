@@ -239,22 +239,29 @@ abstract class Model
             }
 
             if (isset($args['order_by'])) {
-                $order_by = $args['order_by'];
+                $order_by = sanitize_key($args['order_by']);
                 $sort = 'ASC';
                 if (isset($args['sort']) && strtoupper($args['sort']) == 'DESC') {
                     $sort = 'DESC';
                 }
-                $query .= " ORDER BY `$order_by` $sort";
+                // Validate order_by field contains only alphanumeric characters, underscores, and hyphens
+                if (preg_match('/^[a-zA-Z0-9_-]+$/', $order_by)) {
+                    $query .= " ORDER BY `$order_by` $sort";
+                }
             }
 
             if (isset($args['limit'])) {
-                $limit = $args['limit'];
-                $query .= " LIMIT $limit";
+                $limit = absint($args['limit']);
+                if ($limit > 0) {
+                    $query .= " LIMIT $limit";
+                }
             }
 
             if (isset($args['offset'])) {
-                $offset = $args['offset'];
-                $query .= " OFFSET $offset";
+                $offset = absint($args['offset']);
+                if ($offset >= 0) {
+                    $query .= " OFFSET $offset";
+                }
             }
         }
 
