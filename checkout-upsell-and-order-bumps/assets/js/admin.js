@@ -3584,28 +3584,6 @@ jQuery(function ($) {
         }
     }
 
-    /* Add-ons */
-    const cuw_addons = {
-
-        // Init
-        init: function () {
-            this.addon_notice();
-        },
-
-        // Addon notice
-        addon_notice: function () {
-            if (cuw_page.query_param('addon_activated') === '1') {
-                cuw_page.notify(cuw_i18n.addon_activated);
-            } else if (cuw_page.query_param('addon_activated') === '0') {
-                cuw_page.notify(cuw_i18n.addon_activation_failed, 'error');
-            } else if (cuw_page.query_param('addon_deactivated') === '1') {
-                cuw_page.notify(cuw_i18n.addon_deactivated);
-            } else if (cuw_page.query_param('addon_deactivated') === '0') {
-                cuw_page.notify(cuw_i18n.addon_deactivation_failed, 'error');
-            }
-        },
-    }
-
     /* Init */
     $(document).ready(function () {
         if ($("#cuw-page").length !== 0) {
@@ -3625,10 +3603,73 @@ jQuery(function ($) {
                 cuw_stats.init($("#cuw-dashboard"));
             } else if ($("#cuw-settings").length !== 0) {
                 cuw_settings.init();
-            } else if ($("#cuw-add-ons").length !== 0) {
-                cuw_addons.init();
             }
         }
     });
+
+    /* FBT suggestions - product edit page */
+    if ($("#cuw-toggle-fbt-suggestions").length) {
+        $("#cuw-toggle-fbt-suggestions").click(function () {
+            let suggestions = $("#cuw-fbt-suggestions");
+            $(this).find('.dashicons').toggleClass("dashicons-arrow-up dashicons-arrow-down");
+            $(this).find('.cuw-suggestion-text').html(suggestions.is(':hidden') ? $(this).data('hide_text') : $(this).data('show_text'));
+            suggestions.slideToggle();
+        });
+
+        $("#cuw-fbt-suggestions .fbt-add-product").click(function () {
+            let id = $(this).closest('tr').data('id');
+            let title = $(this).closest('tr').find('.fbt-product-title').html();
+            $("#cuw-fbt-products").prepend('<option value="' + id + '" selected>' + title + '</option>').trigger('change');
+            $(this).closest('tr').fadeOut(300, function () {
+                $(this).remove();
+            });
+        });
+    }
+
+    /* FBT suggestions - deprecated product edit page */
+    if ($("#cuw-fbt-toggle-product-suggestions").length) {
+        $("#cuw-fbt-toggle-product-suggestions").click(function () {
+            $(this).toggleClass("cuw-show cuw-hide").toggleClass("button-primary button-secondary");
+            $(this).html($(this).hasClass('cuw-show') ? $(this).data('i18n_show') : $(this).data('i18n_hide'));
+            $("#cuw-fbt-product-suggestions").slideToggle();
+        });
+
+        $("#cuw-fbt-product-suggestions .fbt-add-product").click(function () {
+            let id = $(this).closest('tr').data('id');
+            let title = $(this).closest('tr').find('.fbt-product-title').html();
+            $("#cuw-fbt-products-list").prepend('<option value="' + id + '" selected>' + title + '</option>').trigger('change');
+            $(this).closest('tr').fadeOut(300, function () {
+                $(this).remove();
+            });
+        });
+
+        $(".cuw-fbt-campaign .cuw-discount-override input").change(function () {
+            let discount_section = $(".cuw-fbt-campaign .cuw-discount");
+            discount_section.slideToggle();
+            discount_section.find('.cuw-discount-apply-to select').prop('disabled', !$(this).is(':checked')).trigger('change');
+        });
+
+        $(".cuw-fbt-campaign .cuw-discount .cuw-discount-apply-to select").change(function () {
+            let discount_details = $(".cuw-fbt-campaign .cuw-discount .cuw-discount-details");
+            if ($(this).val() !== 'no_products' && $(".cuw-fbt-campaign .cuw-discount-override input").is(':checked')) {
+                discount_details.find(':input').prop('disabled', false).prop('required', true);
+                discount_details.slideDown();
+            } else {
+                discount_details.slideUp();
+                discount_details.find(':input').prop('disabled', true).prop('required', false);
+            }
+        });
+
+        $(".cuw-fbt-campaign .cuw-discount .cuw-discount-type select").change(function () {
+            let discount_value = $(this).closest(".cuw-discount").find(".cuw-discount-value");
+            if ($(this).val() === 'free' || $(this).val() === 'no_discount') {
+                discount_value.slideUp();
+                discount_value.find('input').val(0).prop('required', false);
+            } else {
+                discount_value.find('input').val('').prop('required', true);
+                discount_value.slideDown();
+            }
+        });
+    }
 
 });

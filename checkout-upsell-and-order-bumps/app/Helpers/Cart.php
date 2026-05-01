@@ -361,7 +361,8 @@ class Cart
                     if ($key) {
                         do_action('cuw_offer_added_to_cart', $key, $data);
                         $success_message = Config::getSetting('offer_added_notice_message');
-                        $result['message'] = apply_filters('cuw_offer_add_to_cart_success_message', __($success_message, 'checkout-upsell-and-order-bumps')); //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+						//TODO: TRANSLATE
+                        $result['message'] = apply_filters('cuw_offer_add_to_cart_success_message', $success_message);
                         $result['status'] = 'success';
                         $result['remove_offer'] = $allow_remove;
                     } else {

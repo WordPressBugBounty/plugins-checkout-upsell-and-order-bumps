@@ -232,8 +232,8 @@ abstract class Model
                 }
                 $like_queries = [];
                 foreach ($args['like'] as $field => $keyword) {
-                    $keyword = self::db()->esc_like($keyword);
-                    $like_queries[] = "`$field` LIKE '%$keyword%'";
+                    $escaped = '%' . self::db()->esc_like($keyword) . '%';
+                    $like_queries[] = self::db()->prepare("`$field` LIKE %s", $escaped);
                 }
                 $query = self::addWhereQuery($query, "(" . implode(" " . $like_operator . " ", $like_queries) . ")");
             }

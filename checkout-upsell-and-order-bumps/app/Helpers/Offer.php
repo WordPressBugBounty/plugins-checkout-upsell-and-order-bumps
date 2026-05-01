@@ -266,9 +266,12 @@ class Offer
         unset($offer['data']);
 
         // allow to translate offer title, description and CTA text
-        $offer['template']['title'] = !empty($offer['template']['title']) ? __($offer['template']['title'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $offer['template']['description'] = !empty($offer['template']['description']) ? nl2br(__($offer['template']['description'], 'checkout-upsell-and-order-bumps')) : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $offer['template']['cta_text'] = !empty($offer['template']['cta_text']) ? __($offer['template']['cta_text'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+	    //TODO: TRANSLATE
+        $offer['template']['title'] = !empty($offer['template']['title']) ? $offer['template']['title'] : '';
+	    //TODO: TRANSLATE
+        $offer['template']['description'] = !empty($offer['template']['description']) ? nl2br($offer['template']['description']) : '';
+	    //TODO: TRANSLATE
+        $offer['template']['cta_text'] = !empty($offer['template']['cta_text']) ? $offer['template']['cta_text'] : '';
 
         $offer['discount']['text'] = self::getText($product, $offer['discount']);
         if (!empty($offer['discount']['text'])) {

@@ -1,5 +1,11 @@
 /*----------------------RTL css starts here --------------*/
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700&display=swap");
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 100; font-display: swap; src: url('fonts/barlow-100.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 200; font-display: swap; src: url('fonts/barlow-200.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/barlow-300.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/barlow-400.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/barlow-500.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/barlow-600.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/barlow-700.woff2') format('woff2'); }
 .cuw-rtl #cuw-filters .filter-text .cuw-icon-chevron-right, .cuw-rtl #cuw-filters .conditions-text .cuw-icon-chevron-right, .cuw-rtl #cuw-conditions .filter-text .cuw-icon-chevron-right, .cuw-rtl #cuw-conditions .conditions-text .cuw-icon-chevron-right {
   transform: rotate(180deg); }
 
@@ -1643,4 +1649,62 @@ select {
 
 #cuw-reports #cuw-reports-sync-close-yes:hover {
     background: #dc2626;
+}
+
+/* FBT product suggestions */
+#cuw-fbt-suggestions table,
+#cuw-fbt-product-suggestions table {
+    border-collapse: collapse;
+}
+
+#cuw-fbt-suggestions td, #cuw-fbt-suggestions th,
+#cuw-fbt-product-suggestions td, #cuw-fbt-product-suggestions th {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+}
+
+#cuw-fbt-suggestions th,
+#cuw-fbt-product-suggestions th {
+    padding: 10px 8px;
+    text-align: left;
+    background: #2271b1;
+    color: white;
+    border: none;
+}
+
+#cuw-fbt-suggestions .fbt-product-image,
+#cuw-fbt-product-suggestions .fbt-product-image {
+    padding: 0;
+}
+
+#cuw-fbt-suggestions .fbt-product-image img,
+#cuw-fbt-product-suggestions .fbt-product-image img {
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#cuw-fbt-suggestions .fbt-no-products,
+#cuw-fbt-product-suggestions .fbt-no-products {
+    text-align: center;
+    padding: 8px !important;
+}
+
+#cuw-fbt-suggestions tr:nth-child(odd),
+#cuw-fbt-product-suggestions tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+#cuw-fbt-suggestions tr:nth-child(even),
+#cuw-fbt-product-suggestions tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+#cuw-fbt-suggestions tr:hover,
+#cuw-fbt-product-suggestions tr:hover {
+    background: #eee;
+}
+
+#cuw-fbt-product-suggestions table {
+    margin: 6px 12px 12px 12px;
 }

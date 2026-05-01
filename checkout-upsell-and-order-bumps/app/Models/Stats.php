@@ -231,7 +231,9 @@ class Stats extends Model
             $current_user_email = WC::getCustomerBillingEmail();
         }
         if (!empty($current_user_id) || !empty($current_user_email)) {
-            $where_query = !empty($current_user_email) ? "`billing_email` = '{$current_user_email}'" : "`user_id` = {$current_user_id}";
+            $where_query = !empty($current_user_email)
+                ? self::db()->prepare("`billing_email` = %s", $current_user_email)
+                : self::db()->prepare("`user_id` = %d", $current_user_id);
             if ($cache) {
                 if (!isset(self::$offer_usage_count)) {
                     self::$offer_usage_count = [];
@@ -297,7 +299,9 @@ class Stats extends Model
             $current_user_email = WC::getCustomerBillingEmail();
         }
         if (!empty($current_user_id) || !empty($current_user_email)) {
-            $where_query = !empty($current_user_email) ? "`billing_email` = '{$current_user_email}'" : "`user_id` = {$current_user_id}";
+            $where_query = !empty($current_user_email)
+                ? self::db()->prepare("`billing_email` = %s", $current_user_email)
+                : self::db()->prepare("`user_id` = %d", $current_user_id);
             if ($cache) {
                 if (!isset(self::$campaign_usage_count)) {
                     self::$campaign_usage_count = [];
@@ -721,6 +725,12 @@ class Stats extends Model
      */
     public static function updateOrderStatus($order_id, $old_status, $new_status)
     {
-        self::execQuery('UPDATE {table} SET `order_status` = "' . $new_status . '" WHERE `order_id` = "' . $order_id .'";');
+        self::db()->update(
+            self::getTableName(),
+            ['order_status' => sanitize_key($new_status)],
+            ['order_id' => absint($order_id)],
+            ['%s'],
+            ['%d']
+        );
     }
 }

@@ -28,14 +28,5 @@
             'reference' => 'fadce39f5f235755bb9794b2573af2d5bfcba85f',
             'dev_requirement' => false,
         ),
-        'yahnis-elsts/plugin-update-checker' => array(
-            'pretty_version' => 'v5.6',
-            'version' => '5.6.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../yahnis-elsts/plugin-update-checker',
-            'aliases' => array(),
-            'reference' => 'a2db6871deec989a74e1f90fafc6d58ae526a879',
-            'dev_requirement' => false,
-        ),
     ),
 );

@@ -930,9 +930,12 @@ class Template
         $data['is_rtl'] = WP::isRtl();
 
         // allow to translate template title, description and CTA text
-        $data['template']['title'] = !empty($data['template']['title']) ? __($data['template']['title'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $data['template']['description'] = !empty($data['template']['description']) ? __($data['template']['description'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? __($data['template']['cta_text'], 'checkout-upsell-and-order-bumps') : ''; //phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+	    //TODO: TRANSLATE
+        $data['template']['title'] = !empty($data['template']['title']) ? $data['template']['title'] : '';
+	    //TODO: TRANSLATE
+        $data['template']['description'] = !empty($data['template']['description']) ? $data['template']['description'] : '';
+	    //TODO: TRANSLATE
+        $data['template']['cta_text'] = !empty($data['template']['cta_text']) ? $data['template']['cta_text'] : '';
 
         // to replace discount text
         if (!empty($data['discount'])) {

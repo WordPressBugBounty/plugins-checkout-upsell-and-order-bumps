@@ -258,7 +258,8 @@ class Offer extends Model
      */
     public static function increaseCount($id, $column, $by = 1)
     {
-        $query = "UPDATE {table} SET `$column` = `$column` + $by WHERE `id` = $id;";
+        $column = sanitize_key($column);
+        $query = self::db()->prepare("UPDATE {table} SET `$column` = `$column` + %f WHERE `id` = %d", (float) $by, (int) $id);
         return (bool)self::execQuery($query);
     }
 }

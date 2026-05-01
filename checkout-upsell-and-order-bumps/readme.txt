@@ -1,11 +1,11 @@
-=== UpsellWP – WooCommerce Upsell and Related Products Offers ===
+=== UpsellWP – Upsell and Related Products Offers for WooCommerce ===
 Contributors: flycart
 Donate link: https://upsellwp.com
 Tags: woocommerce, upsell, woocommerce upsell, order bump, related products
 Requires at least: 6.0
 Requires PHP: 7.0
 Tested up to: 6.9
-Stable tag: 2.2.5
+Stable tag: 2.2.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,7 +17,7 @@ The #1 WooCommerce upsell plugin trusted by 4,000+ stores to dramatically increa
 
 Tired of watching customers leave with just buying one item? [UpsellWP](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) solves this by strategically placing irresistible offers throughout your customer's journey. Suggest relevant products at precisely the right moments - from product pages to checkout completion.
 
-[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) 
+[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 ##Key Benefits of Upsells in WooCommerce:
 - Boost sales by up to 2x with strategic upselling
@@ -33,7 +33,7 @@ Trusted by thousands of WooCommerce stores worldwide, [UpsellWP](https://upsellw
 
 [youtube https://www.youtube.com/watch?v=JUCFEhmrHSY&w=754&h=424&rel=0]
 
-[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) 
+[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 == Key features of UpsellWP Lite ==
 
@@ -57,7 +57,7 @@ Join thousands of store owners who've increased their revenue by 30-50% using ou
 
 == Key features of UpsellWP PRO ==
 
-Transform your WooCommerce store into a revenue powerhouse with [UpsellWP PRO](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro). Take your upselling strategy to the next level with advanced features, automation, personalization, and conversion optimization features.  
+Transform your WooCommerce store into a revenue powerhouse with [UpsellWP PRO](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro). Take your upselling strategy to the next level with advanced features, automation, personalization, and conversion optimization features.
 
 === Extended Customer Journey Coverage: ===
 
@@ -76,18 +76,18 @@ Transform your WooCommerce store into a revenue powerhouse with [UpsellWP PRO](h
 
 === Advanced Automation & Intelligence: ===
 
-* **Smart Product Recommendations** - Automatically generate relevant upsell and cross-sell suggestions based on customer behavior, purchase history. Use advanced product recommendation engine & algorithms. 
+* **Smart Product Recommendations** - Automatically generate relevant upsell and cross-sell suggestions based on customer behavior, purchase history. Use advanced product recommendation engine & algorithms.
 * **Advanced Targeting Rules** - Create hyper-personalized offers using customer segments, purchase history, cart value, product categories and more
 * **A/B Testing Engine** - Optimize your campaigns with split testing to discover your highest-converting offers
 * **Unlimited Campaign Creation** - Build as many targeted campaigns as needed for different customer segments
 
 **Why Upgrade to PRO?**
 
-While the free version provides essential upselling tools, PRO users typically see 3-5x better results through advanced personalization, automation, and optimization features. 
+While the free version provides essential upselling tools, PRO users typically see 3-5x better results through advanced personalization, automation, and optimization features.
 
 **Ready to Scale Your Revenue?** Upgrade to UpsellWP PRO and start seeing advanced results within days. Unleash the power of targeted marketing with just one WooCommerce Upsell and Order Bump Plugin. Join thousands of successful stores maximizing their average order value.
 
-[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) 
+[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 == Maximize Revenue with Strategic Upsells in WooCommerce ==
 
@@ -111,7 +111,7 @@ Transform every customer interaction into additional sales. Here is a list of pr
 1. **Checkout Order Bumps in WooCommerce - Last-Chance Revenue Boost:**
 
  Capture impulse purchases at the final moment with irresistible offers displayed during checkout.
- - Upsell Strategy: Offer complementary items at 20-30% discount to create urgency. 
+ - Upsell Strategy: Offer complementary items at 20-30% discount to create urgency.
  - Example: iPhone purchase → iPhone case at 30% off
  - Conversion Impact: Typically increases order value by 15-25%
 
@@ -131,7 +131,7 @@ Transform every customer interaction into additional sales. Here is a list of pr
 
 4. **Cart Page Cross-Sells - Persuasive offers at cart page**
 
- Influence purchasing decisions when customers are reviewing their cart contents. 
+ Influence purchasing decisions when customers are reviewing their cart contents.
  - Upsell Strategy: Suggest premium alternatives or complementary accessories.
  - Example: When customer purchases a T-shirt, recommend matching accessories like jewelry, shoes, or handbag
  - Conversion Impact: 20-35% of customers add additional items
@@ -160,7 +160,7 @@ Encourage customers to double their purchase with one-click convenience. The off
  Display targeted recommendations when customers add items to cart or proceed to checkout using an Upsell popup in WooCommerce.
   - Upsell Strategy: Show 2-3 highly relevant products with clear value proposition.
  - Examples: Smartphone → Phone cases/protectors | Coffee maker → Specialty beans
- - Conversion Impact: 12-18% popup conversion rate 
+ - Conversion Impact: 12-18% popup conversion rate
 
 9. **Added to Cart Popup for WooCommerce – Shows Upsell offers in a popup after customers add items to cart**
 
@@ -168,7 +168,7 @@ Encourage customers to double their purchase with one-click convenience. The off
 
 10. **Product Add-ons - Enhance the Core Purchase**
 
- Offer valuable extra product options in WooCommerce directly on product pages before customers add to cart. 
+ Offer valuable extra product options in WooCommerce directly on product pages before customers add to cart.
  - Upsell Strategy: Present warranty, customization, or premium options.
  - Examples: Extended warranties | Gift wrapping | Premium finishes
  - Conversion Impact: 20-30% add-on attachment rate
@@ -179,7 +179,7 @@ Encourage customers to double their purchase with one-click convenience. The off
  - Examples: Gift wrapping | Express shipping | Product insurance
  - Conversion Impact: 15-25% uptake on value-added services
 
-[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) 
+[Buy PRO with 15+ ways to upsell](https://upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro) | [View Demo](https://demo.upsellwp.net/quick-demo?utm_source=upsell-wp-repo-view-demo&utm_medium=wprepo&utm_campaign=checkout-upsell-pro) | [Documentation with real examples](https://docs.upsellwp.com/?utm_source=upsell-wp-repo-pro-version&utm_medium=wprepo&utm_campaign=upsell-pro)
 
 == Advanced Revenue Optimization with Smart Product Recommendations Engine ==
 
@@ -214,7 +214,10 @@ Need help maximizing your upsell performance? Our dedicated team provides free s
 
 = External services =
 
-Flycart CDN: The Flycart CDN is used to fetch static assets including images and content hosted at static.flycart.net. [Terms](https://www.flycart.org/terms-conditions), [privacy policy](https://www.flycart.org/privacy-policy)
+This plugin relies on the following external services. For each, we describe what it does, what data is sent and when, and link to the relevant Terms and Privacy Policy.
+
+1. Flycart CDN — static.flycart.net Used to fetch static assets (images, icons, and JSON) for the add-ons and recommended plugins lists shown inside the plugin's admin screens. A request is made to this domain when a merchant opens those screens. No personal or site data is sent. [Terms](https://www.flycart.org/terms-conditions) | [privacy policy](https://www.flycart.org/privacy-policy)
+2. Flycart Documentation — docs.upsellwp.com Hosts the plugin's official documentation. The plugin links to relevant pages from the admin UI to help merchants. No data is sent automatically.[Terms](https://www.flycart.org/terms-conditions) | [privacy policy](https://www.flycart.org/privacy-policy)
 
 == Installation ==
 
@@ -296,6 +299,12 @@ The PRO version allows you to create multiple offers in the same campaign and ch
 10. Upsell Popups (PRO)
 
 == Changelog ==
+= 2.2.7 - 30/04/2026 =
+* Improved: External service content in readme
+
+= 2.2.6 - 30/04/2026 =
+* Removed: unwanted update checker package in composer.
+
 = 2.2.5 - 26/02/2026 =
 * Security Fix: campaigns/engines list page.
 

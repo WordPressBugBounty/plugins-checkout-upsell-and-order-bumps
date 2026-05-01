@@ -198,6 +198,9 @@ class Ajax extends Controller
     public static function handleAuthRequests()
     {
         self::verifyNonce();
+		if(!current_user_can('manage_woocommerce')){
+			wp_send_json_error(['message' => __("Insufficient permissions.", 'checkout-upsell-and-order-bumps')]);
+		}
         $method = self::app()->input->get('method', '', 'post');
         $handlers = self::getAuthRequestHandlers();
         if (!empty($method) && isset($handlers[$method]) && is_callable($handlers[$method])) {

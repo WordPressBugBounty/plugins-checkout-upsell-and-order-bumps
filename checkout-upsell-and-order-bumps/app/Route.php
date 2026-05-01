@@ -14,7 +14,6 @@ namespace CUW\App;
 use CUW\App\Controllers\Admin\Ajax;
 use CUW\App\Controllers\Admin\Notice;
 use CUW\App\Controllers\Admin\Page;
-use CUW\App\Controllers\Common\AddOns;
 use CUW\App\Controllers\Common\Campaigns;
 use CUW\App\Controllers\Common\Cron;
 use CUW\App\Controllers\Common\Events;
@@ -78,7 +77,6 @@ class Route
     {
         // general admin hooks
         add_action('admin_init', [Page::class, 'init']);
-        add_action('admin_init', [AddOns::class, 'handleActions']);
         add_action('admin_head', [Page::class, 'head']);
         add_action('admin_menu', [Page::class, 'addMenu']);
 

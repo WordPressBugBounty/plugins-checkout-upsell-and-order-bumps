@@ -12,51 +12,6 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
     $campaign = !empty($matched_campaign) ? (array)$matched_campaign : [];
     ?>
     <div class="options_group cuw-fbt-products" style="display: flex; margin-top: 14px;">
-        <style>
-            #cuw-fbt-suggestions table {
-                border-collapse: collapse;
-            }
-
-            #cuw-fbt-suggestions td, #cuw-fbt-suggestions th {
-                border: 1px solid #ddd;
-                padding: 4px 8px;
-            }
-
-            #cuw-fbt-suggestions th {
-                padding: 10px 8px;
-                text-align: left;
-                background: #2271b1;
-                color: white;
-                border: none;
-            }
-
-            #cuw-fbt-suggestions .fbt-product-image {
-                padding: 0
-            }
-
-            #cuw-fbt-suggestions .fbt-product-image img {
-                height: 100%;
-                width: 100%;
-                vertical-align: middle;
-            }
-
-            #cuw-fbt-suggestions .fbt-no-products {
-                text-align: center;
-                padding: 8px !important;
-            }
-
-            #cuw-fbt-suggestions tr:nth-child(odd) {
-                background: #ffffff;
-            }
-
-            #cuw-fbt-suggestions tr:nth-child(even) {
-                background: #f8f8f8;
-            }
-
-            #cuw-fbt-suggestions tr:hover {
-                background: #eee;
-            }
-        </style>
 
         <p class="form-field">
             <label for="cuw-fbt-products"><?php esc_html_e('Frequently Bought Together Products', 'checkout-upsell-and-order-bumps'); ?></label>
@@ -145,27 +100,6 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
         </div>
     </div>
 
-    <script>
-        jQuery(function ($) {
-            $(document).ready(function () {
-                $("#cuw-toggle-fbt-suggestions").click(function () {
-                    let suggestions = $("#cuw-fbt-suggestions");
-                    $(this).find('.dashicons').toggleClass("dashicons-arrow-up dashicons-arrow-down");
-                    $(this).find('.cuw-suggestion-text').html(suggestions.is(':hidden') ? $(this).data('hide_text') : $(this).data('show_text'));
-                    suggestions.slideToggle();
-                });
-
-                $("#cuw-fbt-suggestions .fbt-add-product").click(function () {
-                    let id = $(this).closest('tr').data('id');
-                    let title = $(this).closest('tr').find('.fbt-product-title').html();
-                    $("#cuw-fbt-products").prepend('<option value="' + id + '" selected>' + title + '</option>').trigger('change');
-                    $(this).closest('tr').fadeOut(300, function () {
-                        $(this).remove();
-                    });
-                });
-            });
-        });
-    </script>
 <?php elseif ($action == 'campaign_edit' && isset($campaign)): ?>
     <?php
     CUW()->view('Admin/Components/Accordion', [
@@ -214,53 +148,6 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
                 <?php esc_html_e('This section was deprecated since v2.0.0. Please use "Upsell Products" tab instead of this tab.', 'checkout-upsell-and-order-bumps'); ?>
             </p>
         </div>
-
-        <style>
-            #cuw-fbt-product-suggestions table {
-                margin: 6px 12px 12px 12px;
-                border-collapse: collapse;
-            }
-
-            #cuw-fbt-product-suggestions td, #cuw-fbt-product-suggestions th {
-                border: 1px solid #ddd;
-                padding: 4px 8px;
-            }
-
-            #cuw-fbt-product-suggestions th {
-                padding: 10px 8px;
-                text-align: left;
-                background: #2271b1;
-                color: white;
-                border: none;
-            }
-
-            #cuw-fbt-product-suggestions .fbt-product-image {
-                padding: 0
-            }
-
-            #cuw-fbt-product-suggestions .fbt-product-image img {
-                height: 100%;
-                width: 100%;
-                vertical-align: middle;
-            }
-
-            #cuw-fbt-product-suggestions .fbt-no-products {
-                text-align: center;
-                padding: 8px !important;
-            }
-
-            #cuw-fbt-product-suggestions tr:nth-child(odd) {
-                background: #ffffff;
-            }
-
-            #cuw-fbt-product-suggestions tr:nth-child(even) {
-                background: #f8f8f8;
-            }
-
-            #cuw-fbt-product-suggestions tr:hover {
-                background: #eee;
-            }
-        </style>
 
         <div class="options_group cuw-fbt-products">
             <p class="form-field">
@@ -391,53 +278,5 @@ $display_locations = \CUW\App\Modules\Campaigns\FBT::getDisplayLocations();
             </div>
         </div>
 
-        <script>
-            jQuery(function ($) {
-                $(document).ready(function () {
-                    $("#cuw-fbt-toggle-product-suggestions").click(function () {
-                        $(this).toggleClass("cuw-show cuw-hide").toggleClass("button-primary button-secondary");
-                        $(this).html($(this).hasClass('cuw-show') ? $(this).data('i18n_show') : $(this).data('i18n_hide'));
-                        $("#cuw-fbt-product-suggestions").slideToggle();
-                    });
-
-                    $("#cuw-fbt-product-suggestions .fbt-add-product").click(function () {
-                        let id = $(this).closest('tr').data('id');
-                        let title = $(this).closest('tr').find('.fbt-product-title').html();
-                        $("#cuw-fbt-products-list").prepend('<option value="' + id + '" selected>' + title + '</option>').trigger('change');
-                        $(this).closest('tr').fadeOut(300, function () {
-                            $(this).remove()
-                        });
-                    });
-
-                    $(".cuw-fbt-campaign .cuw-discount-override input").change(function () {
-                        let discount_section = $(".cuw-fbt-campaign .cuw-discount");
-                        discount_section.slideToggle();
-                        discount_section.find('.cuw-discount-apply-to select').prop('disabled', !$(this).is(':checked')).trigger('change');
-                    });
-
-                    $(".cuw-fbt-campaign .cuw-discount .cuw-discount-apply-to select").change(function () {
-                        let discount_details = $(".cuw-fbt-campaign .cuw-discount .cuw-discount-details");
-                        if ($(this).val() !== 'no_products' && $(".cuw-fbt-campaign .cuw-discount-override input").is(':checked')) {
-                            discount_details.find(':input').prop('disabled', false).prop('required', true);
-                            discount_details.slideDown();
-                        } else {
-                            discount_details.slideUp();
-                            discount_details.find(':input').prop('disabled', true).prop('required', false);
-                        }
-                    });
-
-                    $(".cuw-fbt-campaign .cuw-discount .cuw-discount-type select").change(function () {
-                        let discount_value = $(this).closest(".cuw-discount").find(".cuw-discount-value");
-                        if ($(this).val() === 'free' || $(this).val() === 'no_discount') {
-                            discount_value.slideUp();
-                            discount_value.find('input').val(0).prop('required', false);
-                        } else {
-                            discount_value.find('input').val('').prop('required', true);
-                            discount_value.slideDown();
-                        }
-                    });
-                });
-            });
-        </script>
     </div>
 <?php endif; ?>

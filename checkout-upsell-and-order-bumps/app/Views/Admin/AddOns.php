@@ -75,7 +75,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                 </div>
                                 <?php if (!empty($addon['is_installed'])) { ?>
                                     <div class="d-flex" style="gap: 8px;">
-                                        <a href="<?php echo esc_url(add_query_arg(['cuw_deactivate_addon' => $slug, 'nonce' => wp_create_nonce('cuw_addon_deactivate')])); ?>"
+                                        <a href="<?php echo esc_url(admin_url('plugins.php?s=' . rawurlencode($addon['name']) . '&plugin_status=all')); ?>"
                                            class="btn btn-outline-secondary text-decoration-none">
                                             <?php esc_html_e("Deactivate", 'checkout-upsell-and-order-bumps'); ?>
                                         </a>
@@ -160,7 +160,7 @@ $available_addons = $addons_list['available_addons'] ?? [];
                                 </div>
                                 <div class="d-flex" style="gap: 8px;">
                                     <?php if (!empty($addon['is_installed'])): ?>
-                                        <a href="<?php echo esc_url(add_query_arg(['cuw_activate_addon' => $slug, 'nonce' => wp_create_nonce('cuw_addon_activate')])); ?>"
+                                        <a href="<?php echo esc_url(admin_url('plugins.php?s=' . rawurlencode($addon['name']) . '&plugin_status=all')); ?>"
                                            class="btn btn-primary text-decoration-none"
                                            style="<?php if (empty($addon['is_activatable'])) echo 'pointer-events: none; opacity: 0.8;'; ?>">
                                             <?php esc_html_e("Activate", 'checkout-upsell-and-order-bumps'); ?>
