@@ -38,13 +38,71 @@ if (!CUW()->plugin->has_pro) {
 }
 ?>
 
+<?php if (!CUW()->plugin->has_pro) { ?>
+<div style="box-sizing:border-box;background:linear-gradient(to right,#3a2db5,#6254f3);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 2px 10px rgba(79,71,235,0.4);flex-wrap:nowrap;">
+        <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0;">
+            <div style="flex-shrink:0;background:rgba(255,255,255,0.15);border-radius:50%;padding:8px;display:flex;align-items:center;justify-content:center;">
+                <svg style="width:20px;height:20px;" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="20 12 20 22 4 22 4 12"/>
+                    <rect x="2" y="7" width="20" height="5"/>
+                    <line x1="12" y1="22" x2="12" y2="7"/>
+                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                </svg>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <p style="margin:0;color:#fff;font-weight:600;font-size:13px;line-height:1.3;">
+                    <?php esc_html_e('Boost average order value with UpsellWP PRO — get 20% OFF', 'checkout-upsell-and-order-bumps'); ?>
+                </p>
+                <p style="margin:0;color:rgba(255,255,255,0.78);font-size:12px;line-height:1.4;">
+                    <?php esc_html_e('Unlock cart, checkout & post-purchase upsells, upsell popups, thank-you page offers, and next-order coupons.', 'checkout-upsell-and-order-bumps'); ?>
+                </p>
+            </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;background:rgba(255,255,255,0.1);border:1px dashed rgba(255,255,255,0.4);border-radius:8px;padding:8px 12px;">
+            <span style="color:#fff;font-weight:600;font-size:12px;white-space:nowrap;"><?php esc_html_e('Coupon', 'checkout-upsell-and-order-bumps'); ?></span>
+            <span style="color:rgba(255,255,255,0.3);user-select:none;">|</span>
+            <span id="cuw-upgrade-coupon-code" style="color:#fff;font-family:monospace;font-weight:700;font-size:13px;letter-spacing:0.1em;background:rgba(255,255,255,0.12);padding:2px 8px;border-radius:4px;">UPGRADE20</span>
+            <button id="cuw-copy-coupon-btn" onclick="cuwCopyCoupon()" title="<?php esc_attr_e('Copy coupon code', 'checkout-upsell-and-order-bumps'); ?>" style="background:transparent;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:2px;">
+                <svg id="cuw-copy-icon" style="width:16px;height:16px;" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+                <svg id="cuw-check-icon" style="width:16px;height:16px;display:none;" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+            </button>
+        </div>
+        <a href="<?php echo esc_url('https://upsellwp.com/pricing/?utm_campaign=upsellwp_plugin&utm_source=upsellwp_free&utm_medium=upgrade_banner'); ?>" target="_blank" style="flex-shrink:0;background:#fff;color:#3a2db5;font-weight:600;font-size:13px;padding:8px 16px;border-radius:6px;text-decoration:none;white-space:nowrap;display:inline-block;">
+            <?php esc_html_e('Upgrade to PRO →', 'checkout-upsell-and-order-bumps'); ?>
+        </a>
+</div>
+<script>
+function cuwCopyCoupon() {
+    var code = document.getElementById('cuw-upgrade-coupon-code').innerText;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code);
+    } else {
+        var el = document.createElement('textarea');
+        el.value = code; document.body.appendChild(el); el.select();
+        document.execCommand('copy'); document.body.removeChild(el);
+    }
+    document.getElementById('cuw-copy-icon').style.display = 'none';
+    document.getElementById('cuw-check-icon').style.display = 'inline';
+    setTimeout(function() {
+        document.getElementById('cuw-copy-icon').style.display = 'inline';
+        document.getElementById('cuw-check-icon').style.display = 'none';
+    }, 2000);
+}
+</script>
+<?php } ?>
+
 <div id="cuw-page" class="mt-3 p-5 <?php echo $rtl ? 'cuw-rtl' : ''; ?> cuw-bs4">
 
     <?php do_action('cuw_before_page', $page, $current_tab); ?>
 
     <div id="notify"></div>
     <div id="overlay" style="display: none;"></div>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-3 py-0"
          style="<?php echo ($is_campaign_tab || $is_engine_tab) ? 'display: none;' : ''; ?>">
         <div class="d-flex align-items-center" style="gap:6px">

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP – Upsell and Related Products Offers for WooCommerce 2.2.7\n"
+"Project-Id-Version: UpsellWP – Upsell and Related Products Offers for WooCommerce 2.2.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-30T14:02:37+00:00\n"
+"POT-Creation-Date: 2026-05-28T11:53:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-and-order-bumps\n"
@@ -33,7 +33,7 @@ msgstr ""
 #: checkout-upsell-and-order-bumps.php
 #: app/Controllers/Admin/Page.php:37
 #: app/Controllers/Common/Campaigns.php:84
-#: app/Views/Admin/Page.php:52
+#: app/Views/Admin/Page.php:110
 #: templates/email/weekly-report.php:25
 msgid "UpsellWP"
 msgstr ""
@@ -510,8 +510,8 @@ msgstr ""
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:789
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:793
 #: app/Views/Admin/Campaign/Sliders/EditCampaignTemplate.php:797
-#: app/Views/Admin/Page.php:56
-#: app/Views/Admin/Page.php:83
+#: app/Views/Admin/Page.php:114
+#: app/Views/Admin/Page.php:141
 msgid "PRO"
 msgstr ""
 
@@ -3096,15 +3096,35 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: app/Views/Admin/Page.php:57
+#: app/Views/Admin/Page.php:55
+msgid "Boost average order value with UpsellWP PRO — get 20% OFF"
+msgstr ""
+
+#: app/Views/Admin/Page.php:58
+msgid "Unlock cart, checkout & post-purchase upsells, upsell popups, thank-you page offers, and next-order coupons."
+msgstr ""
+
+#: app/Views/Admin/Page.php:63
+msgid "Coupon"
+msgstr ""
+
+#: app/Views/Admin/Page.php:66
+msgid "Copy coupon code"
+msgstr ""
+
+#: app/Views/Admin/Page.php:77
+msgid "Upgrade to PRO →"
+msgstr ""
+
+#: app/Views/Admin/Page.php:115
 msgid "Lite"
 msgstr ""
 
-#: app/Views/Admin/Page.php:113
+#: app/Views/Admin/Page.php:171
 msgid "Help"
 msgstr ""
 
-#: app/Views/Admin/Page.php:158
+#: app/Views/Admin/Page.php:216
 msgid "Recommendation Engines"
 msgstr ""
 
