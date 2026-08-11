@@ -745,6 +745,8 @@ jQuery(function ($) {
             offer_header.find('.offer-index').html(index);
             cuw_offer.set_data(key, data, true);
             cuw_customize.load_offer_template_data(data);
+            cuw_campaign.select2('#cuw-campaign #offer-slider', 'destroy');
+            cuw_campaign.select2('#cuw-campaign #offer-slider');
             cuw_campaign.hide_field_attention($("#cuw-campaign #offer-slider .offer-data"));
             $("#cuw-campaign #offer-slider .nav-tabs .nav-item:first-child .nav-link").click();
             $('#cuw-campaign #offer-slider .offer-image-radio').trigger('change');
@@ -1553,6 +1555,12 @@ jQuery(function ($) {
                     },
                     errorLoading: function () {
                         return cuw_i18n.select2_error_loading;
+                    },
+                    inputTooShort: function (args) {
+                        return cuw_i18n.select2_input_too_short.replace('%d', args.minimum);
+                    },
+                    searching: function () {
+                        return cuw_i18n.select2_searching;
                     }
                 },
                 ajax: {
@@ -2714,6 +2722,12 @@ jQuery(function ($) {
                     },
                     errorLoading: function () {
                         return cuw_i18n.select2_error_loading;
+                    },
+                    inputTooShort: function (args) {
+                        return cuw_i18n.select2_input_too_short.replace('%d', args.minimum);
+                    },
+                    searching: function () {
+                        return cuw_i18n.select2_searching;
                     }
                 },
                 ajax: {

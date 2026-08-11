@@ -146,7 +146,7 @@ $has_pro = CUW()->plugin->has_pro;
                 <label class="custom-control-label font-weight-medium"
                        for="use-single"><?php esc_html_e("Choose a Product", 'checkout-upsell-and-order-bumps'); ?></label>
                 <span class="d-block secondary small cuw-px-20px">
-                    <?php echo esc_html('This will use the below product to display in mentioned location.'); ?>
+                    <?php echo esc_html__('This will use the below product to display in mentioned location.', 'checkout-upsell-and-order-bumps'); ?>
                 </span>
                 <div class="mt-2" id="single-product"
                      style="margin: 0 24px; display: <?php echo !empty($use_products == 'single') ? 'block' : 'none'; ?>">

@@ -209,7 +209,7 @@ if (!isset($campaign) || !isset($form) || !isset($campaign_text) || !isset($camp
                                 <div class="col-md-6">
                                     <div class="custom-control custom-checkbox d-inline-block">
                                         <input type="checkbox" class="custom-control-input" id="custom-styling">
-                                        <label class="custom-control-label" for="custom-styling">Enable</label>
+                                        <label class="custom-control-label" for="custom-styling"><?php esc_html_e("Enable", 'checkout-upsell-and-order-bumps'); ?></label>
                                     </div>
                                     <a id="reset-styles" class="text-primary ml-4 text-decoration-none cursor-pointer">
                                         <i class="cuw-icon-reset text-primary px-1"

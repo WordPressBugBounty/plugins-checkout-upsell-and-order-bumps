@@ -32,7 +32,7 @@ if (!isset($campaign) || !isset($is_single)) {
         <div class="custom-control custom-checkbox d-inline-block">
             <input type="checkbox" class="custom-control-input"
                    id="toggle-end-date" <?php echo !empty($date_to) ? 'checked' : '' ?>>
-            <label class="custom-control-label" for="toggle-end-date">Set end date</label>
+                   <label class="custom-control-label" for="toggle-end-date"><?php echo esc_html__( 'Set end date', 'checkout-upsell-and-order-bumps' ); ?></label>
         </div>
         <div class="form-group mb-2 mt-1" id="end-date" style="display: <?php echo empty($date_to) ? 'none' : ''; ?>">
             <label for="date-to" class="form-label">

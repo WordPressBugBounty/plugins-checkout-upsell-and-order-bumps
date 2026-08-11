@@ -12,7 +12,9 @@ $condition_relation = $campaign['conditions']['relation'] ?? ''
     <div id="conditions-match" class="align-items-center text-dark font-weight-medium mb-2" style="display: <?php echo empty($conditions) ? 'none' : 'flex'; ?>; justify-content: space-between; ">
         <div style="display: flex; align-items: center; gap:4px;">
             <?php $conditions_relation = isset($conditions['relation']) && $conditions['relation'] == 'or' ? "or" : "and"; ?>
-                <?php echo sprintf("%s of the following conditions",
+                <?php
+               /* translators: %s: Conditions match type (for example, "All" or "Any"). */
+                echo sprintf(esc_html__( "%s of the following conditions", "checkout-upsell-and-order-bumps" ),
                     '<span class="filter-match-radio d-inline-block"><span class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="conditions-match-all" name="conditions[relation]" value="and"' . ($conditions_relation == "and" ? ' checked' : '') . (empty($conditions) ? ' disabled' : '') . '>
                             <label class="custom-control-label" for="conditions-match-all">' . esc_html__("Match All", "checkout-upsell-and-order-bumps") . '</label>

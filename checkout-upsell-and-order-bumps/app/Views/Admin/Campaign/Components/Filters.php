@@ -14,7 +14,9 @@ $filter_relation = $campaign['filters']['relation'] ?? ''
      style="display: <?php echo empty($filters) ? 'none' : 'flex'; ?>;justify-content: space-between">
     <div style="display: flex; align-items: center; gap:4px;">
         <?php $filters_relation = isset($filters['relation']) && $filters['relation'] == 'or' ? "or" : "and"; ?>
-        <?php echo sprintf("%s of the following filters",
+        <?php
+        /* translators: %s: Filters match type (for example, "All" or "Any"). */
+        echo sprintf(esc_html__( "%s of the following filters", "checkout-upsell-and-order-bumps" ),
             '<span class="filter-match-radio"><span class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" id="filters-match-all" name="filters[relation]" value="and"' . ($filters_relation == "and" ? ' checked' : '') . (empty($filters) ? ' disabled' : '') . '>
                                 <label class="custom-control-label" for="filters-match-all">' . esc_html__("Match All", "checkout-upsell-and-order-bumps") . '</label>

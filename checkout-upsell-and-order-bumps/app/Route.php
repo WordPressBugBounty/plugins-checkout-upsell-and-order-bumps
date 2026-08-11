@@ -68,6 +68,11 @@ class Route
         // to change order item display meta key to text
         add_filter('woocommerce_order_item_display_meta_key', [Campaigns::class, 'displayItemMetaKey']);
         add_action('woocommerce_order_status_changed', [Stats::class, 'updateOrderStatus'], 10, 3);
+
+        // to load email templates (must be registered regardless of request context,
+        // e.g. WooCommerce's "send test email" REST endpoint is not an is_admin() request)
+        add_filter('woocommerce_email_classes', [Cron::class, 'loadEmailTemplates']);
+        add_filter('woocommerce_template_directory', [Cron::class, 'changeEmailOverridePath'], 10, 2);
     }
 
     /**
@@ -96,10 +101,6 @@ class Route
 
         // to add plugin page links
         add_filter('plugin_action_links_' . plugin_basename(CUW_PLUGIN_FILE), [Page::class, 'pluginLinks']);
-
-        // to load email templates
-        add_filter('woocommerce_email_classes', [Cron::class, 'loadEmailTemplates']);
-		add_filter('woocommerce_template_directory',[Cron::class, 'changeEmailOverridePath'],10,2);
     }
 
     /**

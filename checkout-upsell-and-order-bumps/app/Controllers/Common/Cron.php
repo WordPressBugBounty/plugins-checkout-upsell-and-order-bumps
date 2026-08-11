@@ -92,7 +92,7 @@ class Cron extends Controller
             return;
         }
 
-        if (defined('WC_PLUGIN_FILE') && file_exists(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php') {
+        if (defined('WC_PLUGIN_FILE') && file_exists(plugin_dir_path(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php')) {
             require_once plugin_dir_path(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php';
             $email = new Reports();
             $email->sendMail();
@@ -106,7 +106,7 @@ class Cron extends Controller
      */
     public static function loadEmailTemplates($emails)
     {
-        if (defined('WC_PLUGIN_FILE') && file_exists(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php') {
+        if (defined('WC_PLUGIN_FILE') && file_exists(plugin_dir_path(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php')) {
             include_once plugin_dir_path(WC_PLUGIN_FILE) . 'includes/emails/class-wc-email.php';
             $emails['cuw_reports_email'] = new Reports();
         }

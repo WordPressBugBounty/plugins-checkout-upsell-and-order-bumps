@@ -216,6 +216,9 @@ class Page extends Controller
                         'customize_change_template' => esc_html__("Change template", 'checkout-upsell-and-order-bumps'),
                         'select2_no_results' => esc_html__("No results", 'checkout-upsell-and-order-bumps'),
                         'select2_error_loading' => esc_html__("Unable to search results", 'checkout-upsell-and-order-bumps'),
+                        /* translators: %d: Number of characters. */
+                        'select2_input_too_short' => esc_html__('Please enter %d or more characters', 'checkout-upsell-and-order-bumps'),
+                        'select2_searching' => esc_html__('Searching…', 'checkout-upsell-and-order-bumps'),
                         'condition_text' => esc_html__("Condition", 'checkout-upsell-and-order-bumps'),
                         'filter_text' => esc_html__("Filter", 'checkout-upsell-and-order-bumps'),
                     ];

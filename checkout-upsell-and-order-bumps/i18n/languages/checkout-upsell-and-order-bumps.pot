@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UpsellWP – Upsell and Related Products Offers for WooCommerce 2.2.8\n"
+"Project-Id-Version: UpsellWP – Upsell and Related Products Offers for WooCommerce 2.2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/checkout-upsell-and-order-bumps\n"
 "Last-Translator: UpsellWP <support@flycart.org>\n"
 "Language-Team: UpsellWP <support@flycart.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-28T11:53:32+00:00\n"
+"POT-Creation-Date: 2026-08-06T04:10:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: checkout-upsell-and-order-bumps\n"
@@ -51,7 +51,7 @@ msgid "Synchronizing completed"
 msgstr ""
 
 #: app/Controllers/Admin/Ajax.php:163
-#: app/Controllers/Admin/Page.php:248
+#: app/Controllers/Admin/Page.php:251
 msgid "Something went wrong!"
 msgstr ""
 
@@ -177,61 +177,70 @@ msgstr ""
 msgid "Unable to search results"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:219
+#. translators: %d: Number of characters.
+#: app/Controllers/Admin/Page.php:220
+msgid "Please enter %d or more characters"
+msgstr ""
+
+#: app/Controllers/Admin/Page.php:221
+msgid "Searching…"
+msgstr ""
+
+#: app/Controllers/Admin/Page.php:222
 #: app/Views/Admin/Campaign/Conditions/Wrapper.php:29
 #: app/Views/Admin/Campaign/Sliders/AddCondition.php:14
 msgid "Condition"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:220
+#: app/Controllers/Admin/Page.php:223
 #: app/Views/Admin/Campaign/Filters/Wrapper.php:26
 #: app/Views/Admin/Campaign/Sliders/AddFilter.php:12
 #: app/Views/Admin/Campaigns/Main.php:90
 msgid "Filter"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:231
+#: app/Controllers/Admin/Page.php:234
 msgid "Maximum campaign limit reached"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:234
+#: app/Controllers/Admin/Page.php:237
 msgid "Since last week"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:235
+#: app/Controllers/Admin/Page.php:238
 msgid "Since last month"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:236
+#: app/Controllers/Admin/Page.php:239
 msgid "Since previous 30 days"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:237
+#: app/Controllers/Admin/Page.php:240
 msgid "Since previous 7 days"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:239
+#: app/Controllers/Admin/Page.php:242
 #: app/Views/Admin/Campaigns/List.php:77
 #: templates/email/top-revenue-campaigns.php:28
 msgid "Revenue"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:240
+#: app/Controllers/Admin/Page.php:243
 msgid "Items"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:241
+#: app/Controllers/Admin/Page.php:244
 #: app/Views/Admin/Dashboard.php:142
 #: app/Views/Admin/Dashboard.php:179
 #: app/Views/Admin/Reports.php:119
 msgid "Products Purchased"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:242
+#: app/Controllers/Admin/Page.php:245
 msgid "No data found"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:247
+#: app/Controllers/Admin/Page.php:250
 #: app/Views/Admin/Campaign/Components/Template.php:117
 #: app/Views/Admin/Campaign/Main.php:103
 #: app/Views/Admin/Campaign/Main.php:170
@@ -241,12 +250,12 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:249
+#: app/Controllers/Admin/Page.php:252
 #: app/Views/Admin/Reports.php:36
 msgid "Campaign"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:250
+#: app/Controllers/Admin/Page.php:253
 #: app/Controllers/Common/Campaigns.php:66
 #: app/Controllers/Store/Cart.php:97
 #: app/Views/Admin/Campaign/Offer/Content.php:33
@@ -254,17 +263,17 @@ msgstr ""
 msgid "Offer"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:251
+#: app/Controllers/Admin/Page.php:254
 msgid "Copied"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:294
+#: app/Controllers/Admin/Page.php:297
 #: app/Views/Admin/Dashboard.php:11
 msgid "Dashboard"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:295
-#: app/Controllers/Admin/Page.php:368
+#: app/Controllers/Admin/Page.php:298
+#: app/Controllers/Admin/Page.php:371
 #: app/Views/Admin/Campaigns/List.php:70
 #: app/Views/Admin/Campaigns/Main.php:35
 #: app/Views/Admin/Settings.php:32
@@ -272,37 +281,37 @@ msgstr ""
 msgid "Campaigns"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:296
+#: app/Controllers/Admin/Page.php:299
 msgid "Engines"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:297
+#: app/Controllers/Admin/Page.php:300
 #: app/Views/Admin/Campaigns/List.php:155
 #: app/Views/Admin/Reports.php:18
 msgid "Reports"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:298
-#: app/Controllers/Admin/Page.php:369
+#: app/Controllers/Admin/Page.php:301
+#: app/Controllers/Admin/Page.php:372
 #: app/Views/Admin/Settings.php:15
 msgid "Settings"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:299
+#: app/Controllers/Admin/Page.php:302
 #: app/Views/Admin/AddOns.php:12
 msgid "Add-ons"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:300
+#: app/Controllers/Admin/Page.php:303
 #: app/Views/Admin/Recommendations.php:10
 msgid "Recommendations"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:304
+#: app/Controllers/Admin/Page.php:307
 msgid "Buy PRO"
 msgstr ""
 
-#: app/Controllers/Admin/Page.php:372
+#: app/Controllers/Admin/Page.php:375
 msgid "Get PRO"
 msgstr ""
 
@@ -1465,25 +1474,30 @@ msgstr ""
 msgid "Custom redirect URL"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:18
-#: app/Views/Admin/Campaign/Components/Filters.php:20
+#. translators: %s: Conditions match type (for example, "All" or "Any").
+#: app/Views/Admin/Campaign/Components/Conditions.php:17
+msgid "%s of the following conditions"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/Conditions.php:20
+#: app/Views/Admin/Campaign/Components/Filters.php:22
 msgid "Match All"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:22
-#: app/Views/Admin/Campaign/Components/Filters.php:24
+#: app/Views/Admin/Campaign/Components/Conditions.php:24
+#: app/Views/Admin/Campaign/Components/Filters.php:26
 msgid "Match Any"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:27
+#: app/Views/Admin/Campaign/Components/Conditions.php:29
 msgid "Delete all conditions"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:32
+#: app/Views/Admin/Campaign/Components/Conditions.php:34
 msgid "Add conditions if you would like to personalize based on the items in the cart, order total etc."
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:33
+#: app/Views/Admin/Campaign/Components/Conditions.php:35
 #: app/Views/Admin/Campaign/Components/OptionalSettings.php:13
 #: app/Views/Admin/Campaign/Components/OptionalSettings.php:27
 #: app/Views/Admin/Campaign/Components/OptionalSettings.php:40
@@ -1495,7 +1509,7 @@ msgstr ""
 msgid "(optional)"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Conditions.php:64
+#: app/Views/Admin/Campaign/Components/Conditions.php:66
 msgid "Add condition"
 msgstr ""
 
@@ -1673,15 +1687,20 @@ msgstr ""
 msgid "All Products (Main + Upsell products)"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Filters.php:29
+#. translators: %s: Filters match type (for example, "All" or "Any").
+#: app/Views/Admin/Campaign/Components/Filters.php:19
+msgid "%s of the following filters"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/Filters.php:31
 msgid "Delete all filters"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Filters.php:34
+#: app/Views/Admin/Campaign/Components/Filters.php:36
 msgid "At least one filter is required"
 msgstr ""
 
-#: app/Views/Admin/Campaign/Components/Filters.php:65
+#: app/Views/Admin/Campaign/Components/Filters.php:67
 msgid "Add filter"
 msgstr ""
 
@@ -1767,6 +1786,10 @@ msgstr ""
 msgid "Start date"
 msgstr ""
 
+#: app/Views/Admin/Campaign/Components/OptionalSettings.php:35
+msgid "Set end date"
+msgstr ""
+
 #: app/Views/Admin/Campaign/Components/OptionalSettings.php:39
 msgid "End date"
 msgstr ""
@@ -1838,6 +1861,10 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Products.php:147
 msgid "Choose a Product"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Components/Products.php:149
+msgid "This will use the below product to display in mentioned location."
 msgstr ""
 
 #: app/Views/Admin/Campaign/Components/Products.php:154
@@ -2833,6 +2860,10 @@ msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:207
 msgid "Custom styling"
+msgstr ""
+
+#: app/Views/Admin/Campaign/Sliders/EditOffer.php:212
+msgid "Enable"
 msgstr ""
 
 #: app/Views/Admin/Campaign/Sliders/EditOffer.php:275
