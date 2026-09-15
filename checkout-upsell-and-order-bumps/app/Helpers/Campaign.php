@@ -609,15 +609,15 @@ class Campaign
      * @param array $campaign
      * @return bool
      */
-    public static function isValid($campaign)
+    public static function isValid($campaign, $data = null)
     {
         if (!empty($campaign['usage_limit']) && $campaign['usage_limit'] <= $campaign['usage_count']) {
             return false;
         }
         if (!empty($campaign['usage_limit_per_user'])) {
-            $usage_count = apply_filters('cuw_campaign_usage_count_based_on_current_user', false, $campaign);
+            $usage_count = apply_filters('cuw_campaign_usage_count_based_on_current_user', false, $campaign, $data);
             if ($usage_count === false) {
-                $usage_count = Stats::getCampaignUsageCountBasedOnCurrentUser($campaign['id']);
+                $usage_count = Stats::getCampaignUsageCountBasedOnCurrentUser($campaign['id'], true, $data);
             }
             if ($campaign['usage_limit_per_user'] <= $usage_count) {
                 return false;

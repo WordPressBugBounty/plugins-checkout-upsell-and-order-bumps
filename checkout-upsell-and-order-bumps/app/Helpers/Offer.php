@@ -349,12 +349,19 @@ class Offer
         $product = WC::getProduct($product_id);
         $variation = [];
 
-        if (WC::isVariableProduct($product) && !empty($variation_id) && $variation_product = WC::getProduct($variation_id)) {
-            $variation = !empty($variation_attributes) ? $variation_attributes : Product::getVariationAttributes($product, $variation_product);
-            $product = $variation_product;
+        if (WC::isVariableProduct($product) && !empty($variation_id)) {
+            $resolved = Product::resolveVariation($product, $variation_id, $variation_attributes);
+            if (!$resolved) {
+                return false;
+            }
+            list($product, $variation) = $resolved;
+            $variation_id = $product->get_id();
+        } else {
+            $variation_id = 0; // a simple product has no variation to add, whatever the request says
         }
 
-        $product_qty = floatval(!empty($offer['product']['qty']) ? $offer['product']['qty'] : $quantity);
+        // a fixed offer quantity wins; a posted one is clamped like the cart ajax paths (integer, never below one)
+        $product_qty = !empty($offer['product']['qty']) ? floatval($offer['product']['qty']) : WC::sanitizeQuantity($quantity);
         $product_price = self::getProductPrice($product, $offer['discount']);
         $offer_price = self::getPrice($product, $offer['discount'], $product_price);
         $offer_text = self::getText($product, $offer['discount'], 'cart');

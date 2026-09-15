@@ -41,6 +41,9 @@ class Notice extends Controller
      */
     public static function showReviewNotice()
     {
+        if (!current_user_can('manage_woocommerce')) {
+            return; // the notice quotes store revenue
+        }
         $data = Config::get('review_notice_data');
         if (empty($data)) {
             $data = ['status' => '', 'timestamp' => 0];

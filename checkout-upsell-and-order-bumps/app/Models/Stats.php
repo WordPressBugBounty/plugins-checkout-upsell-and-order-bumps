@@ -224,12 +224,12 @@ class Stats extends Model
      * @param bool $cache
      * @return int
      */
-    public static function getOfferUsageCountBasedOnCurrentUser($offer_id, $cache = true)
+    public static function getOfferUsageCountBasedOnCurrentUser($offer_id, $cache = true, $data = null)
     {
-        $current_user_id = WP::getCurrentUserId();
-        if (empty($current_user_id)) {
-            $current_user_email = WC::getCustomerBillingEmail();
-        }
+        $identity = WC::getCustomerIdentity($data);
+        $current_user_id = $identity['user_id'];
+        $current_user_email = empty($current_user_id) ? $identity['email'] : '';
+        $cache = $cache && empty($data); // the cache is keyed by the request's visitor
         if (!empty($current_user_id) || !empty($current_user_email)) {
             $where_query = !empty($current_user_email)
                 ? self::db()->prepare("`billing_email` = %s", $current_user_email)
@@ -292,12 +292,12 @@ class Stats extends Model
      * @param bool $cache
      * @return int
      */
-    public static function getCampaignUsageCountBasedOnCurrentUser($campaign_id, $cache = true)
+    public static function getCampaignUsageCountBasedOnCurrentUser($campaign_id, $cache = true, $data = null)
     {
-        $current_user_id = WP::getCurrentUserId();
-        if (empty($current_user_id)) {
-            $current_user_email = WC::getCustomerBillingEmail();
-        }
+        $identity = WC::getCustomerIdentity($data);
+        $current_user_id = $identity['user_id'];
+        $current_user_email = empty($current_user_id) ? $identity['email'] : '';
+        $cache = $cache && empty($data); // the cache is keyed by the request's visitor
         if (!empty($current_user_id) || !empty($current_user_email)) {
             $where_query = !empty($current_user_email)
                 ? self::db()->prepare("`billing_email` = %s", $current_user_email)
@@ -712,7 +712,7 @@ class Stats extends Model
             'order_status' => $order->get_status() ?? null,
             'user_id' => is_user_logged_in() ? get_current_user_id() : null,
             'created_at' => current_time('timestamp', true),
-        ], ['%d', '%s', '%d', '%d', '%d', '%d', '%f', '%f', '%f', '%d', '%s', '%f', '%f', '%s', '%s', '%d', '%d']);
+        ], ['%d', '%s', '%d', '%d', '%d', '%d', '%f', '%f', '%f', '%d', '%s', '%f', '%f', '%s', '%s', '%s', '%d', '%d']);
     }
 
     /**

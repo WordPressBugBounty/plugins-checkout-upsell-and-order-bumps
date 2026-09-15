@@ -311,9 +311,15 @@ class Product
     {
         $variation = [];
         $product_id = $product->get_id();
-        if (WC::isVariableProduct($product) && !empty($variation_id) && $variation_product = WC::getProduct($variation_id)) {
-            $variation = !empty($variation_attributes) ? $variation_attributes : self::getVariationAttributes($product, $variation_product);
-            $product = $variation_product;
+        if (WC::isVariableProduct($product) && !empty($variation_id)) {
+            $resolved = self::resolveVariation($product, $variation_id, $variation_attributes);
+            if (!$resolved) {
+                return false;
+            }
+            list($product, $variation) = $resolved;
+            $variation_id = $product->get_id();
+        } else {
+            $variation_id = 0; // a simple product has no variation to add, whatever the request says
         }
 
         $discount = $campaign['data']['discount'] ?? [];
@@ -342,6 +348,39 @@ class Product
             'campaign_type' => $campaign['type'],
         ];
         return apply_filters('cuw_product_item_data', $meta_data, $product, $campaign);
+    }
+
+    /**
+     * The variation a request may add under $product, or false when the id is
+     * not one of its own children.
+     *
+     * Everything about the variation comes from the server. The posted
+     * attributes are consulted for one thing only: an "any …" attribute is the
+     * shopper's choice, so its posted value is kept when it is one of the
+     * parent's options.
+     *
+     * @param \WC_Product $product
+     * @param int|string $variation_id
+     * @param array $posted_attributes
+     * @return array|false [\WC_Product $variation_product, array $attributes]
+     */
+    public static function resolveVariation($product, $variation_id, $posted_attributes = [])
+    {
+        $children = array_map('intval', (array)WC::getProductChildrenIds($product));
+        if (!in_array((int)$variation_id, $children, true) || !($variation_product = WC::getProduct($variation_id))) {
+            return false;
+        }
+
+        $attributes = self::getVariationAttributes($product, $variation_product);
+        $options = WC::getVariationAttributes($product);
+        foreach (WC::getProductAttributes($variation_product) as $key => $value) {
+            $posted = is_array($posted_attributes) && isset($posted_attributes['attribute_' . $key])
+                ? $posted_attributes['attribute_' . $key] : null;
+            if (empty($value) && $posted !== null && isset($options[$key]) && in_array($posted, (array)$options[$key], true)) {
+                $attributes['attribute_' . $key] = $posted;
+            }
+        }
+        return [$variation_product, $attributes];
     }
 
     /**

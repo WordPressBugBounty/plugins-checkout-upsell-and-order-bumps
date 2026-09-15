@@ -393,7 +393,7 @@ abstract class Model
      */
     public function drop()
     {
-        return self::execDBQuery("DROP IF EXISTS TABLE {table};");
+        return self::execQuery("DROP TABLE IF EXISTS {table};");
     }
 
     /**

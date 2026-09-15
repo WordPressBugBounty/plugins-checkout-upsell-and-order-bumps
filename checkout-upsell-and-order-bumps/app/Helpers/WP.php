@@ -270,6 +270,17 @@ class WP
      *
      * @return bool
      */
+    /**
+     * Whether the current visitor may manage the store — the capability the
+     * admin ajax layer requires, reused for admin-only front-end previews.
+     *
+     * @return bool
+     */
+    public static function canManageStore()
+    {
+        return function_exists('current_user_can') && current_user_can('manage_woocommerce');
+    }
+
     public static function isAdmin()
     {
         return function_exists('is_admin') && is_admin();

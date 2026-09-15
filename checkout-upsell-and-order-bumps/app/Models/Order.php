@@ -124,8 +124,9 @@ class Order
         if (!empty($args['based_on_current_user'])) {
             $conditions = $condition_args = [];
             $relation = 'AND';
-            $user_id = WP::getCurrentUserId();
-            $billing_email = WC::getCustomerBillingEmail();
+            $identity = !empty($args['customer']) && is_array($args['customer']) ? $args['customer'] : WC::getCustomerIdentity();
+            $user_id = $identity['user_id'];
+            $billing_email = $identity['email'];
             if (!empty($user_id)) {
                 if (!empty($billing_email) && apply_filters('cuw_perform_order_query_based_on_current_user_id_and_billing_email', false)) {
                     $relation = 'OR';

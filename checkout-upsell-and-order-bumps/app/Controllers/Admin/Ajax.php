@@ -14,6 +14,7 @@ namespace CUW\App\Controllers\Admin;
 defined('ABSPATH') || exit;
 
 use CUW\App\Controllers\Controller;
+use CUW\App\Helpers\Campaign as CampaignHelper;
 use CUW\App\Helpers\Cart;
 use CUW\App\Helpers\Config;
 use CUW\App\Helpers\Input;
@@ -632,13 +633,47 @@ class Ajax extends Controller
         $product_id = self::app()->input->get('product_id', '0', 'post');
 
         $html = '';
-        if ($image_id && $image = WP::getImage($image_id)) {
+        // public visitors call this: only images anyone could already see
+        if ($image_id && self::isPublicImage($image_id) && $image = WP::getImage($image_id)) {
             $html = $image;
-        } elseif ($product_id && $product = WC::getProduct($product_id)) {
+        } elseif ($product_id && ($product = WC::getProduct($product_id)) && $product->get_status() === 'publish') {
             $html = $product->get_image();
         }
 
         return ['html' => $html];
+    }
+
+    /**
+     * An image attachment that does not tell on an unpublished post: neither
+     * uploaded to one, nor the featured image of an unpublished product
+     * (side-loaded product images carry no parent, so the meta is checked too).
+     *
+     * @param int|string $attachment_id
+     * @return bool
+     */
+    private static function isPublicImage($attachment_id)
+    {
+        if (!wp_attachment_is_image($attachment_id)) {
+            return false;
+        }
+        $parent_id = (int)wp_get_post_parent_id($attachment_id);
+        if ($parent_id && get_post_status($parent_id) !== 'publish') {
+            return false;
+        }
+        $owners = get_posts([
+            'post_type' => ['product', 'product_variation'],
+            'post_status' => 'any',
+            'meta_key' => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+            'meta_value' => (int)$attachment_id, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+            'fields' => 'ids',
+            'numberposts' => -1,
+        ]);
+        foreach ($owners as $owner_id) {
+            if (get_post_status($owner_id) !== 'publish') {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -679,7 +714,7 @@ class Ajax extends Controller
     private static function addOfferToCart()
     {
         $offer_id = self::app()->input->get('offer_id', '0', 'post');
-        $quantity = self::app()->input->get('quantity', '1', 'post');
+        $quantity = WC::sanitizeQuantity(self::app()->input->get('quantity', '1', 'post'));
         $variation_id = self::app()->input->get('variation_id', '0', 'post');
         $variation_attributes = self::app()->input->get('variation_attributes', [], 'post');
         $location = self::app()->input->get('location', '', 'post');
@@ -695,13 +730,24 @@ class Ajax extends Controller
     {
         $campaign_id = self::app()->input->get('campaign_id', '', 'post');
         $product_id = self::app()->input->get('product_id', '', 'post');
-        $quantity = self::app()->input->get('quantity', '1', 'post');
+        $quantity = WC::sanitizeQuantity(self::app()->input->get('quantity', '1', 'post'));
         $variation_id = self::app()->input->get('variation_id', '0', 'post');
         $variation_attributes = self::app()->input->get('variation_attributes', [], 'post');
         $page = self::app()->input->get('page', '', 'post');
         if (!empty($campaign_id) && !empty($product_id) && !empty($quantity)) {
+            // ask the owning campaign module (via filter, so core stays free/pro agnostic) which products it authorizes
+            $campaign = Campaign::get($campaign_id);
+            if (empty($campaign) || CampaignHelper::getStatus($campaign) !== 'active') {
+                return ['status' => "error"];
+            }
+
+            $allowed_product_ids = (array)apply_filters('cuw_add_product_to_cart_allowed_product_ids', [], $campaign, $page);
+            if (!in_array((int)$product_id, array_map('intval', $allowed_product_ids), true)) {
+                return ['status' => "error"];
+            }
+
             return [
-                'item_key' => Cart::addProduct($campaign_id, $product_id, $quantity, $variation_id, $variation_attributes),
+                'item_key' => Cart::addProduct($campaign, $product_id, $quantity, $variation_id, $variation_attributes),
                 'cart_subtotal' => WC::formatPrice(WC::getCartSubtotal(WC::getDisplayTaxSettingByPage($page))),
             ];
         }
@@ -717,7 +763,8 @@ class Ajax extends Controller
     {
         $item_key = self::app()->input->get('item_key', '', 'post');
         $page = self::app()->input->get('page', '', 'post');
-        if (!empty($item_key)) {
+        // only items one of our campaigns added; the rest of the cart is WooCommerce's
+        if (!empty($item_key) && WC::isCampaignCartItem(WC::getCartItem($item_key))) {
             return [
                 'item_removed' => WC::removeCartItem($item_key),
                 'cart_subtotal' => WC::formatPrice(WC::getCartSubtotal(WC::getDisplayTaxSettingByPage($page))),
@@ -739,19 +786,30 @@ class Ajax extends Controller
             $cart_item = WC::getCartItem($item_key);
             if (!empty($cart_item) && (isset($cart_item['cuw_product']) || isset($cart_item['cuw_offer']))) {
                 $data = isset($cart_item['cuw_product']) ? $cart_item['cuw_product'] : $cart_item['cuw_offer'];
+                $line_discount = isset($data['discount']) && is_array($data['discount']) ? $data['discount'] : [];
                 unset($data['product']);
                 unset($data['discount']);
                 if (isset($data['price'])) {
                     unset($data['price']);
                 }
                 if (isset($cart_item['cuw_product'])) {
-                    $new_item_key = Cart::addProduct($data['campaign_id'], $cart_item['product_id'], $cart_item['quantity'], $variation_id, [], $data);
+                    // the campaign row's discount is not the line's: FBT splits a fixed
+                    // amount over the displayed set, "apply to" exempts the main item or
+                    // every item, double order forces none. Keep the stored one, and only
+                    // where the campaign offers the variant change (the cart selector's flag)
+                    $campaign = !empty($data['change_variant']) && !empty($line_discount) ? Campaign::get($data['campaign_id']) : false;
+                    if (!empty($campaign)) {
+                        $campaign['data']['discount'] = $line_discount;
+                        $new_item_key = Cart::addProduct($campaign, $cart_item['product_id'], $cart_item['quantity'], $variation_id, [], $data);
+                    }
                 } elseif ($cart_item['cuw_offer']) {
                     $data = Offer::prepareMetaData($data['id'], $cart_item['quantity'], $variation_id);
-                    try {
-                        $product = $data['product'];
-                        $new_item_key = WC::addToCart($product['id'], $product['qty'], $product['variation_id'], $product['variation'], ['cuw_offer' => $data]);
-                    } catch (\Exception $e) {
+                    if (!empty($data)) {
+                        try {
+                            $product = $data['product'];
+                            $new_item_key = WC::addToCart($product['id'], $product['qty'], $product['variation_id'], $product['variation'], ['cuw_offer' => $data]);
+                        } catch (\Exception $e) {
+                        }
                     }
                 }
 
@@ -779,7 +837,11 @@ class Ajax extends Controller
     private static function performAction()
     {
         $params = self::app()->input->get('params', [], 'post');
-        if (!empty($params['campaign_id']) && $campaign = Campaign::get($params['campaign_id'])) {
+        if (!empty($params['campaign_id']) && is_numeric($params['campaign_id']) && $campaign = Campaign::get($params['campaign_id'])) {
+            // only a live campaign may run its action; drafts, expired and scheduled ones are not on the page
+            if (CampaignHelper::getStatus($campaign) !== 'active') {
+                return ['status' => "error"];
+            }
             return apply_filters('cuw_perform_action', [], $campaign, $params);
         }
         return ['status' => "error"];
@@ -818,7 +880,8 @@ class Ajax extends Controller
     private static function getProductDetailsPopup()
     {
         $product_id = self::app()->input->get('product_id', '', 'post');
-        if (!empty($product_id) && $product = WC::getProduct($product_id)) {
+        // public visitors call this: an unpublished product's details stay unpublished
+        if (!empty($product_id) && ($product = WC::getProduct($product_id)) && $product->get_status() === 'publish') {
             return [
                 'html' => self::app()->template('common/product-details-popup', [
                     'product_object' => $product,
@@ -849,7 +912,7 @@ class Ajax extends Controller
 
             Config::updateEmailSettings('weekly_report', [
                 'enabled' => isset($data['send_weekly_report']) ? 'yes' : 'no',
-                'recipient' => !empty($data['report_recipient']) ? $data['report_recipient'] : get_option('admin_email'),
+                'recipient' => !empty($data['report_recipient']) && is_email($data['report_recipient']) ? sanitize_email($data['report_recipient']) : get_option('admin_email'),
             ]);
 
             do_action('cuw_save_settings', $data, self::app()->config);
@@ -870,7 +933,10 @@ class Ajax extends Controller
      */
     public static function setCampaignsListLimit()
     {
-        $value = self::app()->input->get('value', '5', 'post');
+        $value = absint(self::app()->input->get('value', '5', 'post'));
+        if ($value < 1 || $value > 100) {
+            return ['status' => "error"];
+        }
         $result = self::app()->config->set('campaigns_per_page', $value);
         if ($result) {
             return ['status' => "success", 'refresh' => true];

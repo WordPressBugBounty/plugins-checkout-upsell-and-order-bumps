@@ -139,7 +139,13 @@ class Core
      */
     public function template($file_or_path, $data = [], $print = true)
     {
-        $filepath = $file_or_path;
+        // a template name is a path relative to templates/ (or the theme override
+        // directory): no traversal, no stream scheme, no absolute path. Names come
+        // from stored campaign, offer and settings data and from the admin ajax.
+        $filepath = is_string($file_or_path) ? $file_or_path : '';
+        if ($filepath === '' || !preg_match('#^[A-Za-z0-9_][A-Za-z0-9_/.-]*$#', $filepath) || strpos($filepath, '..') !== false) {
+            return false;
+        }
         if (strpos($filepath, '.php') === false && strpos($filepath, '.html') === false) {
             $filepath .= '.php';
         }

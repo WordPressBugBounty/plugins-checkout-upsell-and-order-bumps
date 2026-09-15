@@ -134,6 +134,10 @@ class Page extends Controller
     {
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if (isset($_GET['page']) && $_GET['page'] == self::app()->plugin->slug) {
+            // admin_init fires before WordPress checks the menu capability
+            if (!current_user_can('manage_woocommerce')) {
+                return;
+            }
             $tab = self::getCurrentTab();
             self::updatePageSlug($tab);
 

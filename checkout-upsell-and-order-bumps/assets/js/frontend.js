@@ -215,6 +215,8 @@ jQuery(function ($) {
                     variation_id: product.find('[name="variation_id"]').val() || 0,
                     variation_attributes: product.find('[name="variation_id"]').data('chosen_attributes') || [],
                     page: page,
+                    cuw_source_id: section.data('cuw_source_id') || 0,
+                    cuw_order_key: section.data('cuw_order_key') || '',
                     nonce: cuw_ajax_nonce || ''
                 },
                 beforeSend: function () {

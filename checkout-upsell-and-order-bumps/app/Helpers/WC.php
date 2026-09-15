@@ -360,6 +360,29 @@ class WC
      * @return string|false $cart_item_key
      * @throws \Exception
      */
+    /**
+     * A requested quantity as WooCommerce would store it, never below one.
+     *
+     * @param mixed $quantity
+     * @return int|float
+     */
+    public static function sanitizeQuantity($quantity)
+    {
+        $quantity = function_exists('wc_stock_amount') ? wc_stock_amount($quantity) : (int)$quantity;
+        return $quantity > 0 ? $quantity : 1;
+    }
+
+    /**
+     * Whether a cart item was added by one of our campaigns.
+     *
+     * @param array $cart_item
+     * @return bool
+     */
+    public static function isCampaignCartItem($cart_item)
+    {
+        return is_array($cart_item) && (!empty($cart_item['cuw_offer']) || !empty($cart_item['cuw_product']));
+    }
+
     public static function addToCart($product_id = 0, $quantity = 1, $variation_id = 0, $variation = [], $cart_item_data = [])
     {
         $cart = self::getCart();
@@ -617,6 +640,9 @@ class WC
         if (is_object($order) && is_object($product) && method_exists($order, 'add_product')) {
             $price = $args['price'] ?? null;
             $quantity = $args['quantity'] ?? 1;
+            if (!is_numeric($quantity) || $quantity <= 0) {
+                return false;
+            }
             if (!empty($args['extra_price'])) {
                 foreach ($args['extra_price'] as $extra_price) {
                     if (!empty($extra_price) && is_numeric($extra_price)) {
@@ -1226,6 +1252,28 @@ class WC
             }
         }
         return $current_user_email;
+    }
+
+    /**
+     * Whose usage limits and order history apply.
+     *
+     * When the data being evaluated is an order (a status change fired by
+     * wp-admin, a payment webhook or cron), the customer is the order's, not
+     * the request's: those hooks run as the admin or as nobody. Otherwise it
+     * is the current visitor.
+     *
+     * @param array|null $data campaign data (`Order::getData` / `Cart::getData`)
+     * @return array ['user_id' => int, 'email' => string]
+     */
+    public static function getCustomerIdentity($data = null)
+    {
+        if (is_array($data) && !empty($data['id']) && isset($data['type']) && $data['type'] == 'order') {
+            $order = self::getOrder($data['id']);
+            if (is_object($order)) {
+                return ['user_id' => (int)$order->get_customer_id(), 'email' => sanitize_email((string)$order->get_billing_email())];
+            }
+        }
+        return ['user_id' => (int)WP::getCurrentUserId(), 'email' => (string)self::getCustomerBillingEmail()];
     }
 
     /**

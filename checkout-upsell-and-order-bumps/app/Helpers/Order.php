@@ -99,6 +99,35 @@ class Order
     }
 
     /**
+     * Take a short exclusive lock on an order for the rest of this request.
+     *
+     * MySQL GET_LOCK is atomic across PHP workers and is released when the
+     * connection closes, so two requests acting on one order (a double-clicked
+     * or replayed accept) cannot both pass a check-then-write.
+     *
+     * @param \WC_Order|int $order_or_id
+     * @return bool true when this request holds the lock
+     */
+    public static function lock($order_or_id)
+    {
+        $order_id = is_object($order_or_id) ? $order_or_id->get_id() : (int)$order_or_id;
+        if (empty($order_id)) {
+            return false;
+        }
+        $db = \CUW\App\Models\Model::db();
+        $name = $db->prefix . 'cuw_order_' . $order_id;
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        if ((int)$db->get_var($db->prepare('SELECT GET_LOCK(%s, %d)', $name, 0)) !== 1) {
+            return false;
+        }
+        add_action('shutdown', function () use ($db, $name) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            $db->query($db->prepare('SELECT RELEASE_LOCK(%s)', $name));
+        });
+        return true;
+    }
+
+    /**
      * Add or update order meta
      *
      * @param \WC_Order $order

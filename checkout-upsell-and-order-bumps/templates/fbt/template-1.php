@@ -103,8 +103,7 @@ $product_ids = array_column($products, 'id');
                         <input type="hidden" name="main_product_id"
                                value="<?php echo !empty($main_product_id) ? esc_attr($main_product_id) : ''; ?>">
                         <input type="hidden" name="campaign_id" value="<?php echo esc_attr($campaign['id']); ?>">
-                        <input type="hidden" name="displayed_product_ids"
-                               value="<?php echo esc_attr(implode(',', $product_ids)); ?>">
+                        <input type="hidden" name="cuw_nonce" value="<?php echo esc_attr(\CUW\App\Helpers\WP::createNonce('cuw_frontend_ajax')); ?>">
                         <button type="button"
                                 class="cuw-add-to-cart cuw-template-cta-button single_add_to_cart_button button alt"
                                 data-text="<?php echo esc_attr($cta_text); ?>"

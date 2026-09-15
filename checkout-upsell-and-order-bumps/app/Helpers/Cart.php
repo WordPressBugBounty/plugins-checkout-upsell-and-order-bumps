@@ -271,8 +271,8 @@ class Cart
             if ($data['discount']['bundle_by'] == 'campaign_id') {
                 $items = self::getBundledItems($data['campaign_id']);
             }
-            if (!empty($items)) {
-                $total_price = array_sum(array_column(array_column($items, 'product'), 'price'));
+            $total_price = !empty($items) ? array_sum(array_column(array_column($items, 'product'), 'price')) : 0;
+            if (!empty($items) && $total_price > 0) {
                 $fixed_discount = $data['discount']['value'];
                 foreach ($items as $item_key => $item) {
                     $cart_item = WC::getCartItem($item_key);
@@ -311,6 +311,9 @@ class Cart
         $product_data = Product::getData($product, ['filter_purchasable' => true]);
         if (!empty($product_data)) {
             $data = Product::prepareMetaData($campaign, $product, $quantity, $variation_id, $variation_attributes);
+            if (empty($data)) {
+                return false;
+            }
             try {
                 $product = $data['product'];
                 $item_data = ['cuw_product' => array_merge($data, $extra_item_data)];
@@ -343,8 +346,16 @@ class Cart
         ];
         $is_checkout_upsells = false;
         $always_display_offer = !empty(Config::getSetting('always_display_offer'));
-        if (!empty($offer_id) && self::isOfferApplicable($offer_id)) {
+        // an offer sits in the cart once: the per-customer usage limit only counts
+        // placed orders, so without this a second variation of the same offer
+        // became a second discounted line (changing the variant goes through
+        // changeCartItemVariant, which replaces the line and never comes here)
+        if (!empty($offer_id) && !self::isOfferApplied($offer_id) && self::isOfferApplicable($offer_id)) {
             $data = Offer::prepareMetaData($offer_id, $quantity, $variation_id, $variation_attributes);
+            // what the display hides (smart display: the product is already in the cart) is not addable either
+            if ($data && empty(self::filterProducts([$data['product']['id']], $data['campaign_type']))) {
+                $data = false;
+            }
             $is_checkout_upsells = ($data && $data['campaign_type'] == 'checkout_upsells');
             $allow_remove = !($is_checkout_upsells && $always_display_offer);
             $add_limit = (int)Config::getSetting('offer_add_limit');
@@ -491,8 +502,12 @@ class Cart
         $campaign_id = $offer['campaign_id'];
         if (!isset(self::$campaign_results[$campaign_id])) {
             $is_valid = false;
-            $campaign = CampaignModel::get($campaign_id, ['id', 'enabled', 'conditions', 'start_on', 'end_on']);
-            if (!empty($campaign) && $campaign['enabled']) {
+            $campaign = CampaignModel::get($campaign_id, ['id', 'type', 'enabled', 'conditions', 'start_on', 'end_on']);
+            // offers of every campaign type share one table; only the cart-side
+            // types may put an offer in the cart (a post-purchase offer belongs
+            // to the order it follows, not to whoever knows its id)
+            $cart_offer_types = apply_filters('cuw_cart_offer_campaign_types', ['checkout_upsells', 'cart_upsells']);
+            if (!empty($campaign) && $campaign['enabled'] && in_array($campaign['type'], $cart_offer_types)) {
                 if (Campaign::isSchedulePassed($campaign['start_on'], $campaign['end_on'])) {
                     if (Campaign::isConditionsPassed($campaign['conditions'], $cart)) {
                         $is_valid = true;

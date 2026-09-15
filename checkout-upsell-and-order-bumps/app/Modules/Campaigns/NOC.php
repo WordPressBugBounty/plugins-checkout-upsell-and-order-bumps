@@ -129,7 +129,7 @@ class NOC extends Base
         // general hooks
         if (self::isEnabled()) {
             add_action('woocommerce_coupon_is_valid', [__CLASS__, 'checkCouponIsValid'], 1000, 2);
-            add_filter('cuw_campaign_usage_count_based_on_current_user', [__CLASS__, 'getUsageCountBasedOnCurrentUser'], 10, 2);
+            add_filter('cuw_campaign_usage_count_based_on_current_user', [__CLASS__, 'getUsageCountBasedOnCurrentUser'], 10, 3);
             add_action('woocommerce_order_status_changed', [__CLASS__, 'processOrderCoupon'], 20);
             add_action('woocommerce_after_order_object_save', [__CLASS__, 'processOrderCoupon'], 20);
         }
@@ -284,7 +284,7 @@ class NOC extends Base
         if (is_object($order_or_id) || is_numeric($order_or_id)) {
             $order_object = WC::getOrder($order_or_id);
         } else {
-            $order_object = WC::getOrder(self::app()->input->get('key', '', 'query'));
+            $order_object = WC::getOrder(WC::getOrderIdByKey(self::app()->input->get('key', '', 'query')));
         }
         return $order_object;
     }
@@ -347,14 +347,11 @@ class NOC extends Base
      *
      * @hooked cuw_campaign_usage_count_based_on_current_user
      */
-    public static function getUsageCountBasedOnCurrentUser($usage_count, $campaign)
+    public static function getUsageCountBasedOnCurrentUser($usage_count, $campaign, $data = null)
     {
         if (!empty($campaign['id']) && !empty($campaign['type']) && $campaign['type'] == self::TYPE) {
             $usage_count = 0;
-            $current_user = WP::getCurrentUserId();
-            if (empty($current_user)) {
-                $current_user = WC::getCustomerBillingEmail();
-            }
+            $current_user = self::getCustomerKey($data);
             if (!empty($current_user)) {
                 $table = Model::db()->prefix . 'postmeta';
                 $usage_count = (int)Model::getScalar("SELECT count(post_id) FROM {$table} 
@@ -508,7 +505,7 @@ class NOC extends Base
                 update_post_meta($coupon_id, 'is_cuw_noc', true);
                 update_post_meta($coupon_id, 'cuw_created_order_id', $order->get_id());
                 update_post_meta($coupon_id, 'cuw_created_campaign_id', $campaign['id']);
-                update_post_meta($coupon_id, 'cuw_created_for', get_current_user_id() ? get_current_user_id() : $order->get_billing_email());
+                update_post_meta($coupon_id, 'cuw_created_for', self::getCustomerKey(Order::getData($order)));
             }
             return $coupon_code;
         }
@@ -538,9 +535,14 @@ class NOC extends Base
     {
         if (!empty($_GET['cuw_coupon']) && function_exists('WC') && is_object(WC())) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $coupon_code = self::app()->input->get('cuw_coupon', '', 'query');
-            if (!empty($coupon_code)) {
-                WC::maybeLoadSession(); // set customer session cookie if it is not set
-                WC::applyCartCoupon($coupon_code);
+            // only the coupons this campaign type generated: the link is meant for them,
+            // not for applying any store coupon to whoever follows it
+            if (!empty($coupon_code) && class_exists('WC_Coupon')) {
+                $coupon = new \WC_Coupon($coupon_code);
+                if ($coupon->get_id() && $coupon->get_meta('is_cuw_noc')) {
+                    WC::maybeLoadSession(); // set customer session cookie if it is not set
+                    WC::applyCartCoupon($coupon_code);
+                }
             }
         }
     }
@@ -586,7 +588,7 @@ class NOC extends Base
                 }
 
                 // check usage limits
-                if (!Campaign::isValid($campaign)) {
+                if (!Campaign::isValid($campaign, $order_data)) {
                     continue;
                 }
 
@@ -599,6 +601,18 @@ class NOC extends Base
             }
         }
         return [];
+    }
+
+    /**
+     * The value `cuw_created_for` carries: the customer's user id, or the billing email of a guest.
+     *
+     * @param array|null $data order data when evaluating an order, else the current visitor
+     * @return int|string
+     */
+    private static function getCustomerKey($data = null)
+    {
+        $identity = WC::getCustomerIdentity($data);
+        return !empty($identity['user_id']) ? $identity['user_id'] : $identity['email'];
     }
 
     /**

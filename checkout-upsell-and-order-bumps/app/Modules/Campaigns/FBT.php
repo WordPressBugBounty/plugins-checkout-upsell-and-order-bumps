@@ -20,6 +20,7 @@ use CUW\App\Helpers\Plugin;
 use CUW\App\Helpers\Product;
 use CUW\App\Helpers\Template;
 use CUW\App\Helpers\WC;
+use CUW\App\Helpers\WP;
 use CUW\App\Models\Campaign as CampaignModel;
 use CUW\App\Models\Model;
 
@@ -109,12 +110,9 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
     public static function showProducts()
     {
         $product = WC::getProduct();
-        if (is_object($product) && $product_ids = self::getProductIdsToDisplay($product)) {
+        if (is_object($product) && $product_ids = self::getDisplayedProductIds($product)) {
             $products = [];
-            $display_limit = (int)self::app()->config->getSetting('fbt_products_display_limit');
             $this_product_id = $product->get_id();
-            $product_ids = array_diff($product_ids, [$this_product_id]); // remove this product id
-            $product_ids = array_merge([$this_product_id], $product_ids);
             $campaign = self::getMatchedCampaign($product);
             $is_bundle = !empty($campaign['data']['bundle']) || !empty($campaign['data']['products']['bundle']);
             $discount = self::getDiscount($product, $campaign);
@@ -136,9 +134,6 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
                     if ($product_data['is_main']) $product_data['classes'][] = 'is_main';
                     if ($product_data['is_variable']) $product_data['classes'][] = 'is_variable';
                     $products[] = $product_data;
-                    if (count($products) == (1 + $display_limit)) {
-                        break;
-                    }
                 }
             }
 
@@ -231,6 +226,38 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
     }
 
     /**
+     * The product ids the FBT block actually shows for a product: the product
+     * itself first, then its upsells, purchasable only, capped at
+     * 1 + `fbt_products_display_limit`.
+     *
+     * Both showProducts() and addProductsToCart() must derive from this list,
+     * so the fixed-price bundle split (and the add-to-cart allow-list) covers
+     * exactly what the shopper saw and nothing beyond it.
+     *
+     * @param int|\WC_Product $product_or_id
+     * @return int[]
+     */
+    public static function getDisplayedProductIds($product_or_id)
+    {
+        $ids = [];
+        $product = WC::getProduct($product_or_id);
+        if (is_object($product) && $product_ids = self::getProductIdsToDisplay($product)) {
+            $display_limit = (int)self::app()->config->getSetting('fbt_products_display_limit');
+            $this_product_id = $product->get_id();
+            $product_ids = array_merge([$this_product_id], array_diff($product_ids, [$this_product_id]));
+            foreach ($product_ids as $product_id) {
+                if (WC::isPurchasableProduct($product_id)) {
+                    $ids[] = (int)$product_id;
+                    if (count($ids) == (1 + $display_limit)) {
+                        break;
+                    }
+                }
+            }
+        }
+        return $ids;
+    }
+
+    /**
      * Get matched campaign.
      *
      * @param int|\WC_Product $product_or_id
@@ -313,19 +340,39 @@ class FBT extends \CUW\App\Modules\Campaigns\Base
      */
     public static function addProductsToCart()
     {
+        // the nonce is verified right below; this only routes the request
         // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
         if (isset($_POST['cuw_add_to_cart']) && $_POST['cuw_add_to_cart'] == self::TYPE) {
+            $nonce = self::app()->input->get('cuw_nonce', '', 'post');
+            if (!WP::verifyNonce($nonce, 'cuw_frontend_ajax')) {
+                return;
+            }
+
             $campaign = $results = [];
             $products = self::app()->input->get('products', [], 'post');
             $campaign_id = self::app()->input->get('campaign_id', '', 'post');
             $main_product_id = self::app()->input->get('main_product_id', '', 'post');
-            $displayed_product_ids = explode(',', self::app()->input->get('displayed_product_ids', '', 'post'));
+            $allowed_product_ids = [];
             if (is_numeric($campaign_id) && is_numeric($main_product_id)) {
-                $campaign = CampaignModel::get($campaign_id);
-                if (!empty($campaign)) {
+                // re-derive campaign + allowed products server-side; never trust the submitted ids
+                $matched_campaign = self::getMatchedCampaign((int)$main_product_id);
+                if (!empty($matched_campaign) && (int)$matched_campaign['id'] === (int)$campaign_id) {
+                    $campaign = $matched_campaign;
                     $campaign['data']['discount'] = self::getDiscount($main_product_id, $campaign);
+                    // the same list the block rendered (main first, purchasable, display-limited)
+                    $allowed_product_ids = self::getDisplayedProductIds((int)$main_product_id);
                 }
             }
+
+            if (!empty($products) && is_array($products)) {
+                foreach ($products as $key => $product) {
+                    if (empty($product['id']) || !in_array((int)$product['id'], $allowed_product_ids, true)) {
+                        unset($products[$key]);
+                    }
+                }
+            }
+            // the fixed-price split runs over what was displayed, not over what was ticked
+            $displayed_product_ids = $allowed_product_ids;
 
             if (!empty($campaign) && !empty($products) && is_array($products)) {
                 $items = [];
